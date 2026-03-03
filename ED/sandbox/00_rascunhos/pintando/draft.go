@@ -1,13 +1,13 @@
 package main
 
-import (
+import ( 
     "fmt"
     "math"
 )
 
-func hedron(lado1, lado2, lado3 int) (float32) {
+func hedron(lado1, lado2, lado3 float64) (float64) {
 
-    var semiPerimetro, area float32
+    var semiPerimetro, area float64
 
     semiPerimetro = (lado1 + lado2 + lado3) / 2
 
@@ -19,10 +19,10 @@ func hedron(lado1, lado2, lado3 int) (float32) {
 
 func main() {
 
-    var lado1, lado2, lado3 int
+    var lado1, lado2, lado3 float64
 
     fmt.Scan(&lado1, &lado2, &lado3)
 
-    hedron(lado1, lado2, lado3)
+    fmt.Println(hedron(lado1, lado2, lado3))
 
 }

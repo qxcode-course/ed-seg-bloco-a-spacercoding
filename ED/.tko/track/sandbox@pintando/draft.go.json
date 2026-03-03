@@ -1,0 +1,9 @@
+{
+    "patches": [
+        {
+            "label": "2026-03-03_21-52-36",
+            "content": "package main\n\nimport (\n    \"fmt\"\n    \"math\"\n)\n\nfunc hedron(lado1, lado2, lado3 float64) (float64) {\n\n    var semiPerimetro, area float64\n\n    semiPerimetro = (lado1 + lado2 + lado3) / 2\n\n    area = math.Pow(2, semiPerimetro * (semiPerimetro - lado1) * (semiPerimetro - lado2) * (semiPerimetro - lado3))\n\n    return area\n\n}\n\nfunc main() {\n\n    var lado1, lado2, lado3 float64\n\n    fmt.Scan(&lado1, &lado2, &lado3)\n\n    fmt.Println(hedron(lado1, lado2, lado3))\n\n}\n",
+            "lines": "28"
+        }
+    ]
+}
