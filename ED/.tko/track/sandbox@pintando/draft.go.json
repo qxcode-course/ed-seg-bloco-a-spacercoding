@@ -2,7 +2,57 @@
     "patches": [
         {
             "label": "2026-03-03_21-52-36",
-            "content": "package main\n\nimport (\n    \"fmt\"\n    \"math\"\n)\n\nfunc hedron(lado1, lado2, lado3 float64) (float64) {\n\n    var semiPerimetro, area float64\n\n    semiPerimetro = (lado1 + lado2 + lado3) / 2\n\n    area = math.Pow(2, semiPerimetro * (semiPerimetro - lado1) * (semiPerimetro - lado2) * (semiPerimetro - lado3))\n\n    return area\n\n}\n\nfunc main() {\n\n    var lado1, lado2, lado3 float64\n\n    fmt.Scan(&lado1, &lado2, &lado3)\n\n    fmt.Println(hedron(lado1, lado2, lado3))\n\n}\n",
+            "content": "@@ -15,17 +15,16 @@\n import (\n- \n %0A    %22fm\n",
+            "lines": "28"
+        },
+        {
+            "label": "2026-03-03_22-06-17",
+            "content": "@@ -382,18 +382,16 @@\n fmt.Scan\n-ln\n (&lado1,\n",
+            "lines": "28"
+        },
+        {
+            "label": "2026-03-03_22-08-44",
+            "content": "@@ -382,16 +382,18 @@\n fmt.Scan\n+ln\n (&lado1,\n",
+            "lines": "28"
+        },
+        {
+            "label": "2026-03-03_22-08-54",
+            "content": "@@ -201,16 +201,19 @@\n ath.Pow(\n+2, \n semiPeri\n@@ -299,11 +299,8 @@\n do3)\n-, 2\n )%0A%0A \n",
+            "lines": "28"
+        },
+        {
+            "label": "2026-03-03_22-10-24",
+            "content": "@@ -201,19 +201,16 @@\n ath.Pow(\n-2, \n semiPeri\n@@ -292,16 +292,19 @@\n - lado3)\n+, 2\n )%0A%0A    r\n",
+            "lines": "28"
+        },
+        {
+            "label": "2026-03-03_22-11-06",
+            "content": "@@ -425,20 +425,11 @@\n rint\n-f(%22%25.2f%5Cn%22, \n+ln(\n hedr\n",
+            "lines": "28"
+        },
+        {
+            "label": "2026-03-03_22-11-25",
+            "content": "@@ -425,11 +425,20 @@\n rint\n-ln(\n+f(%22%25.2f%5Cn%22, \n hedr\n",
+            "lines": "28"
+        },
+        {
+            "label": "2026-03-03_22-13-31",
+            "content": "@@ -201,13 +201,15 @@\n ath.\n-Sqrt(\n+Pow(2, \n semi\n",
+            "lines": "28"
+        },
+        {
+            "label": "2026-03-03_22-23-29",
+            "content": "@@ -423,18 +423,11 @@\n rint\n-f(%22%25.2f%22, \n+ln(\n hedr\n",
+            "lines": "28"
+        },
+        {
+            "label": "2026-03-03_22-23-41",
+            "content": "@@ -430,10 +430,8 @@\n %25.2f\n-%5Cn\n %22, h\n",
+            "lines": "28"
+        },
+        {
+            "label": "2026-03-03_22-23-50",
+            "content": "package main\n\nimport ( \n    \"fmt\"\n    \"math\"\n)\n\nfunc hedron(lado1, lado2, lado3 float64) (float64) {\n\n    var semiPerimetro, area float64\n\n    semiPerimetro = (lado1 + lado2 + lado3) / 2\n\n    area = math.Sqrt(semiPerimetro * (semiPerimetro - lado1) * (semiPerimetro - lado2) * (semiPerimetro - lado3))\n\n    return area\n\n}\n\nfunc main() {\n\n    var lado1, lado2, lado3 float64\n\n    fmt.Scan(&lado1, &lado2, &lado3)\n\n    fmt.Printf(\"%.2f\\n\", hedron(lado1, lado2, lado3))\n\n}\n",
             "lines": "28"
         }
     ]

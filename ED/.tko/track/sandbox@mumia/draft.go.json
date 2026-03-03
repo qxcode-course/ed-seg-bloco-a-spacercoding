@@ -1,0 +1,19 @@
+{
+    "patches": [
+        {
+            "label": "2026-03-03_22-36-19",
+            "content": "@@ -100,17 +100,16 @@\n  idade %3C\n-=\n  12 %7Best\n@@ -141,17 +141,16 @@\n  idade %3C\n-=\n  18 %7Best\n@@ -180,17 +180,16 @@\n  idade %3C\n-=\n  65 %7Best\n",
+            "lines": "27"
+        },
+        {
+            "label": "2026-03-03_22-36-34",
+            "content": "@@ -182,16 +182,17 @@\n  idade %3C\n+=\n  65 %7Best\n@@ -210,49 +210,8 @@\n to%22%0A\n-%7D else if idade %3C 1000 %7Bestado = %22idoso%22%0A\n %7D el\n",
+            "lines": "27"
+        },
+        {
+            "label": "2026-03-03_22-37-28",
+            "content": "package main\n\nimport \"fmt\"\n\nfunc estimarEstado(idade int) (string) {\n\n    var estado string\n\n    if idade <= 12 {estado = \"crianca\"\n} else if idade <= 18 {estado = \"jovem\"\n} else if idade < 65 {estado = \"adulto\"\n} else if idade < 1000 {estado = \"idoso\"\n} else {estado = \"mumia\"}\n\n    return estado\n\n}\n\nfunc main() {\n\n    var nome string\n    var idade int\n\n    fmt.Scan(&nome, &idade)\n\n    fmt.Printf(\"%s eh %s\\n\", nome, estimarEstado(idade))\n\n}\n",
+            "lines": "28"
+        }
+    ]
+}

@@ -16,7 +16,10 @@ expanded:
 - ed@revisão
 - sandbox@sandbox
 - sandbox@sandbox:sandbox:00_rascunhos
-tasks: {}
+- ed@análise
+tasks:
+  sandbox@mumia: '{self:1, rate:100}'
+  sandbox@pintando: '{self:1, rate:100, study:10}'
 flags:
   painel: 0
   quests: 0
@@ -25,4 +28,4 @@ flags:
   task_graph_mode: 0
   show_time: 0
 lang: go
-selected: sandbox@sandbox
+selected: ed@https://github.com/qxcodefup/arcade/blob/master/base/mumia/Readme.md

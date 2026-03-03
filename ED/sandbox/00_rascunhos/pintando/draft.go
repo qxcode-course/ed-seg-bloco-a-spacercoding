@@ -11,7 +11,7 @@ func hedron(lado1, lado2, lado3 float64) (float64) {
 
     semiPerimetro = (lado1 + lado2 + lado3) / 2
 
-    area = math.Pow(2, semiPerimetro * (semiPerimetro - lado1) * (semiPerimetro - lado2) * (semiPerimetro - lado3))
+    area = math.Sqrt(semiPerimetro * (semiPerimetro - lado1) * (semiPerimetro - lado2) * (semiPerimetro - lado3))
 
     return area
 
@@ -23,6 +23,6 @@ func main() {
 
     fmt.Scan(&lado1, &lado2, &lado3)
 
-    fmt.Println(hedron(lado1, lado2, lado3))
+    fmt.Printf("%.2f\n", hedron(lado1, lado2, lado3))
 
 }
