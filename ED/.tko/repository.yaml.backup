@@ -25,4 +25,4 @@ flags:
   task_graph_mode: 0
   show_time: 0
 lang: go
-selected: sandbox@sandbox:sandbox:00_rascunhos
+selected: ed@https://github.com/qxcodefup/arcade/blob/master/base/pintando/Readme.md
