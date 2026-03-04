@@ -1,0 +1,14 @@
+{
+    "patches": [
+        {
+            "label": "2026-03-04_01-57-41",
+            "content": "@@ -132,11 +132,8 @@\n mais\n-%5Bi%5D\n )%0A%0A \n",
+            "lines": "17"
+        },
+        {
+            "label": "2026-03-04_01-57-57",
+            "content": "package main\n\nimport \"fmt\"\n\nfunc main() {\n\n    var N int\n    var animais map[int]int\n\n    for i := range N {\n\n        fmt.Scan(&animais[i])\n\n    }\n    fmt.Println(animais)\n\n}\n",
+            "lines": "17"
+        }
+    ]
+}

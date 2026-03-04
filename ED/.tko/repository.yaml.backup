@@ -19,6 +19,7 @@ expanded:
 - sandbox@sandbox:sandbox:00_rascunhos
 tasks:
   sandbox@fuga: '{self:1, rate:100, study:15}'
+  sandbox@gomos: '{rate:66}'
   sandbox@mumia: '{self:1, rate:100}'
   sandbox@pedra: '{self:1, rate:100, study:60}'
   sandbox@pintando: '{self:1, rate:100, study:10}'
@@ -30,4 +31,4 @@ flags:
   task_graph_mode: 0
   show_time: 0
 lang: go
-selected: ed@https://github.com/qxcodefup/arcade/blob/master/base/baruel/Readme.md
+selected: ed@análise

@@ -1,0 +1,94 @@
+{
+    "patches": [
+        {
+            "label": "2026-03-04_02-25-01",
+            "content": "@@ -1088,31 +1088,8 @@\n    %7D\n-%0A    fmt.Println(cobra)\n %0A%0A  \n@@ -1141,11 +1141,34 @@\n idade)%0A%0A\n+    fmt.Println(cobra)%0A\n %0A%7D%0A\n",
+            "lines": "71"
+        },
+        {
+            "label": "2026-03-04_02-26-17",
+            "content": "@@ -1106,19 +1106,16 @@\n ln(cobra\n-%5B0%5D\n )%0A%0A    a\n",
+            "lines": "71"
+        },
+        {
+            "label": "2026-03-04_02-26-29",
+            "content": "@@ -1109,18 +1109,16 @@\n cobra%5B0%5D\n-.x\n )%0A%0A    a\n",
+            "lines": "71"
+        },
+        {
+            "label": "2026-03-04_02-26-54",
+            "content": "@@ -1106,16 +1106,21 @@\n ln(cobra\n+%5B0%5D.x\n )%0A%0A    a\n",
+            "lines": "71"
+        },
+        {
+            "label": "2026-03-04_02-28-26",
+            "content": "@@ -1105,19 +1105,14 @@\n tln(\n-len(\n cobra)\n-)\n %0A%0A  \n",
+            "lines": "71"
+        },
+        {
+            "label": "2026-03-04_02-28-49",
+            "content": "@@ -995,21 +995,8 @@\n can(\n-&quantidade, \n &dir\n@@ -1085,24 +1085,48 @@\n %0A%0A    %7D%0A    \n+fmt.Println(len(cobra))%0A\n %0A    atualiz\n@@ -1172,35 +1172,8 @@\n de)%0A\n-    %0A    fmt.Println(cobra)\n %0A%0A%7D%0A\n",
+            "lines": "71"
+        },
+        {
+            "label": "2026-03-04_02-29-16",
+            "content": "@@ -1178,23 +1178,18 @@\n Println(\n-quantidade\n+cobra\n )%0A%0A%7D%0A\n",
+            "lines": "71"
+        },
+        {
+            "label": "2026-03-04_02-29-34",
+            "content": "@@ -1017,36 +1017,8 @@\n cao)\n-%0A    fmt.Println(quantidade)\n %0A%0A  \n@@ -1161,12 +1161,40 @@\n de)%0A    \n+%0A    fmt.Println(quantidade)\n %0A%0A%7D%0A\n",
+            "lines": "71"
+        },
+        {
+            "label": "2026-03-04_02-29-52",
+            "content": "@@ -937,81 +937,105 @@\n     \n-fmt.Scan(&quantidade, &direcao)%0A    %0A    var cobra = make(%5B%5DposicaoGomo, \n+var cobra = make(%5B%5DposicaoGomo, quantidade)%0A%0A    fmt.Scan(&quantidade, &direcao)%0A    fmt.Println(\n quan\n@@ -1038,28 +1038,24 @@\n quantidade)%0A\n-    \n %0A    for i :\n@@ -1075,25 +1075,17 @@\n idade %7B%0A\n-        \n %0A\n+\n         \n@@ -1119,25 +1119,17 @@\n a%5Bi%5D.y)%0A\n-        \n %0A\n+\n     %7D%0A  \n@@ -1189,35 +1189,12 @@\n de)%0A\n+\n     \n-%0A    fmt.Println(cobra)\n %0A%0A%7D%0A\n",
+            "lines": "71"
+        },
+        {
+            "label": "2026-03-04_02-30-52",
+            "content": "@@ -146,24 +146,8 @@\n int)\n- (%5B%5DposicaoGomo)\n  %7B%0A%0A\n@@ -871,26 +871,8 @@\n  %7D%0A%0A\n-    return cobra%0A%0A\n %7D%0A%0Af\n@@ -1206,57 +1206,13 @@\n tln(\n-atualizarPosicaoCobra(cobra, direcao, quantidade)\n+cobra\n )%0A%0A%7D\n",
+            "lines": "71"
+        },
+        {
+            "label": "2026-03-04_02-31-55",
+            "content": "@@ -332,40 +332,8 @@\n .x--\n-%0A        fmt.Println(cobra%5B0%5D.x)\n %0A%0A  \n",
+            "lines": "73"
+        },
+        {
+            "label": "2026-03-04_02-33-10",
+            "content": "@@ -328,16 +328,48 @@\n a%5B0%5D.x--\n+%0A        fmt.Println(cobra%5B0%5D.x)\n %0A%0A    %7De\n@@ -1039,28 +1039,8 @@\n     \n-fmt.Println(direcao)\n %0A   \n",
+            "lines": "74"
+        },
+        {
+            "label": "2026-03-04_02-34-33",
+            "content": "@@ -121,22 +121,20 @@\n direcao \n-string\n+rune\n , quanti\n@@ -184,11 +184,11 @@\n  == \n-%22L%22\n+'L'\n  %7B%0A%0A\n@@ -358,11 +358,11 @@\n  == \n-%22R%22\n+'R'\n  %7B%0A%0A\n@@ -540,11 +540,11 @@\n  == \n-%22U%22\n+'U'\n  %7B%0A%0A\n@@ -722,11 +722,11 @@\n  == \n-%22D%22\n+'D'\n  %7B%0A%0A\n@@ -962,14 +962,12 @@\n cao \n-string\n+rune\n %0A   \n",
+            "lines": "73"
+        },
+        {
+            "label": "2026-03-04_02-35-39",
+            "content": "@@ -1003,24 +1003,44 @@\n irecao)%0A    \n+fmt.Println(direcao)\n %0A    var cob\n@@ -1260,18 +1260,62 @@\n Println(\n-cobra\n+atualizarPosicaoCobra(cobra, direcao, quantidade)\n )%0A%0A%7D%0A\n",
+            "lines": "73"
+        },
+        {
+            "label": "2026-03-04_02-36-37",
+            "content": "@@ -1233,81 +1233,25 @@\n    f\n-or i := range cobra %7B%0A%0A        fmt.Println(cobra%5Bi%5D.x, cobra%5Bi%5D.y)%0A%0A    %7D\n+mt.Println(cobra)\n %0A%0A%7D%0A\n",
+            "lines": "73"
+        },
+        {
+            "label": "2026-03-04_02-46-06",
+            "content": "@@ -380,41 +380,62 @@\n or i\n-nt i = len(cobra)-1; i %3E 1; i-- %7B\n+ := range quantidade %7B%0A            if i == 0 %7Bcontinue\n %0A   \n@@ -439,24 +439,31 @@\n             \n+%7Delse %7B\n cobra%5Bi%5D = c\n@@ -471,16 +471,17 @@\n bra%5Bi-1%5D\n+%7D\n %0A       \n",
+            "lines": "77"
+        },
+        {
+            "label": "2026-03-04_02-48-05",
+            "content": "@@ -375,20 +375,22 @@\n     for \n+int\n  i \n-:\n = len(co\n",
+            "lines": "76"
+        },
+        {
+            "label": "2026-03-04_02-48-25",
+            "content": "package main\n\nimport \"fmt\"\n\ntype posicaoGomo struct {\n\n    x, y int\n\n}\n\nfunc atualizarPosicaoCobra(cobra []posicaoGomo, direcao string, quantidade int) ([]posicaoGomo) {\n\n    if direcao == \"L\" {\n\n        for i := range quantidade {\n            if i == 0 {continue\n            }else {cobra[i] = cobra[i-1]}\n        }\n\n        cobra[0].x--\n\n    }else if direcao == \"R\" {\n\n        for  i := len(cobra)-1; i > 1; i-- {\n            cobra[i] = cobra[i-1]\n        }\n        \n        cobra[0].x++\n\n    }else if direcao == \"U\" {\n\n        for i := range quantidade {\n            if i == 0 {continue\n            }else {cobra[i] = cobra[i-1]}\n        }\n        \n        cobra[0].y--\n\n    }else if direcao == \"D\" {\n\n        for i := range quantidade {\n            if i == 0 {continue\n            }else {cobra[i] = cobra[i-1]}\n        }\n        \n        cobra[0].y++\n\n    }\n\n    return cobra\n\n}\n\nfunc main() {\n\n    var quantidade int\n    var direcao string\n    fmt.Scan(&quantidade, &direcao)\n    \n    var cobra = make([]posicaoGomo, quantidade)\n    \n    for i := range quantidade {\n        \n        fmt.Scan(&cobra[i].x, &cobra[i].y)\n        \n    }\n    \n    atualizarPosicaoCobra(cobra, direcao, quantidade)\n    \n    for i := range cobra {\n\n        fmt.Println(cobra[i].x, cobra[i].y)\n\n    }\n\n}\n",
+            "lines": "76"
+        }
+    ]
+}
