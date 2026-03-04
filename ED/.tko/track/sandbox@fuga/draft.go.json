@@ -1,0 +1,59 @@
+{
+    "patches": [
+        {
+            "label": "2026-03-03_23-55-13",
+            "content": "@@ -438,16 +438,11 @@\n rint\n-f(%22%25c%22, \n+ln(\n calc\n",
+            "lines": "26"
+        },
+        {
+            "label": "2026-03-03_23-55-36",
+            "content": "@@ -443,10 +443,8 @@\n (%22%25c\n-%5Cn\n %22, c\n",
+            "lines": "26"
+        },
+        {
+            "label": "2026-03-03_23-55-42",
+            "content": "@@ -238,17 +238,17 @@\n tado = '\n-S\n+N\n '%0A%7D else\n@@ -262,17 +262,17 @@\n tado = '\n-N\n+S\n '%7D%0A%0A    \n",
+            "lines": "26"
+        },
+        {
+            "label": "2026-03-03_23-58-09",
+            "content": "@@ -134,68 +134,28 @@\n  if \n-direcao == 1 %7B%0A%0A        if fugitivo %3E policial && fugitivo %3C\n+fugitivo * direcao +\n  hel\n@@ -167,115 +167,55 @@\n ero \n-%7Bresultado = 'S'%0A    %7D   else %7Bresultado = 'N'%7D%0A%0A    %7D else %7B%0A%0A        if fugitivo %3C policial && fugitivo %3E\n+== 0 %7C%7C fugitivo * direcao + helicoptero == 2 *\n  hel\n@@ -224,16 +224,17 @@\n optero %7B\n+ \n resultad\n@@ -245,15 +245,9 @@\n 'S'%0A\n-    %7D  \n+%7D\n  els\n@@ -271,15 +271,8 @@\n '%7D%0A%0A\n-    %7D%0A%0A\n     \n",
+            "lines": "26"
+        },
+        {
+            "label": "2026-03-04_00-04-13",
+            "content": "@@ -277,17 +277,16 @@\n      if \n-(\n fugitivo\n@@ -301,33 +301,33 @@\n ial && fugitivo \n-%3C\n+%3E\n  helicoptero) %7Br\n@@ -322,17 +322,16 @@\n icoptero\n-)\n  %7Bresult\n",
+            "lines": "35"
+        },
+        {
+            "label": "2026-03-04_00-08-03",
+            "content": "@@ -301,17 +301,16 @@\n cial && \n-(\n fugitivo\n@@ -310,17 +310,17 @@\n ugitivo \n-%3E\n+%3C\n  helicop\n",
+            "lines": "35"
+        },
+        {
+            "label": "2026-03-04_00-09-39",
+            "content": "@@ -269,32 +269,33 @@\n e %7B%0A%0A        if \n+(\n fugitivo %3C polic\n@@ -293,32 +293,33 @@\n o %3C policial && \n+(\n fugitivo %3E helic\n@@ -316,32 +316,33 @@\n vo %3E helicoptero\n+)\n  %7Bresultado = 'S\n",
+            "lines": "35"
+        },
+        {
+            "label": "2026-03-04_00-10-14",
+            "content": "@@ -277,17 +277,16 @@\n      if \n-(\n fugitivo\n@@ -326,63 +326,8 @@\n tero\n-) %7C%7C (fugitivo %3E helicoptero && helicoptero %3E policial)\n  %7Bre\n",
+            "lines": "35"
+        },
+        {
+            "label": "2026-03-04_00-12-26",
+            "content": "@@ -330,33 +330,33 @@\n o) %7C%7C (fugitivo \n-%3C\n+%3E\n  helicoptero && \n@@ -367,17 +367,17 @@\n coptero \n-%3C\n+%3E\n  policia\n",
+            "lines": "35"
+        },
+        {
+            "label": "2026-03-04_00-12-40",
+            "content": "@@ -336,32 +336,35 @@\n (fugitivo %3C \n-policial\n+helicoptero\n  && helicopt\n@@ -367,17 +367,17 @@\n coptero \n-%3E\n+%3C\n  policia\n",
+            "lines": "35"
+        },
+        {
+            "label": "2026-03-04_00-12-58",
+            "content": "package main\n\nimport (\n\t\"fmt\"\n)\n\nfunc calculoFuga(helicoptero, policial, fugitivo, direcao int) (rune) {\n\n    var resultado rune\n\n    if direcao == 1 {\n\n        if fugitivo > policial && fugitivo < helicoptero {resultado = 'S'\n    }   else {resultado = 'N'}\n\n    } else {\n\n        if (fugitivo < policial && fugitivo > helicoptero) || (fugitivo < policial && helicoptero > policial) {resultado = 'S'\n    }   else {resultado = 'N'}\n\n    }\n\n    return resultado\n\n}\n\nfunc main() {\n\n    var helicoptero, policial, fugitivo, direcao int\n\n    fmt.Scan(&helicoptero, &fugitivo, &policial, &direcao)\n\n    fmt.Printf(\"%c\\n\", calculoFuga(helicoptero, fugitivo, policial, direcao))\n\n}\n",
+            "lines": "35"
+        }
+    ]
+}

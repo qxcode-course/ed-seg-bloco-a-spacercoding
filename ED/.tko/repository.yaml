@@ -9,16 +9,18 @@ sources:
   target: https://github.com/qxcodeed/arcade.git
   type: git
   writeable: false
-  cache_timestamp: '2026-03-03 21:48:34'
+  cache_timestamp: '2026-03-03 23:55:02'
   filters: null
 expanded:
 - ed@main-quest
 - ed@revisão
+- ed@análise
 - sandbox@sandbox
 - sandbox@sandbox:sandbox:00_rascunhos
-- ed@análise
 tasks:
+  sandbox@fuga: '{self:1, rate:100, study:15}'
   sandbox@mumia: '{self:1, rate:100}'
+  sandbox@pedra: '{self:1, rate:100, study:60}'
   sandbox@pintando: '{self:1, rate:100, study:10}'
 flags:
   painel: 0
@@ -28,4 +30,4 @@ flags:
   task_graph_mode: 0
   show_time: 0
 lang: go
-selected: ed@https://github.com/qxcodefup/arcade/blob/master/base/fuga/Readme.md
+selected: ed@https://github.com/qxcodefup/arcade/blob/master/base/casais/Readme.md

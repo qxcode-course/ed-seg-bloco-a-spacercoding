@@ -1,0 +1,99 @@
+{
+    "patches": [
+        {
+            "label": "2026-03-04_01-04-54",
+            "content": "@@ -216,15 +216,15 @@\n da1 \n-%3E\n+%3C\n  10 \n-&&\n+%7C%7C\n  con\n@@ -248,82 +248,15 @@\n da2 \n-%3E\n+%3C\n  10 %7B%0A\n-            if concorrentes%5Bi%5D.jogada1 %3E concorrentes%5Bi%5D.jogada2 %7B%0A\n     \n@@ -358,20 +358,16 @@\n         \n-   \n- \n %7Delse %7Bc\n@@ -452,26 +452,16 @@\n ogada1)%7D\n-%0A        %7D\n %0A%0A    %7D%0A\n",
+            "lines": "58"
+        },
+        {
+            "label": "2026-03-04_01-07-19",
+            "content": "@@ -213,17 +213,16 @@\n ogada1 %3E\n-=\n  10 && c\n@@ -245,17 +245,16 @@\n ogada2 %3E\n-=\n  10 %7B%0A  \n@@ -864,17 +864,17 @@\n (%5B%5Dint, \n-0\n+N\n )%0A%0A%0A    \n",
+            "lines": "60"
+        },
+        {
+            "label": "2026-03-04_01-09-48",
+            "content": "@@ -602,34 +602,8 @@\n  %7B%0A%0A\n-    pontuacaoMenor := 100%0A\n     \n@@ -614,18 +614,19 @@\n ador := \n--\n 1\n+00\n %0A%0A    fo\n@@ -683,28 +683,22 @@\n es%5Bi%5D %3C \n-pontuacaoMen\n+ganhad\n or %7Bganh\n@@ -709,42 +709,8 @@\n  = i\n-; pontuacaoMenor = competidores%5Bi%5D\n %7D%0A%0A \n@@ -1068,10 +1068,11 @@\n  == \n--\n 1\n+00\n  %7B%0A \n",
+            "lines": "60"
+        },
+        {
+            "label": "2026-03-04_01-13-35",
+            "content": "@@ -28,25 +28,24 @@\n %0Atype co\n-ncorrente\n+mpetidor\n  struct \n@@ -133,25 +133,24 @@\n tes %5B%5Dco\n-ncorrente\n+mpetidor\n , N int)\n@@ -540,42 +540,9 @@\n   %7D%0A\n-        fmt.Println(competidores)\n %0A\n+\n     \n@@ -883,25 +883,24 @@\n ake(%5B%5Dco\n-ncorrente\n+mpetidor\n , N)%0A   \n",
+            "lines": "61"
+        },
+        {
+            "label": "2026-03-04_01-14-47",
+            "content": "@@ -538,16 +538,50 @@\n       %7D%0A\n+        fmt.Println(competidores)%0A\n     %7D%0A%0A%7D\n@@ -811,37 +811,8 @@\n i%5D%7D%0A\n-        fmt.Println(ganhador)\n %0A   \n@@ -1124,17 +1124,16 @@\n tes, N)%0A\n-%0A\n     if c\n",
+            "lines": "61"
+        },
+        {
+            "label": "2026-03-04_01-17-10",
+            "content": "@@ -668,12 +668,8 @@\n nge \n-len(\n comp\n@@ -676,17 +676,16 @@\n etidores\n-)\n  %7B%0A%0A    \n@@ -773,16 +773,45 @@\n res%5Bi%5D%7D%0A\n+        fmt.Println(ganhador)\n %0A    %7D%0A%0A\n",
+            "lines": "61"
+        },
+        {
+            "label": "2026-03-04_01-18-15",
+            "content": "@@ -680,18 +680,16 @@\n etidores\n-%5B%5D\n ) %7B%0A%0A   \n",
+            "lines": "61"
+        },
+        {
+            "label": "2026-03-04_01-18-24",
+            "content": "@@ -648,22 +648,27 @@\n  -1%0A\n+%0A\n     \n-tamanho :=\n+for i := range\n  len\n@@ -684,37 +684,11 @@\n ores\n-)%0A%0A    for i := range tamanho\n+%5B%5D)\n  %7B%0A%0A\n",
+            "lines": "61"
+        },
+        {
+            "label": "2026-03-04_01-18-52",
+            "content": "@@ -681,32 +681,8 @@\n es)%0A\n-    fmt.Println(tamanho)\n %0A   \n@@ -1164,16 +1164,25 @@\n  == -1 %7B\n+%0A        \n fmt.Prin\n",
+            "lines": "62"
+        },
+        {
+            "label": "2026-03-04_01-20-39",
+            "content": "@@ -547,38 +547,8 @@\n    %7D\n-%0A    fmt.Println(competidores)\n %0A%0A%7D%0A\n@@ -677,24 +677,44 @@\n idores)%0A    \n+fmt.Println(tamanho)\n %0A    for i :\n",
+            "lines": "61"
+        },
+        {
+            "label": "2026-03-04_01-21-06",
+            "content": "@@ -543,16 +543,46 @@\n  %7D%0A    %7D\n+%0A    fmt.Println(competidores)\n %0A%0A%7D%0A%0Afun\n",
+            "lines": "62"
+        },
+        {
+            "label": "2026-03-04_01-22-45",
+            "content": "@@ -701,28 +701,23 @@\n = range \n-competidores\n+tamanho\n  %7B%0A%0A    \n",
+            "lines": "61"
+        },
+        {
+            "label": "2026-03-04_01-23-32",
+            "content": "@@ -644,16 +644,49 @@\n r := -1%0A\n+    tamanho := len(competidores)%0A\n     %0A   \n",
+            "lines": "61"
+        },
+        {
+            "label": "2026-03-04_01-23-35",
+            "content": "@@ -652,33 +652,8 @@\n     \n-fmt.Println(competidores)\n %0A   \n",
+            "lines": "60"
+        },
+        {
+            "label": "2026-03-04_01-24-46",
+            "content": "@@ -155,16 +155,8 @@\n int)\n- (%5B%5Dint)\n  %7B%0A%0A\n@@ -549,32 +549,8 @@\n  %7D%0A%0A\n-    return competidores%0A\n %7D%0A%0Af\n@@ -644,24 +644,49 @@\n r := -1%0A    \n+fmt.Println(competidores)\n %0A    for i :\n@@ -1084,34 +1084,8 @@\n     \n-%0A%0A    if calcularGanhador(\n pont\n@@ -1118,16 +1118,54 @@\n ntes, N)\n+%0A%0A    if calcularGanhador(competidores\n ) == -1 \n@@ -1233,24 +1233,16 @@\n anhador(\n-pontuar(\n competid\n@@ -1245,33 +1245,15 @@\n etidores\n-, concorrentes, N)\n ))%7D%0A%0A%7D%0A\n",
+            "lines": "60"
+        },
+        {
+            "label": "2026-03-04_01-27-00",
+            "content": "@@ -684,33 +684,8 @@\n     \n-fmt.Println(competidores)\n %0A   \n",
+            "lines": "61"
+        },
+        {
+            "label": "2026-03-04_01-27-36",
+            "content": "@@ -865,12 +865,8 @@\n ador\n- + 1\n %0A%0A%7D%0A\n",
+            "lines": "61"
+        },
+        {
+            "label": "2026-03-04_01-28-07",
+            "content": "@@ -676,24 +676,49 @@\n r := -1%0A    \n+fmt.Println(competidores)\n %0A    for i :\n",
+            "lines": "61"
+        },
+        {
+            "label": "2026-03-04_01-28-14",
+            "content": "package main\n\nimport \"fmt\"\n\ntype concorrente struct {\n\n    jogada1 int\n    jogada2 int\n\n}\n\nfunc pontuar(competidores []int, concorrentes []concorrente, N int) ([]int) {\n\n    for i := range N {\n\n        if concorrentes[i].jogada1 >= 10 && concorrentes[i].jogada2 >= 10 {\n            if concorrentes[i].jogada1 > concorrentes[i].jogada2 {\n            competidores = append(competidores, concorrentes[i].jogada1 - concorrentes[i].jogada2)\n            }else {competidores = append(competidores, concorrentes[i].jogada2 - concorrentes[i].jogada1)}\n        }\n    }\n\n    return competidores\n}\n\nfunc calcularGanhador(competidores []int) (int) {\n\n    pontuacaoMenor := 100\n    ganhador := -1\n    \n    for i := range competidores {\n\n        if competidores[i] < pontuacaoMenor {ganhador = i; pontuacaoMenor = competidores[i]}\n\n    }\n\n    return ganhador + 1\n\n}\n\nfunc main() {\n\n    var N int\n    fmt.Scan(&N)\n\n    var concorrentes = make([]concorrente, N)\n    var competidores = make([]int, 0)\n\n\n    for i := range N {\n        \n        fmt.Scan(&concorrentes[i].jogada1, &concorrentes[i].jogada2)\n\n    }\n\n    \n\n    if calcularGanhador(pontuar(competidores, concorrentes, N)) == -1 {fmt.Println(\"sem ganhador\")\n    }else {fmt.Println(calcularGanhador(pontuar(competidores, concorrentes, N)))}\n\n}\n",
+            "lines": "61"
+        }
+    ]
+}

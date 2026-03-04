@@ -2,15 +2,23 @@ package main
 
 import (
 	"fmt"
-	"internal/poll"
 )
 
 func calculoFuga(helicoptero, policial, fugitivo, direcao int) (rune) {
 
     var resultado rune
 
-    if fugitivo * direcao + policial == 0 { resultado = 'N'
-} else {resultado = 'S'}
+    if direcao == 1 {
+
+        if fugitivo > policial && fugitivo < helicoptero {resultado = 'S'
+    }   else {resultado = 'N'}
+
+    } else {
+
+        if (fugitivo < policial && fugitivo > helicoptero) || (fugitivo < policial && helicoptero > policial) {resultado = 'S'
+    }   else {resultado = 'N'}
+
+    }
 
     return resultado
 
@@ -22,6 +30,6 @@ func main() {
 
     fmt.Scan(&helicoptero, &fugitivo, &policial, &direcao)
 
-    fmt.Println(calculoFuga(helicoptero, fugitivo, policial, direcao))
+    fmt.Printf("%c\n", calculoFuga(helicoptero, fugitivo, policial, direcao))
 
 }
