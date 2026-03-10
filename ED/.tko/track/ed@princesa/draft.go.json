@@ -127,8 +127,53 @@
         },
         {
             "label": "2026-03-10_19-40-01",
-            "content": "package main\n\nimport (\n    \"fmt\"\n    \"slices\"\n)\n\nfunc josephus(circuloPessoas []int, numInicio int) ([]int) {\n\n    \n    if len(circuloPessoas) > 1 {\n        fmt.Println(circuloPessoas)\n\n        for i := 0; i < len(circuloPessoas)-1; i++ {\n\n            if circuloPessoas[i] == numInicio && i < len(circuloPessoas) - 1 {\n\n                circuloPessoas = slices.Delete(circuloPessoas, i+1, i+2)\n                josephus(circuloPessoas, circuloPessoas[i])\n\n            } else if i == numInicio && i == len(circuloPessoas) - 1{\n\n                circuloPessoas = slices.Delete(circuloPessoas, 1, 2)\n                josephus(circuloPessoas, circuloPessoas[0])\n\n            }\n\n        }\n\n    } \n\n        return circuloPessoas\n\n}\n\nfunc main() {\n\n    var numPessoas, numInicio int\n    \n    fmt.Scan(&numPessoas, &numInicio)\n\n    var circuloPessoas = make([]int, numPessoas)\n\n    for i := 0; i < numPessoas; i++{\n\n        circuloPessoas[i] = i + 1\n\n    }\n\n    josephus(circuloPessoas, numInicio)\n\n}\n",
+            "content": "@@ -283,29 +283,10 @@\n cio \n-%7B%0A%0A                if\n+&&\n  i %3C\n@@ -312,17 +312,13 @@\n ) - \n-2\n+1\n  %7B%0A%0A\n-    \n     \n@@ -381,21 +381,17 @@\n s, i\n++1\n , i\n- + 1)%0A    \n++2)%0A\n     \n@@ -450,256 +450,80 @@\n i%5D)%0A\n-                    %0A                %7D else if i %3C len(circuloPessoas) - 1%7B%0A%0A                    circuloPessoas = slices.Delete(circuloPessoas, i,  i+1)%0A                    josephus(circuloPessoas, circuloPessoas%5B0%5D)%0A%0A                %7D else %7B%0A%0A    \n+%0A            %7D else if i == numInicio && i == len(circuloPessoas) - 1%7B%0A%0A\n     \n@@ -585,18 +585,14 @@\n as, \n-0, 1\n+1, 2\n )%0A\n-    \n     \n@@ -652,27 +652,8 @@\n %5D)%0A%0A\n-                %7D%0A%0A\n     \n",
             "lines": "52"
+        },
+        {
+            "label": "2026-03-10_19-47-35",
+            "content": "@@ -404,17 +404,15 @@\n s, i\n-+1\n , i + \n-2\n+1\n )%0A  \n",
+            "lines": "61"
+        },
+        {
+            "label": "2026-03-10_19-48-05",
+            "content": "@@ -472,18 +472,16 @@\n essoas%5Bi\n-+1\n %5D)%0A     \n",
+            "lines": "61"
+        },
+        {
+            "label": "2026-03-10_19-49-38",
+            "content": "@@ -526,18 +526,17 @@\n se if i \n-==\n+%3C\n  len(cir\n@@ -550,17 +550,17 @@\n soas) - \n-2\n+1\n %7B%0A%0A     \n",
+            "lines": "61"
+        },
+        {
+            "label": "2026-03-10_19-50-08",
+            "content": "@@ -627,16 +627,14 @@\n s, i\n-+1\n ,  i+\n-2\n+1\n )%0A  \n",
+            "lines": "61"
+        },
+        {
+            "label": "2026-03-10_19-50-53",
+            "content": "@@ -795,12 +795,12 @@\n as, \n-1, 2\n+0, 1\n )%0A  \n",
+            "lines": "61"
+        },
+        {
+            "label": "2026-03-10_19-52-02",
+            "content": "@@ -919,45 +919,8 @@\n %7D %0A%0A\n-        fmt.Println(circuloPessoas)%0A%0A\n     \n",
+            "lines": "61"
+        },
+        {
+            "label": "2026-03-10_19-52-46",
+            "content": "@@ -94,16 +94,21 @@\n o int) (\n+%5B%5Dint\n ) %7B%0A%0A   \n@@ -967,16 +967,30 @@\n  return \n+circuloPessoas\n %0A%0A%7D%0A%0Afun\n",
+            "lines": "63"
+        },
+        {
+            "label": "2026-03-10_19-54-08",
+            "content": "@@ -94,21 +94,16 @@\n o int) (\n-%5B%5Dint\n ) %7B%0A%0A   \n@@ -918,16 +918,43 @@\n         \n+fmt.Println(circuloPessoas)\n %0A%0A      \n@@ -962,30 +962,16 @@\n  return \n-circuloPessoas\n %0A%0A%7D%0A%0Afun\n",
+            "lines": "63"
+        },
+        {
+            "label": "2026-03-10_19-55-37",
+            "content": "package main\n\nimport (\n    \"fmt\"\n    \"slices\"\n)\n\nfunc josephus(circuloPessoas []int, numInicio int) ([]int) {\n\n    \n    if len(circuloPessoas) > 1 {\n        fmt.Println(circuloPessoas)\n\n        for i := 0; i < len(circuloPessoas)-1; i++ {\n\n            if circuloPessoas[i] == numInicio {\n\n                if i < len(circuloPessoas) - 2 {\n\n                    circuloPessoas = slices.Delete(circuloPessoas, i+1, i + 2)\n                    josephus(circuloPessoas, circuloPessoas[i+1])\n                    \n                } else if i == len(circuloPessoas) - 2{\n\n                    circuloPessoas = slices.Delete(circuloPessoas, i+1,  i+2)\n                    josephus(circuloPessoas, circuloPessoas[0])\n\n                } else {\n\n                    circuloPessoas = slices.Delete(circuloPessoas, 1, 2)\n                    josephus(circuloPessoas, circuloPessoas[0])\n\n                }\n\n            }\n\n        }\n\n    } \n\n        \n\n        return circuloPessoas\n\n}\n\nfunc main() {\n\n    var numPessoas, numInicio int\n    \n    fmt.Scan(&numPessoas, &numInicio)\n\n    var circuloPessoas = make([]int, numPessoas)\n\n    for i := 0; i < numPessoas; i++{\n\n        circuloPessoas[i] = i + 1\n\n    }\n\n    josephus(circuloPessoas, numInicio)\n\n}\n",
+            "lines": "63"
         }
     ]
 }

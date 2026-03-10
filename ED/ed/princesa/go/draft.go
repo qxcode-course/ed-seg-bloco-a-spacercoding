@@ -13,21 +13,32 @@ func josephus(circuloPessoas []int, numInicio int) ([]int) {
 
         for i := 0; i < len(circuloPessoas)-1; i++ {
 
-            if circuloPessoas[i] == numInicio && i < len(circuloPessoas) - 1 {
+            if circuloPessoas[i] == numInicio {
 
-                circuloPessoas = slices.Delete(circuloPessoas, i+1, i+2)
-                josephus(circuloPessoas, circuloPessoas[i])
+                if i < len(circuloPessoas) - 2 {
 
-            } else if i == numInicio && i == len(circuloPessoas) - 1{
+                    circuloPessoas = slices.Delete(circuloPessoas, i+1, i + 2)
+                    josephus(circuloPessoas, circuloPessoas[i+1])
+                    
+                } else if i == len(circuloPessoas) - 2{
 
-                circuloPessoas = slices.Delete(circuloPessoas, 1, 2)
-                josephus(circuloPessoas, circuloPessoas[0])
+                    circuloPessoas = slices.Delete(circuloPessoas, i+1,  i+2)
+                    josephus(circuloPessoas, circuloPessoas[0])
+
+                } else {
+
+                    circuloPessoas = slices.Delete(circuloPessoas, 1, 2)
+                    josephus(circuloPessoas, circuloPessoas[0])
+
+                }
 
             }
 
         }
 
     } 
+
+        
 
         return circuloPessoas
 
