@@ -1,0 +1,134 @@
+{
+    "patches": [
+        {
+            "label": "2026-03-10_19-19-56",
+            "content": "@@ -532,9 +532,9 @@\n  2, \n-0\n+1\n )%0A  \n",
+            "lines": "52"
+        },
+        {
+            "label": "2026-03-10_19-20-09",
+            "content": "@@ -525,17 +525,17 @@\n essoas, \n-1\n+2\n , 0)%0A   \n",
+            "lines": "52"
+        },
+        {
+            "label": "2026-03-10_19-20-52",
+            "content": "@@ -529,12 +529,12 @@\n as, \n-0, 1\n+1, 0\n )%0A  \n@@ -906,28 +906,16 @@\n  %7D%0A%0A    \n-fmt.Println(\n josephus\n@@ -941,13 +941,12 @@\n mInicio)\n-)\n %0A%0A%7D%0A\n",
+            "lines": "52"
+        },
+        {
+            "label": "2026-03-10_19-24-01",
+            "content": "@@ -848,14 +848,13 @@\n  := \n-1; i %3C\n+range\n  num\n@@ -864,13 +864,9 @@\n soas\n-; i++\n+ \n %7B%0A%0A \n@@ -892,10 +892,8 @@\n as%5Bi\n--1\n %5D = \n",
+            "lines": "52"
+        },
+        {
+            "label": "2026-03-10_19-25-13",
+            "content": "@@ -658,44 +658,8 @@\n %7D %0A%0A\n-        fmt.Println(circuloPessoas)%0A\n     \n",
+            "lines": "52"
+        },
+        {
+            "label": "2026-03-10_19-27-56",
+            "content": "@@ -108,41 +108,8 @@\n  %7B%0A%0A\n-    fmt.Println(circuloPessoas)%0A%0A\n     \n",
+            "lines": "53"
+        },
+        {
+            "label": "2026-03-10_19-28-20",
+            "content": "@@ -687,16 +687,52 @@\n     %7D %0A%0A\n+        fmt.Println(circuloPessoas)%0A\n         \n@@ -978,24 +978,36 @@\n %0A    %7D%0A%0A    \n+fmt.Println(\n josephus(cir\n@@ -1029,12 +1029,13 @@\n mInicio)\n+)\n %0A%0A%7D%0A\n",
+            "lines": "55"
+        },
+        {
+            "label": "2026-03-10_19-28-32",
+            "content": "@@ -877,17 +877,17 @@\n or i := \n-0\n+1\n ; i %3C nu\n@@ -930,17 +930,15 @@\n as%5Bi\n+-1\n %5D = i\n- + 1\n %0A%0A  \n",
+            "lines": "54"
+        },
+        {
+            "label": "2026-03-10_19-29-06",
+            "content": "@@ -365,15 +365,13 @@\n s, i\n-+1\n , i+\n-2\n+1\n )%0A  \n",
+            "lines": "54"
+        },
+        {
+            "label": "2026-03-10_19-29-59",
+            "content": "@@ -564,12 +564,12 @@\n as, \n-1, 2\n+0, 1\n )%0A  \n",
+            "lines": "54"
+        },
+        {
+            "label": "2026-03-10_19-30-15",
+            "content": "@@ -651,17 +651,17 @@\n essoas, \n-2\n+1\n )%0A%0A     \n",
+            "lines": "54"
+        },
+        {
+            "label": "2026-03-10_19-30-45",
+            "content": "@@ -498,38 +498,8 @@\n lse \n-if i %3E len(circuloPessoas) - 1\n %7B%0A%0A \n",
+            "lines": "54"
+        },
+        {
+            "label": "2026-03-10_19-31-50",
+            "content": "@@ -292,17 +292,17 @@\n soas) - \n-2\n+1\n  %7B%0A%0A    \n@@ -523,17 +523,17 @@\n soas) - \n-2\n+1\n %7B%0A%0A     \n",
+            "lines": "54"
+        },
+        {
+            "label": "2026-03-10_19-32-11",
+            "content": "@@ -112,18 +112,18 @@\n     \n-%0A    if le\n+fmt.Printl\n n(ci\n@@ -139,33 +139,19 @@\n oas)\n- %3E 1 %7B%0A        fmt.Printl\n+%0A%0A    if le\n n(ci\n@@ -159,24 +159,30 @@\n culoPessoas)\n+ %3E 1 %7B\n %0A%0A        fo\n",
+            "lines": "54"
+        },
+        {
+            "label": "2026-03-10_19-32-42",
+            "content": "@@ -689,33 +689,17 @@\n essoas, \n-circuloPessoas%5Bi%5D\n+2\n )%0A%0A     \n",
+            "lines": "54"
+        },
+        {
+            "label": "2026-03-10_19-33-11",
+            "content": "@@ -378,16 +378,60 @@\n 1, i+2)%0A\n+                fmt.Println(circuloPessoas)%0A\n         \n@@ -604,16 +604,60 @@\n , 1, 2)%0A\n+                fmt.Println(circuloPessoas)%0A\n         \n",
+            "lines": "54"
+        },
+        {
+            "label": "2026-03-10_19-33-35",
+            "content": "@@ -202,16 +202,20 @@\n = range \n+len(\n circuloP\n@@ -220,16 +220,17 @@\n oPessoas\n+)\n  %7B%0A%0A    \n",
+            "lines": "52"
+        },
+        {
+            "label": "2026-03-10_19-34-26",
+            "content": "@@ -200,19 +200,14 @@\n  := \n-0; i %3C len(\n+range \n circ\n@@ -220,16 +220,8 @@\n soas\n-)-1; i++\n  %7B%0A%0A\n",
+            "lines": "52"
+        },
+        {
+            "label": "2026-03-10_19-35-24",
+            "content": "@@ -924,28 +924,16 @@\n  %7D%0A%0A    \n-fmt.Println(\n josephus\n@@ -959,13 +959,12 @@\n mInicio)\n-)\n %0A%0A%7D%0A\n",
+            "lines": "52"
+        },
+        {
+            "label": "2026-03-10_19-35-59",
+            "content": "@@ -667,44 +667,8 @@\n %7D %0A%0A\n-        fmt.Println(circuloPessoas)%0A\n     \n@@ -920,24 +920,36 @@\n %0A    %7D%0A%0A    \n+fmt.Println(\n josephus(cir\n@@ -971,12 +971,13 @@\n mInicio)\n+)\n %0A%0A%7D%0A\n",
+            "lines": "52"
+        },
+        {
+            "label": "2026-03-10_19-36-26",
+            "content": "@@ -663,16 +663,52 @@\n     %7D %0A%0A\n+        fmt.Println(circuloPessoas)%0A\n         \n",
+            "lines": "53"
+        },
+        {
+            "label": "2026-03-10_19-36-38",
+            "content": "@@ -495,17 +495,17 @@\n soas) - \n-1\n+2\n %7B%0A%0A     \n",
+            "lines": "52"
+        },
+        {
+            "label": "2026-03-10_19-36-53",
+            "content": "@@ -308,17 +308,17 @@\n soas) - \n-1\n+2\n  %7B%0A%0A    \n@@ -475,28 +475,9 @@\n f i \n-== numInicio && i ==\n+%3E\n  len\n@@ -624,17 +624,17 @@\n Pessoas%5B\n-0\n+i\n %5D)%0A%0A    \n",
+            "lines": "52"
+        },
+        {
+            "label": "2026-03-10_19-38-16",
+            "content": "@@ -487,17 +487,16 @@\n icio && \n-(\n i == len\n@@ -519,41 +519,8 @@\n  - 1\n- %7C%7C i == len(circuloPessoas) - 2)\n %7B%0A%0A \n",
+            "lines": "52"
+        },
+        {
+            "label": "2026-03-10_19-39-27",
+            "content": "@@ -487,16 +487,17 @@\n icio && \n+(\n i == len\n@@ -516,16 +516,49 @@\n oas) - 1\n+ %7C%7C i == len(circuloPessoas) - 2)\n %7B%0A%0A     \n",
+            "lines": "52"
+        },
+        {
+            "label": "2026-03-10_19-40-01",
+            "content": "package main\n\nimport (\n    \"fmt\"\n    \"slices\"\n)\n\nfunc josephus(circuloPessoas []int, numInicio int) ([]int) {\n\n    \n    if len(circuloPessoas) > 1 {\n        fmt.Println(circuloPessoas)\n\n        for i := 0; i < len(circuloPessoas)-1; i++ {\n\n            if circuloPessoas[i] == numInicio && i < len(circuloPessoas) - 1 {\n\n                circuloPessoas = slices.Delete(circuloPessoas, i+1, i+2)\n                josephus(circuloPessoas, circuloPessoas[i])\n\n            } else if i == numInicio && i == len(circuloPessoas) - 1{\n\n                circuloPessoas = slices.Delete(circuloPessoas, 1, 2)\n                josephus(circuloPessoas, circuloPessoas[0])\n\n            }\n\n        }\n\n    } \n\n        return circuloPessoas\n\n}\n\nfunc main() {\n\n    var numPessoas, numInicio int\n    \n    fmt.Scan(&numPessoas, &numInicio)\n\n    var circuloPessoas = make([]int, numPessoas)\n\n    for i := 0; i < numPessoas; i++{\n\n        circuloPessoas[i] = i + 1\n\n    }\n\n    josephus(circuloPessoas, numInicio)\n\n}\n",
+            "lines": "52"
+        }
+    ]
+}
