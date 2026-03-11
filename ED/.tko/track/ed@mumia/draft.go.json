@@ -1,0 +1,19 @@
+{
+    "patches": [
+        {
+            "label": "2026-03-11_19-12-10",
+            "content": "@@ -408,20 +408,8 @@\n )%0A%0A%09\n-fmt.Println(\n ageS\n@@ -424,13 +424,12 @@\n , idade)\n-)\n %0A%0A%7D%0A\n",
+            "lines": "30"
+        },
+        {
+            "label": "2026-03-11_19-18-25",
+            "content": "@@ -413,16 +413,18 @@\n mt.Print\n+ln\n (ageSort\n",
+            "lines": "30"
+        },
+        {
+            "label": "2026-03-11_19-18-47",
+            "content": "package main\n\nimport \"fmt\"\n\nfunc ageSort(nome string, idade int) string {\n\n\tif idade < 12 {\n\t\treturn nome + \" eh crianca\\n\"\n\t} else if idade < 18 {\n\t\treturn nome + \" eh jovem\\n\"\n\t} else if idade < 65 {\n\t\treturn nome + \" eh adulto\\n\"\n\t} else if idade < 1000 {\n\t\treturn nome + \" eh idoso\\n\"\n\t} else {\n\t\treturn nome + \" eh mumia\\n\"\n\t}\n\n}\n\nfunc main() {\n\n\tvar nome string\n\tvar idade int\n\n\tfmt.Scan(&nome, &idade)\n\n\tfmt.Print(ageSort(nome, idade))\n\n}\n",
+            "lines": "30"
+        }
+    ]
+}

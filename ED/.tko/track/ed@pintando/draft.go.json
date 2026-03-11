@@ -1,0 +1,14 @@
+{
+    "patches": [
+        {
+            "label": "2026-03-11_19-04-13",
+            "content": "@@ -10,396 +10,59 @@\n ain%0A\n-%0A\n import \n-(%0A%09\n %22fmt%22%0A\n-%09%22math%22%0A)%0A%0Afunc heron(lado1, lado2, lado3 float64) float64 %7B%0A%0A%09semiPerimetro := (lado1 + lado2 + lado3) / 2%0A%0A%09area := math.Sqrt(semiPerimetro * (semiPerimetro - lado1) * (semiPerimetro - lado2) * (semiPerimetro - lado3))%0A%0A%09return area%0A%0A%7D%0A%0Afunc main() %7B%0A%0A%09var lado1, lado2, lado3 float64%0A%09fmt.Scan(&lado1, &lado2, &lado3)%0A%0A%09fmt.Printf(%22%25.2f%5Cn%22, heron(lado1, lado2, lado3))%0A\n+func main() %7B%0A    fmt.Println(%22qxcode%22)\n %0A%7D%0A\n",
+            "lines": "5"
+        },
+        {
+            "label": "2026-03-11_19-06-04",
+            "content": "package main\n\nimport (\n\t\"fmt\"\n\t\"math\"\n)\n\nfunc heron(lado1, lado2, lado3 float64) float64 {\n\n\tsemiPerimetro := (lado1 + lado2 + lado3) / 2\n\n\tarea := math.Sqrt(semiPerimetro * (semiPerimetro - lado1) * (semiPerimetro - lado2) * (semiPerimetro - lado3))\n\n\treturn area\n\n}\n\nfunc main() {\n\n\tvar lado1, lado2, lado3 float64\n\tfmt.Scan(&lado1, &lado2, &lado3)\n\n\tfmt.Printf(\"%.2f\\n\", heron(lado1, lado2, lado3))\n\n}\n",
+            "lines": "25"
+        }
+    ]
+}

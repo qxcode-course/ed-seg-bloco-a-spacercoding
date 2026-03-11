@@ -1,0 +1,39 @@
+{
+    "patches": [
+        {
+            "label": "2026-03-11_20-33-09",
+            "content": "@@ -6,17 +6,16 @@\n ge main%0A\n-%0A\n import %22\n@@ -23,681 +23,46 @@\n mt%22%0A\n-%0A\n func \n-pegaLadrao(posHeli, posPol, posFug, direcao int) string %7B%0A%0A%09if direcao == 1 %7B%0A%0A%09%09if posHeli %3E posPol && posFug %3E posPol %7B%0A%09%09%09return %22S%5Cn%22%0A%09%09%7D else if posHeli %3C posPol && posFug %3E posPol %7B%0A%09%09%09return %22S%5Cn%22%0A%09%09%7D else %7B%0A%09%09%09return %22N%5Cn%22%0A%09%09%7D%0A%0A%09%7D else %7B%0A%0A%09%09if posHeli %3E posPol && posFug %3C posPol %7B%0A%09%09%09return %22S%5Cn%22%0A%09%09%7D else if posHeli %3C posPol && posFug %3C posPol %7B%0A%09%09%09return %22S%5Cn%22%0A%09%09%7D else %7B%0A%09%09%09return %22N%5Cn%22%0A%09%09%7D%0A%0A%09%7D%0A%0A%7D%0A%0Afunc alocacao(posHeli, posPol, posFug, direcao *int) %7B%0A%0A%09fmt.Scan(posHeli, posPol, posFug, direcao)%0A%0A%7D%0A%0Afunc main() %7B%0A%0A%09var posHeli, posPol, posFug, direcao int%0A%0A%09alocacao(&posHeli, &posPol, &posFug, &direcao)%0A%0A%09pegaLadrao(posHeli, posPol, posFug, direcao)%0A\n+main() %7B%0A    fmt.Println(%22qxcode%22)\n %0A%7D%0A\n",
+            "lines": "5"
+        },
+        {
+            "label": "2026-03-11_20-33-13",
+            "content": "@@ -25,69 +25,8 @@\n t%22%0A%0A\n-func imprimir(resultado string) %7B%0A%0A%09fmt.Print(resultado)%0A%0A%7D%0A%0A\n func\n@@ -653,17 +653,8 @@\n )%0A%0A%09\n-imprimir(\n pega\n@@ -693,13 +693,12 @@\n direcao)\n-)\n %0A%0A%7D%0A\n",
+            "lines": "45"
+        },
+        {
+            "label": "2026-03-11_20-34-23",
+            "content": "@@ -379,28 +379,8 @@\n Pol \n-&& posFug %3C posHeli \n %7B%0A%09%09\n",
+            "lines": "51"
+        },
+        {
+            "label": "2026-03-11_20-37-18",
+            "content": "@@ -381,25 +381,25 @@\n l && posFug \n-%3E\n+%3C\n  posHeli %7B%0A%09\n",
+            "lines": "51"
+        },
+        {
+            "label": "2026-03-11_20-37-29",
+            "content": "@@ -367,32 +367,52 @@\n posFug %3C posPol \n+&& posFug %3E posHeli \n %7B%0A%09%09%09return %22S%5Cn\n",
+            "lines": "51"
+        },
+        {
+            "label": "2026-03-11_20-37-51",
+            "content": "@@ -463,75 +463,8 @@\n %5Cn%22%0A\n-%09%09%7D else if posHeli %3E posPol && posFug %3E posHeli %7B%0A%09%09%09return %22S%5Cn%22%0A\n %09%09%7D \n",
+            "lines": "51"
+        },
+        {
+            "label": "2026-03-11_20-40-11",
+            "content": "package main\n\nimport \"fmt\"\n\nfunc imprimir(resultado string) {\n\n\tfmt.Print(resultado)\n\n}\n\nfunc pegaLadrao(posHeli, posPol, posFug, direcao int) string {\n\n\tif direcao == 1 {\n\n\t\tif posHeli > posPol && posFug > posPol {\n\t\t\treturn \"S\\n\"\n\t\t} else if posHeli < posPol && posFug > posPol {\n\t\t\treturn \"S\\n\"\n\t\t} else {\n\t\t\treturn \"N\\n\"\n\t\t}\n\n\t} else {\n\n\t\tif posHeli > posPol && posFug < posPol {\n\t\t\treturn \"S\\n\"\n\t\t} else if posHeli < posPol && posFug < posPol {\n\t\t\treturn \"S\\n\"\n\t\t} else if posHeli > posPol && posFug > posHeli {\n\t\t\treturn \"S\\n\"\n\t\t} else {\n\t\t\treturn \"N\\n\"\n\t\t}\n\n\t}\n\n}\n\nfunc alocacao(posHeli, posPol, posFug, direcao *int) {\n\n\tfmt.Scan(posHeli, posPol, posFug, direcao)\n\n}\n\nfunc main() {\n\n\tvar posHeli, posPol, posFug, direcao int\n\n\talocacao(&posHeli, &posPol, &posFug, &direcao)\n\n\timprimir(pegaLadrao(posHeli, posPol, posFug, direcao))\n\n}\n",
+            "lines": "53"
+        }
+    ]
+}
