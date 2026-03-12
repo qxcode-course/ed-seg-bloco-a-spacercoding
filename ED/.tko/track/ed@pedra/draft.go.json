@@ -1,0 +1,34 @@
+{
+    "patches": [
+        {
+            "label": "2026-03-12_19-33-59",
+            "content": "@@ -1322,56 +1322,8 @@\n .)%0A%0A\n-%09if resultadoCompeticao(classificados) %3C 100 %7B%0A%09\n %09fmt\n@@ -1370,51 +1370,8 @@\n os))\n-%0A%09%7D else %7B%0A%09%09fmt.Println(%22sem ganhador%22)%0A%09%7D\n %0A%0A%7D%0A\n",
+            "lines": "79"
+        },
+        {
+            "label": "2026-03-12_19-35-55",
+            "content": "@@ -595,20 +595,8 @@\n %09var\n- ptGanhador,\n  gan\n@@ -606,19 +606,17 @@\n or int%0A%09\n-ptG\n+g\n anhador \n@@ -778,19 +778,17 @@\n gada2 %3C \n-ptG\n+g\n anhador \n@@ -793,19 +793,17 @@\n r %7B%0A%09%09%09%09\n-ptG\n+g\n anhador \n@@ -860,25 +860,8 @@\n da2%0A\n-%09%09%09%09ganhador = i%0A\n %09%09%09%7D\n@@ -880,11 +880,9 @@\n %0A%09%09%09\n-ptG\n+g\n anha\n@@ -943,24 +943,8 @@\n da1%0A\n-%09%09%09ganhador = i%0A\n %09%09%7D%0A\n",
+            "lines": "83"
+        },
+        {
+            "label": "2026-03-12_19-37-41",
+            "content": "@@ -890,20 +890,16 @@\n ador = i\n- + 1\n %0A%09%09%09%7D%0A%0A%09\n@@ -995,12 +995,8 @@\n  = i\n- + 1\n %0A%09%09%7D\n",
+            "lines": "85"
+        },
+        {
+            "label": "2026-03-12_19-38-09",
+            "content": "@@ -638,24 +638,8 @@\n  100\n-%0A%09ganhador = 100\n %0A%0A%09f\n",
+            "lines": "85"
+        },
+        {
+            "label": "2026-03-12_19-39-06",
+            "content": "@@ -221,24 +221,326 @@\n ogada2)%0A%0A%7D%0A%0A\n+func validar(competidores %5B%5Dcompetidor) %5B%5Dcompetidor %7B%0A%0A%09var classificados = make(%5B%5Dcompetidor, 0)%0A%0A%09for i := range len(competidores) %7B%0A%0A%09%09if competidores%5Bi%5D.jogada1 %3E= 10 && competidores%5Bi%5D.jogada2 %3E= 10 %7B%0A%0A%09%09%09classificados = append(classificados, competidores%5Bi%5D)%0A%0A%09%09%7D%0A%0A%09%7D%0A%0A%09return classificados%0A%0A%7D%0A%0A\n func resulta\n@@ -693,81 +693,9 @@\n ) %7B%0A\n-%09%09if classificados%5Bi%5D.jogada1 %3E= 10 && classificados%5Bi%5D.jogada2 %3E= 10 %7B%0A%09\n+%0A\n %09%09if\n@@ -750,17 +750,16 @@\n ada2 %7B%0A%0A\n-%09\n %09%09%09if cl\n@@ -821,17 +821,16 @@\n hador %7B%0A\n-%09\n %09%09%09%09ptGa\n@@ -894,17 +894,16 @@\n da2%0A%09%09%09%09\n-%09\n ganhador\n@@ -910,18 +910,21 @@\n  = i\n+ + 1\n %0A\n-%09\n %09%09%09%7D%0A%0A%09%09\n %09%7D e\n@@ -919,17 +919,16 @@\n %09%09%09%7D%0A%0A%09%09\n-%09\n %7D else %7B\n@@ -928,17 +928,16 @@\n  else %7B%0A\n-%09\n %09%09%09ptGan\n@@ -995,25 +995,24 @@\n .jogada1%0A%09%09%09\n-%09\n ganhador = i\n@@ -1011,21 +1011,20 @@\n ador = i\n-%0A%09%09%09%7D\n+ + 1\n %0A%09%09%7D%0A%0A%09%7D\n@@ -1286,16 +1286,125 @@\n 2)%0A%0A%09%7D%0A%0A\n+%09var classificados = make(%5B%5Dcompetidor, 0)%0A%09classificados = append(classificados, validar(competidores)...)%0A%0A\n %09if resu\n@@ -1420,26 +1420,27 @@\n eticao(c\n-ompetidore\n+lassificado\n s) %3C 100\n@@ -1477,26 +1477,27 @@\n eticao(c\n-ompetidore\n+lassificado\n s))%0A%09%7D e\n",
+            "lines": "86"
+        },
+        {
+            "label": "2026-03-12_19-51-25",
+            "content": "package main\n\nimport \"fmt\"\n\ntype competidor struct {\n\tjogada1, jogada2 int\n}\n\nfunc atribuirValor(numCompetidores *int) {\n\n\tfmt.Scan(numCompetidores)\n\n}\n\nfunc atribuirJogadas(jogada1, jogada2 *int) {\n\n\tfmt.Scan(jogada1, jogada2)\n\n}\n\nfunc resultadoCompeticao(classificados []competidor) int {\n\n\tvar ptGanhador, ganhador int\n\tptGanhador = 100\n\tganhador = 100\n\n\tfor i := range len(classificados) {\n\t\tif classificados[i].jogada1 >= 10 && classificados[i].jogada2 >= 10 {\n\t\t\tif classificados[i].jogada1 > classificados[i].jogada2 {\n\n\t\t\t\tif classificados[i].jogada1-classificados[i].jogada2 < ptGanhador {\n\t\t\t\t\tptGanhador = classificados[i].jogada1 - classificados[i].jogada2\n\t\t\t\t\tganhador = i\n\t\t\t\t}\n\n\t\t\t} else {\n\t\t\t\tptGanhador = classificados[i].jogada2 - classificados[i].jogada1\n\t\t\t\tganhador = i\n\t\t\t}\n\t\t}\n\n\t}\n\n\treturn ganhador\n\n}\n\nfunc main() {\n\n\tvar numCompetidores int\n\tatribuirValor(&numCompetidores)\n\n\tvar competidores = make([]competidor, numCompetidores)\n\tfor i := range numCompetidores {\n\n\t\tatribuirJogadas(&competidores[i].jogada1, &competidores[i].jogada2)\n\n\t}\n\n\tif resultadoCompeticao(competidores) < 100 {\n\t\tfmt.Println(resultadoCompeticao(competidores))\n\t} else {\n\t\tfmt.Println(\"sem ganhador\")\n\t}\n\n}\n",
+            "lines": "66"
+        }
+    ]
+}
