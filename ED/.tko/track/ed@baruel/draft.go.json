@@ -1,0 +1,24 @@
+{
+    "patches": [
+        {
+            "label": "2026-03-15_21-43-50",
+            "content": "@@ -435,17 +435,11 @@\n rint\n-f(%22%25d %22, \n+ln(\n i)%0A%0A\n@@ -468,16 +468,18 @@\n mt.Print\n+ln\n (i)%0A%0A%09%09%7D\n",
+            "lines": "59"
+        },
+        {
+            "label": "2026-03-15_21-44-27",
+            "content": "@@ -1,780 +1,228 @@\n-package main%0A%0Aimport %22fmt%22%0A%0Afunc atribuirInteiro(inteiro *int) %7B%0A%0A%09fmt.Scan(inteiro)%0A%0A%7D%0A%0Afunc preencherAlbum(album map%5Bint%5Dint, figObtidas int) %7B%0A%0A%09var figurinha int%0A%0A%09for i := 0; i %3C figObtidas; i++ %7B%0A%0A%09%09fmt.Scan(&figurinha)%0A%09%09fmt.Scan(album%5Bfigurinha%5D)%0A%0A%09%09album%5Bfigurinha%5D++%0A%0A%09%7D%0A%0A%7D%0A%0Afunc analisarAlbum(album map%5Bint%5Dint, figTotal int) %7B%0A%0A%09for i := range figTotal %7B%0A%0A%09%09if album%5Bi%5D %3E 0 %7B%0A%0A%09%09%09for j := 1; j %3C album%5Bi%5D; j++ %7B%0A%0A%09%09%09%09\n+@@ -426,92 +426,28 @@%0A %2509%2509%2509%2509%0A-\n if j \n-%3C\n+%253C\n  album\n-%5Bi%5D-1 %7B%0A%09%09%09%09%09fmt.Printf(%22%25d %22, i)%0A%09%09%09%09%7D else %7B%0A%09%09%09%09%09fmt.Println(i)%0A%09%09%09%09%7D%0A%0A%09%09%09%7D%0A%0A%09%09%7D else %7B%0A%0A%09%09%09fmt.Print(i)%0A%0A%09%09%7D%0A%0A%09%7D%0A%0A%7D%0A%0Afunc main() %7B%0A%0A%09var figTotal, figObtidas int%0A%09atribuirInteiro(&figTotal)%0A%09atribuirInteiro(&figObtidas)%0A%0A%09var album = make(map%5Bint%5Dint, figObtidas)%0A%09preencherAlbum(album, figObtidas)%0A%0A%09analisarAlbum(album, figTotal)%0A%0A%7D\n+%255Bi%255D-1 %257B%250A%2509%2509%2509%2509%2509fmt.Printf(%2522%2525d %2522, i)%250A%2509%2509%2509%2509%257D else %257B%250A%2509%2509%2509%2509%2509fmt.Println(i)%250A%2509%2509%2509%2509%257D%0A+fmt.Printf(%2522%2525d %2522, i)%0A %250A%250A%2509%2509\n %0A\n",
+            "lines": "5"
+        },
+        {
+            "label": "2026-03-15_21-45-20",
+            "content": "@@ -347,14 +347,13 @@\n  := \n-1; i %3C\n+range\n  fig\n@@ -357,21 +357,16 @@\n figTotal\n-; i++\n  %7B%0A%0A%09%09if\n@@ -394,17 +394,17 @@\n or j := \n-0\n+1\n ; j %3C al\n",
+            "lines": "63"
+        },
+        {
+            "label": "2026-03-15_21-45-45",
+            "content": "package main\n\nimport \"fmt\"\n\nfunc atribuirInteiro(inteiro *int) {\n\n\tfmt.Scan(inteiro)\n\n}\n\nfunc preencherAlbum(album map[int]int, figObtidas int) {\n\n\tvar figurinha int\n\n\tfor i := 0; i < figObtidas; i++ {\n\n\t\tfmt.Scan(&figurinha)\n\t\tfmt.Scan(album[figurinha])\n\n\t\talbum[figurinha]++\n\n\t}\n\n}\n\nfunc analisarAlbum(album map[int]int, figTotal int) {\n\n\tfor i := 1; i < figTotal; i++ {\n\n\t\tif album[i] > 0 {\n\n\t\t\tfor j := 0; j < album[i]; j++ {\n\n\t\t\t\tif j < album[i]-1 {\n\t\t\t\t\tfmt.Printf(\"%d \", i)\n\t\t\t\t} else {\n\t\t\t\t\tfmt.Println(i)\n\t\t\t\t}\n\n\t\t\t}\n\n\t\t} else {\n\n\t\t\tfmt.Print(i)\n\n\t\t}\n\n\t}\n\n}\n\nfunc main() {\n\n\tvar figTotal, figObtidas int\n\tatribuirInteiro(&figTotal)\n\tatribuirInteiro(&figObtidas)\n\n\tvar album = make(map[int]int, figObtidas)\n\tpreencherAlbum(album, figObtidas)\n\n\tanalisarAlbum(album, figTotal)\n\n}\n",
+            "lines": "63"
+        }
+    ]
+}

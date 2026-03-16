@@ -12,13 +12,12 @@ func preencherArca(arca map[int]int, numAnimais int) {
 
 	var animal int
 
-	for i := range numAnimais {
-		fmt.Scan(&animal, arca[animal])
+	for i := 0; i < numAnimais; i++ {
+		fmt.Scan(&animal)
 
-		if i == animal || i == -animal {
-			arca[animal] += 1
-		}
+		fmt.Scan(arca[animal])
 
+		arca[animal]++
 	}
 
 }
@@ -27,8 +26,12 @@ func montarCasais(arca map[int]int, numAnimais int) int {
 
 	var numCasais int
 
-	for i := range numAnimais / 2 {
-		numCasais += (arca[i] + arca[-i]) / 2
+	for i := range numAnimais {
+
+		if arca[-i] > 0 {
+			numCasais += (arca[i] + arca[-i]) / 2
+		}
+
 	}
 
 	return numCasais
@@ -39,7 +42,7 @@ func main() {
 	var numAnimais int
 	atribuirValor(&numAnimais)
 
-	var arca map[int]int
+	var arca = make(map[int]int, numAnimais)
 	preencherArca(arca, numAnimais)
 
 	fmt.Println(montarCasais(arca, numAnimais))

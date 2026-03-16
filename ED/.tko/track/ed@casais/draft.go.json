@@ -7,8 +7,113 @@
         },
         {
             "label": "2026-03-12_20-25-12",
-            "content": "@@ -1,8 +1,28 @@\n+@@ -1,643 +1,55 @@%0A-\n package \n@@ -29,24 +29,36 @@\n main\n-%0A%0A\n+%250A%250A\n import \n-%22fmt%22%0A%0A\n+%2522fmt%2522%250A%250A\n func\n@@ -89,20 +89,28 @@\n s *int) \n-%7B%0A%0A%09\n+%257B%250A%250A%2509\n fmt.Scan\n@@ -121,21 +121,31 @@\n Animais)\n-%0A%0A%7D%0A%0A\n+%250A%250A%257D%250A%250A\n func pre\n@@ -155,37 +155,41 @@\n herArca(arca map\n-%5Bint%5D\n+%255Bint%255D\n int, numAnimais \n@@ -193,20 +193,28 @@\n is int) \n-%7B%0A%0A%09\n+%257B%250A%250A%2509\n var anim\n@@ -215,27 +215,33 @@\n r animal int\n-%0A%0A%09\n+%250A%250A%2509\n for i := ran\n@@ -254,20 +254,28 @@\n Animais \n-%7B%0A%09%09\n+%257B%250A%2509%2509\n fmt.Scan\n@@ -292,21 +292,33 @@\n arca\n-%5B\n+%255B\n animal\n-%5D)%0A%0A%09%09\n+%255D)%250A%250A%2509%2509\n if i\n@@ -332,10 +332,14 @@\n mal \n-%7C%7C\n+%257C%257C\n  i =\n@@ -352,43 +352,83 @@\n mal \n-%7B%0A%09%09%09\n+%257B%250A%2509%2509%2509\n arca\n-%5B\n+%255B\n animal\n-%5D\n+%255D\n  += 1\n-%0A%09%09%7D%0A%0A%09%7D%0A%0A%7D%0A%0A\n+%250A%2509%2509%257D%250A%250A%2509%257D%250A%250A%257D%250A%250A\n func\n@@ -449,21 +449,25 @@\n arca map\n-%5Bint%5D\n+%255Bint%255D\n int, num\n@@ -483,20 +483,28 @@\n nt) int \n-%7B%0A%0A%09\n+%257B%250A%250A%2509\n var numC\n@@ -512,19 +512,25 @@\n sais int\n-%0A%0A%09\n+%250A%250A%2509\n for i :=\n@@ -555,12 +555,20 @@\n / 2 \n-%7B%0A%09%09\n+%257B%250A%2509%2509\n numC\n@@ -585,69 +585,105 @@\n arca\n-%5Bi%5D + arca%5B-i%5D) / 2%0A%09%7D%0A%0A%09return numCasais%0A%7D%0A%0Afunc main() %7B%0A%0A%09\n+%255Bi%255D + arca%255B-i%255D) / 2%250A%2509%257D%250A%250A%2509return numCasais%250A%257D%250A%250Afunc main() %257B%250A%250A%2509\n var \n@@ -696,18 +696,22 @@\n mais int\n-%0A%09\n+%250A%2509\n atribuir\n@@ -728,19 +728,25 @@\n Animais)\n-%0A%0A%09\n+%250A%250A%2509\n var arca\n@@ -753,18 +753,26 @@\n  map\n-%5Bint%5Dint%0A%09\n+%255Bint%255Dint%250A%2509\n pree\n@@ -802,11 +802,17 @@\n ais)\n-%0A%0A%09\n+%250A%250A%2509\n fmt.\n@@ -854,8 +854,93 @@\n is))\n-%0A%0A%7D\n+%250A%250A%257D%0A+@@ -277,13 +277,10 @@%250A mal%25255D%250A- += 1%250A+++%250A %25250A%252509%252509%25257D%0A %250A\n %0A\n",
+            "content": "@@ -1,613 +1,2013 @@\n-package main%0A%0Aimport %22fmt%22%0A%0Afunc atribuirValor(numAnimais *int) %7B%0A%0A%09fmt.Scan(numAnimais)%0A%0A%7D%0A%0Afunc preencherArca(arca map%5Bint%5Dint, numAnimais int) %7B%0A%0A%09var animal int%0A%0A%09for i := range numAnimais %7B%0A%09%09fmt.Scan(&animal)%0A%09%09fmt.Scan((arca%5Banimal%5D))%0A%0A%09%09arca%5Banimal%5D++%0A%0A%09%7D%0A%0A%7D%0A%0Afunc montarCasais(arca map%5Bint%5Dint, numAnimais int) int %7B%0A%0A%09var numCasais int%0A%0A%09for i := range numAnimais / 2 %7B%0A%09%09numCasais += (arca%5Bi%5D + arca%5B-i%5D) / 2%0A%09%7D%0A%0A%09return numCasais%0A%7D%0A%0Afunc main() %7B%0A%0A%09var numAnimais int%0A%09atribuirValor(&numAnimais)%0A%0A%09var arca map%5Bint%5Dint%0A%09preencherArca(arca, numAnimais)%0A%0A%09fmt.Println(montarCasais(arca, numAnimais))%0A%0A%7D\n+@@ -1,8 +1,28 @@%0A+@@ -1,643 +1,55 @@%250A-%0A package %0A@@ -29,24 +29,36 @@%0A main%0A-%250A%250A%0A+%25250A%25250A%0A import %0A-%2522fmt%2522%250A%250A%0A+%252522fmt%252522%25250A%25250A%0A func%0A@@ -89,20 +89,28 @@%0A s *int) %0A-%257B%250A%250A%2509%0A+%25257B%25250A%25250A%252509%0A fmt.Scan%0A@@ -121,21 +121,31 @@%0A Animais)%0A-%250A%250A%257D%250A%250A%0A+%25250A%25250A%25257D%25250A%25250A%0A func pre%0A@@ -155,37 +155,41 @@%0A herArca(arca map%0A-%255Bint%255D%0A+%25255Bint%25255D%0A int, numAnimais %0A@@ -193,20 +193,28 @@%0A is int) %0A-%257B%250A%250A%2509%0A+%25257B%25250A%25250A%252509%0A var anim%0A@@ -215,27 +215,33 @@%0A r animal int%0A-%250A%250A%2509%0A+%25250A%25250A%252509%0A for i := ran%0A@@ -254,20 +254,28 @@%0A Animais %0A-%257B%250A%2509%2509%0A+%25257B%25250A%252509%252509%0A fmt.Scan%0A@@ -292,21 +292,33 @@%0A arca%0A-%255B%0A+%25255B%0A animal%0A-%255D)%250A%250A%2509%2509%0A+%25255D)%25250A%25250A%252509%252509%0A if i%0A@@ -332,10 +332,14 @@%0A mal %0A-%257C%257C%0A+%25257C%25257C%0A  i =%0A@@ -352,43 +352,83 @@%0A mal %0A-%257B%250A%2509%2509%2509%0A+%25257B%25250A%252509%252509%252509%0A arca%0A-%255B%0A+%25255B%0A animal%0A-%255D%0A+%25255D%0A  += 1%0A-%250A%2509%2509%257D%250A%250A%2509%257D%250A%250A%257D%250A%250A%0A+%25250A%252509%252509%25257D%25250A%25250A%252509%25257D%25250A%25250A%25257D%25250A%25250A%0A func%0A@@ -449,21 +449,25 @@%0A arca map%0A-%255Bint%255D%0A+%25255Bint%25255D%0A int, num%0A@@ -483,20 +483,28 @@%0A nt) int %0A-%257B%250A%250A%2509%0A+%25257B%25250A%25250A%252509%0A var numC%0A@@ -512,19 +512,25 @@%0A sais int%0A-%250A%250A%2509%0A+%25250A%25250A%252509%0A for i :=%0A@@ -555,12 +555,20 @@%0A / 2 %0A-%257B%250A%2509%2509%0A+%25257B%25250A%252509%252509%0A numC%0A@@ -585,69 +585,105 @@%0A arca%0A-%255Bi%255D + arca%255B-i%255D) / 2%250A%2509%257D%250A%250A%2509return numCasais%250A%257D%250A%250Afunc main() %257B%250A%250A%2509%0A+%25255Bi%25255D + arca%25255B-i%25255D) / 2%25250A%252509%25257D%25250A%25250A%252509return numCasais%25250A%25257D%25250A%25250Afunc main() %25257B%25250A%25250A%252509%0A var %0A@@ -696,18 +696,22 @@%0A mais int%0A-%250A%2509%0A+%25250A%252509%0A atribuir%0A@@ -728,19 +728,25 @@%0A Animais)%0A-%250A%250A%2509%0A+%25250A%25250A%252509%0A var arca%0A@@ -753,18 +753,26 @@%0A  map%0A-%255Bint%255Dint%250A%2509%0A+%25255Bint%25255Dint%25250A%252509%0A pree%0A@@ -802,11 +802,17 @@%0A ais)%0A-%250A%250A%2509%0A+%25250A%25250A%252509%0A fmt.%0A@@ -854,8 +854,93 @@%0A is))%0A-%250A%250A%257D%0A+%25250A%25250A%25257D%250A+@@ -277,13 +277,10 @@%25250A mal%2525255D%25250A- += 1%25250A+++%25250A %2525250A%25252509%25252509%2525257D%250A %25250A%0A %250A\n %0A\n",
+            "lines": "118"
+        },
+        {
+            "label": "2026-03-15_20-39-29",
+            "content": "@@ -173,14 +173,13 @@\n  := \n-0; i %3C\n+range\n  num\n@@ -189,13 +189,8 @@\n mais\n-; i++\n  %7B%0A%09\n",
+            "lines": "46"
+        },
+        {
+            "label": "2026-03-15_20-40-12",
+            "content": "@@ -225,16 +225,17 @@\n mt.Scan(\n+(\n arca%5Bani\n@@ -239,16 +239,17 @@\n animal%5D)\n+)\n %0A%0A%09%09arca\n",
+            "lines": "46"
+        },
+        {
+            "label": "2026-03-15_20-41-06",
+            "content": "@@ -218,35 +218,8 @@\n al)%0A\n-%0A%09%09if arca%5Banimal%5D == 0 %7B%0A%09\n %09%09fm\n@@ -243,21 +243,9 @@\n l%5D)%0A\n-%09%09%7D else %7B%0A%0A%09\n+%0A\n %09%09ar\n@@ -260,12 +260,8 @@\n l%5D++\n-%0A%09%09%7D\n %0A%0A%09%7D\n",
+            "lines": "46"
+        },
+        {
+            "label": "2026-03-15_20-47-22",
+            "content": "@@ -243,16 +243,25 @@\n  0 %7B%0A%09%09%09\n+fmt.Scan(\n arca%5Bani\n@@ -264,18 +264,17 @@\n %5Banimal%5D\n-++\n+)\n %0A%09%09%7D els\n@@ -277,33 +277,24 @@\n  else %7B%0A%0A%09%09%09\n-fmt.Scan(\n arca%5Banimal%5D\n@@ -289,25 +289,26 @@\n arca%5Banimal%5D\n-)\n+++\n %0A%09%09%7D%0A%0A%09%7D%0A%0A%7D%0A\n",
+            "lines": "50"
+        },
+        {
+            "label": "2026-03-15_20-48-19",
+            "content": "@@ -221,34 +221,73 @@\n %0A%0A%09%09\n-fmt.Scan(arca%5Banimal%5D)\n+if arca%5Banimal%5D == 0 %7B%0A%09%09%09arca%5Banimal%5D++%0A%09%09%7D else %7B\n %0A%0A%09%09\n+%09\n+fmt.Scan(\n arca\n@@ -294,18 +294,22 @@\n %5Banimal%5D\n-++\n+)%0A%09%09%7D%0A\n %0A%09%7D%0A%0A%7D%0A%0A\n",
+            "lines": "50"
+        },
+        {
+            "label": "2026-03-15_20-50-47",
+            "content": "@@ -520,15 +520,8 @@\n rca \n-= make(\n map%5B\n@@ -527,29 +527,16 @@\n %5Bint%5Dint\n-, numAnimais)\n %0A%09preenc\n",
+            "lines": "46"
+        },
+        {
+            "label": "2026-03-15_20-55-19",
+            "content": "@@ -371,16 +371,20 @@\n Animais \n+/ 2 \n %7B%0A%09%09numC\n",
+            "lines": "46"
+        },
+        {
+            "label": "2026-03-15_20-56-26",
+            "content": "@@ -375,12 +375,8 @@\n ais \n-/ 2 \n %7B%0A%09%09\n",
+            "lines": "46"
+        },
+        {
+            "label": "2026-03-15_20-57-37",
+            "content": "@@ -584,27 +584,8 @@\n ais)\n-%0A%09fmt.Println(arca)\n %0A%0A%09f\n",
+            "lines": "46"
+        },
+        {
+            "label": "2026-03-15_20-59-56",
+            "content": "@@ -580,16 +580,35 @@\n Animais)\n+%0A%09fmt.Println(arca)\n %0A%0A%09fmt.P\n",
+            "lines": "47"
+        },
+        {
+            "label": "2026-03-15_21-00-15",
+            "content": "@@ -381,31 +381,8 @@\n 2 %7B%0A\n-%09%09fmt.Println(arca%5Bi%5D)%0A\n %09%09nu\n",
+            "lines": "46"
+        },
+        {
+            "label": "2026-03-15_21-00-59",
+            "content": "@@ -371,18 +371,44 @@\n Animais \n-%7B%0A\n+/ 2 %7B%0A%09%09fmt.Println(arca%5Bi%5D)\n %0A%09%09numCa\n",
+            "lines": "47"
+        },
+        {
+            "label": "2026-03-15_21-01-20",
+            "content": "@@ -418,20 +418,8 @@\n / 2%0A\n-%09%09arca%5Bi%5D--%0A\n %09%7D%0A%0A\n",
+            "lines": "47"
+        },
+        {
+            "label": "2026-03-15_21-01-42",
+            "content": "@@ -1,660 +1,63 @@\n-package main%0A%0Aimport %22fmt%22%0A%0Afunc atribuirValor(numAnimais *int) %7B%0A%0A%09fmt.Scan(numAnimais)%0A%0A%7D%0A%0Afunc preencherArca(arca map%5Bint%5Dint, numAnimais int) %7B%0A%0A%09var animal int%0A%0A%09for i := 0; i %3C numAnimais; i++ %7B%0A%09%09fmt.Scan(&animal)%0A%0A%09%09fmt.Scan(arca%5Banimal%5D)%0A%0A%09%09arca%5Banimal%5D++%0A%09%7D%0A%0A%7D%0A%0Afunc montarCasais(arca map%5Bint%5Dint, numAnimais int) int %7B%0A%0A%09var numCasais int%0A%0A%09for i := range numAnimais %7B%0A%0A%09%09numCasais += (arca%5Bi%5D + arca%5B-i%5D) / 2%0A%09%09arca%5Bi%5D--%0A%09%09arca%5B-i%5D--%0A%0A%09%7D%0A%0A%09return numCasais%0A%7D%0A%0Afunc main() %7B%0A%0A%09var numAnimais int%0A%09atribuirValor(&numAnimais)%0A%0A%09var arca = make(map%5Bint%5Dint, numAnimais)%0A%09preencherArca(arca, numAnimais)%0A%0A%09fmt.Println(montarCasais(arca, numAnimais))%0A%0A%7D\n+@@ -426,17 +426,16 @@%0A ca%255Bi%255D--%250A%0A-%250A%0A %2509%257D%250A%250A%2509ret\n %0A\n",
             "lines": "4"
+        },
+        {
+            "label": "2026-03-15_21-02-35",
+            "content": "@@ -442,31 +442,8 @@\n i%5D--\n-%0A%09%09fmt.Println(arca%5Bi%5D)\n %0A%0A%09%7D\n",
+            "lines": "50"
+        },
+        {
+            "label": "2026-03-15_21-02-52",
+            "content": "@@ -360,20 +360,26 @@\n = range \n-arca\n+numAnimais\n  %7B%0A%0A%09%09nu\n",
+            "lines": "51"
+        },
+        {
+            "label": "2026-03-15_21-03-32",
+            "content": "@@ -407,16 +407,64 @@\n -i%5D) / 2\n+%0A%09%09arca%5Bi%5D--%0A%09%09arca%5B-i%5D--%0A%09%09fmt.Println(arca%5Bi%5D)\n %0A%0A%09%7D%0A%0A%09r\n",
+            "lines": "51"
+        },
+        {
+            "label": "2026-03-15_21-03-44",
+            "content": "@@ -360,26 +360,20 @@\n = range \n-numAnimais\n+arca\n  %7B%0A%0A%09%09nu\n@@ -408,16 +408,17 @@\n i%5D) / 2%0A\n+%0A\n %09%7D%0A%0A%09ret\n",
+            "lines": "48"
+        },
+        {
+            "label": "2026-03-15_21-04-27",
+            "content": "@@ -418,34 +418,8 @@\n / 2%0A\n-%09%09fmt.Println(numCasais)%0A%0A\n %09%7D%0A%0A\n",
+            "lines": "47"
+        },
+        {
+            "label": "2026-03-15_21-05-30",
+            "content": "@@ -378,29 +378,8 @@\n  %7B%0A%0A\n-%09%09if arca%5B-i%5D %3E 0 %7B%0A%09\n %09%09nu\n@@ -416,17 +416,38 @@\n ) / 2%0A%09%09\n-%7D\n+fmt.Println(numCasais)\n %0A%0A%09%7D%0A%0A%09r\n",
+            "lines": "49"
+        },
+        {
+            "label": "2026-03-15_21-06-26",
+            "content": "package main\n\nimport \"fmt\"\n\nfunc atribuirValor(numAnimais *int) {\n\n\tfmt.Scan(numAnimais)\n\n}\n\nfunc preencherArca(arca map[int]int, numAnimais int) {\n\n\tvar animal int\n\n\tfor i := 0; i < numAnimais; i++ {\n\t\tfmt.Scan(&animal)\n\n\t\tfmt.Scan(arca[animal])\n\n\t\tarca[animal]++\n\t}\n\n}\n\nfunc montarCasais(arca map[int]int, numAnimais int) int {\n\n\tvar numCasais int\n\n\tfor i := range numAnimais {\n\n\t\tif arca[-i] > 0 {\n\t\t\tnumCasais += (arca[i] + arca[-i]) / 2\n\t\t}\n\n\t}\n\n\treturn numCasais\n}\n\nfunc main() {\n\n\tvar numAnimais int\n\tatribuirValor(&numAnimais)\n\n\tvar arca = make(map[int]int, numAnimais)\n\tpreencherArca(arca, numAnimais)\n\n\tfmt.Println(montarCasais(arca, numAnimais))\n\n}\n",
+            "lines": "50"
         }
     ]
 }
