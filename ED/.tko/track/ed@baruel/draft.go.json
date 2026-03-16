@@ -17,8 +17,78 @@
         },
         {
             "label": "2026-03-15_21-45-45",
-            "content": "package main\n\nimport \"fmt\"\n\nfunc atribuirInteiro(inteiro *int) {\n\n\tfmt.Scan(inteiro)\n\n}\n\nfunc preencherAlbum(album map[int]int, figObtidas int) {\n\n\tvar figurinha int\n\n\tfor i := 0; i < figObtidas; i++ {\n\n\t\tfmt.Scan(&figurinha)\n\t\tfmt.Scan(album[figurinha])\n\n\t\talbum[figurinha]++\n\n\t}\n\n}\n\nfunc analisarAlbum(album map[int]int, figTotal int) {\n\n\tfor i := 1; i < figTotal; i++ {\n\n\t\tif album[i] > 0 {\n\n\t\t\tfor j := 0; j < album[i]; j++ {\n\n\t\t\t\tif j < album[i]-1 {\n\t\t\t\t\tfmt.Printf(\"%d \", i)\n\t\t\t\t} else {\n\t\t\t\t\tfmt.Println(i)\n\t\t\t\t}\n\n\t\t\t}\n\n\t\t} else {\n\n\t\t\tfmt.Print(i)\n\n\t\t}\n\n\t}\n\n}\n\nfunc main() {\n\n\tvar figTotal, figObtidas int\n\tatribuirInteiro(&figTotal)\n\tatribuirInteiro(&figObtidas)\n\n\tvar album = make(map[int]int, figObtidas)\n\tpreencherAlbum(album, figObtidas)\n\n\tanalisarAlbum(album, figTotal)\n\n}\n",
+            "content": "@@ -18,20 +18,13 @@\n ort \n-(%0A%09\n %22fmt%22\n-%0A%09%0A)\n %0A%0Afu\n@@ -131,26 +131,16 @@\n gObtidas\n-, figTotal\n  int) %7B%0A\n@@ -164,56 +164,8 @@\n nt%0A%0A\n-%09for i := range figTotal %7B%0A%0A%09%09album%5Bi%5D = 0%0A%0A%09%7D%0A%0A\n %09for\n@@ -218,16 +218,45 @@\n gurinha)\n+%0A%09%09fmt.Scan(album%5Bfigurinha%5D)\n %0A%0A%09%09albu\n@@ -318,98 +318,57 @@\n %5Dint\n-) %7B%0A%0A%09var repetidas = make(%5B%5Dint, 0)%0A%09var faltando = make(%5B%5Dint, 0)%0A%0A%09for i := range album\n+, figTotal int) %7B%0A%0A%09for i := 1; i %3C figTotal; i++\n  %7B%0A%0A\n@@ -387,61 +387,31 @@\n %5D %3E \n-1\n+0\n  %7B%0A%0A%09%09%09\n-repetidas = append(repetidas, i)%0A%0A%09%09%7D else if\n+for j := 0; j %3C\n  alb\n@@ -419,345 +419,149 @@\n m%5Bi%5D\n- == 0\n+; j++\n  %7B%0A%0A%09%09%09\n+%09\n-faltando = append(faltando, i)%0A%0A%09%09%7D%0A%0A%09%7D%0A%0A%09fmt.Println(formatarVetor(repetidas))%0A%09fmt.Println(formatarVetor(faltando))%0A%0A%7D%0A%0Afunc formatarVetor(vetor %5B%5Dint) %5B%5Dstring %7B%0A%0A%09var vetorFormatado = make(%5B%5Dstring, 0)%0A%0A%09for i := range vetor %7B%0A%0A%09%09vetorFormatado = append(vetorFormatado, strconv.Itoa(vetor%5Bi%5D)\n+if j %3C album%5Bi%5D-1 %7B%0A%09%09%09%09%09fmt.Printf(%22%25d %22, i)%0A%09%09%09%09%7D else %7B%0A%09%09%09%09%09fmt.Println(i)%0A%09%09%09%09%7D%0A%0A%09%09%09%7D%0A%0A%09%09%7D else %7B%0A%0A%09%09%09fmt.Print(i\n )%0A%0A\n+%09\n %09%7D%0A%0A%09\n-return vetorFormatado\n+%7D\n %0A%0A%7D%0A\n@@ -741,26 +741,16 @@\n gObtidas\n-, figTotal\n )%0A%0A%09anal\n@@ -764,13 +764,23 @@\n um(album\n+, figTotal\n )%0A%0A%7D%0A\n",
             "lines": "63"
+        },
+        {
+            "label": "2026-03-16_18-56-14",
+            "content": "@@ -28,17 +28,8 @@\n t%22%0A%09\n-%22strconv%22\n %0A)%0A%0A\n",
+            "lines": "83"
+        },
+        {
+            "label": "2026-03-16_18-56-34",
+            "content": "@@ -38,19 +38,8 @@\n nv%22%0A\n-%09%22strings%22%0A\n )%0A%0Af\n@@ -200,30 +200,22 @@\n  := \n-1; i %3C figObtidas; i++\n+range figTotal\n  %7B%0A%0A\n@@ -593,37 +593,24 @@\n fmt.Println(\n-strings.Join(\n formatarVeto\n@@ -621,22 +621,16 @@\n petidas)\n-, %22 %22)\n )%0A%09fmt.P\n@@ -640,21 +640,8 @@\n tln(\n-strings.Join(\n form\n@@ -663,14 +663,8 @@\n ndo)\n-, %22 %22)\n )%0A%0A%7D\n",
+            "lines": "83"
+        },
+        {
+            "label": "2026-03-16_19-00-47",
+            "content": "@@ -246,17 +246,17 @@\n um%5Bi%5D = \n-1\n+0\n %0A%0A%09%7D%0A%0A%09f\n",
+            "lines": "84"
+        },
+        {
+            "label": "2026-03-16_19-01-29",
+            "content": "@@ -217,21 +217,23 @@\n  i %3C fig\n-Total\n+Obtidas\n ; i++ %7B%0A\n",
+            "lines": "84"
+        },
+        {
+            "label": "2026-03-16_19-01-39",
+            "content": "@@ -244,17 +244,17 @@\n um%5Bi%5D = \n-0\n+1\n %0A%0A%09%7D%0A%0A%09f\n",
+            "lines": "84"
+        },
+        {
+            "label": "2026-03-16_19-02-01",
+            "content": "@@ -604,34 +604,9 @@\n %0A%09%7D%0A\n-%09if len(repetidas) %3E 0 %7B%0A%09\n+%0A\n %09fmt\n@@ -663,66 +663,8 @@\n %22))%0A\n-%09%7D else %7B%0A%09%09fmt.Println(%22N%22)%0A%09%7D%0A%0A%09if len(faltando) %3E 0 %7B%0A%09\n %09fmt\n@@ -719,40 +719,8 @@\n  %22))\n-%0A%09%7D else %7B%0A%09%09fmt.Println(%22N%22)%0A%09%7D\n %0A%0A%7D%0A\n",
+            "lines": "84"
+        },
+        {
+            "label": "2026-03-16_19-04-13",
+            "content": "@@ -524,24 +524,17 @@\n etidas, \n-album%5Bi%5D\n+i\n )%0A%0A%09%09%7D e\n",
+            "lines": "92"
+        },
+        {
+            "label": "2026-03-16_19-05-38",
+            "content": "@@ -524,17 +524,24 @@\n etidas, \n-i\n+album%5Bi%5D\n )%0A%0A%09%09%7D e\n",
+            "lines": "92"
+        },
+        {
+            "label": "2026-03-16_19-06-37",
+            "content": "@@ -494,46 +494,9 @@\n 1 %7B%0A\n-%09%09%09for j := 0; i %3C album%5Bi%5D-1; j++ %7B%0A%09\n+%0A\n %09%09%09r\n@@ -530,13 +530,8 @@\n , i)\n-%0A%09%09%09%7D\n %0A%0A%09%09\n",
+            "lines": "92"
+        },
+        {
+            "label": "2026-03-16_19-08-24",
+            "content": "@@ -505,17 +505,17 @@\n j := 0; \n-j\n+i\n  %3C album\n",
+            "lines": "93"
+        },
+        {
+            "label": "2026-03-16_19-09-30",
+            "content": "@@ -213,17 +213,16 @@\n = 1; i %3C\n-=\n  figTota\n",
+            "lines": "93"
+        },
+        {
+            "label": "2026-03-16_19-10-48",
+            "content": "@@ -1,1344 +1,181 @@\n-package main%0A%0Aimport (%0A%09%22fmt%22%0A%09%22strconv%22%0A%09%22strings%22%0A)%0A%0Afunc atribuirInteiro(inteiro *int) %7B%0A%0A%09fmt.Scan(inteiro)%0A%0A%7D%0A%0Afunc preencherAlbum(album map%5Bint%5Dint, figObtidas, figTotal int) %7B%0A%0A%09var figurinha int%0A%0A%09for i := 1; i %3C= figTotal; i++ %7B%0A%0A%09%09album%5Bi%5D = 0%0A%0A%09%7D%0A%0A%09for i := 0; i %3C figObtidas; i++ %7B%0A%0A%09%09fmt.Scan(&figurinha)%0A%0A%09%09album%5Bfigurinha%5D++%0A%0A%09%7D%0A%0A%7D%0A%0Afunc analisarAlbum(album map%5Bint%5Dint, figTotal int) %7B%0A%0A%09var repetidas = make(%5B%5Dint, 0)%0A%09var faltando = make(%5B%5Dint, 0)%0A%0A%09for i := 1; i %3C figTotal; i++ %7B%0A%0A%09%09if album%5Bi%5D %3E 1 %7B%0A%09%09%09for j := 0; j %3C album%5Bi%5D-1; j++ %7B%0A%09%09%09%09repetidas = append(repetidas, i)%0A%09%09%09%7D%0A%0A%09%09%7D else if album%5Bi%5D == 0 %7B%0A%0A%09%09%09faltando = append(faltando, i)%0A%0A%09%09%7D%0A%0A%09%7D%0A%09if len(repetidas) %3E 0 %7B%0A%09%09fmt.Println(strings.Join(formatarVetor(repetidas), %22 %22))%0A%09%7D else %7B%0A%09%09fmt.Println(%22N%22)%0A%09%7D%0A%0A%09if len(faltando) %3E 0 %7B%0A%09%09fmt.Println(strings.Join(formatarVetor(faltando), %22 %22))%0A%09%7D else %7B%0A%09%09fmt.Println(%22N%22)%0A%09%7D%0A%0A%7D%0A%0Afunc formatarVetor(vetor %5B%5Dint) %5B%5Dstring %7B%0A%0A%09var vetorFormatado = make(%5B%5Dstring, 0)%0A%0A%09for i := range vetor %7B%0A%0A%09%09vetorFormatado = append(vetorFormatado, strconv.Itoa(vetor%5Bi%5D))%0A%0A%09%7D%0A%0A%09return vetorFormatado%0A%0A%7D%0A%0Afunc main() %7B%0A%0A%09var figTotal, figObtidas int%0A%09atribuirInteiro(&figTotal)%0A%09atribuirInteiro(&figObtidas)%0A%0A%09var album = make(map%5Bint%5Dint, figObtidas)%0A%09preencherAlbum(album, figObtidas, figTotal)%0A%0A%09analisarAlbum(album, figTotal)%0A%0A%7D\n+@@ -378,22 +378,8 @@%0A int%255D%0A-int, figTotal %0A int)%0A@@ -462,24 +462,21 @@%0A = range %0A-figTotal%0A+album%0A  %257B%250A%250A%2509%2509if%0A@@ -1299,23 +1299,13 @@%0A um(album%0A-, figTotal%0A )%250A%250A%257D%250A\n %0A\n",
+            "lines": "13"
+        },
+        {
+            "label": "2026-03-16_19-14-11",
+            "content": "@@ -489,12 +489,8 @@\n otal\n- + 1\n ; i+\n",
+            "lines": "93"
+        },
+        {
+            "label": "2026-03-16_19-14-17",
+            "content": "package main\n\nimport (\n\t\"fmt\"\n\t\"strconv\"\n\t\"strings\"\n)\n\nfunc atribuirInteiro(inteiro *int) {\n\n\tfmt.Scan(inteiro)\n\n}\n\nfunc preencherAlbum(album map[int]int, figObtidas, figTotal int) {\n\n\tvar figurinha int\n\n\tfor i := 1; i <= figTotal; i++ {\n\n\t\talbum[i] = 0\n\n\t}\n\n\tfor i := 0; i < figObtidas; i++ {\n\n\t\tfmt.Scan(&figurinha)\n\n\t\talbum[figurinha]++\n\n\t}\n\n}\n\nfunc analisarAlbum(album map[int]int, figTotal int) {\n\n\tvar repetidas = make([]int, 0)\n\tvar faltando = make([]int, 0)\n\n\tfor i := 1; i < figTotal + 1; i++ {\n\n\t\tif album[i] > 1 {\n\t\t\tfor j := 0; j < album[i]-1; j++ {\n\t\t\t\trepetidas = append(repetidas, i)\n\t\t\t}\n\n\t\t} else if album[i] == 0 {\n\n\t\t\tfaltando = append(faltando, i)\n\n\t\t}\n\n\t}\n\tif len(repetidas) > 0 {\n\t\tfmt.Println(strings.Join(formatarVetor(repetidas), \" \"))\n\t} else {\n\t\tfmt.Println(\"N\")\n\t}\n\n\tif len(faltando) > 0 {\n\t\tfmt.Println(strings.Join(formatarVetor(faltando), \" \"))\n\t} else {\n\t\tfmt.Println(\"N\")\n\t}\n\n}\n\nfunc formatarVetor(vetor []int) []string {\n\n\tvar vetorFormatado = make([]string, 0)\n\n\tfor i := range vetor {\n\n\t\tvetorFormatado = append(vetorFormatado, strconv.Itoa(vetor[i]))\n\n\t}\n\n\treturn vetorFormatado\n\n}\n\nfunc main() {\n\n\tvar figTotal, figObtidas int\n\tatribuirInteiro(&figTotal)\n\tatribuirInteiro(&figObtidas)\n\n\tvar album = make(map[int]int, figObtidas)\n\tpreencherAlbum(album, figObtidas, figTotal)\n\n\tanalisarAlbum(album, figTotal)\n\n}\n",
+            "lines": "93"
         }
     ]
 }
