@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"slices"
 )
 
 type posGomo struct {
@@ -32,31 +33,51 @@ func atribuirVetor(cobra []posGomo) {
 
 func atualizarPos(cobra []posGomo, direcao string) {
 
-	var posTemp posGomo
+	var posTemp = make([]posGomo, 0)
 
 	if direcao == "L" {
 
-		posTemp = cobra[0]
-		cobra[0].x--
+		posTemp = append(posTemp, cobra[0])
+		posTemp[0].x--
+
+		posTemp = append(posTemp, cobra...)
+
+		slices.Delete(posTemp, len(posTemp) - 1, len(posTemp))
 
 	}
 	if direcao == "R" {
 
-		cobra[0].x++
+		posTemp = append(posTemp, cobra[0])
+		posTemp[0].x++
+
+		posTemp = append(posTemp, cobra...)
+
+		slices.Delete(posTemp, len(posTemp) - 1, len(posTemp))
 
 	}
 	if direcao == "U" {
 
-		cobra[0].y--
+		posTemp = append(posTemp, cobra[0])
+		posTemp[0].y--
+
+		posTemp = append(posTemp, cobra...)
+
+		slices.Delete(posTemp, len(posTemp) - 1, len(posTemp))
 
 	}
 	if direcao == "D" {
 
-		cobra[0].y++
+		posTemp = append(posTemp, cobra[0])
+		posTemp[0].y++
+
+		posTemp = append(posTemp, cobra...)
+
+		slices.Delete(posTemp, len(posTemp) - 1, len(posTemp))
 
 	}
-	for i := range cobra {
-		fmt.Printf("%d %d\n", cobra[i].x, cobra[i].y)
+
+	for i := 0; i < len(posTemp) - 1; i++ {
+		fmt.Printf("%d %d\n", posTemp[i].x, posTemp[i].y)
 	}
 
 }

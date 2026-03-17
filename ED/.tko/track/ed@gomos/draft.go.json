@@ -62,8 +62,58 @@
         },
         {
             "label": "2026-03-16_19-49-56",
-            "content": "package main\n\nimport (\n\t\"fmt\"\n)\n\ntype posGomo struct {\n\tx, y int\n}\n\nfunc atribuirInt(meuInt *int) {\n\n\tfmt.Scan(meuInt)\n\n}\n\nfunc atribuirString(minhaRune *string) {\n\n\tfmt.Scan(minhaRune)\n\n}\n\nfunc atribuirVetor(cobra []posGomo) {\n\n\tfor i := range cobra {\n\n\t\tfmt.Scan(&cobra[i].x, &cobra[i].y)\n\n\t}\n\n}\n\nfunc atualizarPos(cobra []posGomo, direcao string) {\n\n\tif direcao == \"L\" {\n\n\t\tcobra[0].x--\n\n\t}\n\tif direcao == \"R\" {\n\n\t\tcobra[0].x++\n\n\t}\n\tif direcao == \"U\" {\n\n\t\tcobra[0].y--\n\n\t}\n\tif direcao == \"D\" {\n\n\t\tcobra[0].y++\n\n\t}\n\tfor i := range cobra {\n\t\tfmt.Printf(\"%d %d\\n\", cobra[i].x, cobra[i].y)\n\t}\n\n}\n\nfunc main() {\n\n\tvar qtdGomos int\n\tatribuirInt(&qtdGomos)\n\n\tvar direcao string\n\tatribuirString(&direcao)\n\n\tvar cobra = make([]posGomo, qtdGomos)\n\tatribuirVetor(cobra)\n\n\tatualizarPos(cobra, direcao)\n\n}\n",
+            "content": "@@ -351,71 +351,28 @@\n %7B%0A%0A%09\n-var posTemp posGomo%0A%0A%09if direcao == %22L%22 %7B%0A%0A%09%09posTemp = cobra%5B0%5D\n+if direcao == %22L%22 %7B%0A\n %0A%09%09c\n",
             "lines": "74"
+        },
+        {
+            "label": "2026-03-17_18-23-48",
+            "content": "@@ -350,10 +350,8 @@\n  %7B%0A%0A\n-//\n %09var\n",
+            "lines": "77"
+        },
+        {
+            "label": "2026-03-17_18-23-54",
+            "content": "@@ -350,29 +350,74 @@\n  %7B%0A%0A\n-%09if direcao == %22L%22 %7B%0A\n+//%09var posTemp posGomo%0A%0A%09if direcao == %22L%22 %7B%0A%0A%09%09posTemp = cobra%5B0%5D\n %0A%09%09c\n",
+            "lines": "77"
+        },
+        {
+            "label": "2026-03-17_18-30-49",
+            "content": "@@ -350,30 +350,8 @@\n  %7B%0A%0A\n-%09var posTemp posGomo%0A%0A\n %09if \n@@ -374,499 +374,127 @@\n %0A%0A%09%09\n-for i := 0; i %3C len(cobra) - 1; i++ %7B%0A%0A%09%09%09posTemp = cobra%5Bi%5D%0A%09%09%09cobra%5Bi+1%5D = posTemp%0A%0A%09%09%7D%0A%0A%09%09cobra%5B0%5D.x--%0A%0A%09%7D%0A%09if direcao == %22R%22 %7B%0A%0A%09%09for i := 0; i %3C len(cobra) - 1; i++ %7B%0A%0A%09%09%09posTemp = cobra%5Bi%5D%0A%09%09%09cobra%5Bi+1%5D = posTemp%0A%0A%09%09%7D%0A%0A%09%09cobra%5B0%5D.x++%0A%0A%09%7D%0A%09if direcao == %22U%22 %7B%0A%0A%09%09for i := 0; i %3C len(cobra) - 1; i++ %7B%0A%0A%09%09%09posTemp = cobra%5Bi%5D%0A%09%09%09cobra%5Bi+1%5D = posTemp%0A%0A%09%09%7D%0A%0A%09%09cobra%5B0%5D.y--%0A%0A%09%7D%0A%09if direcao == %22D%22 %7B%0A%0A%09%09for i := 0; i %3C len(cobra) - 1; i++ %7B%0A%0A%09%09%09posTemp = cobra%5Bi%5D%0A%09%09%09cobra%5Bi+1%5D = posTemp%0A%0A%09%09%7D\n+cobra%5B0%5D.x--%0A%0A%09%7D%0A%09if direcao == %22R%22 %7B%0A%0A%09%09cobra%5B0%5D.x++%0A%0A%09%7D%0A%09if direcao == %22U%22 %7B%0A%0A%09%09cobra%5B0%5D.y--%0A%0A%09%7D%0A%09if direcao == %22D%22 %7B\n %0A%0A%09%09\n",
+            "lines": "74"
+        },
+        {
+            "label": "2026-03-17_18-34-17",
+            "content": "@@ -686,16 +686,20 @@\n n(cobra)\n+ - 1\n ; i++ %7B%0A\n",
+            "lines": "104"
+        },
+        {
+            "label": "2026-03-17_18-34-46",
+            "content": "@@ -678,36 +678,32 @@\n ; i %3C len(cobra)\n- - 1\n ; i++ %7B%0A%0A%09%09%09posT\n",
+            "lines": "104"
+        },
+        {
+            "label": "2026-03-17_18-34-58",
+            "content": "@@ -27,18 +27,8 @@\n mt%22%0A\n-%09%22slices%22%0A\n )%0A%0At\n@@ -359,18 +359,16 @@\n posTemp \n-%5B%5D\n posGomo%0A\n@@ -396,34 +396,48 @@\n %0A%0A%09%09\n-posTemp%5B0%5D.y = cobra%5B0%5D.y%0A\n+for i := 0; i %3C len(cobra) - 1; i++ %7B%0A%0A%09\n %09%09po\n@@ -433,37 +433,32 @@\n ++ %7B%0A%0A%09%09%09posTemp\n-%5B0%5D.x\n  = cobra%5B0%5D.x - \n@@ -454,182 +454,133 @@\n bra%5B\n-0%5D.x - 1%0A%0A%09%09posTemp = append(posTemp, cobra...)%0A%0A%09%09slices.Delete(posTemp, len(posTemp) - 1, len(posTemp))%0A%0A%09%7D%0A%09if direcao == %22R%22 %7B%0A%0A%09%09posTemp%5B0%5D.y = cobra%5B0%5D.y\n+i%5D%0A%09%09%09cobra%5Bi+1%5D = posTemp%0A%0A%09%09%7D%0A%0A%09%09cobra%5B0%5D.x--%0A%0A%09%7D%0A%09if direcao == %22R%22 %7B%0A%0A%09%09for i := 0; i %3C len(cobra) - 1; i++ %7B%0A\n %0A%09%09\n+%09\n posTemp\n-%5B0%5D.x\n  = c\n@@ -588,172 +588,124 @@\n bra%5B\n-0%5D.x + 1%0A%0A%09%09posTemp = append(posTemp, cobra...)%0A%0A%09%09slices.Delete(posTemp, len(posTemp) - 1, len(posTemp))%0A%0A%09%7D%0A%09if direcao == %22U%22 %7B%0A%0A%09%09posTemp%5B0%5D.y = cobra%5B0%5D.y - 1%0A\n+i%5D%0A%09%09%09cobra%5Bi+1%5D = posTemp%0A%0A%09%09%7D%0A%0A%09%09cobra%5B0%5D.x++%0A%0A%09%7D%0A%09if direcao == %22U%22 %7B%0A%0A%09%09for i := 0; i %3C len(cobra) - 1; i++ %7B%0A%0A%09\n %09%09po\n@@ -701,37 +701,32 @@\n ++ %7B%0A%0A%09%09%09posTemp\n-%5B0%5D.x\n  = cobra%5B0%5D.x%0A%0A%09\n@@ -722,168 +722,124 @@\n bra%5B\n-0%5D.x%0A%0A%09%09posTemp = append(posTemp, cobra...)%0A%0A%09%09slices.Delete(posTemp, len(posTemp) - 1, len(posTemp))%0A%0A%09%7D%0A%09if direcao == %22D%22 %7B%0A%0A%09%09posTemp%5B0%5D.y = cobra%5B0%5D.y + 1%0A\n+i%5D%0A%09%09%09cobra%5Bi+1%5D = posTemp%0A%0A%09%09%7D%0A%0A%09%09cobra%5B0%5D.y--%0A%0A%09%7D%0A%09if direcao == %22D%22 %7B%0A%0A%09%09for i := 0; i %3C len(cobra) - 1; i++ %7B%0A%0A%09\n %09%09po\n@@ -843,21 +843,16 @@\n %09posTemp\n-%5B0%5D.x\n  = cobra\n@@ -856,109 +856,55 @@\n bra%5B\n-0%5D.x%0A%0A%09%09posTemp = append(posTemp, cobra...)%0A%0A%09%09slices.Delete(posTemp, len(posTemp) - 1, len(posTemp))\n+i%5D%0A%09%09%09cobra%5Bi+1%5D = posTemp%0A%0A%09%09%7D%0A%0A%09%09cobra%5B0%5D.y++\n %0A%0A%09%7D\n@@ -920,23 +920,21 @@\n = range \n-posTemp\n+cobra\n  %7B%0A%09%09fmt\n@@ -956,29 +956,25 @@\n n%22, \n-posTemp%5Bi%5D.x, posTemp\n+cobra%5Bi%5D.x, cobra\n %5Bi%5D.\n",
+            "lines": "104"
+        },
+        {
+            "label": "2026-03-17_18-48-40",
+            "content": "@@ -369,23 +369,16 @@\n posTemp \n-= make(\n %5B%5DposGom\n@@ -382,12 +382,8 @@\n Gomo\n-, 0)\n %0A%0A%09i\n",
+            "lines": "97"
+        },
+        {
+            "label": "2026-03-17_18-49-29",
+            "content": "@@ -422,34 +422,23 @@\n %09posTemp\n- = append(posTemp,\n+%5B0%5D.y =\n  cobra%5B0\n@@ -430,33 +430,34 @@\n %5B0%5D.y = cobra%5B0%5D\n-)\n+.y\n %0A%09%09posTemp%5B0%5D.x-\n@@ -455,18 +455,33 @@\n emp%5B0%5D.x\n---\n+ = cobra%5B0%5D.x - 1\n %0A%0A%09%09posT\n@@ -605,34 +605,23 @@\n %09posTemp\n- = append(posTemp,\n+%5B0%5D.y =\n  cobra%5B0\n@@ -613,33 +613,34 @@\n %5B0%5D.y = cobra%5B0%5D\n-)\n+.y\n %0A%09%09posTemp%5B0%5D.x+\n@@ -638,18 +638,33 @@\n emp%5B0%5D.x\n-++\n+ = cobra%5B0%5D.x + 1\n %0A%0A%09%09posT\n@@ -788,34 +788,23 @@\n %09posTemp\n- = append(posTemp,\n+%5B0%5D.y =\n  cobra%5B0\n@@ -796,33 +796,38 @@\n %5B0%5D.y = cobra%5B0%5D\n-)\n+.y - 1\n %0A%09%09posTemp%5B0%5D.y-\n@@ -828,11 +828,22 @@\n %5B0%5D.\n-y--\n+x = cobra%5B0%5D.x\n %0A%0A%09%09\n@@ -971,34 +971,23 @@\n %09posTemp\n- = append(posTemp,\n+%5B0%5D.y =\n  cobra%5B0\n@@ -987,17 +987,22 @@\n cobra%5B0%5D\n-)\n+.y + 1\n %0A%09%09posTe\n@@ -1011,11 +1011,22 @@\n %5B0%5D.\n-y++\n+x = cobra%5B0%5D.x\n %0A%0A%09%09\n",
+            "lines": "97"
+        },
+        {
+            "label": "2026-03-17_18-51-41",
+            "content": "@@ -1103,17 +1103,16 @@\n p))%0A%0A%09%7D%0A\n-%0A\n %09for i :\n@@ -1117,36 +1117,21 @@\n  := \n-0; i %3C len(posTemp) - 1; i++\n+range posTemp\n  %7B%0A%09\n",
+            "lines": "97"
+        },
+        {
+            "label": "2026-03-17_18-52-55",
+            "content": "package main\n\nimport (\n\t\"fmt\"\n\t\"slices\"\n)\n\ntype posGomo struct {\n\tx, y int\n}\n\nfunc atribuirInt(meuInt *int) {\n\n\tfmt.Scan(meuInt)\n\n}\n\nfunc atribuirString(minhaRune *string) {\n\n\tfmt.Scan(minhaRune)\n\n}\n\nfunc atribuirVetor(cobra []posGomo) {\n\n\tfor i := range cobra {\n\n\t\tfmt.Scan(&cobra[i].x, &cobra[i].y)\n\n\t}\n\n}\n\nfunc atualizarPos(cobra []posGomo, direcao string) {\n\n\tvar posTemp = make([]posGomo, 0)\n\n\tif direcao == \"L\" {\n\n\t\tposTemp = append(posTemp, cobra[0])\n\t\tposTemp[0].x--\n\n\t\tposTemp = append(posTemp, cobra...)\n\n\t\tslices.Delete(posTemp, len(posTemp) - 1, len(posTemp))\n\n\t}\n\tif direcao == \"R\" {\n\n\t\tposTemp = append(posTemp, cobra[0])\n\t\tposTemp[0].x++\n\n\t\tposTemp = append(posTemp, cobra...)\n\n\t\tslices.Delete(posTemp, len(posTemp) - 1, len(posTemp))\n\n\t}\n\tif direcao == \"U\" {\n\n\t\tposTemp = append(posTemp, cobra[0])\n\t\tposTemp[0].y--\n\n\t\tposTemp = append(posTemp, cobra...)\n\n\t\tslices.Delete(posTemp, len(posTemp) - 1, len(posTemp))\n\n\t}\n\tif direcao == \"D\" {\n\n\t\tposTemp = append(posTemp, cobra[0])\n\t\tposTemp[0].y++\n\n\t\tposTemp = append(posTemp, cobra...)\n\n\t\tslices.Delete(posTemp, len(posTemp) - 1, len(posTemp))\n\n\t}\n\n\tfor i := 0; i < len(posTemp) - 1; i++ {\n\t\tfmt.Printf(\"%d %d\\n\", posTemp[i].x, posTemp[i].y)\n\t}\n\n}\n\nfunc main() {\n\n\tvar qtdGomos int\n\tatribuirInt(&qtdGomos)\n\n\tvar direcao string\n\tatribuirString(&direcao)\n\n\tvar cobra = make([]posGomo, qtdGomos)\n\tatribuirVetor(cobra)\n\n\tatualizarPos(cobra, direcao)\n\n}\n",
+            "lines": "98"
         }
     ]
 }

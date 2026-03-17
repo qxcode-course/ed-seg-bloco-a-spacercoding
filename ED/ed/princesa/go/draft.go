@@ -3,61 +3,103 @@ package main
 import (
     "fmt"
     "slices"
+    "strconv"
 )
 
-func josephus(circuloPessoas []int, numInicio int) ([]int) {
+func atribuirInt(inteiro *int) {
 
-    
-    if len(circuloPessoas) > 1 {
-        fmt.Println(circuloPessoas)
+    fmt.Scan(inteiro)
 
-        for i := 0; i < len(circuloPessoas)-1; i++ {
+}
 
-            if circuloPessoas[i] == numInicio {
+func preencherVetorInt(vetor []int) {
 
-                if i < len(circuloPessoas) - 2 {
+    for i := range vetor {
 
-                    circuloPessoas = slices.Delete(circuloPessoas, i+1, i + 2)
-                    josephus(circuloPessoas, circuloPessoas[i+1])
-                    
-                } else if i == len(circuloPessoas) - 2{
+        vetor[i] = i+1
 
-                    circuloPessoas = slices.Delete(circuloPessoas, i+1,  i+2)
-                    josephus(circuloPessoas, circuloPessoas[0])
+    }
 
-                } else {
+}
 
-                    circuloPessoas = slices.Delete(circuloPessoas, 1, 2)
-                    josephus(circuloPessoas, circuloPessoas[0])
+func josephus(termoInicio int, jogo []int) {
 
-                }
+    if len(jogo) > 2 {
+
+        toString(jogo)
+
+        for i := range jogo {
+
+            if jogo[i] == termoInicio && termoInicio < len(jogo) - 2 {
+
+                jogo = slices.Delete(jogo, i, i + 1)
+                termoInicio += 2
+
+            } else if jogo[i] == termoInicio && termoInicio == len(jogo) - 2 {
+
+                jogo = slices.Delete(jogo, len(jogo)-2, len(jogo)-1)
+                termoInicio = jogo[0]
+
+            } else if jogo[i] == termoInicio && termoInicio > len(jogo) - 2 {
+
+                jogo = slices.Delete(jogo, 0, 1)
+                termoInicio = jogo[0]
 
             }
 
         }
 
-    } 
+        josephus(termoInicio, jogo)
 
-        
+    } else if len(jogo) == 2{
 
-        return circuloPessoas
+        toString(jogo)
+        if jogo[0] == termoInicio {
+
+            jogo = slices.Delete(jogo, 0, 1)
+            toString(jogo)
+
+        } else {
+
+            jogo = slices.Delete(jogo, 0, 0)
+            toString(jogo)
+
+        }
+
+    }
+
+}
+
+func toString(vetor []int) {
+
+    var retorno = make([]string, 0)
+
+    for i := range vetor {
+        if vetor[i] > 0 {
+            retorno = append(retorno, strconv.Itoa(vetor[i]))
+        }
+
+    }
+
+    fmt.Printf("[ ")
+    for i := range retorno {
+        fmt.Printf("%s ", retorno[i])
+    }
+    fmt.Println("]")
 
 }
 
 func main() {
 
-    var numPessoas, numInicio int
-    
-    fmt.Scan(&numPessoas, &numInicio)
+    var qtdPessoas, termoInicio int
 
-    var circuloPessoas = make([]int, numPessoas)
+    atribuirInt(&qtdPessoas)
+    atribuirInt(&termoInicio)
 
-    for i := 0; i < numPessoas; i++{
+    var jogo = make([]int, qtdPessoas)
 
-        circuloPessoas[i] = i + 1
+    preencherVetorInt(jogo)
 
-    }
-
-    josephus(circuloPessoas, numInicio)
+    josephus(termoInicio, jogo)
 
 }

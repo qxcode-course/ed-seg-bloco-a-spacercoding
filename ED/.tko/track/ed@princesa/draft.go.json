@@ -172,8 +172,128 @@
         },
         {
             "label": "2026-03-10_19-55-37",
-            "content": "package main\n\nimport (\n    \"fmt\"\n    \"slices\"\n)\n\nfunc josephus(circuloPessoas []int, numInicio int) ([]int) {\n\n    \n    if len(circuloPessoas) > 1 {\n        fmt.Println(circuloPessoas)\n\n        for i := 0; i < len(circuloPessoas)-1; i++ {\n\n            if circuloPessoas[i] == numInicio {\n\n                if i < len(circuloPessoas) - 2 {\n\n                    circuloPessoas = slices.Delete(circuloPessoas, i+1, i + 2)\n                    josephus(circuloPessoas, circuloPessoas[i+1])\n                    \n                } else if i == len(circuloPessoas) - 2{\n\n                    circuloPessoas = slices.Delete(circuloPessoas, i+1,  i+2)\n                    josephus(circuloPessoas, circuloPessoas[0])\n\n                } else {\n\n                    circuloPessoas = slices.Delete(circuloPessoas, 1, 2)\n                    josephus(circuloPessoas, circuloPessoas[0])\n\n                }\n\n            }\n\n        }\n\n    } \n\n        \n\n        return circuloPessoas\n\n}\n\nfunc main() {\n\n    var numPessoas, numInicio int\n    \n    fmt.Scan(&numPessoas, &numInicio)\n\n    var circuloPessoas = make([]int, numPessoas)\n\n    for i := 0; i < numPessoas; i++{\n\n        circuloPessoas[i] = i + 1\n\n    }\n\n    josephus(circuloPessoas, numInicio)\n\n}\n",
+            "content": "@@ -51,402 +51,915 @@\n unc \n-atribuirInt(inteiro *int) %7B%0A%0A    fmt.Scan(&inteiro)%0A%0A%7D%0A%0Afunc preencherVetorInt(vetor %5B%5Dint) %7B%0A%0A    for i := range vetor %7B%0A%0A        vetor%5Bi%5D = i%0A%0A    %7D%0A%0A%7D%0A%0Afunc josephus(termoInicio int, jogo %5B%5Dint) %7B%0A%0A    if len(jogo) %3E 1 %7B%0A%0A        slices.Delete(jogo, termoInicio, termoInicio + 1)%0A        fmt.Println(jogo)%0A        josephus(termoInicio+1, jogo)%0A%0A    %7D else %7B%0A%0A        fmt.Println(jogo)%0A%0A    %7D\n+josephus(circuloPessoas %5B%5Dint, numInicio int) (%5B%5Dint) %7B%0A%0A    %0A    if len(circuloPessoas) %3E 1 %7B%0A        fmt.Println(circuloPessoas)%0A%0A        for i := 0; i %3C len(circuloPessoas)-1; i++ %7B%0A%0A            if circuloPessoas%5Bi%5D == numInicio %7B%0A%0A                if i %3C len(circuloPessoas) - 2 %7B%0A%0A                    circuloPessoas = slices.Delete(circuloPessoas, i+1, i + 2)%0A                    josephus(circuloPessoas, circuloPessoas%5Bi+1%5D)%0A                    %0A                %7D else if i == len(circuloPessoas) - 2%7B%0A%0A                    circuloPessoas = slices.Delete(circuloPessoas, i+1,  i+2)%0A                    josephus(circuloPessoas, circuloPessoas%5B0%5D)%0A%0A                %7D else %7B%0A%0A                    circuloPessoas = slices.Delete(circuloPessoas, 1, 2)%0A                    josephus(circuloPessoas, circuloPessoas%5B0%5D)%0A%0A                %7D%0A%0A            %7D%0A%0A        %7D%0A%0A    %7D %0A%0A        %0A%0A        return circuloPessoas\n %0A%0A%7D%0A\n@@ -982,19 +982,19 @@\n     var \n-qtd\n+num\n Pessoas,\n@@ -994,21 +994,19 @@\n essoas, \n-termo\n+num\n Inicio i\n@@ -1012,60 +1012,43 @@\n int%0A\n+    \n %0A    \n-atribuirInt(&qtdPessoas)%0A    atribuirInt(&termo\n+fmt.Scan(&numPessoas, &num\n Inic\n@@ -1060,20 +1060,30 @@\n     var \n-jogo\n+circuloPessoas\n  = make(\n@@ -1093,11 +1093,11 @@\n nt, \n-qtd\n+num\n Pess\n@@ -1110,62 +1110,121 @@\n     \n-preencherVetorInt(jogo)%0A%0A    josephus(termoInicio, jog\n+for i := 0; i %3C numPessoas; i++%7B%0A%0A        circuloPessoas%5Bi%5D = i + 1%0A%0A    %7D%0A%0A    josephus(circuloPessoas, numInici\n o)%0A%0A\n",
             "lines": "63"
+        },
+        {
+            "label": "2026-03-17_19-08-29",
+            "content": "@@ -201,31 +201,8 @@\n    %7D\n-%0A    fmt.Println(vetor)\n %0A%0A%7D%0A\n",
+            "lines": "53"
+        },
+        {
+            "label": "2026-03-17_19-10-51",
+            "content": "@@ -193,24 +193,47 @@\n %5D = i%0A%0A    %7D\n+%0A    fmt.Println(vetor)\n %0A%0A%7D%0A%0Afunc jo\n@@ -585,50 +585,8 @@\n o)%0A%0A\n-    fmt.Println(qtdPessoas, termoInicio)%0A%0A\n     \n",
+            "lines": "54"
+        },
+        {
+            "label": "2026-03-17_19-11-35",
+            "content": "@@ -89,16 +89,17 @@\n mt.Scan(\n+&\n inteiro)\n@@ -554,24 +554,66 @@\n rmoInicio)%0A%0A\n+    fmt.Println(qtdPessoas, termoInicio)%0A%0A\n     var jogo\n",
+            "lines": "55"
+        },
+        {
+            "label": "2026-03-17_19-12-50",
+            "content": "@@ -158,30 +158,19 @@\n  := \n-1; i %3C len(vetor); i++\n+range vetor\n  %7B%0A%0A\n@@ -598,12 +598,8 @@\n soas\n- - 1\n )%0A%0A \n",
+            "lines": "53"
+        },
+        {
+            "label": "2026-03-17_19-14-05",
+            "content": "@@ -213,32 +213,8 @@\n  %7D%0A%0A\n-    fmt.Println(vetor)%0A%0A\n %7D%0A%0Af\n",
+            "lines": "53"
+        },
+        {
+            "label": "2026-03-17_19-14-35",
+            "content": "@@ -240,10 +240,8 @@\n %0A%7D%0A%0A\n-/*\n func\n@@ -482,10 +482,8 @@\n %7D%0A%0A%7D\n-*/\n %0A%0Afu\n",
+            "lines": "55"
+        },
+        {
+            "label": "2026-03-17_19-15-13",
+            "content": "@@ -26,18 +26,16 @@\n   %22fmt%22%0A\n-//\n     %22sli\n@@ -673,10 +673,8 @@\n o)%0A%0A\n-//\n     \n",
+            "lines": "55"
+        },
+        {
+            "label": "2026-03-17_19-15-25",
+            "content": "@@ -201,10 +201,8 @@\n or%5Bi\n--1\n %5D = \n",
+            "lines": "55"
+        },
+        {
+            "label": "2026-03-17_19-15-39",
+            "content": "@@ -160,19 +160,30 @@\n  := \n-range vetor\n+1; i %3C len(vetor); i++\n  %7B%0A%0A\n@@ -201,15 +201,15 @@\n or%5Bi\n+-1\n %5D = i\n-+1\n %0A%0A  \n",
+            "lines": "55"
+        },
+        {
+            "label": "2026-03-17_19-16-15",
+            "content": "@@ -626,16 +626,20 @@\n dPessoas\n+ - 1\n )%0A%0A    p\n",
+            "lines": "55"
+        },
+        {
+            "label": "2026-03-17_19-16-25",
+            "content": "@@ -26,16 +26,18 @@\n   %22fmt%22%0A\n+//\n     %22sli\n@@ -198,27 +198,53 @@\n i+1%0A%0A    %7D%0A%0A\n+    fmt.Println(vetor)%0A%0A\n %7D%0A%0A\n+/*\n func josephu\n@@ -473,16 +473,18 @@\n     %7D%0A%0A%7D\n+*/\n %0A%0Afunc m\n@@ -654,24 +654,26 @@\n rInt(jogo)%0A%0A\n+//\n     josephus\n",
+            "lines": "55"
+        },
+        {
+            "label": "2026-03-17_19-17-28",
+            "content": "@@ -285,576 +285,83 @@\n     \n-fmt.Println(jogo)%0A%0A        for i := range jogo %7B%0A%0A            if jogo%5Bi%5D == termoInicio && termoInicio %3C len(jogo) - 2 %7B%0A%0A                slices.Delete(jogo, i, i + 1)%0A                termoInicio += 2%0A%0A            %7D else if jogo%5Bi%5D == termoInicio && termoInicio == len(jogo) - 2 %7B%0A%0A                slices.Delete(jogo, len(jogo)-2, len(jogo)-1)%0A                termoInicio = jogo%5B0%5D%0A%0A            %7D else if jogo%5Bi%5D == termoInicio && termoInicio %3E len(jogo) - 2 %7B%0A%0A                slices.Delete(jogo, 0, 1)%0A                termoInicio = jogo%5B0%5D%0A%0A            %7D%0A%0A        %7D%0A\n+slices.Delete(jogo, termoInicio, termoInicio + 1)%0A        fmt.Println(jogo)\n %0A   \n@@ -377,32 +377,34 @@\n phus(termoInicio\n++1\n , jogo)%0A%0A    %7D e\n",
+            "lines": "53"
+        },
+        {
+            "label": "2026-03-17_19-24-46",
+            "content": "@@ -43,22 +43,8 @@\n es%22%0A\n-    %22strconv%22%0A\n )%0A%0Af\n@@ -289,39 +289,29 @@\n fmt.Println(\n-toString(\n jogo)\n-)\n %0A%0A        fo\n@@ -925,23 +925,13 @@\n tln(\n-toString(\n jogo)\n-)\n %0A%0A  \n@@ -942,360 +942,8 @@\n %0A%7D%0A%0A\n-func toString(vetor %5B%5Dint) (%5B%5Dstring) %7B%0A%0A    var retorno = make(%5B%5Dstring, 0)%0A%0A    retorno = append(retorno, %22%5B %22)%0A%0A    for i := range vetor %7B%0A        if vetor%5Bi%5D %3E 0 %7B%0A            retorno = append(retorno, strconv.Itoa(vetor%5Bi%5D))%0A            retorno = append(retorno, %22 %22)%0A        %7D%0A%0A    %7D%0A%0A    retorno = append(retorno, %22%5D%5Cn%22)%0A%0A    return retorno%0A%0A%7D%0A%0A\n func\n",
+            "lines": "74"
+        },
+        {
+            "label": "2026-03-17_19-32-17",
+            "content": "@@ -282,17 +282,17 @@\n jogo) %3E \n-2\n+1\n  %7B%0A%0A    \n",
+            "lines": "95"
+        },
+        {
+            "label": "2026-03-17_19-34-28",
+            "content": "@@ -282,17 +282,17 @@\n jogo) %3E \n-1\n+2\n  %7B%0A%0A    \n@@ -434,39 +434,32 @@\n %0A               \n- jogo =\n  slices.Delete(j\n@@ -594,39 +594,32 @@\n %0A               \n- jogo =\n  slices.Delete(j\n@@ -759,32 +759,32 @@\n en(jogo) - 2 %7B%0A%0A\n+\n                 \n@@ -782,23 +782,16 @@\n         \n- jogo =\n  slices.\n",
+            "lines": "95"
+        },
+        {
+            "label": "2026-03-17_19-36-26",
+            "content": "@@ -1071,16 +1071,53 @@\n ng, 0)%0A%0A\n+    retorno = append(retorno, %22%5B %22)%0A%0A\n     for \n@@ -1280,24 +1280,62 @@\n   %7D%0A%0A    %7D%0A%0A\n+    retorno = append(retorno, %22%5D%5Cn%22)%0A%0A\n     return r\n",
+            "lines": "95"
+        },
+        {
+            "label": "2026-03-17_19-37-21",
+            "content": "@@ -1186,16 +1186,59 @@\n or%5Bi%5D))%0A\n+            retorno = append(retorno, %22 %22)%0A\n         \n",
+            "lines": "91"
+        },
+        {
+            "label": "2026-03-17_19-37-36",
+            "content": "@@ -1011,32 +1011,43 @@\n ing(vetor %5B%5Dint)\n+ (%5B%5Dstring)\n  %7B%0A%0A    var reto\n@@ -1212,118 +1212,22 @@\n     \n-fmt.Printf(%22%5B %22)%0A    for i := range retorno %7B%0A        fmt.Printf(%22&s %22, retorno%5Bi%5D)%0A    %7D%0A    fmt.Println(%22%5D%22)\n+return retorno\n %0A%0A%7D%0A\n",
+            "lines": "90"
+        },
+        {
+            "label": "2026-03-17_19-40-09",
+            "content": "@@ -1267,9 +1267,9 @@\n tf(%22\n-%25\n+&\n s %22,\n",
+            "lines": "94"
+        },
+        {
+            "label": "2026-03-17_19-40-47",
+            "content": "@@ -287,32 +287,44 @@\n  %3E 1 %7B%0A%0A        \n+fmt.Println(\n toString(jogo)%0A%0A\n@@ -317,24 +317,25 @@\n String(jogo)\n+)\n %0A%0A        fo\n@@ -954,16 +954,28 @@\n         \n+fmt.Println(\n toString\n@@ -976,24 +976,25 @@\n String(jogo)\n+)\n %0A%0A    %7D%0A%0A%7D%0A%0A\n",
+            "lines": "94"
+        },
+        {
+            "label": "2026-03-17_19-41-34",
+            "content": "@@ -282,17 +282,17 @@\n jogo) %3E \n-2\n+1\n  %7B%0A%0A    \n",
+            "lines": "94"
+        },
+        {
+            "label": "2026-03-17_19-45-08",
+            "content": "@@ -934,25 +934,8 @@\n lse \n-if len(jogo) == 2\n %7B%0A%0A \n@@ -959,128 +959,8 @@\n ogo)\n-%0A        if jogo%5B0%5D == termoInicio %7B%0A%0A            jogo = slices.Delete(jogo, 0, 1)%0A            toString(jogo)%0A%0A        %7D\n %0A%0A  \n",
+            "lines": "94"
+        },
+        {
+            "label": "2026-03-17_19-48-43",
+            "content": "@@ -1087,99 +1087,8 @@\n o)%0A%0A\n-        %7D else %7B%0A%0A            jogo = slices.Delete(jogo, 0, 0)%0A            toString(jogo)%0A%0A\n     \n",
+            "lines": "100"
+        },
+        {
+            "label": "2026-03-17_19-50-01",
+            "content": "package main\n\nimport (\n    \"fmt\"\n    \"slices\"\n    \"strconv\"\n)\n\nfunc atribuirInt(inteiro *int) {\n\n    fmt.Scan(inteiro)\n\n}\n\nfunc preencherVetorInt(vetor []int) {\n\n    for i := range vetor {\n\n        vetor[i] = i+1\n\n    }\n\n}\n\nfunc josephus(termoInicio int, jogo []int) {\n\n    if len(jogo) > 2 {\n\n        toString(jogo)\n\n        for i := range jogo {\n\n            if jogo[i] == termoInicio && termoInicio < len(jogo) - 2 {\n\n                jogo = slices.Delete(jogo, i, i + 1)\n                termoInicio += 2\n\n            } else if jogo[i] == termoInicio && termoInicio == len(jogo) - 2 {\n\n                jogo = slices.Delete(jogo, len(jogo)-2, len(jogo)-1)\n                termoInicio = jogo[0]\n\n            } else if jogo[i] == termoInicio && termoInicio > len(jogo) - 2 {\n\n                jogo = slices.Delete(jogo, 0, 1)\n                termoInicio = jogo[0]\n\n            }\n\n        }\n\n        josephus(termoInicio, jogo)\n\n    } else if len(jogo) == 2{\n\n        toString(jogo)\n        if jogo[0] == termoInicio {\n\n            jogo = slices.Delete(jogo, 0, 1)\n            toString(jogo)\n\n        } else {\n\n            jogo = slices.Delete(jogo, 0, 0)\n            toString(jogo)\n\n        }\n\n    }\n\n}\n\nfunc toString(vetor []int) {\n\n    var retorno = make([]string, 0)\n\n    for i := range vetor {\n        if vetor[i] > 0 {\n            retorno = append(retorno, strconv.Itoa(vetor[i]))\n        }\n\n    }\n\n    fmt.Printf(\"[ \")\n    for i := range retorno {\n        fmt.Printf(\"%s \", retorno[i])\n    }\n    fmt.Println(\"]\")\n\n}\n\nfunc main() {\n\n    var qtdPessoas, termoInicio int\n\n    atribuirInt(&qtdPessoas)\n    atribuirInt(&termoInicio)\n\n    var jogo = make([]int, qtdPessoas)\n\n    preencherVetorInt(jogo)\n\n    josephus(termoInicio, jogo)\n\n}\n",
+            "lines": "105"
         }
     ]
 }
