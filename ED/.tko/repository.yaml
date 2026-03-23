@@ -13,9 +13,9 @@ sources:
   quests: null
   tasks: null
 expanded:
-- ed@main-quest
-- ed@análise
 - ed@revisão
+- ed@análise
+- ed@main-quest
 tasks:
   ed@pintando: '{self:1, rate:100, study:5}'
   ed@mumia: '{self:1, rate:100, study:8}'
@@ -24,12 +24,13 @@ tasks:
   ed@casais: '{self:1, rate:100, study:70}'
   ed@baruel: '{self:1, rate:100, study:85, friend:Jose Luis}'
   ed@gomos: '{self:1, rate:100, study:60}'
+  ed@apagando: '{rate:41}'
 flags:
   painel: 1
   quests: 0
   tracks: 0
   tasks: 0
-  task_graph_mode: 1
+  task_graph_mode: 0
   show_time: 0
 lang: go
-selected: ed@princesa
+selected: ed@apagando

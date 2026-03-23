@@ -1,0 +1,64 @@
+{
+    "patches": [
+        {
+            "label": "2026-03-23_19-08-07",
+            "content": "@@ -6,17 +6,16 @@\n ge main%0A\n-%0A\n import %22\n@@ -23,702 +23,20 @@\n mt%22%0A\n-%0A\n func \n-atribuirInt(endereco *int) %7B%0A%0A%09fmt.Scan(endereco)%0A%0A%7D%0A%0Afunc updtFila(fila, desistentes map%5Bint%5Dint) map%5Bint%5Dint %7B%0A%0A%09var filaAtual = make(map%5Bint%5Dint, 0)%0A%0A%09for i := range fila %7B%0A%0A%09%09for j := range desistentes %7B%0A%0A%09%09%09if fila%5Bi%5D == desistentes%5Bj%5D %7B%0A%0A%09%09%09%09filaAtual%5Bi%5D = 0%0A%0A%09%09%09%7D else %7B%0A%0A%09%09%09%09filaAtual%5Bi%5D++%0A%0A%09%09%09%7D%0A%0A%09%09%7D%0A%0A%09%7D%0A%0A%09return filaAtual%0A%0A%7D%0A%0Afunc main() %7B%0A%0A%09var qtdPessoas, qtdDesistentes int%0A%09var fila = make(map%5Bint%5Dint, qtdPessoas)%0A%0A%09atribuirInt(&qtdPessoas)%0A%0A%09for i := range qtdPessoas %7B%0A%0A%09%09fila%5Bi%5D++%0A%0A%09%7D%0A%0A%09atribuirInt(&qtdDesistentes)%0A%0A%09var desistentes = make(map%5Bint%5Dint, qtdDesistentes)%0A%0A%09for i := range qtdDesistentes %7B%0A%0A%09%09desistentes%5Bi%5D++%0A%0A%09%7D%0A%0A%09fmt.Println(updtFila(fila, desistentes))%0A\n+main() %7B\n %0A%7D%0A\n",
+            "lines": "4"
+        },
+        {
+            "label": "2026-03-23_19-26-40",
+            "content": "@@ -489,30 +489,29 @@\n %0A%0A%09for i := \n-0; i %3C\n+range\n  qtdPessoas;\n@@ -513,45 +513,10 @@\n soas\n-; i++ %7B%0A%09%09var x int%0A%09%09atribuirInt(&x)\n+ %7B\n %0A%0A%09%09\n@@ -520,17 +520,17 @@\n %0A%09%09fila%5B\n-x\n+i\n %5D++%0A%0A%09%7D%0A\n@@ -629,14 +629,13 @@\n  := \n-0; i %3C\n+range\n  qtd\n@@ -649,45 +649,10 @@\n ntes\n-; i++ %7B%0A%09%09var x int%0A%09%09atribuirInt(&x)\n+ %7B\n %0A%0A%09%09\n@@ -667,9 +667,9 @@\n tes%5B\n-x\n+i\n %5D++%0A\n",
+            "lines": "62"
+        },
+        {
+            "label": "2026-03-23_19-28-51",
+            "content": "@@ -749,53 +749,8 @@\n %09%7D%0A%0A\n-%09fmt.Println(fila)%0A%09fmt.Println(desistentes)%0A\n %09fmt\n",
+            "lines": "66"
+        },
+        {
+            "label": "2026-03-23_19-30-41",
+            "content": "@@ -556,22 +556,20 @@\n %0A%09%09fila%5B\n-i%5D = x\n+x%5D++\n %0A%0A%09%7D%0A%0A%09a\n@@ -739,14 +739,12 @@\n tes%5B\n-i%5D = x\n+x%5D++\n %0A%0A%09%7D\n",
+            "lines": "68"
+        },
+        {
+            "label": "2026-03-23_19-31-28",
+            "content": "@@ -145,31 +145,103 @@\n %7B%0A%0A%09\n-for i := range fila %7B%0A%0A\n+var filaAtual = make(map%5Bint%5Dint, 0)%0A%0A%09for i := range fila %7B%0A%0A%09%09for j := range desistentes %7B%0A%0A%09\n %09%09if\n@@ -268,21 +268,27 @@\n tes%5B\n-i\n+j\n %5D %7B%0A%0A\n+%09\n %09%09%09fila\n+Atual\n %5Bi%5D \n@@ -292,16 +292,55 @@\n i%5D = 0%0A%0A\n+%09%09%09%7D else %7B%0A%0A%09%09%09%09filaAtual%5Bi%5D++%0A%0A%09%09%09%7D%0A%0A\n %09%09%7D%0A%0A%09%7D%0A\n@@ -352,16 +352,21 @@\n urn fila\n+Atual\n %0A%0A%7D%0A%0Afun\n",
+            "lines": "68"
+        },
+        {
+            "label": "2026-03-23_19-45-08",
+            "content": "@@ -627,16 +627,61 @@\n  x%0A%0A%09%7D%0A%0A\n+%09fmt.Println(fila)%0A%09fmt.Println(desistentes)%0A\n %09fmt.Pri\n",
+            "lines": "58"
+        },
+        {
+            "label": "2026-03-23_19-45-29",
+            "content": "@@ -391,24 +391,54 @@\n ssoas; i++ %7B\n+%0A%09%09var x int%0A%09%09atribuirInt(&x)\n %0A%0A%09%09fila%5Bi%5D+\n@@ -436,18 +436,20 @@\n %09fila%5Bi%5D\n-++\n+ = x\n %0A%0A%09%7D%0A%0A%09a\n@@ -569,16 +569,46 @@\n s; i++ %7B\n+%0A%09%09var x int%0A%09%09atribuirInt(&x)\n %0A%0A%09%09desi\n@@ -617,18 +617,20 @@\n entes%5Bi%5D\n-++\n+ = x\n %0A%0A%09%7D%0A%0A%09f\n",
+            "lines": "56"
+        },
+        {
+            "label": "2026-03-23_19-51-25",
+            "content": "@@ -399,38 +399,8 @@\n ++ %7B\n-%0A%09%09var x int%0A%09%09atribuirInt(&x)\n %0A%0A%09%09\n@@ -404,22 +404,20 @@\n %0A%09%09fila%5B\n-x%5D = x\n+i%5D++\n %0A%0A%09%7D%0A%0A%09a\n@@ -541,38 +541,8 @@\n ++ %7B\n-%0A%09%09var x int%0A%09%09atribuirInt(&x)\n %0A%0A%09%09\n@@ -557,14 +557,12 @@\n tes%5B\n-x%5D = x\n+i%5D++\n %0A%0A%09%7D\n",
+            "lines": "52"
+        },
+        {
+            "label": "2026-03-23_19-53-00",
+            "content": "@@ -129,58 +129,21 @@\n nt) \n-%5B%5Dstring %7B%0A%09var filaAtualizada = make(%5B%5Dstring, 0)\n+map%5Bint%5Dint %7B\n %0A%0A%09f\n@@ -218,85 +218,8 @@\n  0%0A%0A\n-%09%09%7D else %7B%0A%0A%09%09%09filaAtualizada = append(filaAtualizada, fmt.Sprint(fila%5Bi%5D))%0A%0A\n %09%09%7D%0A\n@@ -239,18 +239,8 @@\n fila\n-Atualizada\n %0A%0A%7D%0A\n",
+            "lines": "56"
+        },
+        {
+            "label": "2026-03-23_19-55-02",
+            "content": "@@ -124,16 +124,25 @@\n int%5Dint)\n+ %5B%5Dstring\n  %7B%0A%09var \n@@ -342,53 +342,15 @@\n %7D%0A%0A%09\n-for i := range filaAtualizada %7B%0A%0A%09%09fmt.Print(\n+return \n fila\n@@ -363,16 +363,8 @@\n zada\n-%5Bi%5D)%0A%0A%09%7D\n %0A%0A%7D%0A\n@@ -752,16 +752,28 @@\n x%0A%0A%09%7D%0A%0A%09\n+fmt.Println(\n updtFila\n@@ -791,12 +791,13 @@\n stentes)\n+)\n %0A%0A%7D%0A\n",
+            "lines": "61"
+        },
+        {
+            "label": "2026-03-23_19-56-36",
+            "content": "@@ -342,19 +342,14 @@\n  := \n-0; i %3C len(\n+range \n fila\n@@ -362,16 +362,8 @@\n zada\n-)-1; i++\n  %7B%0A%0A\n@@ -377,17 +377,9 @@\n rint\n-f(%22%25s %22, \n+(\n fila\n@@ -402,69 +402,8 @@\n %09%7D%0A%0A\n-%09fmt.Printf(%22%25s %5Cn%22, filaAtualizada%5Blen(filaAtualizada)-1%5D)%0A%0A\n %7D%0A%0Af\n",
+            "lines": "65"
+        },
+        {
+            "label": "2026-03-23_19-58-31",
+            "content": "package main\n\nimport \"fmt\"\n\nfunc atribuirInt(endereco *int) {\n\n\tfmt.Scan(endereco)\n\n}\n\nfunc updtFila(fila, desistentes map[int]int) {\n\tvar filaAtualizada = make([]string, 0)\n\n\tfor i := range fila {\n\n\t\tif fila[i] == desistentes[i] {\n\n\t\t\tfila[i] = 0\n\n\t\t} else {\n\n\t\t\tfilaAtualizada = append(filaAtualizada, fmt.Sprint(fila[i]))\n\n\t\t}\n\n\t}\n\n\tfor i := 0; i < len(filaAtualizada)-1; i++ {\n\n\t\tfmt.Printf(\"%s \", filaAtualizada[i])\n\n\t}\n\n\tfmt.Printf(\"%s \\n\", filaAtualizada[len(filaAtualizada)-1])\n\n}\n\nfunc main() {\n\n\tvar qtdPessoas, qtdDesistentes int\n\tvar fila = make(map[int]int, qtdPessoas)\n\n\tatribuirInt(&qtdPessoas)\n\n\tfor i := 0; i < qtdPessoas; i++ {\n\t\tvar x int\n\t\tatribuirInt(&x)\n\n\t\tfila[x] = x\n\n\t}\n\n\tatribuirInt(&qtdDesistentes)\n\n\tvar desistentes = make(map[int]int, qtdDesistentes)\n\n\tfor i := 0; i < qtdDesistentes; i++ {\n\t\tvar x int\n\t\tatribuirInt(&x)\n\n\t\tdesistentes[x] = x\n\n\t}\n\n\tupdtFila(fila, desistentes)\n\n}\n",
+            "lines": "67"
+        }
+    ]
+}
