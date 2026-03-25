@@ -9,17 +9,7 @@ import (
 )
 
 func getMen(vet []int) []int {
-	var qtdMen int
-
-	for i := range vet {
-
-		if vet[i] > 0 {
-			qtdMen++
-		}
-
-	}
-
-	var sortedVet = make([]int, qtdMen)
+	var sortedVet = make([]int, 0)
 
 	for i := range vet {
 
@@ -37,19 +27,7 @@ func getMen(vet []int) []int {
 }
 
 func getCalmWomen(vet []int) []int {
-	var qtdCalmWoman int
-
-	for i := range vet {
-
-		if vet[i] > -10 && vet[i] < 0 {
-
-			qtdCalmWoman++
-
-		}
-
-	}
-
-	var vetCalmWoman = make([]int, qtdCalmWoman)
+	var vetCalmWoman = make([]int, 0)
 
 	for i := range vet {
 
@@ -81,17 +59,17 @@ func sortVet(vet []int) []int {
 	}
 
 	_ = vet
-	return vet
+	return nil
 }
 
 func sortStress(vet []int) []int {
 
 	_ = vet
-	return vet
+	return nil
 }
 
 func reverse(vet []int) []int {
-	var vetReverse = make([]int, len(vet))
+	var vetReverse = make([]int, 0)
 
 	for i := len(vet) - 1; i > -1; i-- {
 
