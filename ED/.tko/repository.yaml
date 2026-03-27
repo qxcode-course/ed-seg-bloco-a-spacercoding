@@ -27,7 +27,6 @@ flags:
   panel: 0
   inbox: 0
   show_panel: 0
-  tasks: 0
   task_graph_mode: 0
   show_time: 0
 lang: go

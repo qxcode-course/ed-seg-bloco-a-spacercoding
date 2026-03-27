@@ -2,7 +2,6 @@ package main
 
 import (
 	"fmt"
-	"strconv"
 )
 
 type jogador struct {
@@ -21,12 +20,43 @@ func preencherVetor(vetor []jogador) {
 	for i := range vetor {
 
 		vetor[i].num = i + 1
+		vetor[i].taVivo = true
 
 	}
 
 }
 
 func josephus(termoInicio int, jogo []jogador) {
+	var varaux int
+
+	fmt.Println(jogo)
+
+	if qtdVivos(jogo) > 2 && jogo[termoInicio-1].num < len(jogo) {
+
+		jogo[termoInicio].taVivo = false
+		//toString(jogo, termoInicio)
+		josephus(termoInicio, jogo)
+
+	} else if qtdVivos(jogo) > 2 && jogo[termoInicio-1].num > len(jogo) {
+
+		for i := range jogo {
+
+			if jogo[i].taVivo {
+				jogo[i].num = varaux
+				jogo[i].taVivo = false
+				//toString(jogo, termoInicio)
+				break
+			}
+
+		}
+		josephus(varaux, jogo)
+
+	} else if qtdVivos(jogo) == 2 {
+
+		jogo[termoInicio].taVivo = false
+		//toString(jogo, termoInicio)
+
+	}
 
 }
 
@@ -47,24 +77,7 @@ func qtdVivos(pessoas []jogador) int {
 
 }
 
-func toString(vetor []jogador) {
-
-	var retorno = make([]string, 0)
-
-	for i := range vetor {
-		if vetor[i].taVivo {
-			retorno = append(retorno, strconv.Itoa(vetor[i].num))
-		}
-
-	}
-
-	fmt.Printf("[ ")
-	for i := range retorno {
-		fmt.Printf("%s ", retorno[i])
-	}
-	fmt.Println("]")
-
-}
+//func toString(vetor []jogador, termoInicio int) {}
 
 func main() {
 
