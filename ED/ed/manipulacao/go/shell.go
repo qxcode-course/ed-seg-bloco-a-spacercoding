@@ -6,6 +6,8 @@ import (
 	"os"
 	"strconv"
 	"strings"
+	"slices"
+	"math"
 )
 
 func getMen(vet []int) []int {
@@ -45,27 +47,27 @@ func getCalmWomen(vet []int) []int {
 
 func sortVet(vet []int) []int {
 
-	for i := range vet {
-		var varAux int
+	slices.Sort(vet)
 
-		if vet[i] > vet[len(vet)-i] && i > 0 {
-
-			varAux = vet[len(vet)-i]
-			vet[len(vet)-i] = vet[i]
-			vet[i] = varAux
-
-		}
-
-	}
-
-	_ = vet
-	return nil
+	return vet
 }
 
 func sortStress(vet []int) []int {
 
-	_ = vet
-	return nil
+	for i := 0; i < len(vet) - 1; i++ {
+
+		if math.Abs(float64(vet[i])) > math.Abs(float64(vet[i+1])) {
+
+			var varaux int
+			varaux = vet[i+1]
+			vet[i+1] = vet[i]
+			vet[i] = varaux
+
+		} 
+
+	}
+
+	return vet
 }
 
 func reverse(vet []int) []int {
