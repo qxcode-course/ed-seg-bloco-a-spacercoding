@@ -23,6 +23,7 @@ tasks:
   ed@baruel: '{self:1, rate:100, study:85, friend:Jose Luis}'
   ed@gomos: '{self:1, rate:100, study:60}'
   ed@apagando: '{rate:41}'
+  ed@manipulacao: '{self:1, rate:100, study:210}'
 flags:
   panel: 0
   inbox: 0
@@ -30,4 +31,4 @@ flags:
   task_graph_mode: 0
   show_time: 0
 lang: go
-selected: ed@manipulacao
+selected: ed@princesa

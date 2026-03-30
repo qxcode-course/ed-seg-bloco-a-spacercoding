@@ -3,11 +3,11 @@ package main
 import (
 	"bufio"
 	"fmt"
+	"math"
 	"os"
+	"slices"
 	"strconv"
 	"strings"
-	"slices"
-	"math"
 )
 
 func getMen(vet []int) []int {
@@ -22,8 +22,6 @@ func getMen(vet []int) []int {
 		}
 
 	}
-
-	_ = vet
 
 	return sortedVet
 }
@@ -52,22 +50,36 @@ func sortVet(vet []int) []int {
 	return vet
 }
 
-func sortStress(vet []int) []int {
-
-	for i := 0; i < len(vet) - 1; i++ {
-
-		if math.Abs(float64(vet[i])) > math.Abs(float64(vet[i+1])) {
-
-			var varaux int
-			varaux = vet[i+1]
-			vet[i+1] = vet[i]
-			vet[i] = varaux
-
-		} 
-
+func sortStress(arr []int) []int {
+	if len(arr) <= 1 {
+		return arr
 	}
 
-	return vet
+	mid := len(arr) / 2
+	left := sortStress(arr[:mid])
+	right := sortStress(arr[mid:])
+
+	return merge(left, right)
+}
+
+func merge(left, right []int) []int {
+	result := make([]int, 0, len(left)+len(right))
+	i, j := 0, 0
+
+	for i < len(left) && j < len(right) {
+		if math.Abs(float64(left[i])) < math.Abs(float64(right[j])) {
+			result = append(result, left[i])
+			i++
+		} else {
+			result = append(result, right[j])
+			j++
+		}
+	}
+
+	result = append(result, left[i:]...)
+	result = append(result, right[j:]...)
+
+	return result
 }
 
 func reverse(vet []int) []int {
@@ -84,20 +96,24 @@ func reverse(vet []int) []int {
 }
 
 func unique(vet []int) []int {
-	var vetUnique = make([]int, 0)
+	var mapCount = make(map[int]int, len(vet))
+	var vetUnique []int
 
-	for i := range vet {
+	for i := 0; i < len(vet); i++ {
 
-		if vet[i] != vetUnique[i] {
+		mapCount[vet[i]]++
 
+		if mapCount[vet[i]] > 1 {
+			continue
+		} else {
 			vetUnique = append(vetUnique, vet[i])
-
 		}
 
 	}
 
-	_ = vet
-	return sortVet(vetUnique)
+	
+
+	return vetUnique
 }
 
 func repeated(vet []int) []int {
