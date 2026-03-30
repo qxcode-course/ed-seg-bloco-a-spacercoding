@@ -392,8 +392,108 @@
         },
         {
             "label": "2026-03-27_18-55-02",
-            "content": "package main\n\nimport (\n\t\"fmt\"\n)\n\ntype jogador struct {\n\tnum    int\n\ttaVivo bool\n}\n\nfunc atribuirInt(inteiro *int) {\n\n\tfmt.Scan(inteiro)\n\n}\n\nfunc preencherVetor(vetor []jogador) {\n\n\tfor i := range vetor {\n\n\t\tvetor[i].num = i + 1\n\t\tvetor[i].taVivo = true\n\n\t}\n\n}\n\nfunc josephus(termoInicio int, jogo []jogador) {\n\tvar varaux int\n\n\tfmt.Println(jogo)\n\n\tif qtdVivos(jogo) > 2 && jogo[termoInicio-1].num < len(jogo) {\n\n\t\tjogo[termoInicio].taVivo = false\n\t\t//toString(jogo, termoInicio)\n\t\tjosephus(termoInicio, jogo)\n\n\t} else if qtdVivos(jogo) > 2 && jogo[termoInicio-1].num > len(jogo) {\n\n\t\tfor i := range jogo {\n\n\t\t\tif jogo[i].taVivo {\n\t\t\t\tjogo[i].num = varaux\n\t\t\t\tjogo[i].taVivo = false\n\t\t\t\t//toString(jogo, termoInicio)\n\t\t\t\tbreak\n\t\t\t}\n\n\t\t}\n\t\tjosephus(varaux, jogo)\n\n\t} else if qtdVivos(jogo) == 2 {\n\n\t\tjogo[termoInicio].taVivo = false\n\t\t//toString(jogo, termoInicio)\n\n\t}\n\n}\n\nfunc qtdVivos(pessoas []jogador) int {\n\tvar numVivos int\n\n\tfor i := range pessoas {\n\n\t\tif pessoas[i].taVivo {\n\n\t\t\tnumVivos++\n\n\t\t}\n\n\t}\n\n\treturn numVivos\n\n}\n\n//func toString(vetor []jogador, termoInicio int) {}\n\nfunc main() {\n\n\tvar qtdPessoas, termoInicio int\n\n\tatribuirInt(&qtdPessoas)\n\tatribuirInt(&termoInicio)\n\n\tvar jogo = make([]jogador, qtdPessoas)\n\n\tpreencherVetor(jogo)\n\n\tjosephus(termoInicio, jogo)\n\n}\n",
+            "content": "@@ -27,19 +27,8 @@\n mt%22%0A\n-%09%22strconv%22%0A\n )%0A%0At\n@@ -337,35 +337,12 @@\n tln(\n-toString(jogo, termoInicio)\n+jogo\n )%0A%0A%09\n@@ -438,36 +438,26 @@\n o = false%0A%09%09\n-fmt.Println(\n+//\n toString(jog\n@@ -471,17 +471,16 @@\n oInicio)\n-)\n %0A%09%09josep\n@@ -679,28 +679,18 @@\n lse%0A%09%09%09%09\n-fmt.Println(\n+//\n toString\n@@ -708,17 +708,16 @@\n oInicio)\n-)\n %0A%09%09%09%09bre\n@@ -826,28 +826,18 @@\n false%0A%09%09\n-fmt.Println(\n+//\n toString\n@@ -855,17 +855,16 @@\n oInicio)\n-)\n %0A%0A%09%7D%0A%0A%7D%0A\n@@ -1016,24 +1016,26 @@\n umVivos%0A%0A%7D%0A%0A\n+//\n func toStrin\n@@ -1074,398 +1074,9 @@\n nt) \n-%5B%5Dstring %7B%0A%09var vetorString = make(%5B%5Dstring, 0)%0A%0A%09vetorString = append(vetorString, %22%5B %22)%0A%09for i := range vetor %7B%0A%0A%09%09if vetor%5Bi%5D.num == termoInicio %7B%0A%0A%09%09%09vetorString = append(vetorString, strconv.Itoa(termoInicio)+%22%3E %22)%0A%0A%09%09%7D else if vetor%5Bi%5D.taVivo %7B%0A%09%09%09vetorString = append(vetorString, strconv.Itoa(vetor%5Bi%5D.num)+%22 %22)%0A%09%09%7D%0A%0A%09%7D%0A%09vetorString = append(vetorString, %22%5D%22)%0A%0A%09return vetorString%0A%0A\n+%7B\n %7D%0A%0Af\n",
             "lines": "95"
+        },
+        {
+            "label": "2026-03-30_19-33-42",
+            "content": "@@ -1351,16 +1351,17 @@\n icio)+%22%3E\n+ \n %22)%0A%0A%09%09%7D \n@@ -1451,16 +1451,17 @@\n %5D.num)+%22\n+ \n %22)%0A%09%09%7D%0A%0A\n",
+            "lines": "115"
+        },
+        {
+            "label": "2026-03-30_19-34-04",
+            "content": "@@ -1221,16 +1221,17 @@\n ring, %22%5B\n+ \n %22)%0A%09for \n",
+            "lines": "115"
+        },
+        {
+            "label": "2026-03-30_19-34-37",
+            "content": "@@ -1184,16 +1184,56 @@\n ng, 0)%0A%0A\n+%09vetorString = append(vetorString, %22%5B%22)%0A\n %09for i :\n",
+            "lines": "115"
+        },
+        {
+            "label": "2026-03-30_19-34-50",
+            "content": "@@ -1411,32 +1411,72 @@\n num)+%22%22)%0A%09%09%7D%0A%0A%09%7D\n+%0A%09vetorString = append(vetorString, %22%5D%22)\n %0A%0A%09return vetorS\n",
+            "lines": "114"
+        },
+        {
+            "label": "2026-03-30_19-35-00",
+            "content": "@@ -1188,48 +1188,8 @@\n 0)%0A%0A\n-%09vetorString = append(vetorString, %22 %22)%0A\n %09for\n",
+            "lines": "113"
+        },
+        {
+            "label": "2026-03-30_19-35-34",
+            "content": "@@ -1220,16 +1220,17 @@\n tring, %22\n+ \n %22)%0A%09for \n",
+            "lines": "114"
+        },
+        {
+            "label": "2026-03-30_19-35-39",
+            "content": "@@ -1349,17 +1349,16 @@\n icio)+%22%3E\n- \n %22)%0A%0A%09%09%7D \n",
+            "lines": "114"
+        },
+        {
+            "label": "2026-03-30_19-35-56",
+            "content": "@@ -274,123 +274,143 @@\n unc \n-proxVivo(jogo %5B%5Djogador, termoInicio int) int %7B%0A%09var proxMorto int%0A%0A%09if !jogador%5BtermoInicio%5D.taVivo %7B%0A%0A%09%09for i := \n+josephus(termoInicio int, jogo %5B%5Djogador) %7B%0A%09var varaux int%0A%0A%09fmt.Println(toString(jogo, termoInicio))%0A%0A%09if qtdVivos(jogo) %3E 2 && jogo%5B\n term\n@@ -416,19 +416,23 @@\n moInicio\n-; i\n+-1%5D.num\n  %3C len(j\n@@ -439,237 +439,392 @@\n ogo)\n-; i++\n  %7B%0A%0A%09%09\n-%09if \n jogo%5B\n-i%5D.taVivo %7B%0A%09%09%09%09proxMorto = jogo%5Bi%5D.num%0A%09%09%09%7D else %7B%0A%09%09%09%09proxMorto = termoInicio%0A%09%09%09%7D%0A%0A%09%09%7D%0A%0A%09%7D%0A%0A%09return proxMorto%0A%7D%0A%0Afunc josephus(termoInicio int, jogo %5B%5Djogador) %7B%0A%09fmt.Println(toString(jogo, termoInicio))%0A%0A%09\n+termoInicio%5D.taVivo = false%0A%09%09fmt.Println(toString(jogo, termoInicio))%0A%09%09josephus(termoInicio, jogo)%0A%0A%09%7D else if qtdVivos(jogo) %3E 2 && jogo%5BtermoInicio-1%5D.num %3E len(jogo) %7B%0A%0A%09%09for i := range jogo %7B%0A%0A%09%09%09if jogo%5Bi%5D.taVivo %7B%0A%09%09%09%09jogo%5Bi%5D.num = varaux%0A%09%09%09%09jogo%5Bi%5D.taVivo = false%0A%09%09%09%09fmt.Println(toString(jogo, termoInicio))%0A%09%09%09%09break%0A%09%09%09%7D%0A%0A%09%09%7D%0A%09%09josephus(varaux, jogo)%0A%0A%09%7D else \n if q\n@@ -841,74 +841,23 @@\n go) \n-%3E 2 && jogo%5BtermoInicio%5D.num %3C len(jogo) %7B%0A%0A%09%09jogo%5BproxVivo(jogo, \n+== 2 %7B%0A%0A%09%09jogo%5B\n term\n@@ -863,17 +863,16 @@\n moInicio\n-)\n %5D.taVivo\n@@ -886,25 +886,28 @@\n e%0A%09%09\n-josephus(proxVivo\n+fmt.Println(toString\n (jog\n@@ -921,22 +921,16 @@\n oInicio)\n-, jogo\n )%0A%0A%09%7D%0A%0A%7D\n",
+            "lines": "114"
+        },
+        {
+            "label": "2026-03-30_19-48-43",
+            "content": "@@ -346,17 +346,20 @@\n %09if !jog\n-o\n+ador\n %5BtermoIn\n",
+            "lines": "112"
+        },
+        {
+            "label": "2026-03-30_19-48-57",
+            "content": "@@ -1222,16 +1222,17 @@\n icio)+%22%3E\n+ \n %22)%0A%0A%09%09%7D \n",
+            "lines": "112"
+        },
+        {
+            "label": "2026-03-30_19-49-12",
+            "content": "@@ -1335,47 +1335,8 @@\n %0A%0A%09%7D\n-%0A%09vetorString = append(vetorString, %22%22)\n %0A%0A%09r\n",
+            "lines": "112"
+        },
+        {
+            "label": "2026-03-30_19-49-31",
+            "content": "@@ -682,10 +682,8 @@\n icio\n--1\n %5D.nu\n",
+            "lines": "113"
+        },
+        {
+            "label": "2026-03-30_19-51-17",
+            "content": "@@ -678,16 +678,18 @@\n moInicio\n+-1\n %5D.num %3C \n",
+            "lines": "113"
+        },
+        {
+            "label": "2026-03-30_19-51-38",
+            "content": "@@ -507,20 +507,16 @@\n moInicio\n- + 1\n %0A%09%09%09%7D%0A%0A%09\n",
+            "lines": "113"
+        },
+        {
+            "label": "2026-03-30_19-53-02",
+            "content": "@@ -467,20 +467,16 @@\n o%5Bi%5D.num\n- + 1\n %0A%09%09%09%7D el\n",
+            "lines": "113"
+        },
+        {
+            "label": "2026-03-30_19-53-10",
+            "content": "@@ -468,17 +468,17 @@\n %5Bi%5D.num \n--\n++\n  1%0A%09%09%09%7D \n@@ -516,9 +516,9 @@\n cio \n--\n++\n  1%0A%09\n",
+            "lines": "113"
+        },
+        {
+            "label": "2026-03-30_19-53-24",
+            "content": "@@ -467,16 +467,20 @@\n o%5Bi%5D.num\n+ - 1\n %0A%09%09%09%7D el\n@@ -511,16 +511,20 @@\n moInicio\n+ - 1\n %0A%09%09%09%7D%0A%0A%09\n@@ -548,20 +548,16 @@\n roxMorto\n- - 1\n %0A%7D%0A%0Afunc\n",
+            "lines": "113"
+        },
+        {
+            "label": "2026-03-30_19-53-43",
+            "content": "@@ -540,16 +540,20 @@\n roxMorto\n+ - 1\n %0A%7D%0A%0Afunc\n",
+            "lines": "113"
+        },
+        {
+            "label": "2026-03-30_19-53-50",
+            "content": "@@ -736,10 +736,8 @@\n icio\n--1\n )%5D.t\n",
+            "lines": "113"
+        },
+        {
+            "label": "2026-03-30_19-54-24",
+            "content": "package main\n\nimport (\n\t\"fmt\"\n\t\"strconv\"\n)\n\ntype jogador struct {\n\tnum    int\n\ttaVivo bool\n}\n\nfunc atribuirInt(inteiro *int) {\n\n\tfmt.Scan(inteiro)\n\n}\n\nfunc preencherVetor(vetor []jogador) {\n\n\tfor i := range vetor {\n\n\t\tvetor[i].num = i + 1\n\t\tvetor[i].taVivo = true\n\n\t}\n\n}\n\nfunc proxVivo(jogo []jogador, termoInicio int) int {\n\tvar proxMorto int\n\n\tif !jogo[termoInicio].taVivo {\n\n\t\tfor i := termoInicio; i < len(jogo); i++ {\n\n\t\t\tif jogo[i].taVivo {\n\t\t\t\tproxMorto = jogo[i].num\n\t\t\t} else {\n\t\t\t\tproxMorto = termoInicio\n\t\t\t}\n\n\t\t}\n\n\t}\n\n\treturn proxMorto\n}\n\nfunc josephus(termoInicio int, jogo []jogador) {\n\tfmt.Println(toString(jogo, termoInicio))\n\n\tif qtdVivos(jogo) > 2 && jogo[termoInicio].num < len(jogo) {\n\n\t\tjogo[proxVivo(jogo, termoInicio-1)].taVivo = false\n\t\tjosephus(proxVivo(jogo, termoInicio), jogo)\n\n\t}\n\n}\n\nfunc qtdVivos(pessoas []jogador) int {\n\tvar numVivos int\n\n\tfor i := range pessoas {\n\n\t\tif pessoas[i].taVivo {\n\n\t\t\tnumVivos++\n\n\t\t}\n\n\t}\n\n\treturn numVivos\n\n}\n\nfunc toString(vetor []jogador, termoInicio int) []string {\n\tvar vetorString = make([]string, 0)\n\n\tvetorString = append(vetorString, \"\")\n\tfor i := range vetor {\n\n\t\tif vetor[i].num == termoInicio {\n\n\t\t\tvetorString = append(vetorString, strconv.Itoa(termoInicio)+\">\")\n\n\t\t} else if vetor[i].taVivo {\n\t\t\tvetorString = append(vetorString, strconv.Itoa(vetor[i].num)+\"\")\n\t\t}\n\n\t}\n\tvetorString = append(vetorString, \"\")\n\n\treturn vetorString\n\n}\n\nfunc main() {\n\n\tvar qtdPessoas, termoInicio int\n\n\tatribuirInt(&qtdPessoas)\n\tatribuirInt(&termoInicio)\n\n\tvar jogo = make([]jogador, qtdPessoas)\n\n\tpreencherVetor(jogo)\n\n\tjosephus(termoInicio, jogo)\n\n}\n",
+            "lines": "113"
         }
     ]
 }

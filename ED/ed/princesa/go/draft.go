@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"strconv"
 )
 
 type jogador struct {
@@ -26,35 +27,33 @@ func preencherVetor(vetor []jogador) {
 
 }
 
-func josephus(termoInicio int, jogo []jogador) {
-	var varaux int
+func proxVivo(jogo []jogador, termoInicio int) int {
+	var proxMorto int
 
-	fmt.Println(jogo)
+	if !jogo[termoInicio].taVivo {
 
-	if qtdVivos(jogo) > 2 && jogo[termoInicio-1].num < len(jogo) {
-
-		jogo[termoInicio].taVivo = false
-		//toString(jogo, termoInicio)
-		josephus(termoInicio, jogo)
-
-	} else if qtdVivos(jogo) > 2 && jogo[termoInicio-1].num > len(jogo) {
-
-		for i := range jogo {
+		for i := termoInicio; i < len(jogo); i++ {
 
 			if jogo[i].taVivo {
-				jogo[i].num = varaux
-				jogo[i].taVivo = false
-				//toString(jogo, termoInicio)
-				break
+				proxMorto = jogo[i].num
+			} else {
+				proxMorto = termoInicio
 			}
 
 		}
-		josephus(varaux, jogo)
 
-	} else if qtdVivos(jogo) == 2 {
+	}
 
-		jogo[termoInicio].taVivo = false
-		//toString(jogo, termoInicio)
+	return proxMorto
+}
+
+func josephus(termoInicio int, jogo []jogador) {
+	fmt.Println(toString(jogo, termoInicio))
+
+	if qtdVivos(jogo) > 2 && jogo[termoInicio].num < len(jogo) {
+
+		jogo[proxVivo(jogo, termoInicio)].taVivo = false
+		josephus(proxVivo(jogo, termoInicio), jogo)
 
 	}
 
@@ -77,7 +76,26 @@ func qtdVivos(pessoas []jogador) int {
 
 }
 
-//func toString(vetor []jogador, termoInicio int) {}
+func toString(vetor []jogador, termoInicio int) []string {
+	var vetorString = make([]string, 0)
+
+	vetorString = append(vetorString, "")
+	for i := range vetor {
+
+		if vetor[i].num == termoInicio {
+
+			vetorString = append(vetorString, strconv.Itoa(termoInicio)+">")
+
+		} else if vetor[i].taVivo {
+			vetorString = append(vetorString, strconv.Itoa(vetor[i].num)+"")
+		}
+
+	}
+	vetorString = append(vetorString, "")
+
+	return vetorString
+
+}
 
 func main() {
 
