@@ -1,0 +1,25 @@
+version: '0.2'
+sources:
+- name: sandbox
+  target: sandbox
+  type: local
+  writeable: true
+  quests: null
+  tasks: null
+- name: fup
+  target: https://github.com/qxcodefup/arcade.git
+  type: git
+  writeable: false
+  quests: null
+  tasks: null
+expanded:
+- fup@games
+tasks: {}
+flags:
+  panel: 0
+  inbox: 0
+  show_panel: 1
+  task_graph_mode: 0
+  show_time: 0
+lang: go
+selected: fup@pr_jokenpo
