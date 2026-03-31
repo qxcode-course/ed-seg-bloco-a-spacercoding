@@ -27,34 +27,39 @@ func preencherVetor(vetor []jogador) {
 
 }
 
-func proxVivo(jogo []jogador, termoInicio int) int {
+func proxVivo(jogo []jogador, numInicio int) int {
 	var proxMorto int
 
-	if !jogo[termoInicio].taVivo {
-
-		for i := termoInicio; i < len(jogo); i++ {
-
+	if jogo[numInicio].taVivo && numInicio < len(jogo)-1 {
+		proxMorto = jogo[numInicio].num
+	} else if numInicio < len(jogo)-1 {
+		for i := numInicio + 1; i < len(jogo); i++ {
 			if jogo[i].taVivo {
 				proxMorto = jogo[i].num
-			} else {
-				proxMorto = termoInicio
+				break
 			}
-
 		}
-
 	}
 
 	return proxMorto
 }
 
-func josephus(termoInicio int, jogo []jogador) {
-	fmt.Println(toString(jogo, termoInicio))
+func josephus(numInicio int, jogo []jogador) {
+	fmt.Println(toString(jogo, numInicio))
+	if numInicio == 0 {
+		numInicio++
+	}
 
-	if qtdVivos(jogo) > 2 && jogo[termoInicio].num < len(jogo) {
+	if qtdVivos(jogo) > 2 && numInicio < len(jogo)-2 {
 
-		jogo[proxVivo(jogo, termoInicio)].taVivo = false
-		josephus(proxVivo(jogo, termoInicio), jogo)
+		jogo[numInicio].taVivo = false
+		numInicio = proxVivo(jogo, numInicio)
+		josephus(numInicio, jogo)
 
+	} else if numInicio == len(jogo)-2 && qtdVivos(jogo) > 2 {
+		jogo[numInicio].taVivo = false
+		numInicio = proxVivo(jogo, 1)
+		josephus(numInicio, jogo)
 	}
 
 }
@@ -82,7 +87,7 @@ func toString(vetor []jogador, termoInicio int) []string {
 	vetorString = append(vetorString, "")
 	for i := range vetor {
 
-		if vetor[i].num == termoInicio {
+		if vetor[i].num == termoInicio && vetor[i].taVivo {
 
 			vetorString = append(vetorString, strconv.Itoa(termoInicio)+">")
 
