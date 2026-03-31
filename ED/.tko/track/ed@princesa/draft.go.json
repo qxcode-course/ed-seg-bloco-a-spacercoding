@@ -757,8 +757,363 @@
         },
         {
             "label": "2026-03-31_12-12-09",
-            "content": "package main\n\nimport (\n\t\"fmt\"\n\t\"strconv\"\n)\n\ntype jogador struct {\n\tnum    int\n\ttaVivo bool\n}\n\nfunc atribuirInt(inteiro *int) {\n\n\tfmt.Scan(inteiro)\n\n}\n\nfunc preencherVetor(vetor []jogador) {\n\n\tfor i := range vetor {\n\n\t\tvetor[i].num = i + 1\n\t\tvetor[i].taVivo = true\n\n\t}\n\n}\n\nfunc proxVivo(jogo []jogador, numInicio int) int {\n\tvar proxMorto int\n\n\tif jogo[numInicio].taVivo && numInicio < len(jogo)-1 {\n\t\tproxMorto = jogo[numInicio].num\n\t} else if numInicio < len(jogo)-1 {\n\t\tfor i := numInicio + 1; i < len(jogo); i++ {\n\t\t\tif jogo[i].taVivo {\n\t\t\t\tproxMorto = jogo[i].num\n\t\t\t\tbreak\n\t\t\t}\n\t\t}\n\t}\n\n\treturn proxMorto\n}\n\nfunc josephus(numInicio int, jogo []jogador) {\n\tfmt.Println(toString(jogo, numInicio))\n\tif numInicio == 0 {\n\t\tnumInicio++\n\t}\n\n\tif qtdVivos(jogo) > 2 && numInicio < len(jogo)-2 {\n\n\t\tjogo[numInicio].taVivo = false\n\t\tnumInicio = proxVivo(jogo, numInicio)\n\t\tjosephus(numInicio, jogo)\n\n\t} else if numInicio == len(jogo)-2 && qtdVivos(jogo) > 2 {\n\t\tjogo[numInicio].taVivo = false\n\t\tnumInicio = proxVivo(jogo, 1)\n\t\tjosephus(numInicio, jogo)\n\t}\n\n}\n\nfunc qtdVivos(pessoas []jogador) int {\n\tvar numVivos int\n\n\tfor i := range pessoas {\n\n\t\tif pessoas[i].taVivo {\n\n\t\t\tnumVivos++\n\n\t\t}\n\n\t}\n\n\treturn numVivos\n\n}\n\nfunc toString(vetor []jogador, termoInicio int) []string {\n\tvar vetorString = make([]string, 0)\n\n\tvetorString = append(vetorString, \"\")\n\tfor i := range vetor {\n\n\t\tif vetor[i].num == termoInicio && vetor[i].taVivo {\n\n\t\t\tvetorString = append(vetorString, strconv.Itoa(termoInicio)+\">\")\n\n\t\t} else if vetor[i].taVivo {\n\t\t\tvetorString = append(vetorString, strconv.Itoa(vetor[i].num)+\"\")\n\t\t}\n\n\t}\n\tvetorString = append(vetorString, \"\")\n\n\treturn vetorString\n\n}\n\nfunc main() {\n\n\tvar qtdPessoas, termoInicio int\n\n\tatribuirInt(&qtdPessoas)\n\tatribuirInt(&termoInicio)\n\n\tvar jogo = make([]jogador, qtdPessoas)\n\n\tpreencherVetor(jogo)\n\n\tjosephus(termoInicio, jogo)\n\n}\n",
+            "content": "@@ -1045,71 +1045,8 @@\n )%0A%09%7D\n- else if numInicio == len(jogo)-1 && qtdVivos(jogo) %3E 2 %7B%0A%09%09%0A%09%7D\n %0A%0A%7D%0A\n",
             "lines": "118"
+        },
+        {
+            "label": "2026-03-31_18-46-28",
+            "content": "@@ -1105,70 +1105,8 @@\n %7B%0A%09%09\n-jogo%5BnumInicio%5D.taVivo = false%0A%09%09numInicio = proxVivo(jogo, 0)\n %0A%09%7D%0A\n",
+            "lines": "120"
+        },
+        {
+            "label": "2026-03-31_18-48-52",
+            "content": "@@ -1168,36 +1168,8 @@\n  0)%0A\n-%09%09josephus(numInicio, jogo)%0A\n %09%7D%0A%0A\n",
+            "lines": "121"
+        },
+        {
+            "label": "2026-03-31_18-49-08",
+            "content": "@@ -583,17 +583,16 @@\n %0A%09%09%7D%0A%09%7D%0A\n-%09\n %0A%09return\n@@ -1170,35 +1170,8 @@\n )%0A%09%09\n-fmt.Println(numInicio)%0A%09%09//\n jose\n",
+            "lines": "122"
+        },
+        {
+            "label": "2026-03-31_18-50-52",
+            "content": "@@ -1107,30 +1107,16 @@\n %0A%09%09jogo%5B\n-proxVivo(jogo,\n numInici\n@@ -1116,17 +1116,16 @@\n umInicio\n-)\n %5D.taVivo\n",
+            "lines": "123"
+        },
+        {
+            "label": "2026-03-31_18-52-05",
+            "content": "@@ -1186,10 +1186,8 @@\n )%0A%09%09\n-//\n fmt.\n@@ -1199,32 +1199,34 @@\n ln(numInicio)%0A%09%09\n+//\n josephus(numInic\n",
+            "lines": "123"
+        },
+        {
+            "label": "2026-03-31_18-52-29",
+            "content": "@@ -1099,32 +1099,46 @@\n o) %3E 2 %7B%0A%09%09jogo%5B\n+proxVivo(jogo,\n numInicio-1%5D.taV\n@@ -1130,18 +1130,17 @@\n umInicio\n--1\n+)\n %5D.taVivo\n@@ -1182,16 +1182,18 @@\n o, 0)%0A%09%09\n+//\n fmt.Prin\n",
+            "lines": "123"
+        },
+        {
+            "label": "2026-03-31_18-52-58",
+            "content": "@@ -1108,32 +1108,34 @@\n %09%09jogo%5BnumInicio\n+-1\n %5D.taVivo = false\n",
+            "lines": "123"
+        },
+        {
+            "label": "2026-03-31_18-53-15",
+            "content": "@@ -1165,16 +1165,41 @@\n ogo, 0)%0A\n+%09%09fmt.Println(numInicio)%0A\n %09%09joseph\n",
+            "lines": "123"
+        },
+        {
+            "label": "2026-03-31_18-54-03",
+            "content": "@@ -1001,33 +1001,33 @@\n  proxVivo(jogo, \n-0\n+1\n )%0A%09%09josephus(num\n",
+            "lines": "122"
+        },
+        {
+            "label": "2026-03-31_18-57-30",
+            "content": "@@ -1001,33 +1001,33 @@\n  proxVivo(jogo, \n-1\n+0\n )%0A%09%09josephus(num\n@@ -1162,17 +1162,17 @@\n o(jogo, \n-1\n+0\n )%0A%09%09jose\n",
+            "lines": "122"
+        },
+        {
+            "label": "2026-03-31_18-57-45",
+            "content": "@@ -346,34 +346,32 @@\n f jogo%5BnumInicio\n-+1\n %5D.taVivo %7B%0A%09%09pro\n@@ -359,24 +359,51 @@\n cio%5D.taVivo \n+&& numInicio %3C len(jogo)-1 \n %7B%0A%09%09proxMort\n@@ -420,18 +420,16 @@\n umInicio\n-+1\n %5D.num%0A%09%7D\n@@ -434,16 +434,43 @@\n %09%7D else \n+if numInicio %3C len(jogo)-1 \n %7B%0A%09%09for \n@@ -487,10 +487,12 @@\n icio\n-+2\n+ + 1\n ; i \n@@ -692,16 +692,54 @@\n Inicio))\n+%0A%09if numInicio == 0 %7B%0A%09%09numInicio++%0A%09%7D\n %0A%0A%09if qt\n@@ -783,11 +783,9 @@\n ogo)\n- - \n+-\n 2 %7B%0A\n@@ -805,10 +805,8 @@\n icio\n-+1\n %5D.ta\n@@ -887,16 +887,322 @@\n  jogo)%0A%0A\n+%09%7D else if numInicio == len(jogo)-2 && qtdVivos(jogo) %3E 2 %7B%0A%09%09jogo%5BnumInicio%5D.taVivo = false%0A%09%09numInicio = proxVivo(jogo, 1)%0A%09%09josephus(numInicio, jogo)%0A%09%7D else if numInicio == len(jogo)-1 && qtdVivos(jogo) %3E 2 %7B%0A%09%09jogo%5BnumInicio%5D.taVivo = false%0A%09%09numInicio = proxVivo(jogo, 1)%0A%09%09josephus(numInicio, jogo)%0A\n %09%7D%0A%0A%7D%0A%0Af\n@@ -1843,19 +1843,21 @@\n essoas, \n-num\n+termo\n Inicio i\n@@ -1904,31 +1904,20 @@\n nt(&\n-num\n+termo\n Inicio)\n-%0A%09numInicio--\n %0A%0A%09v\n@@ -1980,35 +1980,37 @@\n ogo)%0A%0A%09josephus(\n-num\n+termo\n Inicio, jogo)%0A%0A%7D\n",
+            "lines": "122"
+        },
+        {
+            "label": "2026-03-31_19-05-15",
+            "content": "@@ -1162,12 +1162,8 @@\n cio \n-+ 1 \n && v\n",
+            "lines": "112"
+        },
+        {
+            "label": "2026-03-31_19-05-46",
+            "content": "@@ -1245,18 +1245,16 @@\n moInicio\n-+1\n )+%22%3E%22)%0A%0A\n",
+            "lines": "112"
+        },
+        {
+            "label": "2026-03-31_19-05-55",
+            "content": "@@ -638,18 +638,16 @@\n umInicio\n-+1\n ))%0A%0A%09if \n@@ -1158,16 +1158,20 @@\n oInicio \n++ 1 \n && vetor\n@@ -1245,16 +1245,18 @@\n moInicio\n++1\n )+%22%3E%22)%0A%0A\n",
+            "lines": "112"
+        },
+        {
+            "label": "2026-03-31_19-06-50",
+            "content": "@@ -638,16 +638,18 @@\n umInicio\n++1\n ))%0A%0A%09if \n",
+            "lines": "112"
+        },
+        {
+            "label": "2026-03-31_19-07-57",
+            "content": "@@ -1130,17 +1130,28 @@\n %7B%0A%0A%09%09if \n-i\n+vetor%5Bi%5D.num\n  == term\n",
+            "lines": "112"
+        },
+        {
+            "label": "2026-03-31_19-08-21",
+            "content": "@@ -1230,18 +1230,16 @@\n moInicio\n-+1\n )+%22%3E%22)%0A%0A\n",
+            "lines": "112"
+        },
+        {
+            "label": "2026-03-31_19-08-31",
+            "content": "@@ -987,35 +987,37 @@\n etor %5B%5Djogador, \n-num\n+termo\n Inicio int) %5B%5Dst\n@@ -1135,19 +1135,21 @@\n if i == \n-num\n+termo\n Inicio &\n@@ -1219,19 +1219,21 @@\n nv.Itoa(\n-num\n+termo\n Inicio+1\n",
+            "lines": "112"
+        },
+        {
+            "label": "2026-03-31_19-15-31",
+            "content": "@@ -978,20 +978,21 @@\n oString(\n-jogo\n+vetor\n  %5B%5Djogad\n@@ -1114,20 +1114,21 @@\n = range \n-jogo\n+vetor\n  %7B%0A%0A%09%09if\n@@ -1132,31 +1132,16 @@\n %09if i ==\n- proxVivo(jogo,\n  numInic\n@@ -1146,17 +1146,17 @@\n icio\n-)\n  && \n-jogo\n+vetor\n %5Bi%5D.\n@@ -1215,31 +1215,16 @@\n nv.Itoa(\n-proxVivo(jogo, \n numInici\n@@ -1224,17 +1224,18 @@\n umInicio\n-)\n++1\n )+%22%3E%22)%0A%0A\n@@ -1246,20 +1246,21 @@\n else if \n-jogo\n+vetor\n %5Bi%5D.taVi\n@@ -1314,20 +1314,21 @@\n nv.Itoa(\n-jogo\n+vetor\n %5Bi%5D.num)\n",
+            "lines": "112"
+        },
+        {
+            "label": "2026-03-31_19-16-35",
+            "content": "@@ -978,21 +978,20 @@\n oString(\n-vetor\n+jogo\n  %5B%5Djogad\n@@ -1109,29 +1109,28 @@\n  i := range \n-vetor\n+jogo\n  %7B%0A%0A%09%09if i =\n@@ -1135,30 +1135,41 @@\n  == \n-numInicio + 2 && vetor\n+proxVivo(jogo, numInicio) && jogo\n %5Bi%5D.\n@@ -1228,16 +1228,31 @@\n nv.Itoa(\n+proxVivo(jogo, \n numInici\n@@ -1252,18 +1252,17 @@\n umInicio\n-+2\n+)\n )+%22%3E%22)%0A%0A\n@@ -1273,21 +1273,20 @@\n else if \n-vetor\n+jogo\n %5Bi%5D.taVi\n@@ -1340,21 +1340,20 @@\n nv.Itoa(\n-vetor\n+jogo\n %5Bi%5D.num)\n",
+            "lines": "112"
+        },
+        {
+            "label": "2026-03-31_19-17-22",
+            "content": "@@ -1233,9 +1233,9 @@\n cio+\n-3\n+2\n )+%22%3E\n",
+            "lines": "112"
+        },
+        {
+            "label": "2026-03-31_19-17-57",
+            "content": "@@ -995,21 +995,19 @@\n ogador, \n-termo\n+num\n Inicio i\n@@ -1132,29 +1132,16 @@\n %09if \n-vetor%5Bi%5D.num == termo\n+i == num\n Inic\n@@ -1145,17 +1145,17 @@\n nicio + \n-1\n+2\n  && veto\n@@ -1223,21 +1223,19 @@\n toa(\n-termo\n+num\n Inicio+\n-1\n+3\n )+%22%3E\n",
+            "lines": "112"
+        },
+        {
+            "label": "2026-03-31_19-18-14",
+            "content": "@@ -1245,16 +1245,18 @@\n moInicio\n++1\n )+%22%3E%22)%0A%0A\n",
+            "lines": "112"
+        },
+        {
+            "label": "2026-03-31_19-18-41",
+            "content": "@@ -1158,16 +1158,20 @@\n oInicio \n++ 1 \n && vetor\n@@ -1245,18 +1245,16 @@\n moInicio\n-+1\n )+%22%3E%22)%0A%0A\n",
+            "lines": "112"
+        },
+        {
+            "label": "2026-03-31_19-18-51",
+            "content": "@@ -1241,16 +1241,18 @@\n moInicio\n++1\n )+%22%3E%22)%0A%0A\n",
+            "lines": "112"
+        },
+        {
+            "label": "2026-03-31_19-19-00",
+            "content": "@@ -1162,12 +1162,8 @@\n cio \n-+ 1 \n && v\n",
+            "lines": "112"
+        },
+        {
+            "label": "2026-03-31_19-19-19",
+            "content": "@@ -1245,18 +1245,16 @@\n moInicio\n-+1\n )+%22%3E%22)%0A%0A\n",
+            "lines": "112"
+        },
+        {
+            "label": "2026-03-31_19-19-27",
+            "content": "@@ -805,166 +805,8 @@\n o)%0A%0A\n-%09%7D else if qtdVivos(jogo) %3E 2 && numInicio %3C len(jogo) - 1 %7B%0A%0A%09%09jogo%5BnumInicio+1%5D.taVivo = false%0A%09%09numInicio = proxVivo(jogo, 0)%0A%09%09josephus(numInicio, jogo)%0A%0A\n %09%7D%0A%0A\n",
+            "lines": "112"
+        },
+        {
+            "label": "2026-03-31_19-24-19",
+            "content": "@@ -354,16 +354,18 @@\n umInicio\n++1\n %5D.taVivo\n@@ -395,16 +395,18 @@\n umInicio\n++1\n %5D.num%0A%09%7D\n@@ -434,17 +434,17 @@\n mInicio+\n-1\n+2\n ; i %3C le\n",
+            "lines": "118"
+        },
+        {
+            "label": "2026-03-31_19-24-59",
+            "content": "@@ -379,16 +379,21 @@\n Morto = \n+jogo%5B\n numInici\n@@ -393,16 +393,21 @@\n umInicio\n+%5D.num\n %0A%09%7D else\n@@ -493,17 +493,27 @@\n Morto = \n-i\n+jogo%5Bi%5D.num\n %0A%09%09%09%09bre\n",
+            "lines": "118"
+        },
+        {
+            "label": "2026-03-31_19-25-26",
+            "content": "@@ -672,9 +672,9 @@\n ) - \n-3\n+2\n  %7B%0A%0A\n@@ -826,33 +826,33 @@\n o %3C len(jogo) - \n-2\n+1\n  %7B%0A%0A%09%09jogo%5BnumIn\n",
+            "lines": "118"
+        },
+        {
+            "label": "2026-03-31_19-26-45",
+            "content": "@@ -1265,10 +1265,8 @@\n %0A%0A%09%09\n-/*\n if v\n@@ -1402,10 +1402,8 @@\n lse \n-*/\n if v\n@@ -1423,12 +1423,8 @@\n o %7B%0A\n-%09%09 %0A\n %09%09%09v\n",
+            "lines": "118"
+        },
+        {
+            "label": "2026-03-31_19-28-21",
+            "content": "@@ -346,34 +346,32 @@\n f jogo%5BnumInicio\n-+1\n %5D.taVivo %7B%0A%09%09pro\n",
+            "lines": "119"
+        },
+        {
+            "label": "2026-03-31_19-29-05",
+            "content": "@@ -941,172 +941,8 @@\n o)%0A%0A\n-%09%7D else if qtdVivos(jogo) %3E 2 && numInicio %3C len(jogo) - 1 %7B%0A%0A%09%09jogo%5BproxVivo(jogo, 0)%5D.taVivo = false%0A%09%09numInicio = proxVivo(jogo, 0)%0A%09%09josephus(numInicio, jogo)%0A%0A\n %09%7D%0A%0A\n",
+            "lines": "119"
+        },
+        {
+            "label": "2026-03-31_19-31-13",
+            "content": "@@ -836,17 +836,17 @@\n jogo) - \n-1\n+2\n  %7B%0A%0A%09%09jo\n@@ -991,16 +991,20 @@\n en(jogo)\n+ - 1\n  %7B%0A%0A%09%09jo\n",
+            "lines": "125"
+        },
+        {
+            "label": "2026-03-31_19-32-40",
+            "content": "@@ -670,17 +670,17 @@\n jogo) - \n-2\n+3\n  %7B%0A%0A%09%09jo\n",
+            "lines": "125"
+        },
+        {
+            "label": "2026-03-31_19-32-50",
+            "content": "@@ -822,18 +822,17 @@\n mInicio \n-==\n+%3C\n  len(jog\n@@ -828,33 +828,33 @@\n o %3C len(jogo) - \n-2\n+1\n  %7B%0A%0A%09%09jogo%5BnumIn\n@@ -980,17 +980,17 @@\n mInicio \n-%3E\n+%3C\n  len(jog\n@@ -983,36 +983,32 @@\n icio %3C len(jogo)\n- - 2\n  %7B%0A%0A%09%09jogo%5BproxV\n",
+            "lines": "125"
+        },
+        {
+            "label": "2026-03-31_19-33-58",
+            "content": "@@ -674,9 +674,9 @@\n ) - \n-3\n+2\n  %7B%0A%0A\n@@ -814,33 +814,34 @@\n  2 && numInicio \n-%3C\n+==\n  len(jogo) - 2 %7B\n@@ -973,33 +973,33 @@\n  2 && numInicio \n-%3C\n+%3E\n  len(jogo) - 1 %7B\n@@ -995,17 +995,17 @@\n jogo) - \n-1\n+2\n  %7B%0A%0A%09%09jo\n",
+            "lines": "125"
+        },
+        {
+            "label": "2026-03-31_19-34-17",
+            "content": "@@ -657,17 +657,16 @@\n Inicio %3C\n-=\n  len(jog\n@@ -814,34 +814,33 @@\n  2 && numInicio \n-==\n+%3C\n  len(jogo) - 2 %7B\n@@ -980,18 +980,17 @@\n mInicio \n-==\n+%3C\n  len(jog\n",
+            "lines": "125"
+        },
+        {
+            "label": "2026-03-31_19-34-53",
+            "content": "@@ -657,16 +657,17 @@\n Inicio %3C\n+=\n  len(jog\n@@ -663,33 +663,33 @@\n  %3C= len(jogo) - \n-2\n+3\n  %7B%0A%0A%09%09jogo%5BnumIn\n",
+            "lines": "125"
+        },
+        {
+            "label": "2026-03-31_19-35-46",
+            "content": "@@ -657,17 +657,16 @@\n Inicio %3C\n-=\n  len(jog\n@@ -674,9 +674,9 @@\n ) - \n-3\n+2\n  %7B%0A%0A\n",
+            "lines": "125"
+        },
+        {
+            "label": "2026-03-31_19-36-45",
+            "content": "@@ -507,16 +507,17 @@\n %09%7D%0A%09%09%7D%0A%09\n+%7D\n %0A%09%0A%09retu\n",
+            "lines": "125"
+        },
+        {
+            "label": "2026-03-31_19-37-46",
+            "content": "@@ -336,16 +336,81 @@\n to int%0A%0A\n+%09if jogo%5BnumInicio+1%5D.taVivo %7B%0A%09%09proxMorto = numInicio%0A%09%7D else %7B%0A\n %09%09for i \n",
+            "lines": "125"
+        },
+        {
+            "label": "2026-03-31_19-37-58",
+            "content": "@@ -340,75 +340,8 @@\n nt%0A%0A\n-%09if jogo%5BnumInicio+1%5D.taVivo %7B%0A%09%09proxMorto = numInicio+1%0A%09%7D else %7B%0A\n %09%09fo\n",
+            "lines": "122"
+        },
+        {
+            "label": "2026-03-31_19-38-24",
+            "content": "@@ -509,17 +509,16 @@\n %09%7D%0A%09%09%7D%0A%09\n-%7D\n %0A%09%0A%09retu\n",
+            "lines": "125"
+        },
+        {
+            "label": "2026-03-31_19-38-47",
+            "content": "@@ -659,16 +659,17 @@\n Inicio %3C\n+=\n  len(jog\n@@ -665,33 +665,33 @@\n  %3C= len(jogo) - \n-2\n+3\n  %7B%0A%0A%09%09jogo%5BnumIn\n",
+            "lines": "125"
+        },
+        {
+            "label": "2026-03-31_19-39-06",
+            "content": "@@ -355,17 +355,17 @@\n mInicio+\n-2\n+1\n %5D.taVivo\n@@ -391,17 +391,17 @@\n mInicio+\n-2\n+1\n %0A%09%7D else\n",
+            "lines": "125"
+        },
+        {
+            "label": "2026-03-31_19-39-29",
+            "content": "@@ -295,27 +295,24 @@\n ogador, \n-possivelViv\n+numInici\n o int) i\n@@ -341,29 +341,96 @@\n t%0A%0A%09\n-for i := possivelVivo\n+if jogo%5BnumInicio+2%5D.taVivo %7B%0A%09%09proxMorto = numInicio+2%0A%09%7D else %7B%0A%09%09for i := numInicio+1\n ; i \n@@ -450,16 +450,17 @@\n i++ %7B%0A%09%09\n+%09\n if jogo%5B\n@@ -471,16 +471,17 @@\n aVivo %7B%0A\n+%09\n %09%09%09proxM\n@@ -496,14 +496,20 @@\n %0A%09%09%09\n+%09\n break%0A\n+%09%09%09%7D%0A\n %09%09%7D%0A\n@@ -750,18 +750,340 @@\n umInicio\n-+1\n+)%0A%09%09josephus(numInicio, jogo)%0A%0A%09%7D else if qtdVivos(jogo) %3E 2 && numInicio == len(jogo) - 2 %7B%0A%0A%09%09jogo%5BnumInicio+1%5D.taVivo = false%0A%09%09numInicio = proxVivo(jogo, 0)%0A%09%09josephus(numInicio, jogo)%0A%0A%09%7D else if qtdVivos(jogo) %3E 2 && numInicio == len(jogo) - 1 %7B%0A%0A%09%09jogo%5BproxVivo(jogo, 0)%5D.taVivo = false%0A%09%09numInicio = proxVivo(jogo, 0\n )%0A%09%09jose\n@@ -1834,16 +1834,29 @@\n mInicio)\n+%0A%09numInicio--\n %0A%0A%09var j\n",
+            "lines": "125"
+        },
+        {
+            "label": "2026-03-31_19-44-07",
+            "content": "@@ -1444,21 +1444,8 @@\n cio)\n-%0A%09numInicio--\n %0A%0A%09v\n",
+            "lines": "108"
+        },
+        {
+            "label": "2026-03-31_19-45-31",
+            "content": "@@ -715,166 +715,8 @@\n o)%0A%0A\n-%09%7D else if qtdVivos(jogo) %3E 2 && numInicio %3C len(jogo) - 1 %7B%0A%0A%09%09jogo%5BnumInicio+1%5D.taVivo = false%0A%09%09numInicio = proxVivo(jogo, 0)%0A%09%09josephus(numInicio, jogo)%0A%0A\n %09%7D%0A%0A\n",
+            "lines": "109"
+        },
+        {
+            "label": "2026-03-31_19-47-26",
+            "content": "@@ -430,24 +430,13 @@\n %0A%09%09%09\n+b\n re\n-turn proxMorto\n+ak\n %0A%09%09%7D\n@@ -449,17 +449,25 @@\n %09return \n-0\n+proxMorto\n %0A%7D%0A%0Afunc\n",
+            "lines": "115"
+        },
+        {
+            "label": "2026-03-31_19-48-27",
+            "content": "@@ -430,13 +430,24 @@\n %0A%09%09%09\n-b\n re\n-ak\n+turn proxMorto\n %0A%09%09%7D\n@@ -460,25 +460,17 @@\n %09return \n-proxMorto\n+0\n %0A%7D%0A%0Afunc\n@@ -615,31 +615,16 @@\n %0A%09%09jogo%5B\n-proxVivo(jogo, \n numInici\n@@ -624,17 +624,18 @@\n umInicio\n-)\n++1\n %5D.taVivo\n",
+            "lines": "115"
+        },
+        {
+            "label": "2026-03-31_19-50-56",
+            "content": "@@ -790,39 +790,24 @@\n 1 %7B%0A%0A%09%09jogo%5B\n-proxVivo(jogo, \n numInicio)%5D.\n@@ -795,33 +795,34 @@\n %09%09jogo%5BnumInicio\n-)\n++1\n %5D.taVivo = false\n",
+            "lines": "115"
+        },
+        {
+            "label": "2026-03-31_19-51-20",
+            "content": "@@ -818,18 +818,16 @@\n umInicio\n-+1\n )%5D.taViv\n",
+            "lines": "115"
+        },
+        {
+            "label": "2026-03-31_19-51-49",
+            "content": "@@ -628,34 +628,32 @@\n (jogo, numInicio\n-+1\n )%5D.taVivo = fals\n",
+            "lines": "115"
+        },
+        {
+            "label": "2026-03-31_19-51-58",
+            "content": "@@ -781,16 +781,20 @@\n en(jogo)\n+ - 1\n  %7B%0A%0A%09%09jo\n",
+            "lines": "115"
+        },
+        {
+            "label": "2026-03-31_19-54-38",
+            "content": "@@ -785,12 +785,8 @@\n ogo)\n- - 1\n  %7B%0A%0A\n",
+            "lines": "115"
+        },
+        {
+            "label": "2026-03-31_19-55-06",
+            "content": "@@ -905,168 +905,8 @@\n o)%0A%0A\n-%09%7D else if qtdVivos(jogo) %3E 2 && numInicio %3C len(jogo) %7B%0A%0A%09%09jogo%5BproxVivo(jogo, 0)%5D.taVivo = false%0A%09%09numInicio = proxVivo(jogo, 0)%0A%09%09josephus(numInicio, jogo)%0A%0A\n %09%7D%0A%0A\n",
+            "lines": "115"
+        },
+        {
+            "label": "2026-03-31_19-56-11",
+            "content": "@@ -1065,130 +1065,8 @@\n o)%0A%0A\n-%09%7D else %7B%0A%0A%09%09jogo%5BproxVivo(jogo, 0)%5D.taVivo = false%0A%09%09numInicio = proxVivo(jogo, 0)%0A%09%09println(toString(jogo, numInicio))%0A%0A\n %09%7D%0A%0A\n",
+            "lines": "121"
+        },
+        {
+            "label": "2026-03-31_19-57-50",
+            "content": "@@ -1073,30 +1073,8 @@\n lse \n-if qtdVivos(jogo) == 2\n %7B%0A%0A%09\n",
+            "lines": "127"
+        },
+        {
+            "label": "2026-03-31_19-58-10",
+            "content": "@@ -1169,21 +1169,17 @@\n o, 0)%0A%09%09\n-fmt.P\n+p\n rintln(t\n",
+            "lines": "127"
+        },
+        {
+            "label": "2026-03-31_19-58-27",
+            "content": "@@ -408,29 +408,8 @@\n ivo \n-&& i != possivelVivo \n %7B%0A%09%09\n",
+            "lines": "127"
+        },
+        {
+            "label": "2026-03-31_19-59-20",
+            "content": "@@ -361,20 +361,16 @@\n ivelVivo\n- + 1\n ; i %3C le\n@@ -400,24 +400,45 @@\n o%5Bi%5D.taVivo \n+&& i != possivelVivo \n %7B%0A%09%09%09proxMor\n",
+            "lines": "127"
+        },
+        {
+            "label": "2026-03-31_19-59-42",
+            "content": "@@ -361,16 +361,20 @@\n ivelVivo\n+ + 1\n ; i %3C le\n",
+            "lines": "127"
+        },
+        {
+            "label": "2026-03-31_19-59-56",
+            "content": "@@ -341,13 +341,8 @@\n  int\n- = -1\n %0A%0A%09f\n@@ -1100,153 +1100,46 @@\n %0A%0A%09%09\n-if proxVivo(jogo, numInicio) == -1 %7B%0A%09%09%09jogo%5BproxVivo(jogo, 0)%5D.taVivo = false%0A%09%09%7D else %7B%0A%09%09%09jogo%5BproxVivo(jogo, numInicio+1)%5D.taVivo = false%0A%09%09%7D\n+jogo%5BproxVivo(jogo, 0)%5D.taVivo = false\n %0A%09%09n\n",
+            "lines": "127"
+        },
+        {
+            "label": "2026-03-31_20-04-03",
+            "content": "@@ -1223,16 +1223,18 @@\n umInicio\n++1\n )%5D.taViv\n",
+            "lines": "131"
+        },
+        {
+            "label": "2026-03-31_20-06-01",
+            "content": "@@ -1215,34 +1215,32 @@\n (jogo, numInicio\n-+1\n )%5D.taVivo = fals\n",
+            "lines": "131"
+        },
+        {
+            "label": "2026-03-31_20-06-08",
+            "content": "@@ -1223,16 +1223,18 @@\n umInicio\n++1\n )%5D.taViv\n",
+            "lines": "131"
+        },
+        {
+            "label": "2026-03-31_20-06-29",
+            "content": "@@ -1206,33 +1206,41 @@\n %5BproxVivo(jogo, \n-0\n+numInicio\n )%5D.taVivo = fals\n",
+            "lines": "131"
+        },
+        {
+            "label": "2026-03-31_20-06-40",
+            "content": "@@ -1133,30 +1133,16 @@\n cio) == \n-qtdVivos(jogo)\n -1 %7B%0A%09%09%09\n@@ -1161,25 +1161,17 @@\n o(jogo, \n-numInicio\n+0\n )%5D.taViv\n",
+            "lines": "131"
+        },
+        {
+            "label": "2026-03-31_20-07-33",
+            "content": "package main\n\nimport (\n\t\"fmt\"\n\t\"strconv\"\n)\n\ntype jogador struct {\n\tnum    int\n\ttaVivo bool\n}\n\nfunc atribuirInt(inteiro *int) {\n\n\tfmt.Scan(inteiro)\n\n}\n\nfunc preencherVetor(vetor []jogador) {\n\n\tfor i := range vetor {\n\n\t\tvetor[i].num = i + 1\n\t\tvetor[i].taVivo = true\n\n\t}\n\n}\n\nfunc proxVivo(jogo []jogador, possivelVivo int) int {\n\tvar proxMorto int = -1\n\n\tfor i := possivelVivo; i < len(jogo); i++ {\n\t\tif jogo[i].taVivo {\n\t\t\tproxMorto = i\n\t\t\tbreak\n\t\t}\n\t}\n\t\n\treturn proxMorto\n}\n\nfunc josephus(numInicio int, jogo []jogador) {\n\tfmt.Println(toString(jogo, numInicio))\n\n\tif qtdVivos(jogo) > 2 && numInicio < len(jogo) - 2 {\n\n\t\tjogo[proxVivo(jogo, numInicio+1)].taVivo = false\n\t\tnumInicio = proxVivo(jogo, numInicio+1)\n\t\tjosephus(numInicio, jogo)\n\n\t} else if qtdVivos(jogo) > 2 && numInicio < len(jogo) - 1 {\n\n\t\tjogo[proxVivo(jogo, numInicio+1)].taVivo = false\n\t\tnumInicio = proxVivo(jogo, 0)\n\t\tjosephus(numInicio, jogo)\n\n\t} else if qtdVivos(jogo) > 2 && numInicio < len(jogo) {\n\n\t\tjogo[proxVivo(jogo, 0)].taVivo = false\n\t\tnumInicio = proxVivo(jogo, 0)\n\t\tjosephus(numInicio, jogo)\n\n\t} else if qtdVivos(jogo) == 2{\n\n\t\tif proxVivo(jogo, numInicio) == qtdVivos(jogo)-1 {\n\t\t\tjogo[proxVivo(jogo, numInicio)].taVivo = false\n\t\t} else {\n\t\t\tjogo[proxVivo(jogo, 0)].taVivo = false\n\t\t}\n\t\tnumInicio = proxVivo(jogo, 0)\n\t\tfmt.Println(toString(jogo, numInicio))\n\n\t}\n\n}\n\nfunc qtdVivos(pessoas []jogador) int {\n\tvar numVivos int\n\n\tfor i := range pessoas {\n\n\t\tif pessoas[i].taVivo {\n\n\t\t\tnumVivos++\n\n\t\t}\n\n\t}\n\n\treturn numVivos\n\n}\n\nfunc toString(vetor []jogador, termoInicio int) []string {\n\tvar vetorString = make([]string, 0)\n\n\tvetorString = append(vetorString, \"\")\n\tfor i := range vetor {\n\n\t\t/*if vetor[i].num == termoInicio + 1 && vetor[i].taVivo {\n\n\t\t\tvetorString = append(vetorString, strconv.Itoa(termoInicio+1)+\">\")\n\n\t\t} else */if vetor[i].taVivo {\n\t\t \n\t\t\tvetorString = append(vetorString, strconv.Itoa(vetor[i].num)+\"\")\n\t\t}\n\n\t}\n\tvetorString = append(vetorString, \"\")\n\n\treturn vetorString\n\n}\n\nfunc main() {\n\n\tvar qtdPessoas, numInicio int\n\n\tatribuirInt(&qtdPessoas)\n\tatribuirInt(&numInicio)\n\tnumInicio--\n\n\tvar jogo = make([]jogador, qtdPessoas)\n\n\tpreencherVetor(jogo)\n\n\tjosephus(numInicio, jogo)\n\n}\n",
+            "lines": "131"
         }
     ]
 }
