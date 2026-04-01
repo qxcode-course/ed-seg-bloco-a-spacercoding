@@ -1,0 +1,19 @@
+{
+    "patches": [
+        {
+            "label": "2026-04-01_12-49-38",
+            "content": "@@ -41,214 +41,35 @@\n     \n-var tempoSeg, hora, minuto, segundo int%0A%0A    fmt.Scan(&tempoSeg)%0A    hora = tempoSeg / 360%0A    minuto = (tempoSeg %25 360) / 60%0A    segundo = tempoSeg %25 60%0A%0A    fmt.Printf(%22%25d:%25d:%25d%5Cn%22, hora, minuto, segundo)%0A\n+fmt.Println(%22Hello, World!%22)\n %0A%7D%0A\n",
+            "lines": "5"
+        },
+        {
+            "label": "2026-04-01_12-53-14",
+            "content": "@@ -127,17 +127,16 @@\n eg / 360\n-0\n %0A    min\n@@ -156,17 +156,16 @@\n eg %25 360\n-0\n ) / 60%0A \n",
+            "lines": "13"
+        },
+        {
+            "label": "2026-04-01_12-53-32",
+            "content": "package main\nimport \"fmt\"\nfunc main() {\n    var tempoSeg, hora, minuto, segundo int\n\n    fmt.Scan(&tempoSeg)\n    hora = tempoSeg / 3600\n    minuto = (tempoSeg % 3600) / 60\n    segundo = tempoSeg % 60\n\n    fmt.Printf(\"%d:%d:%d\\n\", hora, minuto, segundo)\n\n}\n",
+            "lines": "13"
+        }
+    ]
+}

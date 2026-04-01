@@ -8,60 +8,27 @@ func atribuirInt(endereco *int) {
 
 }
 
-func updtFila(fila, desistentes map[int]int) {
-	var filaAtualizada = make([]string, 0)
+type pessoa struct {
 
-	for i := range fila {
-
-		if fila[i] == desistentes[i] {
-
-			fila[i] = 0
-
-		} else {
-
-			filaAtualizada = append(filaAtualizada, fmt.Sprint(fila[i]))
-
-		}
-
-	}
-
-	for i := 0; i < len(filaAtualizada)-1; i++ {
-
-		fmt.Printf("%s ", filaAtualizada[i])
-
-	}
-
-	fmt.Printf("%s \n", filaAtualizada[len(filaAtualizada)-1])
+	presente bool
+	index int
 
 }
 
 func main() {
+	var qtdFila, qtdDesistentes int
 
-	var qtdPessoas, qtdDesistentes int
-	var fila = make(map[int]int, qtdPessoas)
+	atribuirInt(&qtdFila)
 
-	atribuirInt(&qtdPessoas)
+	var fila = make(map[int]pessoa, qtdFila)
 
-	for i := 0; i < qtdPessoas; i++ {
+	for i := range qtdFila {
 		var x int
-		atribuirInt(&x)
 
-		fila[x] = x
+		atribuirInt(&x)
 
 	}
 
-	atribuirInt(&qtdDesistentes)
-
-	var desistentes = make(map[int]int, qtdDesistentes)
-
-	for i := 0; i < qtdDesistentes; i++ {
-		var x int
-		atribuirInt(&x)
-
-		desistentes[x] = x
-
-	}
-
-	updtFila(fila, desistentes)
+	var desistentes = make(map[int]bool, qtdDesistentes)
 
 }

@@ -1,0 +1,14 @@
+{
+    "patches": [
+        {
+            "label": "2026-04-01_12-40-47",
+            "content": "@@ -126,17 +126,15 @@\n num1\n- +\n+,\n  num2\n- +\n+,\n  num\n",
+            "lines": "10"
+        },
+        {
+            "label": "2026-04-01_12-41-00",
+            "content": "package main\nimport \"fmt\"\nfunc main() {\n    var num1, num2, num3 int\n    \n    fmt.Scan(&num1, &num2, &num3)\n\n    fmt.Println(num1 + num2 + num3)\n\n}\n",
+            "lines": "10"
+        }
+    ]
+}

@@ -1,0 +1,33 @@
+2026-04-01 12:39:57, MOVE, v:1, k:fup@tres, mode:DOWN
+2026-04-01 12:39:57, MOVE, v:1, k:fup@tres, mode:PICK
+2026-04-01 12:40:47, EXEC, v:1, k:fup@tres, mode:FULL, rate:0, size:10
+2026-04-01 12:41:00, EXEC, v:1, k:fup@tres, mode:FULL, rate:100, size:10
+2026-04-01 12:41:01, MOVE, v:1, k:fup@tres, mode:BACK
+2026-04-01 12:41:11, SELF, v:1, k:fup@tres, self:1, rate:100
+2026-04-01 12:41:12, MOVE, v:1, k:fup@resto, mode:DOWN
+2026-04-01 12:41:14, MOVE, v:1, k:fup@resto, mode:PICK
+2026-04-01 12:42:34, EXEC, v:1, k:fup@resto, mode:FULL, rate:100, size:10
+2026-04-01 12:42:35, MOVE, v:1, k:fup@resto, mode:BACK
+2026-04-01 12:42:40, SELF, v:1, k:fup@resto, self:1, rate:100
+2026-04-01 12:42:42, MOVE, v:1, k:fup@media, mode:DOWN
+2026-04-01 12:42:43, MOVE, v:1, k:fup@media, mode:PICK
+2026-04-01 12:43:42, EXEC, v:1, k:fup@media, mode:FULL, rate:0, size:10
+2026-04-01 12:43:53, EXEC, v:1, k:fup@media, mode:FULL, rate:60, size:10
+2026-04-01 12:44:20, EXEC, v:1, k:fup@media, mode:FULL, rate:100, size:10
+2026-04-01 12:44:22, MOVE, v:1, k:fup@media, mode:BACK
+2026-04-01 12:44:26, SELF, v:1, k:fup@media, self:1, rate:100
+2026-04-01 12:44:28, MOVE, v:1, k:fup@sobrou, mode:DOWN
+2026-04-01 12:44:36, MOVE, v:1, k:fup@sobrou, mode:PICK
+2026-04-01 12:49:15, EXEC, v:1, k:fup@sobrou, mode:FULL, rate:100, size:12
+2026-04-01 12:49:16, MOVE, v:1, k:fup@sobrou, mode:BACK
+2026-04-01 12:49:27, SELF, v:1, k:fup@sobrou, self:1, rate:100, study:1
+2026-04-01 12:49:33, MOVE, v:1, k:fup@segundos, mode:DOWN
+2026-04-01 12:49:37, MOVE, v:1, k:fup@segundos, mode:PICK
+2026-04-01 12:49:38, EXEC, v:1, k:fup@segundos, mode:FREE, size:5
+2026-04-01 12:53:14, EXEC, v:1, k:fup@segundos, mode:FULL, rate:0, size:13
+2026-04-01 12:53:32, EXEC, v:1, k:fup@segundos, mode:FULL, rate:100, size:13
+2026-04-01 12:53:34, MOVE, v:1, k:fup@segundos, mode:BACK
+2026-04-01 12:53:42, SELF, v:1, k:fup@segundos, self:1, rate:100, study:1
+2026-04-01 12:54:02, MOVE, v:1, k:fup@celsius, mode:DOWN
+2026-04-01 12:54:04, MOVE, v:1, k:fup@celsius, mode:PICK
+2026-04-01 12:54:15, MOVE, v:1, k:fup@celsius, mode:BACK
