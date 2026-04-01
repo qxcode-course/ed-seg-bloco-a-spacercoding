@@ -1112,8 +1112,168 @@
         },
         {
             "label": "2026-03-31_20-07-33",
-            "content": "package main\n\nimport (\n\t\"fmt\"\n\t\"strconv\"\n)\n\ntype jogador struct {\n\tnum    int\n\ttaVivo bool\n}\n\nfunc atribuirInt(inteiro *int) {\n\n\tfmt.Scan(inteiro)\n\n}\n\nfunc preencherVetor(vetor []jogador) {\n\n\tfor i := range vetor {\n\n\t\tvetor[i].num = i + 1\n\t\tvetor[i].taVivo = true\n\n\t}\n\n}\n\nfunc proxVivo(jogo []jogador, possivelVivo int) int {\n\tvar proxMorto int = -1\n\n\tfor i := possivelVivo; i < len(jogo); i++ {\n\t\tif jogo[i].taVivo {\n\t\t\tproxMorto = i\n\t\t\tbreak\n\t\t}\n\t}\n\t\n\treturn proxMorto\n}\n\nfunc josephus(numInicio int, jogo []jogador) {\n\tfmt.Println(toString(jogo, numInicio))\n\n\tif qtdVivos(jogo) > 2 && numInicio < len(jogo) - 2 {\n\n\t\tjogo[proxVivo(jogo, numInicio+1)].taVivo = false\n\t\tnumInicio = proxVivo(jogo, numInicio+1)\n\t\tjosephus(numInicio, jogo)\n\n\t} else if qtdVivos(jogo) > 2 && numInicio < len(jogo) - 1 {\n\n\t\tjogo[proxVivo(jogo, numInicio+1)].taVivo = false\n\t\tnumInicio = proxVivo(jogo, 0)\n\t\tjosephus(numInicio, jogo)\n\n\t} else if qtdVivos(jogo) > 2 && numInicio < len(jogo) {\n\n\t\tjogo[proxVivo(jogo, 0)].taVivo = false\n\t\tnumInicio = proxVivo(jogo, 0)\n\t\tjosephus(numInicio, jogo)\n\n\t} else if qtdVivos(jogo) == 2{\n\n\t\tif proxVivo(jogo, numInicio) == qtdVivos(jogo)-1 {\n\t\t\tjogo[proxVivo(jogo, numInicio)].taVivo = false\n\t\t} else {\n\t\t\tjogo[proxVivo(jogo, 0)].taVivo = false\n\t\t}\n\t\tnumInicio = proxVivo(jogo, 0)\n\t\tfmt.Println(toString(jogo, numInicio))\n\n\t}\n\n}\n\nfunc qtdVivos(pessoas []jogador) int {\n\tvar numVivos int\n\n\tfor i := range pessoas {\n\n\t\tif pessoas[i].taVivo {\n\n\t\t\tnumVivos++\n\n\t\t}\n\n\t}\n\n\treturn numVivos\n\n}\n\nfunc toString(vetor []jogador, termoInicio int) []string {\n\tvar vetorString = make([]string, 0)\n\n\tvetorString = append(vetorString, \"\")\n\tfor i := range vetor {\n\n\t\t/*if vetor[i].num == termoInicio + 1 && vetor[i].taVivo {\n\n\t\t\tvetorString = append(vetorString, strconv.Itoa(termoInicio+1)+\">\")\n\n\t\t} else */if vetor[i].taVivo {\n\t\t \n\t\t\tvetorString = append(vetorString, strconv.Itoa(vetor[i].num)+\"\")\n\t\t}\n\n\t}\n\tvetorString = append(vetorString, \"\")\n\n\treturn vetorString\n\n}\n\nfunc main() {\n\n\tvar qtdPessoas, numInicio int\n\n\tatribuirInt(&qtdPessoas)\n\tatribuirInt(&numInicio)\n\tnumInicio--\n\n\tvar jogo = make([]jogador, qtdPessoas)\n\n\tpreencherVetor(jogo)\n\n\tjosephus(numInicio, jogo)\n\n}\n",
+            "content": "@@ -440,24 +440,25 @@\n reak%0A%09%09%7D%0A%09%7D%0A\n+%09\n %0A%09return pro\n@@ -602,17 +602,19 @@\n en(jogo)\n--\n+ - \n 2 %7B%0A%0A%09%09j\n@@ -786,17 +786,19 @@\n en(jogo)\n--\n+ - \n 1 %7B%0A%0A%09%09j\n@@ -1096,20 +1096,179 @@\n go) == 2\n- \n %7B%0A%0A\n+%09%09if proxVivo(jogo, numInicio) == qtdVivos(jogo)-1 %7B%0A%09%09%09jogo%5BproxVivo(jogo, numInicio)%5D.taVivo = false%0A%09%09%7D else %7B%0A%09%09%09jogo%5BproxVivo(jogo, 0)%5D.taVivo = false%0A%09%09%7D%0A\n %09%09numIni\n@@ -1813,32 +1813,35 @@\n tor%5Bi%5D.taVivo %7B%0A\n+%09%09 \n %0A%09%09%09vetorString \n",
             "lines": "131"
+        },
+        {
+            "label": "2026-03-31_21-38-53",
+            "content": "@@ -1099,154 +1099,8 @@\n  %7B%0A%0A\n-%09%09if proxVivo(jogo, numInicio) == -1 %7B%0A%09%09%09jogo%5BproxVivo(jogo, 0)%5D.taVivo = false%0A%09%09%7D else %7B%0A%09%09%09jogo%5BproxVivo(jogo, numInicio)%5D.taVivo = false%0A%09%09%7D%0A\n %09%09nu\n",
+            "lines": "126"
+        },
+        {
+            "label": "2026-03-31_21-45-28",
+            "content": "@@ -1130,19 +1130,13 @@\n io) \n-%3E numInicio\n+== -1\n  %7B%0A%09\n@@ -1157,25 +1157,17 @@\n o(jogo, \n-numInicio\n+0\n )%5D.taViv\n@@ -1202,33 +1202,41 @@\n %5BproxVivo(jogo, \n-0\n+numInicio\n )%5D.taVivo = fals\n",
+            "lines": "131"
+        },
+        {
+            "label": "2026-03-31_21-46-04",
+            "content": "@@ -1095,16 +1095,168 @@\n == 2 %7B%0A%0A\n+%09%09if proxVivo(jogo, numInicio) %3E numInicio %7B%0A%09%09%09jogo%5BproxVivo(jogo, numInicio)%5D.taVivo = false%0A%09%09%7D else %7B%0A%09%09%09jogo%5BproxVivo(jogo, 0)%5D.taVivo = false%0A%09%09%7D%0A\n %09%09numIni\n",
+            "lines": "131"
+        },
+        {
+            "label": "2026-03-31_21-46-16",
+            "content": "@@ -981,25 +981,17 @@\n o(jogo, \n-numInicio\n+0\n )%5D.taViv\n",
+            "lines": "126"
+        },
+        {
+            "label": "2026-03-31_21-48-07",
+            "content": "@@ -820,16 +820,18 @@\n umInicio\n++1\n )%5D.taViv\n@@ -981,17 +981,25 @@\n o(jogo, \n-0\n+numInicio\n )%5D.taViv\n",
+            "lines": "126"
+        },
+        {
+            "label": "2026-03-31_21-48-40",
+            "content": "@@ -630,32 +630,34 @@\n (jogo, numInicio\n++1\n )%5D.taVivo = fals\n",
+            "lines": "126"
+        },
+        {
+            "label": "2026-03-31_21-50-30",
+            "content": "@@ -727,16 +727,454 @@\n  jogo)%0A%0A\n+%09%7D else if qtdVivos(jogo) %3E 2 && numInicio %3C len(jogo)-1 %7B%0A%0A%09%09jogo%5BproxVivo(jogo, numInicio)%5D.taVivo = false%0A%09%09numInicio = proxVivo(jogo, 0)%0A%09%09josephus(numInicio, jogo)%0A%0A%09%7D else if qtdVivos(jogo) %3E 2 && numInicio %3C len(jogo) %7B%0A%0A%09%09jogo%5BproxVivo(jogo, 0)%5D.taVivo = false%0A%09%09numInicio = proxVivo(jogo, 0)%0A%09%09josephus(numInicio, jogo)%0A%0A%09%7D else if qtdVivos(jogo) == 2 %7B%0A%0A%09%09numInicio = proxVivo(jogo, 0)%0A%09%09fmt.Println(toString(jogo, numInicio))%0A%0A\n %09%7D%0A%0A%7D%0A%0Af\n",
+            "lines": "126"
+        },
+        {
+            "label": "2026-03-31_21-50-46",
+            "content": "@@ -694,16 +694,18 @@\n umInicio\n++1\n )%0A%09%09jose\n",
+            "lines": "109"
+        },
+        {
+            "label": "2026-03-31_21-50-53",
+            "content": "@@ -694,18 +694,16 @@\n umInicio\n-+1\n )%0A%09%09jose\n",
+            "lines": "109"
+        },
+        {
+            "label": "2026-03-31_21-51-31",
+            "content": "@@ -638,18 +638,16 @@\n umInicio\n-+1\n )%5D.taViv\n",
+            "lines": "109"
+        },
+        {
+            "label": "2026-03-31_21-52-23",
+            "content": "@@ -733,180 +733,8 @@\n o)%0A%0A\n-%09%7D else if qtdVivos(jogo) %3E 2 && numInicio %3C len(jogo)-1 %7B%0A%0A%09%09jogo%5BproxVivo(jogo, numInicio+1)%5D.taVivo = false%0A%09%09numInicio = proxVivo(jogo, 0)%0A%09%09josephus(numInicio, jogo)%0A%0A\n %09%7D%0A%0A\n",
+            "lines": "109"
+        },
+        {
+            "label": "2026-03-31_21-53-36",
+            "content": "@@ -905,168 +905,8 @@\n o)%0A%0A\n-%09%7D else if qtdVivos(jogo) %3E 2 && numInicio %3C len(jogo) %7B%0A%0A%09%09jogo%5BproxVivo(jogo, 0)%5D.taVivo = false%0A%09%09numInicio = proxVivo(jogo, 0)%0A%09%09josephus(numInicio, jogo)%0A%0A\n %09%7D%0A%0A\n",
+            "lines": "115"
+        },
+        {
+            "label": "2026-03-31_21-55-01",
+            "content": "@@ -876,33 +876,8 @@\n  0)%0A\n-%09%09fmt.Println(numInicio)%0A\n %09%09jo\n",
+            "lines": "121"
+        },
+        {
+            "label": "2026-03-31_21-56-13",
+            "content": "@@ -341,17 +341,17 @@\n  int = -\n-2\n+1\n %0A%0A%09for i\n",
+            "lines": "122"
+        },
+        {
+            "label": "2026-03-31_22-00-40",
+            "content": "@@ -864,32 +864,57 @@\n oxVivo(jogo, 0)%0A\n+%09%09fmt.Println(numInicio)%0A\n %09%09josephus(numIn\n",
+            "lines": "122"
+        },
+        {
+            "label": "2026-03-31_22-03-02",
+            "content": "@@ -696,16 +696,18 @@\n umInicio\n++1\n )%0A%09%09jose\n",
+            "lines": "121"
+        },
+        {
+            "label": "2026-03-31_22-04-47",
+            "content": "@@ -696,18 +696,16 @@\n umInicio\n-+1\n )%0A%09%09jose\n",
+            "lines": "121"
+        },
+        {
+            "label": "2026-03-31_22-04-54",
+            "content": "@@ -556,32 +556,8 @@\n io))\n-%0A%09fmt.Println(numInicio)\n %0A%0A%09i\n",
+            "lines": "121"
+        },
+        {
+            "label": "2026-03-31_22-05-27",
+            "content": "@@ -1093,33 +1093,8 @@\n %09%7D%0A%0A\n-%09fmt.Println(numInicio)%0A%0A\n %7D%0A%0Af\n",
+            "lines": "122"
+        },
+        {
+            "label": "2026-03-31_22-07-51",
+            "content": "@@ -900,33 +900,8 @@\n  0)%0A\n-%09%09fmt.Println(numInicio)%0A\n %09%09jo\n@@ -1085,24 +1085,49 @@\n  jogo)%0A%0A%09%7D%0A%0A\n+%09fmt.Println(numInicio)%0A%0A\n %7D%0A%0Afunc qtdV\n",
+            "lines": "124"
+        },
+        {
+            "label": "2026-03-31_22-08-26",
+            "content": "@@ -341,17 +341,17 @@\n  int = -\n-1\n+2\n %0A%0A%09for i\n@@ -552,16 +552,40 @@\n Inicio))\n+%0A%09fmt.Println(numInicio)\n %0A%0A%09if qt\n@@ -844,16 +844,18 @@\n umInicio\n++1\n )%5D.taViv\n@@ -888,32 +888,57 @@\n oxVivo(jogo, 0)%0A\n+%09%09fmt.Println(numInicio)%0A\n %09%09josephus(numIn\n@@ -1081,16 +1081,16 @@\n ogo, 0)%0A\n+\n %09%09joseph\n@@ -1114,116 +1114,8 @@\n o)%0A%0A\n-%09%7D else if qtdVivos(jogo) == 2 %7B%0A%0A%09%09numInicio = proxVivo(jogo, 0)%0A%09%09fmt.Println(toString(jogo, numInicio))%0A%0A\n %09%7D%0A%0A\n",
+            "lines": "123"
+        },
+        {
+            "label": "2026-03-31_22-10-58",
+            "content": "@@ -975,35 +975,25 @@\n xVivo(jogo, \n-numInicio+1\n+0\n )%5D.taVivo = \n",
+            "lines": "126"
+        },
+        {
+            "label": "2026-03-31_22-11-38",
+            "content": "@@ -812,34 +812,32 @@\n (jogo, numInicio\n-+1\n )%5D.taVivo = fals\n@@ -979,17 +979,27 @@\n o(jogo, \n-0\n+numInicio+1\n )%5D.taViv\n",
+            "lines": "126"
+        },
+        {
+            "label": "2026-03-31_22-11-58",
+            "content": "@@ -341,17 +341,17 @@\n  int = -\n-2\n+1\n %0A%0A%09for i\n",
+            "lines": "126"
+        },
+        {
+            "label": "2026-03-31_22-16-42",
+            "content": "@@ -596,35 +596,19 @@\n o %3C \n-proxVivo(jogo, numInicio+1)\n+len(jogo)-2\n  %7B%0A%0A\n@@ -700,16 +700,16 @@\n icio+1)%0A\n-\n %09%09joseph\n@@ -729,16 +729,456 @@\n  jogo)%0A%0A\n+%09%7D else if qtdVivos(jogo) %3E 2 && numInicio %3C len(jogo)-1 %7B%0A%0A%09%09jogo%5BproxVivo(jogo, numInicio+1)%5D.taVivo = false%0A%09%09numInicio = proxVivo(jogo, 0)%0A%09%09josephus(numInicio, jogo)%0A%0A%09%7D else if qtdVivos(jogo) %3E 2 && numInicio %3C len(jogo) %7B%0A%0A%09%09jogo%5BproxVivo(jogo, 0)%5D.taVivo = false%0A%09%09numInicio = proxVivo(jogo, 0)%0A%09%09josephus(numInicio, jogo)%0A%0A%09%7D else if qtdVivos(jogo) == 2 %7B%0A%0A%09%09numInicio = proxVivo(jogo, 0)%0A%09%09fmt.Println(toString(jogo, numInicio))%0A%0A\n %09%7D%0A%0A%7D%0A%0Af\n",
+            "lines": "126"
+        },
+        {
+            "label": "2026-03-31_22-23-25",
+            "content": "@@ -422,32 +422,47 @@\n proxMorto = i%0A%09%09\n+%09break%0A%09%09%7D%0A%09%7D%0A%0A\n %09return proxMort\n@@ -467,119 +467,8 @@\n rto%0A\n-%09%09%7D%0A%09%7D%0A%09for i := 0; i %3C possivelVivo; i++ %7B%0A%09%09if jogo%5Bi%5D.taVivo %7B%0A%09%09%09proxMorto = i%0A%09%09%09return proxMorto%0A%09%09%7D%0A%09%7D%0A%0A\n %7D%0A%0Af\n@@ -576,16 +576,59 @@\n ogo) %3E 2\n+ && numInicio %3C proxVivo(jogo, numInicio+1)\n  %7B%0A%0A%09%09jo\n",
+            "lines": "109"
+        },
+        {
+            "label": "2026-03-31_22-27-14",
+            "content": "@@ -563,19 +563,8 @@\n %09%7D%0A%0A\n-%09return 0%0A%0A\n %7D%0A%0Af\n",
+            "lines": "114"
+        },
+        {
+            "label": "2026-03-31_22-27-46",
+            "content": "@@ -813,141 +813,8 @@\n o)%0A%0A\n-%09%7D else %7B%0A%0A%09%09jogo%5BproxVivo(jogo, numInicio+1)%5D.taVivo = false%0A%09%09numInicio = proxVivo(jogo, numInicio+1)%0A%09%09toString(jogo, numInicio)%0A%0A\n %09%7D%0A%0A\n",
+            "lines": "116"
+        },
+        {
+            "label": "2026-03-31_22-29-51",
+            "content": "@@ -1268,16 +1268,18 @@\n or %7B%0A%0A%09%09\n+/*\n if vetor\n@@ -1300,17 +1300,19 @@\n moInicio\n-+\n+ + \n 1 && vet\n@@ -1407,16 +1407,18 @@\n %09%7D else \n+*/\n if vetor\n",
+            "lines": "122"
+        },
+        {
+            "label": "2026-03-31_22-32-01",
+            "content": "@@ -821,31 +821,8 @@\n lse \n-if qtdVivos(jogo) == 2 \n %7B%0A%0A%09\n",
+            "lines": "122"
+        },
+        {
+            "label": "2026-03-31_22-32-26",
+            "content": "@@ -938,28 +938,16 @@\n io+1)%0A%09%09\n-fmt.Println(\n toString\n@@ -963,17 +963,16 @@\n mInicio)\n-)\n %0A%0A%09%7D%0A%0A%7D%0A\n",
+            "lines": "122"
+        },
+        {
+            "label": "2026-03-31_22-32-58",
+            "content": "package main\n\nimport (\n\t\"fmt\"\n\t\"strconv\"\n)\n\ntype jogador struct {\n\tnum    int\n\ttaVivo bool\n}\n\nfunc atribuirInt(inteiro *int) {\n\n\tfmt.Scan(inteiro)\n\n}\n\nfunc preencherVetor(vetor []jogador) {\n\n\tfor i := range vetor {\n\n\t\tvetor[i].num = i + 1\n\t\tvetor[i].taVivo = true\n\n\t}\n\n}\n\nfunc proxVivo(jogo []jogador, possivelVivo int) int {\n\tvar proxMorto int = -2\n\n\tfor i := possivelVivo; i < len(jogo); i++ {\n\t\tif jogo[i].taVivo {\n\t\t\tproxMorto = i\n\t\t\treturn proxMorto\n\t\t}\n\t}\n\tfor i := 0; i < possivelVivo; i++ {\n\t\tif jogo[i].taVivo {\n\t\t\tproxMorto = i\n\t\t\treturn proxMorto\n\t\t}\n\t}\n\n\treturn 0\n\n}\n\nfunc josephus(numInicio int, jogo []jogador) {\n\tfmt.Println(toString(jogo, numInicio))\n\n\tif qtdVivos(jogo) > 2 {\n\n\t\tjogo[proxVivo(jogo, numInicio+1)].taVivo = false\n\t\tnumInicio = proxVivo(jogo, numInicio+1)\n\t\tjosephus(numInicio, jogo)\n\n\t} else if qtdVivos(jogo) == 2 {\n\n\t\tjogo[proxVivo(jogo, numInicio+1)].taVivo = false\n\t\tnumInicio = proxVivo(jogo, numInicio+1)\n\t\tfmt.Println(toString(jogo, numInicio))\n\n\t}\n\n}\n\nfunc qtdVivos(pessoas []jogador) int {\n\tvar numVivos int\n\n\tfor i := range pessoas {\n\n\t\tif pessoas[i].taVivo {\n\n\t\t\tnumVivos++\n\n\t\t}\n\n\t}\n\n\treturn numVivos\n\n}\n\nfunc toString(vetor []jogador, termoInicio int) []string {\n\tvar vetorString = make([]string, 0)\n\n\tvetorString = append(vetorString, \"\")\n\tfor i := range vetor {\n\n\t\tif vetor[i].num == termoInicio+1 && vetor[i].taVivo {\n\n\t\t\tvetorString = append(vetorString, strconv.Itoa(termoInicio+1)+\">\")\n\n\t\t} else if vetor[i].taVivo {\n\n\t\t\tvetorString = append(vetorString, strconv.Itoa(vetor[i].num)+\"\")\n\t\t}\n\n\t}\n\tvetorString = append(vetorString, \"\")\n\n\treturn vetorString\n\n}\n\nfunc main() {\n\n\tvar qtdPessoas, numInicio int\n\n\tatribuirInt(&qtdPessoas)\n\tatribuirInt(&numInicio)\n\tnumInicio--\n\n\tvar jogo = make([]jogador, qtdPessoas)\n\n\tpreencherVetor(jogo)\n\n\tjosephus(numInicio, jogo)\n\n}\n",
+            "lines": "122"
         }
     ]
 }
