@@ -1,0 +1,39 @@
+[[tests]]
+input = '''
+10
+'''
+output = '''
+10
+'''
+
+[[tests]]
+input = '''
+123
+'''
+output = '''
+123
+'''
+
+[[tests]]
+input = '''
+-45
+'''
+output = '''
+-45
+'''
+
+[[tests]]
+input = '''
+0
+'''
+output = '''
+0
+'''
+
+[[tests]]
+input = '''
+999999
+'''
+output = '''
+999999
+'''

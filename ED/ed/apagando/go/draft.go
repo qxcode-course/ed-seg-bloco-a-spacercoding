@@ -8,27 +8,50 @@ func atribuirInt(endereco *int) {
 
 }
 
-type pessoa struct {
+type Node struct {
 
-	presente bool
-	index int
+	data int
+	next *Node
 
 }
 
+func novoNode(nodeValue int) *Node {
+
+	return &Node{data: nodeValue, next: nil}
+
+}
+
+type linkedList struct {
+
+	head *Node
+
+}
+
+func instancearLL() *linkedList {
+
+	return &linkedList{head: nil}
+
+}
+
+
 func main() {
-	var qtdFila, qtdDesistentes int
+	var qtd_pessoas, qtd_desistentes int
 
-	atribuirInt(&qtdFila)
+	atribuirInt(&qtd_pessoas)
 
-	var fila = make(map[int]pessoa, qtdFila)
+	var fila linkedList
 
-	for i := range qtdFila {
+	for range qtd_pessoas {
 		var x int
-
 		atribuirInt(&x)
 
-	}
+		if fila.head == nil {
 
-	var desistentes = make(map[int]bool, qtdDesistentes)
+			fila.head.novoNode(x)
+
+		}
+
+
+	}
 
 }

@@ -7,20 +7,19 @@ sources:
   writeable: true
   quests: null
   tasks: null
-- name: ed
-  target: https://github.com/qxcodeed/arcade.git
+- name: monitoria
+  target: https://github.com/joseluis1100/arcade
   index: README.md
   type: git
   writeable: false
   quests: null
   tasks: null
-expanded:
-- ed@map_set
+expanded: []
 flags:
   inbox: all
   panel: help
   show_panel: 'true'
   task_graph_mode: executions
   show_time: 'true'
-lang: go
-selected: ed@apagando
+lang: c
+selected: monitoria@if_else
