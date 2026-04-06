@@ -72,8 +72,23 @@
         },
         {
             "label": "2026-04-01_12-18-38",
-            "content": "package main\n\nimport \"fmt\"\n\nfunc atribuirInt(endereco *int) {\n\n\tfmt.Scan(endereco)\n\n}\n\nfunc updtFila(fila, desistentes map[int]int) {\n\tvar filaAtualizada = make([]string, 0)\n\n\tfor i := range fila {\n\n\t\tif fila[i] == desistentes[i] {\n\n\t\t\tfila[i] = 0\n\n\t\t} else {\n\n\t\t\tfilaAtualizada = append(filaAtualizada, fmt.Sprint(fila[i]))\n\n\t\t}\n\n\t}\n\n\tfor i := 0; i < len(filaAtualizada); i++ {\n\n\t\tfmt.Printf(\"%s \", filaAtualizada[i])\n\n\t}\n\n\tfmt.Printf(\"\\n\")\n\n}\n\nfunc main() {\n\n\tvar qtdPessoas, qtdDesistentes int\n\tvar fila = make(map[int]int, qtdPessoas)\n\n\tatribuirInt(&qtdPessoas)\n\n\tfor i := 0; i < qtdPessoas; i++ {\n\t\tvar x int\n\n\t\tatribuirInt(&x)\n\n\t\tfila[x] = i\n\n\t}\n\tfmt.Println(fila)\n\n\tatribuirInt(&qtdDesistentes)\n\n\tvar desistentes = make(map[int]int, qtdDesistentes)\n\n\tfor i := 0; i < qtdDesistentes; i++ {\n\t\tvar x int\n\n\t\tatribuirInt(&x)\n\n\t\tdesistentes[x] = i\n\n\t}\n\n\tfmt.Println(desistentes)\n\n\tupdtFila(fila, desistentes)\n\n}\n",
+            "content": "@@ -18,18 +18,13 @@\n ort \n-(%0A%09\n %22fmt%22\n-%0A)\n %0A%0Afu\n@@ -84,250 +84,366 @@\n %0A%7D%0A%0A\n-type Node struct %7B%0A%0A%09data int%0A%09next *Node%0A%0A%7D%0A%0Afunc novoNode(nodeValue int) *Node %7B%0A%0A%09return &Node%7Bdata: nodeValue, next: nil%7D%0A%0A%7D%0A%0Atype linkedList struct %7B%0A%0A%09head *Node\n+func updtFila(fila, desistentes map%5Bint%5Dint) %7B%0A%09var filaAtualizada = make(%5B%5Dstring, 0)%0A%0A%09for i := range fila %7B%0A%0A%09%09if fila%5Bi%5D == desistentes%5Bi%5D %7B%0A%0A%09%09%09fila%5Bi%5D = 0%0A%0A%09%09%7D else %7B%0A%0A%09%09%09filaAtualizada = append(filaAtualizada, fmt.Sprint(fila%5Bi%5D))%0A%0A%09%09%7D\n %0A%0A\n+%09\n %7D%0A%0A\n-func instancearLL() *linkedList %7B%0A%0A%09return &linkedList%7Bhead: nil%7D\n+%09for i := 0; i %3C len(filaAtualizada); i++ %7B%0A%0A%09%09fmt.Printf(%22%25s %22, filaAtualizada%5Bi%5D)\n %0A%0A\n+%09\n %7D%0A%0A\n+%09fmt.Printf(%22%5Cn%22)%0A%0A%7D%0A\n %0Afun\n@@ -457,16 +457,17 @@\n ) %7B%0A\n+%0A\n %09var qtd\n _pes\n@@ -458,26 +458,25 @@\n  %7B%0A%0A%09var qtd\n-_p\n+P\n essoas, qtd_\n@@ -478,10 +478,9 @@\n  qtd\n-_d\n+D\n esis\n@@ -494,28 +494,42 @@\n int%0A\n-%0A%09atribuirInt(&qtd_p\n+%09var fila = make(map%5Bint%5Dint, qtdP\n esso\n@@ -538,75 +538,66 @@\n )%0A%0A%09\n-var fila linkedList%0A%09fila = *instancearLL()%0A%0A%09for range\n+atribuirInt(&qtdPessoas)%0A%0A%09for i := 0; i %3C\n  qtd\n-_p\n+P\n essoas\n+; i++\n  %7B%0A%09\n@@ -607,16 +607,17 @@\n r x int%0A\n+%0A\n %09%09atribu\n@@ -633,114 +633,226 @@\n %0A%0A%09%09\n-if \n fila\n-.head == nil %7B%0A%0A%09%09%09fila.head = novoNode(x)%0A%0A%09%09%7D else\n+%5Bx%5D = i%0A%0A%09%7D%0A%09fmt.Println(fila)%0A%0A%09atribuirInt(&qtdDesistentes)%0A%0A%09var desistentes = make(map%5Bint%5Dint, qtdDesistentes)%0A%0A%09for i := 0; i %3C qtdDesistentes; i++\n  %7B%0A\n-%0A\n %09%09\n-%09fila.head.next = novoNode(\n+var x int%0A%0A%09%09atribuirInt(&\n x)%0A%0A\n-%0A\n %09%09\n-%7D%0A\n+desistentes%5Bx%5D = i\n %0A%0A%09%7D%0A\n+%0A\n %09fmt\n@@ -860,17 +860,54 @@\n Println(\n-fila\n+desistentes)%0A%0A%09updtFila(fila, desistentes\n )%0A%0A%7D%0A\n",
             "lines": "72"
+        },
+        {
+            "label": "2026-04-06_18-45-42",
+            "content": "@@ -358,16 +358,33 @@\n _pessoas\n+, qtd_desistentes\n  int%0A%0A%09a\n",
+            "lines": "66"
+        },
+        {
+            "label": "2026-04-06_18-45-53",
+            "content": "@@ -623,18 +623,8 @@\n fila\n-.head.data\n )%0A%0A%7D\n",
+            "lines": "66"
+        },
+        {
+            "label": "2026-04-06_18-46-27",
+            "content": "package main\n\nimport (\n\t\"fmt\"\n)\n\nfunc atribuirInt(endereco *int) {\n\n\tfmt.Scan(endereco)\n\n}\n\ntype Node struct {\n\n\tdata int\n\tnext *Node\n\n}\n\nfunc novoNode(nodeValue int) *Node {\n\n\treturn &Node{data: nodeValue, next: nil}\n\n}\n\ntype linkedList struct {\n\n\thead *Node\n\n}\n\nfunc instancearLL() *linkedList {\n\n\treturn &linkedList{head: nil}\n\n}\n\n\nfunc main() {\n\tvar qtd_pessoas int\n\n\tatribuirInt(&qtd_pessoas)\n\n\tvar fila linkedList\n\tfila = *instancearLL()\n\n\tfor range qtd_pessoas {\n\t\tvar x int\n\t\tatribuirInt(&x)\n\n\t\tif fila.head == nil {\n\n\t\t\tfila.head = novoNode(x)\n\n\t\t} else {\n\n\t\t\tfila.head.next = novoNode(x)\n\n\n\t\t}\n\n\n\t}\n\tfmt.Println(fila.head.data)\n\n}\n",
+            "lines": "66"
         }
     ]
 }

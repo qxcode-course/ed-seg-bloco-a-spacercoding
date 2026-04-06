@@ -1,6 +1,8 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+)
 
 func atribuirInt(endereco *int) {
 
@@ -35,11 +37,12 @@ func instancearLL() *linkedList {
 
 
 func main() {
-	var qtd_pessoas, qtd_desistentes int
+	var qtd_pessoas int
 
 	atribuirInt(&qtd_pessoas)
 
 	var fila linkedList
+	fila = *instancearLL()
 
 	for range qtd_pessoas {
 		var x int
@@ -47,11 +50,17 @@ func main() {
 
 		if fila.head == nil {
 
-			fila.head.novoNode(x)
+			fila.head = novoNode(x)
+
+		} else {
+
+			fila.head.next = novoNode(x)
+
 
 		}
 
 
 	}
+	fmt.Println(fila.head.data)
 
 }
