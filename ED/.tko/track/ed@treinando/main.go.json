@@ -1,0 +1,104 @@
+{
+    "patches": [
+        {
+            "label": "2026-04-07_18-47-47",
+            "content": "@@ -127,50 +127,8 @@\n  0)%0A\n-%0A%09if len(vet) == 0 %7B%0A%0A%09%09return %22%5D%5Cn%22%0A%0A%09%7D%0A%0A\n %09var\n",
+            "lines": "95"
+        },
+        {
+            "label": "2026-04-07_18-48-50",
+            "content": "@@ -155,17 +155,16 @@\n return %22\n-%5B\n %5D%5Cn%22%0A%0A%09%7D\n",
+            "lines": "102"
+        },
+        {
+            "label": "2026-04-07_18-48-58",
+            "content": "@@ -157,16 +157,18 @@\n turn %22%5B%5D\n+%5Cn\n %22%0A%0A%09%7D%0A%0A%09\n",
+            "lines": "102"
+        },
+        {
+            "label": "2026-04-07_18-49-11",
+            "content": "@@ -193,14 +193,8 @@\n ng =\n- %22%5B%22 +\n  str\n@@ -219,16 +219,21 @@\n vet)-1%5D)\n+ + %22%22\n %0A%0A%09if le\n",
+            "lines": "102"
+        },
+        {
+            "label": "2026-04-07_18-49-36",
+            "content": "@@ -273,16 +273,18 @@\n ing + %22%5D\n+%5Cn\n %22%0A%0A%09%7D%0A%0A%09\n",
+            "lines": "102"
+        },
+        {
+            "label": "2026-04-07_18-49-50",
+            "content": "@@ -229,14 +229,8 @@\n -1%5D)\n- + %22,%22\n %0A%0A%09i\n",
+            "lines": "102"
+        },
+        {
+            "label": "2026-04-07_18-52-05",
+            "content": "@@ -225,16 +225,22 @@\n vet)-1%5D)\n+ + %22,%22\n %0A%0A%09if le\n",
+            "lines": "102"
+        },
+        {
+            "label": "2026-04-07_18-52-14",
+            "content": "@@ -213,17 +213,26 @@\n toa(vet%5B\n-0\n+len(vet)-1\n %5D)%0A%0A%09if \n@@ -313,19 +313,10 @@\n vet%5B\n-:len(vet)-\n 1\n+:\n %5D...\n",
+            "lines": "102"
+        },
+        {
+            "label": "2026-04-07_18-53-47",
+            "content": "@@ -314,9 +314,9 @@\n et)-\n-2\n+1\n %5D...\n",
+            "lines": "102"
+        },
+        {
+            "label": "2026-04-07_18-54-05",
+            "content": "@@ -309,16 +309,18 @@\n len(vet)\n+-2\n %5D...)%0A%09t\n",
+            "lines": "102"
+        },
+        {
+            "label": "2026-04-07_18-54-18",
+            "content": "@@ -313,10 +313,8 @@\n vet)\n--1\n %5D...\n",
+            "lines": "102"
+        },
+        {
+            "label": "2026-04-07_18-54-28",
+            "content": "@@ -213,26 +213,17 @@\n toa(vet%5B\n-len(vet)-1\n+0\n %5D)%0A%0A%09if \n",
+            "lines": "102"
+        },
+        {
+            "label": "2026-04-07_18-58-19",
+            "content": "@@ -344,53 +344,8 @@\n Aux)\n-%0A%09indexString = strconv.Itoa(vet%5Blen(vet)-1%5D)\n %0A%0A%09r\n",
+            "lines": "102"
+        },
+        {
+            "label": "2026-04-07_18-59-43",
+            "content": "@@ -389,14 +389,8 @@\n -1%5D)\n- + %22,%22\n %0A%0A%09r\n",
+            "lines": "103"
+        },
+        {
+            "label": "2026-04-07_18-59-56",
+            "content": "@@ -126,32 +126,8 @@\n , 0)\n-%0A%09var indexString string\n %0A%0A%09i\n@@ -169,36 +169,25 @@\n %7D%0A%0A%09\n-if len(vet) == 1 %7B%0A%0A%09%09indexS\n+var indexString s\n trin\n@@ -226,16 +226,38 @@\n et)-1%5D)%0A\n+%0A%09if len(vet) == 1 %7B%0A%0A\n %09%09return\n@@ -326,16 +326,31 @@\n -1%5D...)%0A\n+%09tostr(vetAux)%0A\n %09indexSt\n@@ -376,19 +376,16 @@\n (vet\n-Aux\n %5Blen(vet\n Aux)\n@@ -384,16 +384,19 @@\n (vet\n-Aux\n )-1%5D)\n+ + %22,%22\n %0A%0A%09r\n@@ -405,12 +405,19 @@\n urn \n-%22, %22\n+indexString\n %0A%7D%0A%0A\n",
+            "lines": "103"
+        },
+        {
+            "label": "2026-04-07_19-06-47",
+            "content": "@@ -398,30 +398,16 @@\n %0A%09return\n- indexString +\n  %22, %22%0A%7D%0A\n",
+            "lines": "102"
+        },
+        {
+            "label": "2026-04-07_19-06-58",
+            "content": "@@ -393,23 +393,8 @@\n -1%5D)\n-%0A%09tostr(vetAux)\n %0A%0A%09r\n",
+            "lines": "102"
+        },
+        {
+            "label": "2026-04-07_19-08-09",
+            "content": "@@ -248,17 +248,26 @@\n toa(vet%5B\n-0\n+len(vet)-1\n %5D)%0A%09%09ret\n@@ -322,18 +322,27 @@\n ux, vet%5B\n-1\n :\n+len(vet)-1\n %5D...)%0A%09i\n@@ -374,17 +374,29 @@\n (vetAux%5B\n-0\n+len(vetAux)-1\n %5D)%0A%09tost\n",
+            "lines": "103"
+        },
+        {
+            "label": "2026-04-07_19-09-03",
+            "content": "@@ -348,24 +348,27 @@\n onv.Itoa(vet\n+Aux\n %5B0%5D)%0A%09tostr(\n",
+            "lines": "103"
+        },
+        {
+            "label": "2026-04-07_19-09-26",
+            "content": "package main\n\nimport (\n\t\"bufio\"\n\t\"fmt\"\n\t\"os\"\n\t\"strconv\"\n\t\"strings\"\n)\n\nfunc tostr(vet []int) string {\n\tvar vetAux = make([]int, 0)\n\tvar indexString string\n\n\tif len(vet) == 0 {\n\n\t\treturn \"[]\"\n\n\t}\n\n\tif len(vet) == 1 {\n\n\t\tindexString = \"[\" + strconv.Itoa(vet[0])\n\t\treturn indexString + \"]\"\n\n\t}\n\n\tvetAux = append(vetAux, vet[1:]...)\n\tindexString = strconv.Itoa(vet[0])\n\ttostr(vetAux)\n\n\treturn indexString + \", \"\n}\n\nfunc tostrrev(vet []int) string {\n\t_ = vet\n\treturn \"\"\n}\n\n// reverse: inverte os elementos do slice\nfunc reverse(vet []int) {\n\t_ = vet\n}\n\n// sum: soma dos elementos do slice\nfunc sum(vet []int) int {\n\t_ = vet\n\treturn 0\n}\n\n// mult: produto dos elementos do slice\nfunc mult(vet []int) int {\n\t_ = vet\n\treturn 0\n}\n\n// min: retorna o \u00edndice e valor do menor valor\n// crie uma fun\u00e7\u00e3o recursiva interna do modelo\n// var rec func(v []int) (int, int)\n// para fazer uma recurs\u00e3o que retorna valor e \u00edndice\nfunc min(vet []int) int {\n\t_ = vet\n\treturn 0\n}\n\nfunc main() {\n\tvar vet []int\n\tscanner := bufio.NewScanner(os.Stdin)\n\tfor {\n\t\tif !scanner.Scan() {\n\t\t\tbreak\n\t\t}\n\t\tline := scanner.Text()\n\t\targs := strings.Fields(line)\n\t\tfmt.Println(\"$\" + line)\n\n\t\tswitch args[0] {\n\t\tcase \"end\":\n\t\t\treturn\n\t\tcase \"read\":\n\t\t\tvet = nil\n\t\t\tfor _, arg := range args[1:] {\n\t\t\t\tif val, err := strconv.Atoi(arg); err == nil {\n\t\t\t\t\tvet = append(vet, val)\n\t\t\t\t}\n\t\t\t}\n\t\tcase \"tostr\":\n\t\t\tfmt.Println(tostr(vet))\n\t\tcase \"torev\":\n\t\t\tfmt.Println(tostrrev(vet))\n\t\tcase \"reverse\":\n\t\t\treverse(vet)\n\t\tcase \"sum\":\n\t\t\tfmt.Println(sum(vet))\n\t\tcase \"mult\":\n\t\t\tfmt.Println(mult(vet))\n\t\tcase \"min\":\n\t\t\tfmt.Println(min(vet))\n\t\tdefault:\n\t\t\tfmt.Println(\"fail: comando invalido\")\n\t\t}\n\t}\n}\n",
+            "lines": "103"
+        }
+    ]
+}

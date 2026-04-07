@@ -8,12 +8,40 @@ import (
 	"strings"
 )
 
-func processa(vet []int) {
-	if len(vet) == 1 {
+func toStInt(vet []int) {
 
-		fmt.Println()
+	fmt.Print("[ ")
+	for i := range vet {
+
+		fmt.Printf("%d ", vet[i])
 
 	}
+	fmt.Println("]")
+
+}
+
+func processa(vet []int) {
+	var vetSoma = make([]int, 0)
+
+	if len(vet) == 1 {
+
+		toStInt(vet)
+		return
+
+	} else {
+
+		for i := range len(vet) - 1 {
+
+			vetSoma = append(vetSoma, vet[i]+vet[i+1])
+			i++
+
+		}
+
+		processa(vetSoma)
+
+	}
+	toStInt(vet)
+
 	// 1. defina o ponto de parada
 	// 2. monte o vetor auxiliar com os resultados das somas
 	// 3. chame recursivamente a função processa para o vetor auxiliar
