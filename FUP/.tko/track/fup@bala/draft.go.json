@@ -1,0 +1,9 @@
+{
+    "patches": [
+        {
+            "label": "2026-04-09_12-44-48",
+            "content": "package main\n\nimport (\n    \"fmt\"\n    \"math\"\n)\n\nfunc main() {\n    var x1, y1, x2, y2, distancia float64\n\n    fmt.Scan(&x1, &y1, &x2, &y2)\n\n    distancia = math.Sqrt(math.Pow(x1 - x2, 2) + math.Pow(y1 - y2, 2))\n\n    fmt.Printf(\"%.2f\\n\", distancia)\n}",
+            "lines": "16"
+        }
+    ]
+}

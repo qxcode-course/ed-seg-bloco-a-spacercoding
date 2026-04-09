@@ -1,0 +1,14 @@
+{
+    "patches": [
+        {
+            "label": "2026-04-09_12-56-20",
+            "content": "@@ -198,14 +198,8 @@\n  ano\n- %25 100\n )%0A%7D%0A\n",
+            "lines": "9"
+        },
+        {
+            "label": "2026-04-09_12-56-41",
+            "content": "package main\nimport \"fmt\"\nfunc main() {\n    var hora, minuto, dia, mes, ano int\n\n    fmt.Scan(&hora, &minuto, &dia, &mes, &ano)\n\n    fmt.Printf(\"%.2d:%.2d %.2d/%.2d/%.2d\\n\", hora, minuto, dia, mes, ano % 100)\n}\n",
+            "lines": "9"
+        }
+    ]
+}

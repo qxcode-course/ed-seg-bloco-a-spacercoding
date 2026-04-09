@@ -1,0 +1,19 @@
+{
+    "patches": [
+        {
+            "label": "2026-04-09_12-53-53",
+            "content": "@@ -127,9 +127,10 @@\n %5Cn%25.\n-d\n+0f\n %5Cn%22,\n",
+            "lines": "9"
+        },
+        {
+            "label": "2026-04-09_12-54-02",
+            "content": "@@ -122,16 +122,17 @@\n n%25.2f%5Cn%25\n+.\n d%5Cn%22, n1\n",
+            "lines": "9"
+        },
+        {
+            "label": "2026-04-09_12-54-21",
+            "content": "package main\nimport \"fmt\"\nfunc main() {\n    var n1, n2 float64\n\n    fmt.Scan(&n1, &n2)\n\n    fmt.Printf(\"%.0f\\n%.0f\\n%.0f\\n%.2f\\n%d\\n\", n1 + n2, n1 - n2, n1 * n2, n1 / n2, int(n1) % int(n2))\n}\n",
+            "lines": "9"
+        }
+    ]
+}
