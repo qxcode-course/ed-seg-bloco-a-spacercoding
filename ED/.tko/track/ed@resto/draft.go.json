@@ -1,0 +1,34 @@
+{
+    "patches": [
+        {
+            "label": "2026-04-09_11-24-29",
+            "content": "@@ -42,19 +42,30 @@\n num int)\n+ (int, int)\n  %7B%0A\n-\n     var \n@@ -117,25 +117,19 @@\n     \n-fmt.Println(\n+return \n 1, 0\n-)\n %0A%0A  \n@@ -235,20 +235,15 @@\n     \n-fmt.Println(\n+return \n resu\n@@ -254,17 +254,16 @@\n o, resto\n-)\n %0A%7D%0A%0Afunc\n@@ -309,24 +309,36 @@\n (&num)%0A%0A    \n+fmt.Println(\n divPor2(num)\n@@ -337,11 +337,12 @@\n or2(num)\n+)\n %0A%7D%0A\n",
+            "lines": "29"
+        },
+        {
+            "label": "2026-04-09_11-27-04",
+            "content": "@@ -123,23 +123,8 @@\n , 0)\n-%0A        return\n %0A%0A  \n",
+            "lines": "29"
+        },
+        {
+            "label": "2026-04-09_11-28-42",
+            "content": "@@ -89,17 +89,17 @@\n  num == \n-0\n+1\n  %7B%0A%0A    \n@@ -118,12 +118,12 @@\n tln(\n-0, 1\n+1, 0\n )%0A  \n",
+            "lines": "30"
+        },
+        {
+            "label": "2026-04-09_11-29-36",
+            "content": "@@ -41,25 +41,28 @@\n (num int) %7B%0A\n-%09\n+    \n var resultad\n@@ -75,17 +75,99 @@\n to int%0A%0A\n-%09\n+    if num == 0 %7B%0A%0A        fmt.Println(0, 1)%0A        return%0A%0A    %7D else %7B%0A%0A        \n resultad\n@@ -178,17 +178,24 @@\n num / 2%0A\n-%09\n+        \n resto = \n@@ -202,17 +202,24 @@\n num %25 2%0A\n-%09\n+        \n divPor2(\n@@ -230,17 +230,27 @@\n ltado)%0A%0A\n-%09\n+    %7D%0A%0A    \n fmt.Prin\n@@ -288,17 +288,20 @@\n ain() %7B%0A\n-%09\n+    \n var num \n@@ -305,17 +305,20 @@\n um int%0A%0A\n-%09\n+    \n fmt.Scan\n@@ -329,9 +329,12 @@\n m)%0A%0A\n-%09\n+    \n divP\n",
+            "lines": "30"
+        },
+        {
+            "label": "2026-04-09_11-30-15",
+            "content": "@@ -74,58 +74,8 @@\n  int\n-%0A    %0A    if num == 0 %7B%0A    %0A    return%0A    %0A    %7D\n %0A%0A%09r\n",
+            "lines": "21"
+        },
+        {
+            "label": "2026-04-09_11-30-51",
+            "content": "package main\n\nimport \"fmt\"\n\nfunc divPor2(num int) {\n\tvar resultado, resto int\n    \n    if num == 0 {\n    \n    return\n    \n    }\n\n\tresultado = num / 2\n\tresto = num % 2\n\tdivPor2(resultado)\n\n\tfmt.Println(resultado, resto)\n}\n\nfunc main() {\n\tvar num int\n\n\tfmt.Scan(&num)\n\n\tdivPor2(num)\n}\n",
+            "lines": "27"
+        }
+    ]
+}

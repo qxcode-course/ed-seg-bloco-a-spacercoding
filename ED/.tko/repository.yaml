@@ -17,10 +17,10 @@ sources:
 expanded:
 - ed@rec
 flags:
-  inbox: all
+  inbox: inbox
   panel: skills
   show_panel: 'true'
-  task_graph_mode: executions
+  task_graph_mode: time
   show_time: 'true'
 lang: go
-selected: ed@mdc
+selected: ed@rec
