@@ -1,0 +1,9 @@
+{
+    "patches": [
+        {
+            "label": "2026-04-10_12-35-43",
+            "content": "package main\n\nimport \"fmt\"\n\nfunc verificacaoMultiplo7(num int) string {\n\n    if num % 7 == 0 {return \"SIM\"}\n\n        return \"NAO\"\n}\n\nfunc main() {\n    var num int\n\n    fmt.Scan(&num)\n\n    fmt.Println(verificacaoMultiplo7(num))\n}\n",
+            "lines": "18"
+        }
+    ]
+}

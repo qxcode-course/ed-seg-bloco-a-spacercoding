@@ -1,0 +1,9 @@
+{
+    "patches": [
+        {
+            "label": "2026-04-10_13-03-19",
+            "content": "package main\n\nimport \"fmt\"\n\nfunc doMeio(val1, val2, val3 int) int {\n\n    if (val1 < val2 && val1 > val3) || (val1 > val2 && val1 < val3) {return val1\n    }else if (val2 < val1 && val2 > val3) || (val2 > val1 && val2 < val3) {return val2\n    }else if (val3 < val1 && val3 > val2) || (val3 > val1 && val3 < val2) {return val3}\n\n    return val1\n}\n\nfunc main() {\n    var val1, val2, val3 int\n\n    fmt.Scan(&val1, &val2, &val3)\n\n    fmt.Println(doMeio(val1, val2, val3))\n}\n",
+            "lines": "20"
+        }
+    ]
+}

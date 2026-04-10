@@ -1,0 +1,14 @@
+{
+    "patches": [
+        {
+            "label": "2026-04-10_12-54-40",
+            "content": "@@ -378,14 +378,11 @@\n fmt.\n-Printl\n+Sca\n n(ar\n",
+            "lines": "23"
+        },
+        {
+            "label": "2026-04-10_12-54-50",
+            "content": "package main\n\nimport \"fmt\"\n\nfunc arredondar(operacao string, num float64) int {\n\n    if operacao == \"c\" { return int(num) + 1\n    } else if operacao == \"r\" {\n        if num - float64(int(num)) >= 0.5 {return int(num) + 1\n        }else {return int(num)}\n    }\n\n    return int(num)\n}\n\nfunc main() {\n    var operacao string\n    var num float64\n\n    fmt.Scan(&operacao, &num)\n\n    fmt.Println(arredondar(operacao, num))\n}\n",
+            "lines": "23"
+        }
+    ]
+}

@@ -14,10 +14,11 @@ sources:
   writeable: false
   quests: null
   tasks: null
-expanded: []
+expanded:
+- fup@if1
 flags:
   inbox: all
-  panel: skills
+  panel: graph
   show_panel: 'true'
   task_graph_mode: executions
   show_time: 'true'

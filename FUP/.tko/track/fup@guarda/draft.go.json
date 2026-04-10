@@ -1,0 +1,14 @@
+{
+    "patches": [
+        {
+            "label": "2026-04-10_12-42-33",
+            "content": "@@ -217,19 +217,16 @@\n ou must \n-to \n login as\n",
+            "lines": "20"
+        },
+        {
+            "label": "2026-04-10_12-43-03",
+            "content": "package main\n\nimport \"fmt\"\n\nfunc verificarAcesso(wifi, login, admin bool) string {\n\n    if !wifi {return \"you must connect to wifi\"\n    }else if !login {return \"you need to login first\"\n    }else if !admin {return \"you must to login as admin\"}\n\n    return \"done\"\n}\n\nfunc main() {\n    var wifi, login, admin bool\n\n    fmt.Scan(&wifi, &login, &admin)\n\n    fmt.Println(verificarAcesso(wifi, login, admin))\n}\n",
+            "lines": "20"
+        }
+    ]
+}
