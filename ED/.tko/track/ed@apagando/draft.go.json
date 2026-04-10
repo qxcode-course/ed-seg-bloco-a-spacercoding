@@ -87,8 +87,63 @@
         },
         {
             "label": "2026-04-06_18-46-27",
-            "content": "package main\n\nimport (\n\t\"fmt\"\n)\n\nfunc atribuirInt(endereco *int) {\n\n\tfmt.Scan(endereco)\n\n}\n\ntype Node struct {\n\n\tdata int\n\tnext *Node\n\n}\n\nfunc novoNode(nodeValue int) *Node {\n\n\treturn &Node{data: nodeValue, next: nil}\n\n}\n\ntype linkedList struct {\n\n\thead *Node\n\n}\n\nfunc instancearLL() *linkedList {\n\n\treturn &linkedList{head: nil}\n\n}\n\n\nfunc main() {\n\tvar qtd_pessoas int\n\n\tatribuirInt(&qtd_pessoas)\n\n\tvar fila linkedList\n\tfila = *instancearLL()\n\n\tfor range qtd_pessoas {\n\t\tvar x int\n\t\tatribuirInt(&x)\n\n\t\tif fila.head == nil {\n\n\t\t\tfila.head = novoNode(x)\n\n\t\t} else {\n\n\t\t\tfila.head.next = novoNode(x)\n\n\n\t\t}\n\n\n\t}\n\tfmt.Println(fila.head.data)\n\n}\n",
+            "content": "@@ -35,126 +35,305 @@\n unc \n-compararEDeletar(fila, desistentes map%5Bint%5Dint) %5B%5Dint %7B%0A%09var vetResultante = make(%5B%5Dint, 0)%0A%0A%09return vetResultante\n+atribuirInt(endereco *int) %7B%0A%0A%09fmt.Scan(endereco)%0A%0A%7D%0A%0Atype Node struct %7B%0A%0A%09data int%0A%09next *Node%0A%0A%7D%0A%0Afunc novoNode(nodeValue int) *Node %7B%0A%0A%09return &Node%7Bdata: nodeValue, next: nil%7D%0A%0A%7D%0A%0Atype linkedList struct %7B%0A%0A%09head *Node%0A%0A%7D%0A%0Afunc instancearLL() *linkedList %7B%0A%0A%09return &linkedList%7Bhead: nil%7D%0A\n %0A%7D%0A%0A\n+%0A\n func\n@@ -354,107 +354,100 @@\n  qtd\n-InFila, qtdOutFila\n+_pessoas\n  int%0A\n-%09\n %0A%09\n-fmt.Scan(&qtdInFila)%0A%0A%09var fila = make(map%5Bint%5Dint, qtdInFila\n+atribuirInt(&qtd_pessoas)%0A%0A%09var fila linkedList%0A%09fila = *instancearLL(\n )%0A%0A%09for\n- i :=\n  ran\n@@ -456,260 +456,186 @@\n  qtd\n-InFila\n+_pessoas\n  %7B%0A\n-%0A\n %09%09\n-fmt.Scan(fila%5Bi%5D)%0A%0A%09%7D%0A%0A%09fmt.Scan(&qtdOutFila)%0A%0A%09var desistentes = make(map%5Bint%5Dint, qtdOutFila)%0A%0A%09for i := range qtdOutFila %7B%0A%0A%09%09fmt.Scan(desistentes%5Bi%5D)%0A%0A%09%7D%0A%0A%09fmt.Println(fila, desistentes)%0A%0A%09fmt.Println(compararEDeletar(fila, desistentes)\n+var x int%0A%09%09atribuirInt(&x)%0A%0A%09%09if fila.head == nil %7B%0A%0A%09%09%09fila.head = novoNode(x)%0A%0A%09%09%7D else %7B%0A%0A%09%09%09fila.head.next = novoNode(x)%0A%0A%0A%09%09%7D%0A%0A%0A%09%7D%0A%09fmt.Println(fila.head.data\n )%0A%0A%7D\n+%0A\n",
             "lines": "66"
+        },
+        {
+            "label": "2026-04-10_11-25-58",
+            "content": "@@ -128,136 +128,8 @@\n 0)%0A%0A\n-%09for i := range fila %7B%0A%0A%09%09if fila%5Bi%5D == desistentes%5Bi%5D %7B%0A%0A%09%09%09continue%0A%0A%09%09%7D else %7BvetResultante = append(vetResultante, i)%7D%0A%0A%09%7D%0A%0A\n %09ret\n@@ -266,16 +266,20 @@\n )%0A%0A%09for \n+i :=\n  range q\n@@ -284,36 +284,24 @@\n  qtdInFila %7B\n-%0A%09%09var x int\n %0A%0A%09%09fmt.Scan\n@@ -305,24 +305,16 @@\n can(\n-&x)%0A%0A%09%09\n fila%5B\n-x%5D++\n+i%5D)\n %0A%0A%09%7D\n@@ -393,16 +393,21 @@\n a)%0A%0A%09for\n+ i :=\n  range q\n@@ -421,20 +421,8 @@\n la %7B\n-%0A%09%09var x int\n %0A%0A%09%09\n@@ -434,15 +434,8 @@\n can(\n-&x)%0A%0A%09%09\n desi\n@@ -446,12 +446,11 @@\n tes%5B\n-x%5D++\n+i%5D)\n %0A%0A%09%7D\n",
+            "lines": "40"
+        },
+        {
+            "label": "2026-04-10_11-29-25",
+            "content": "@@ -606,24 +606,57 @@\n s%5Bx%5D++%0A%0A%09%7D%0A%0A\n+%09fmt.Println(fila, desistentes)%0A%0A\n %09fmt.Println\n",
+            "lines": "56"
+        },
+        {
+            "label": "2026-04-10_11-30-03",
+            "content": "@@ -27,19 +27,8 @@\n mt%22%0A\n-%09%22strconv%22%0A\n )%0A%0Af\n@@ -281,186 +281,8 @@\n %0A%7D%0A%0A\n-func toInt(vet %5B%5Dint) %5B%5Dstring %7B%0A%09var vetResultante = make(%5B%5Dstring, len(vet)+1)%0A%0A%09for i := range vet %7B%0A%09%0A%09%09vetResultante%5Bi%5D = strconv.Itoa(vet%5Bi%5D)%0A%0A%09%7D%0A%0A%09return vetResultante%0A%7D%0A%0A\n func\n@@ -627,14 +627,8 @@\n tln(\n-toInt(\n comp\n@@ -659,12 +659,11 @@\n tentes))\n-)\n %0A%0A%7D\n",
+            "lines": "54"
+        },
+        {
+            "label": "2026-04-10_11-34-09",
+            "content": "@@ -216,20 +216,16 @@\n %7D else %7B\n-%0A%09%09%09\n vetResul\n@@ -256,19 +256,16 @@\n ante, i)\n-%0A%09%09\n %7D%0A%0A%09%7D%0A%0A%09\n@@ -392,17 +392,18 @@\n e vet %7B%0A\n+%09\n %0A\n-\n %09%09vetRes\n@@ -511,17 +511,18 @@\n ila int%0A\n+%09\n %0A\n-\n %09fmt.Sca\n@@ -575,32 +575,33 @@\n tdInFila)%0A%0A%09for \n+ \n range qtdInFila \n@@ -857,10 +857,9 @@\n tes)))%0A%0A\n+\n %7D\n-%0A\n",
+            "lines": "67"
+        },
+        {
+            "label": "2026-04-10_11-34-28",
+            "content": "@@ -372,16 +372,18 @@\n len(vet)\n++1\n )%0A%0A%09for \n",
+            "lines": "69"
+        },
+        {
+            "label": "2026-04-10_11-35-01",
+            "content": "@@ -23,16 +23,27 @@\n %0A%09%22fmt%22%0A\n+%09%22strconv%22%0A\n )%0A%0Afunc \n@@ -295,16 +295,191 @@\n ante%0A%7D%0A%0A\n+func toInt(vet %5B%5Dint) %5B%5Dstring %7B%0A%09var vetResultante = make(%5B%5Dstring, len(vet))%0A%0A%09for i := range vet %7B%0A%0A%09%09vetResultante%5Bi%5D = strconv.Itoa(vet%5Bi%5D)%0A%0A%09%7D%0A%0A%09return vetResultante%0A%7D%0A%0A\n func mai\n@@ -806,18 +806,26 @@\n %7D%0A%0A%09\n-varAux := \n+fmt.Println(toInt(\n comp\n@@ -859,62 +859,10 @@\n tes)\n-%0A%0A%09for i := range varAux %7B%0A%09%09fmt.Println(varAux%5Bi%5D)%0A%09%7D\n+))\n %0A%0A%7D%0A\n",
+            "lines": "69"
+        },
+        {
+            "label": "2026-04-10_11-37-31",
+            "content": "@@ -679,29 +679,22 @@\n = range \n-len(\n varAux\n-)-1\n  %7B%0A%09%09fmt\n@@ -703,17 +703,11 @@\n rint\n-f(%22%25d %22, \n+ln(\n varA\n@@ -719,44 +719,8 @@\n )%0A%09%7D\n-%0A%09fmt.Println(varAux%5Blen(varAux)-1%5D)\n %0A%0A%7D%0A\n",
+            "lines": "60"
+        },
+        {
+            "label": "2026-04-10_11-39-11",
+            "content": "@@ -690,16 +690,18 @@\n (varAux)\n+-1\n  %7B%0A%09%09fmt\n@@ -742,13 +742,34 @@\n Println(\n+varAux%5Blen(varAux)-1%5D\n )%0A%0A%7D%0A\n",
+            "lines": "61"
+        },
+        {
+            "label": "2026-04-10_11-40-00",
+            "content": "@@ -151,34 +151,21 @@\n a %7B%0A\n-%09%09var x int%0A%0A%09%09x =\n+%0A%09%09if\n  fila%5Bi%5D\n %0A%0A%09%09\n@@ -160,22 +160,19 @@\n  fila%5Bi%5D\n-%0A%0A%09%09if\n+ ==\n  desiste\n@@ -180,14 +180,10 @@\n tes%5B\n-x%5D %3E 0\n+i%5D\n  %7B%0A%0A\n@@ -247,17 +247,17 @@\n ltante, \n-x\n+i\n )%0A%09%09%7D%0A%0A%09\n@@ -395,29 +395,24 @@\n nFila)%0A%0A%09for\n- i :=\n  range qtdIn\n@@ -458,14 +458,12 @@\n ila%5B\n-i%5D = x\n+x%5D++\n %0A%0A%09%7D\n",
+            "lines": "61"
+        },
+        {
+            "label": "2026-04-10_11-42-04",
+            "content": "@@ -52,22 +52,16 @@\n tar(fila\n- %5B%5Dint\n , desist\n@@ -386,25 +386,31 @@\n fila = make(\n-%5B\n+map%5Bint\n %5Dint, qtdInF\n",
+            "lines": "64"
+        },
+        {
+            "label": "2026-04-10_11-42-52",
+            "content": "package main\n\nimport (\n\t\"fmt\"\n)\n\nfunc compararEDeletar(fila []int, desistentes map[int]int) []int {\n\tvar vetResultante = make([]int, 0)\n\n\tfor i := range fila {\n\t\tvar x int\n\n\t\tx = fila[i]\n\n\t\tif desistentes[x] > 0 {\n\n\t\t\tcontinue\n\n\t\t} else {\n\t\t\tvetResultante = append(vetResultante, x)\n\t\t}\n\n\t}\n\n\treturn vetResultante\n}\n\nfunc main() {\n\tvar qtdInFila, qtdOutFila int\n\n\tfmt.Scan(&qtdInFila)\n\n\tvar fila = make([]int, qtdInFila)\n\n\tfor i := range qtdInFila {\n\t\tvar x int\n\n\t\tfmt.Scan(&x)\n\n\t\tfila[i] = x\n\n\t}\n\n\tfmt.Scan(&qtdOutFila)\n\n\tvar desistentes = make(map[int]int, qtdOutFila)\n\n\tfor range qtdOutFila {\n\t\tvar x int\n\n\t\tfmt.Scan(&x)\n\n\t\tdesistentes[x]++\n\n\t}\n\n\tvarAux := compararEDeletar(fila, desistentes)\n\n\tfor i := range len(varAux) {\n\t\tfmt.Printf(\"%d \", varAux[i])\n\t}\n\tfmt.Println()\n\n}\n",
+            "lines": "64"
         }
     ]
 }

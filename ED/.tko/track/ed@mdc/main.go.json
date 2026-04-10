@@ -2,8 +2,18 @@
     "patches": [
         {
             "label": "2026-04-09_11-31-47",
-            "content": "package main\n\nimport (\n\t\"fmt\"\n)\n\nfunc mdc(a, b int) int {\n\treturn 0\n}\n\nfunc main() {\n\tvar a, b int\n\tfmt.Scan(&a, &b)\n\tfmt.Println(mdc(a, b))\n}\n",
+            "content": "@@ -55,94 +55,8 @@\n t %7B%0A\n-%0A%09if a == 0 %7Breturn b%0A%09%7Delse if b == 0 %7Breturn a%7D%0A%0A%09varAux := a %25 b%0A%0A%09mdc(b, varAux)%0A%0A\n %09ret\n",
             "lines": "15"
+        },
+        {
+            "label": "2026-04-10_11-51-03",
+            "content": "@@ -125,18 +125,8 @@\n b%0A%0A%09\n-%0A%0A%09return \n mdc(\n@@ -135,16 +135,27 @@\n  varAux)\n+%0A%0A%09return 0\n %0A%7D%0A%0Afunc\n",
+            "lines": "23"
+        },
+        {
+            "label": "2026-04-10_11-51-30",
+            "content": "package main\n\nimport (\n\t\"fmt\"\n)\n\nfunc mdc(a, b int) int {\n\n\tif a == 0 {return b\n\t}else if b == 0 {return a}\n\n\tvarAux := a % b\n\n\t\n\n\treturn mdc(b, varAux)\n}\n\nfunc main() {\n\tvar a, b int\n\tfmt.Scan(&a, &b)\n\tfmt.Println(mdc(a, b))\n}\n",
+            "lines": "23"
         }
     ]
 }

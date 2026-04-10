@@ -9,7 +9,9 @@ func mdc(a, b int) int {
 	if a == 0 {return b
 	}else if b == 0 {return a}
 
-	return 0
+	varAux := a % b
+
+	return mdc(b, varAux)
 }
 
 func main() {

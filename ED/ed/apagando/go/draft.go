@@ -4,63 +4,61 @@ import (
 	"fmt"
 )
 
-func atribuirInt(endereco *int) {
+func compararEDeletar(fila []int, desistentes map[int]int) []int {
+	var vetResultante = make([]int, 0)
 
-	fmt.Scan(endereco)
-
-}
-
-type Node struct {
-
-	data int
-	next *Node
-
-}
-
-func novoNode(nodeValue int) *Node {
-
-	return &Node{data: nodeValue, next: nil}
-
-}
-
-type linkedList struct {
-
-	head *Node
-
-}
-
-func instancearLL() *linkedList {
-
-	return &linkedList{head: nil}
-
-}
-
-
-func main() {
-	var qtd_pessoas int
-
-	atribuirInt(&qtd_pessoas)
-
-	var fila linkedList
-	fila = *instancearLL()
-
-	for range qtd_pessoas {
+	for i := range fila {
 		var x int
-		atribuirInt(&x)
 
-		if fila.head == nil {
+		x = fila[i]
 
-			fila.head = novoNode(x)
+		if desistentes[x] > 0 {
+
+			continue
 
 		} else {
-
-			fila.head.next = novoNode(x)
-
-
+			vetResultante = append(vetResultante, x)
 		}
 
+	}
+
+	return vetResultante
+}
+
+func main() {
+	var qtdInFila, qtdOutFila int
+
+	fmt.Scan(&qtdInFila)
+
+	var fila = make([]int, qtdInFila)
+
+	for i := range qtdInFila {
+		var x int
+
+		fmt.Scan(&x)
+
+		fila[i] = x
 
 	}
-	fmt.Println(fila.head.data)
+
+	fmt.Scan(&qtdOutFila)
+
+	var desistentes = make(map[int]int, qtdOutFila)
+
+	for range qtdOutFila {
+		var x int
+
+		fmt.Scan(&x)
+
+		desistentes[x]++
+
+	}
+
+	varAux := compararEDeletar(fila, desistentes)
+
+	for i := range len(varAux) {
+		fmt.Printf("%d ", varAux[i])
+	}
+	fmt.Println()
 
 }
