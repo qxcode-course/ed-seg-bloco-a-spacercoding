@@ -1,0 +1,19 @@
+{
+    "patches": [
+        {
+            "label": "2026-04-10_16-20-47",
+            "content": "@@ -274,9 +274,9 @@\n rn %22\n-N\n+S\n %22%0A  \n@@ -292,17 +292,17 @@\n return %22\n-S\n+N\n %22%0A%7D%0A%0Afun\n",
+            "lines": "20"
+        },
+        {
+            "label": "2026-04-10_16-21-21",
+            "content": "@@ -152,18 +152,18 @@\n anela)  \n-&&\n+%7C%7C\n  (lado2 \n@@ -206,10 +206,10 @@\n la) \n-&&\n+%7C%7C\n  (la\n",
+            "lines": "20"
+        },
+        {
+            "label": "2026-04-10_16-21-52",
+            "content": "package main\n\nimport \"fmt\"\n\nfunc sePassa(lado1,lado2, lado3, alturaJanela, larguraJanela int) string {\n\n    if (lado1 * lado2 > alturaJanela * larguraJanela)  && (lado2 * lado3 > alturaJanela * larguraJanela) && (lado1 * lado3 > alturaJanela * larguraJanela) {\n        return \"N\"\n    }\n\n    return \"S\"\n}\n\nfunc main() {\n    var lado1, lado2, lado3, alturaJanela, larguraJanela int\n\n    fmt.Scan(&lado1, &lado2, &lado3, &alturaJanela, &larguraJanela)\n\n    fmt.Println(sePassa(lado1,lado2, lado3, alturaJanela, larguraJanela))\n}\n",
+            "lines": "20"
+        }
+    ]
+}

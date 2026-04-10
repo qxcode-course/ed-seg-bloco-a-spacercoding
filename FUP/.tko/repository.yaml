@@ -15,12 +15,12 @@ sources:
   quests: null
   tasks: null
 expanded:
-- fup@if1
+- fup@if2
 flags:
   inbox: all
-  panel: graph
+  panel: skills
   show_panel: 'true'
   task_graph_mode: executions
   show_time: 'true'
 lang: go
-selected: fup@base
+selected: fup@teleferico

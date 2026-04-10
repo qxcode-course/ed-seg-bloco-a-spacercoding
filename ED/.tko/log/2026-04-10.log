@@ -63,3 +63,6 @@
 2026-04-10 12:21:44, MOVE, v:1, k:ed@treinando, mode:BACK
 2026-04-10 12:22:07, MOVE, v:1, k:ed@labirinto, mode:PICK
 2026-04-10 12:25:11, MOVE, v:1, k:ed@labirinto, mode:BACK
+2026-04-10 15:06:42, MOVE, v:1, k:ed@apagando, mode:PICK
+2026-04-10 15:08:00, EXEC, v:1, k:ed@apagando, mode:FULL, rate:100
+2026-04-10 15:08:03, MOVE, v:1, k:ed@apagando, mode:BACK

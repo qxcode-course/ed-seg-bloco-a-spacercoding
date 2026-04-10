@@ -1,0 +1,14 @@
+{
+    "patches": [
+        {
+            "label": "2026-04-10_15-21-40",
+            "content": "@@ -176,16 +176,20 @@\n f media \n+/ 2 \n %3C 4 %7Bret\n",
+            "lines": "22"
+        },
+        {
+            "label": "2026-04-10_15-22-18",
+            "content": "package main\n\nimport \"fmt\"\n\nfunc calcularMedia(nota1, nota2, nota_final int) string {\n    var media int = (nota1 + nota2) / 2\n\n    if media >= 7 {return \"aprovado\"\n    }else if media < 4 {return \"reprovado\"} \n\n    if (media + nota_final) / 2 >= 5 {return \"aprovado na final\"}\n\n    return \"reprovado na final\"\n}\n\nfunc main() {\n    var nota1, nota2, nota_final int\n\n    fmt.Scan(&nota1, &nota2, &nota_final)\n\n    fmt.Println(calcularMedia(nota1, nota2, nota_final))\n}\n",
+            "lines": "22"
+        }
+    ]
+}

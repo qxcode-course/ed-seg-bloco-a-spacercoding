@@ -1,0 +1,71 @@
+[[tests]]
+input = '''
+5
+4
+'''
+output = '''
+1
+'''
+
+[[tests]]
+input = '''
+5
+8
+'''
+output = '''
+2
+'''
+
+[[tests]]
+input = '''
+5
+9
+'''
+output = '''
+3
+'''
+
+[[tests]]
+input = '''
+10
+20
+'''
+output = '''
+3
+'''
+
+[[tests]]
+input = '''
+12
+55
+'''
+output = '''
+5
+'''
+
+[[tests]]
+input = '''
+100
+87
+'''
+output = '''
+1
+'''
+
+[[tests]]
+input = '''
+40
+10
+'''
+output = '''
+1
+'''
+
+[[tests]]
+input = '''
+10
+5
+'''
+output = '''
+1
+'''
