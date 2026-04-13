@@ -1,0 +1,154 @@
+{
+    "patches": [
+        {
+            "label": "2026-04-13_18-54-31",
+            "content": "@@ -804,67 +804,8 @@\n 1 %7B%0A\n-        if len(vetAux) == 0 %7Bfmt.Println(%22N%22)%0A    %7D else %7B%0A\n     \n@@ -831,38 +831,32 @@\n etAux%5Bi%5D)%0A    %7D%0A\n-    %7D%0A\n     fmt.Println(\n@@ -958,67 +958,8 @@\n 1 %7B%0A\n-        if len(vetAux) == 0 %7Bfmt.Println(%22N%22)%0A    %7D else %7B%0A\n     \n@@ -997,22 +997,16 @@\n )%0A    %7D%0A\n-    %7D%0A\n     fmt.\n",
+            "lines": "63"
+        },
+        {
+            "label": "2026-04-13_18-56-10",
+            "content": "@@ -755,32 +755,73 @@\n as(figurinhas)%0A%0A\n+    for i := range len(vetAux) - 1 %7B%0A    \n     if len(vetAu\n@@ -863,45 +863,8 @@\n e %7B%0A\n-    for i := range len(vetAux) - 1 %7B%0A\n     \n@@ -890,32 +890,38 @@\n etAux%5Bi%5D)%0A    %7D%0A\n+    %7D%0A\n     fmt.Println(\n@@ -942,22 +942,16 @@\n Aux)-1%5D)\n-%0A    %7D\n %0A%0A    ve\n@@ -978,24 +978,65 @@\n igurinhas)%0A%0A\n+    for i := range len(vetAux) - 1 %7B%0A    \n     if len(v\n@@ -1082,45 +1082,8 @@\n e %7B%0A\n-    for i := range len(vetAux) - 1 %7B%0A\n     \n@@ -1117,24 +1117,30 @@\n x%5Bi%5D)%0A    %7D%0A\n+    %7D%0A\n     fmt.Prin\n@@ -1165,18 +1165,12 @@\n Aux)-1%5D)\n-%0A    %7D\n %0A%0A%7D%0A\n",
+            "lines": "69"
+        },
+        {
+            "label": "2026-04-13_18-57-26",
+            "content": "@@ -954,11 +954,9 @@\n tAux\n-2 :\n+ \n = nu\n@@ -995,17 +995,16 @@\n n(vetAux\n-2\n ) == 0 %7B\n@@ -1062,17 +1062,16 @@\n n(vetAux\n-2\n ) - 1 %7B%0A\n@@ -1102,17 +1102,16 @@\n , vetAux\n-2\n %5Bi%5D)%0A   \n@@ -1150,9 +1150,8 @@\n tAux\n-2\n )-1%5D\n",
+            "lines": "69"
+        },
+        {
+            "label": "2026-04-13_18-58-12",
+            "content": "@@ -343,20 +343,16 @@\n = range \n-len(\n figurinh\n@@ -353,21 +353,16 @@\n gurinhas\n-) - 1\n  %7B%0A%0A    \n@@ -389,23 +389,9 @@\n  == \n-figurinhas%5Bi+1%5D\n+0\n  %7B%0A%0A\n",
+            "lines": "69"
+        },
+        {
+            "label": "2026-04-13_18-59-12",
+            "content": "@@ -413,29 +413,8 @@\n i+1%5D\n- && figurinhas%5Bi%5D %3E 0\n  %7B%0A%0A\n",
+            "lines": "69"
+        },
+        {
+            "label": "2026-04-13_18-59-38",
+            "content": "@@ -335,32 +335,36 @@\n  for i := range \n+len(\n figurinhas %7B%0A%0A  \n@@ -349,32 +349,37 @@\n e len(figurinhas\n+) - 1\n  %7B%0A%0A        if f\n@@ -393,16 +393,51 @@\n as%5Bi%5D ==\n+ figurinhas%5Bi+1%5D && figurinhas%5Bi%5D %3E\n  0 %7B%0A%0A  \n@@ -1184,17 +1184,16 @@\n n(vetAux\n-2\n %5Blen(vet\n",
+            "lines": "69"
+        },
+        {
+            "label": "2026-04-13_19-00-06",
+            "content": "@@ -26,24 +26,28 @@\n %22%0A%0Afunc \n-contagem\n+numRepetidas\n (figurin\n@@ -67,22 +67,13 @@\n nt) \n-(\n %5B%5Dint\n-, %5B%5Dint)\n  %7B%0A \n@@ -79,25 +79,28 @@\n     var \n-r\n+vetR\n epetidas\n , faltan\n@@ -95,36 +95,10 @@\n idas\n-, faltando = make(%5B%5Dint, 0),\n+ =\n  mak\n@@ -155,89 +155,221 @@\n     \n-if figurinhas%5Bi%5D == 0 %7B%0A            faltando = append(faltando, i)%0A        %7D else\n+vetRepetidas = append(vetRepetidas, figurinhas%5Bi%5D)%0A%0A    %7D%0A%0A    return vetRepetidas%0A%7D%0A%0Afunc numFaltando(figurinhas map%5Bint%5Dint) %5B%5Dint %7B%0A    var vetFaltando = make(%5B%5Dint, 0)%0A%0A    for i := range figurinhas %7B%0A%0A       \n  if \n@@ -386,11 +386,12 @@\n %5Bi%5D \n-%3E 1\n+== 0\n  %7B%0A%0A\n@@ -406,36 +406,40 @@\n     \n-repetidas = append(repetidas\n+vetFaltando = append(vetFaltando\n , i)\n@@ -473,20 +473,12 @@\n urn \n-repetidas, f\n+vetF\n alta\n@@ -737,29 +737,24 @@\n tAux\n-, vetAux2 := contagem\n+ := numRepetidas\n (fig\n@@ -936,24 +936,64 @@\n -1%5D)%0A    %7D%0A%0A\n+    vetAux2 := numFaltando(figurinhas)%0A%0A\n     if len(v\n",
+            "lines": "69"
+        },
+        {
+            "label": "2026-04-13_19-04-15",
+            "content": "@@ -504,27 +504,8 @@\n tal)\n-%0A    fmt.Println(f)\n %0A%0A  \n",
+            "lines": "57"
+        },
+        {
+            "label": "2026-04-13_19-04-59",
+            "content": "@@ -518,25 +518,16 @@\n rintln(f\n-igurinhas\n )%0A%0A    f\n",
+            "lines": "58"
+        },
+        {
+            "label": "2026-04-13_19-05-02",
+            "content": "@@ -505,76 +505,35 @@\n al)%0A\n-%0A\n     f\n-or i := range total %7B%0A       %0A        figurinhas%5Bi%5D = 0%0A%0A    %7D\n+mt.Println(figurinhas)\n %0A%0A  \n@@ -544,26 +544,22 @@\n r range \n-figurinhas\n+possui\n  %7B%0A     \n@@ -609,24 +609,16 @@\n urinha)%0A\n-        \n %0A       \n@@ -642,16 +642,17 @@\n inha%5D++%0A\n+%0A\n     %7D%0A%0A \n",
+            "lines": "58"
+        },
+        {
+            "label": "2026-04-13_19-07-01",
+            "content": "@@ -519,26 +519,19 @@\n  := \n-1; i %3C=\n+range\n  total\n-; i++\n  %7B%0A \n",
+            "lines": "62"
+        },
+        {
+            "label": "2026-04-13_19-07-25",
+            "content": "@@ -503,12 +503,8 @@\n otal\n- + 1\n )%0A%0A \n",
+            "lines": "62"
+        },
+        {
+            "label": "2026-04-13_19-07-38",
+            "content": "@@ -519,17 +519,17 @@\n or i := \n-0\n+1\n ; i %3C= t\n",
+            "lines": "62"
+        },
+        {
+            "label": "2026-04-13_19-08-58",
+            "content": "@@ -519,17 +519,17 @@\n or i := \n-1\n+0\n ; i %3C= t\n",
+            "lines": "62"
+        },
+        {
+            "label": "2026-04-13_19-09-06",
+            "content": "@@ -506,16 +506,92 @@\n l + 1)%0A%0A\n+    for i := 1; i %3C= total; i++ %7B%0A       %0A        figurinhas%5Bi%5D = 0%0A%0A    %7D%0A%0A\n     for \n",
+            "lines": "62"
+        },
+        {
+            "label": "2026-04-13_19-09-37",
+            "content": "@@ -499,16 +499,20 @@\n t, total\n+ + 1\n )%0A%0A    f\n",
+            "lines": "56"
+        },
+        {
+            "label": "2026-04-13_19-09-39",
+            "content": "@@ -635,36 +635,8 @@\n    %7D\n-%0A    fmt.Println(figurinhas)\n %0A%0A  \n",
+            "lines": "56"
+        },
+        {
+            "label": "2026-04-13_19-10-19",
+            "content": "@@ -516,22 +516,26 @@\n r range \n-possui\n+figurinhas\n  %7B%0A     \n@@ -627,24 +627,52 @@\n nha%5D++%0A    %7D\n+%0A    fmt.Println(figurinhas)\n %0A%0A    vetAux\n",
+            "lines": "57"
+        },
+        {
+            "label": "2026-04-13_19-10-43",
+            "content": "@@ -506,94 +506,8 @@\n l)%0A%0A\n-    for i := range total %7B%0A        figurinhas%5Bi%5D = 0%0A        figurinhas%5B0%5D = 1%0A    %7D%0A%0A\n     \n",
+            "lines": "56"
+        },
+        {
+            "label": "2026-04-13_19-11-31",
+            "content": "@@ -717,36 +717,8 @@\n    %7D\n-%0A    fmt.Println(figurinhas)\n %0A%0A  \n",
+            "lines": "61"
+        },
+        {
+            "label": "2026-04-13_19-12-21",
+            "content": "@@ -519,26 +519,19 @@\n  := \n-1; i ==\n+range\n  total\n-; i++\n  %7B%0A \n",
+            "lines": "62"
+        },
+        {
+            "label": "2026-04-13_19-13-29",
+            "content": "@@ -524,9 +524,9 @@\n ; i \n-%3C\n+=\n = to\n@@ -562,16 +562,42 @@\n %5Bi%5D = 0%0A\n+        figurinhas%5B0%5D = 1%0A\n     %7D%0A%0A \n",
+            "lines": "62"
+        },
+        {
+            "label": "2026-04-13_19-14-07",
+            "content": "@@ -690,24 +690,52 @@\n nha%5D++%0A    %7D\n+%0A    fmt.Println(figurinhas)\n %0A%0A    vetAux\n",
+            "lines": "61"
+        },
+        {
+            "label": "2026-04-13_19-14-25",
+            "content": "@@ -698,36 +698,8 @@\n    %7D\n-%0A    fmt.Println(figurinhas)\n %0A%0A  \n",
+            "lines": "60"
+        },
+        {
+            "label": "2026-04-13_19-14-54",
+            "content": "@@ -690,24 +690,52 @@\n nha%5D++%0A    %7D\n+%0A    fmt.Println(figurinhas)\n %0A%0A    vetAux\n",
+            "lines": "61"
+        },
+        {
+            "label": "2026-04-13_19-15-24",
+            "content": "@@ -502,24 +502,86 @@\n total)%0A%0A    \n+for i := 1; i %3C= total; i++ %7B%0A        figurinhas%5Bi%5D = 0%0A    %7D%0A\n %0A    for ran\n@@ -618,25 +618,17 @@\n nha int%0A\n-        \n %0A\n+\n         \n@@ -657,16 +657,16 @@\n        %0A\n+\n         \n@@ -698,116 +698,8 @@\n    %7D\n-%0A    for i := 1; i %3C= total; i++ %7B%0A        if figurinhas%5Bi%5D == 0 %7B%0A        figurinhas%5Bi%5D = 0%0A        %7D%0A    %7D\n %0A%0A  \n",
+            "lines": "60"
+        },
+        {
+            "label": "2026-04-13_19-19-25",
+            "content": "@@ -46,17 +46,23 @@\n urinhas \n-%5B\n+map%5Bint\n %5Dint) (%5B\n@@ -477,25 +477,31 @@\n nhas = make(\n-%5B\n+map%5Bint\n %5Dint, total)\n@@ -506,76 +506,8 @@\n l)%0A%0A\n-    for i := 1; i %3C= total; i++ %7B%0A%0A        figurinhas%5Bi%5D = 0%0A%0A    %7D%0A\n     \n@@ -636,24 +636,132 @@\n nha%5D++%0A    %7D\n+%0A    for i := 1; i %3C= total; i++ %7B%0A        if figurinhas%5Bi%5D == 0 %7B%0A        figurinhas%5Bi%5D = 0%0A        %7D%0A    %7D\n %0A%0A    vetAux\n",
+            "lines": "62"
+        },
+        {
+            "label": "2026-04-13_19-21-54",
+            "content": "@@ -238,18 +238,16 @@\n tando, i\n-+1\n )%0A      \n@@ -326,10 +326,8 @@\n s, i\n-+1\n )%0A%0A \n@@ -507,14 +507,15 @@\n  := \n-0\n+1\n ; i %3C\n+=\n  tot\n",
+            "lines": "62"
+        },
+        {
+            "label": "2026-04-13_19-22-28",
+            "content": "@@ -690,18 +690,16 @@\n igurinha\n--1\n %5D++%0A    \n",
+            "lines": "62"
+        },
+        {
+            "label": "2026-04-13_19-23-26",
+            "content": "package main\n\nimport \"fmt\"\n\nfunc contagem(figurinhas []int) ([]int, []int) {\n    var repetidas, faltando = make([]int, 0), make([]int, 0)\n\n    for i := range figurinhas {\n\n        if figurinhas[i] == 0 {\n            faltando = append(faltando, i+1)\n        } else if figurinhas[i] > 1 {\n\n            repetidas = append(repetidas, i+1)\n\n        }\n\n    }\n\n    return repetidas, faltando\n}\n\nfunc main() {\n    var total, possui int\n\n    fmt.Scan(&total, &possui)\n\n    var figurinhas = make([]int, total)\n\n    for i := 0; i < total; i++ {\n\n        figurinhas[i] = 0\n\n    }\n    \n    for range possui {\n        var figurinha int\n        \n        fmt.Scan(&figurinha)\n        \n        figurinhas[figurinha-1]++\n    }\n\n    vetAux, vetAux2 := contagem(figurinhas)\n\n    if len(vetAux) == 0 {fmt.Println(\"N\")\n    } else {\n    for i := range len(vetAux) - 1 {\n    fmt.Printf(\"%d \", vetAux[i])\n    }\n    fmt.Println(vetAux[len(vetAux)-1])\n    }\n\n    if len(vetAux2) == 0 {fmt.Println(\"N\")\n    } else {\n    for i := range len(vetAux2) - 1 {\n        fmt.Printf(\"%d \", vetAux2[i])\n    }\n    fmt.Println(vetAux2[len(vetAux2)-1])\n    }\n\n}\n",
+            "lines": "62"
+        }
+    ]
+}

@@ -1,0 +1,69 @@
+{
+    "patches": [
+        {
+            "label": "2026-04-13_19-33-45",
+            "content": "@@ -143,21 +143,11 @@\n id))\n-%7Breturn%7D%0A%09if \n+ %7C%7C\n  gri\n@@ -160,17 +160,16 @@\n %5D == '.'\n- \n %7Breturn%7D\n",
+            "lines": "42"
+        },
+        {
+            "label": "2026-04-13_19-34-25",
+            "content": "@@ -141,11 +141,8 @@\n grid\n-%5B0%5D\n ))%7Br\n",
+            "lines": "43"
+        },
+        {
+            "label": "2026-04-13_19-34-49",
+            "content": "@@ -645,24 +645,8 @@\n %0A%09%7D%0A\n-%09fmt.Println(n)%0A\n %09bur\n",
+            "lines": "43"
+        },
+        {
+            "label": "2026-04-13_19-36-03",
+            "content": "@@ -655,17 +655,16 @@\n rintln(n\n-c\n )%0A%09burnT\n",
+            "lines": "44"
+        },
+        {
+            "label": "2026-04-13_19-36-05",
+            "content": "@@ -654,25 +654,18 @@\n Println(\n-len(grid)\n+nc\n )%0A%09burnT\n",
+            "lines": "44"
+        },
+        {
+            "label": "2026-04-13_19-36-18",
+            "content": "@@ -110,18 +110,16 @@\n en(grid)\n--1\n ) %7C%7C (c \n@@ -641,16 +641,40 @@\n ine)%0A%09%7D%0A\n+%09fmt.Println(len(grid))%0A\n %09burnTre\n",
+            "lines": "44"
+        },
+        {
+            "label": "2026-04-13_19-36-30",
+            "content": "@@ -109,20 +109,19 @@\n len(grid\n-%5B0%5D)\n+)-1\n ) %7C%7C (c \n",
+            "lines": "43"
+        },
+        {
+            "label": "2026-04-13_19-37-17",
+            "content": "@@ -101,16 +101,28 @@\n  %7C%7C l %3E \n+len(grid%5B0%5D)\n ) %7C%7C (c \n",
+            "lines": "43"
+        },
+        {
+            "label": "2026-04-13_19-38-50",
+            "content": "@@ -105,17 +105,8 @@\n l %3E \n-len(grid)\n ) %7C%7C\n",
+            "lines": "43"
+        },
+        {
+            "label": "2026-04-13_19-38-51",
+            "content": "@@ -114,12 +114,8 @@\n rid)\n- - 1\n ) %7C%7C\n",
+            "lines": "43"
+        },
+        {
+            "label": "2026-04-13_19-39-08",
+            "content": "@@ -145,18 +145,16 @@\n grid%5B0%5D)\n--1\n )%7Breturn\n",
+            "lines": "43"
+        },
+        {
+            "label": "2026-04-13_19-39-49",
+            "content": "@@ -162,17 +162,16 @@\n n%7D%0A%09if  \n-(\n grid%5Bl%5D%5B\n@@ -183,32 +183,8 @@\n  '.'\n-) %7C%7C (grid%5Bl%5D%5Bc%5D == 'o')\n  %7Bre\n",
+            "lines": "43"
+        },
+        {
+            "label": "2026-04-13_19-40-16",
+            "content": "package main\n\nimport (\n\t\"bufio\"\n\t\"fmt\"\n\t\"os\"\n)\n\nfunc burnTrees(grid [][]rune, l, c int) {\n\tif (l < 0 || l > len(grid) - 1) || (c < 0 || c > len(grid[0])-1){return}\n\tif  (grid[l][c] == '.') || (grid[l][c] == 'o') {return}\n\n\tif grid[l][c] == '#' {grid[l][c] = 'o'}\n\n\tburnTrees(grid, l+1, c)\n\tburnTrees(grid, l, c+1)\n\tburnTrees(grid, l-1, c)\n\tburnTrees(grid, l, c-1)\n\n}\n\nfunc main() {\n\tscanner := bufio.NewScanner(os.Stdin)\n\tscanner.Scan()\n\tline := scanner.Text()\n\tvar nl, nc, lfire, cfire int\n\tfmt.Sscanf(line, \"%d %d %d %d\", &nl, &nc, &lfire, &cfire)\n\n\tgrid := make([][]rune, 0, nl)\n\tfor range nl {\n\t\tscanner.Scan()\n\t\tline := []rune(scanner.Text())\n\t\tgrid = append(grid, line)\n\t}\n\tburnTrees(grid, lfire, cfire)\n\tshowGrid(grid)\n}\n\nfunc showGrid(grid [][]rune) {\n\tfor _, line := range grid {\n\t\tfmt.Println(string(line))\n\t}\n}\n",
+            "lines": "43"
+        }
+    ]
+}
