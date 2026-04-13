@@ -12,8 +12,13 @@
         },
         {
             "label": "2026-04-10_11-51-30",
-            "content": "package main\n\nimport (\n\t\"fmt\"\n)\n\nfunc mdc(a, b int) int {\n\n\tif a == 0 {return b\n\t}else if b == 0 {return a}\n\n\tvarAux := a % b\n\n\t\n\n\treturn mdc(b, varAux)\n}\n\nfunc main() {\n\tvar a, b int\n\tfmt.Scan(&a, &b)\n\tfmt.Println(mdc(a, b))\n}\n",
+            "content": "@@ -120,16 +120,19 @@\n  a %25 b%0A%0A\n+%09%0A%0A\n %09return \n",
             "lines": "23"
+        },
+        {
+            "label": "2026-04-13_15-06-35",
+            "content": "package main\n\nimport (\n\t\"fmt\"\n)\n\nfunc mdc(a, b int) int {\n\n\tif a == 0 {return b\n\t}else if b == 0 {return a}\n\n\tvarAux := a % b\n\n\treturn mdc(b, varAux)\n}\n\nfunc main() {\n\tvar a, b int\n\tfmt.Scan(&a, &b)\n\tfmt.Println(mdc(a, b))\n}\n",
+            "lines": "21"
         }
     ]
 }

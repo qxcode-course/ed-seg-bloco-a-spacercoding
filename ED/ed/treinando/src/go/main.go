@@ -8,28 +8,28 @@ import (
 	"strings"
 )
 
-func tostr(vet []int) string {
-	var vetAux = make([]int, 0)
-	var indexString string
+func auxToStrg(vet []int) string {
+	var retorno string
 
 	if len(vet) == 0 {
-
-		return "[]"
-
+		return ""
 	}
 
-	if len(vet) == 1 {
+	retorno += strconv.Itoa(vet[0])
 
-		indexString = "[" + strconv.Itoa(vet[0])
-		return indexString + "]"
+	vet = append(vet, vet[1:]...)
 
-	}
+	return retorno + ", " + auxToStrg(vet)
 
-	vetAux = append(vetAux, vet[1:]...)
-	indexString = strconv.Itoa(vet[0])
-	tostr(vetAux)
+}
 
-	return indexString + ", "
+func tostr(vet []int) string {
+	var retorno string = "["
+
+	retorno += auxToStrg(vet)
+
+	return retorno + "]"
+
 }
 
 func tostrrev(vet []int) string {

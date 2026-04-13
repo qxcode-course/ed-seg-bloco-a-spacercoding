@@ -343,3 +343,5 @@
 2026-04-10 16:27:14, EXEC, v:1, k:fup@teleferico, mode:FULL, rate:12
 2026-04-10 16:27:48, EXEC, v:1, k:fup@teleferico, mode:FULL, rate:12, size:20
 2026-04-10 16:29:35, EXEC, v:1, k:fup@teleferico, mode:FULL, rate:0, size:20
+2026-04-10 16:29:35, MOVE, v:1, k:fup@teleferico, mode:EDIT
+2026-04-10 16:29:35, MOVE, v:1, k:fup@teleferico, mode:EDIT
