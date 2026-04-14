@@ -1,0 +1,19 @@
+{
+    "patches": [
+        {
+            "label": "2026-04-14_11-55-52",
+            "content": "@@ -97,28 +97,8 @@\n 2)%0A%0A\n-    fmt.Print(%22%5B %22)%0A\n     \n@@ -215,27 +215,6 @@\n   %7D%0A\n-    fmt.Println(%22%5D%22)%0A\n %7D%0A\n",
+            "lines": "15"
+        },
+        {
+            "label": "2026-04-14_11-56-27",
+            "content": "@@ -153,17 +153,16 @@\n um1; i %3C\n-=\n  num2; i\n",
+            "lines": "17"
+        },
+        {
+            "label": "2026-04-14_11-56-36",
+            "content": "package main\nimport \"fmt\"\nfunc main() {\n    var num1, num2, index2 int\n\n    fmt.Scan(&num1, &num2)\n\n    fmt.Print(\"[ \")\n    index2 = num2\n    for i := num1; i <= num2; i++ {\n\n        fmt.Printf(\"%d %d \", i, index2)\n        index2--\n\n    }\n    fmt.Println(\"]\")\n}\n",
+            "lines": "17"
+        }
+    ]
+}

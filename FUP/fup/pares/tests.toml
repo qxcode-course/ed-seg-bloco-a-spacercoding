@@ -1,0 +1,62 @@
+[[tests]]
+input = '''
+1
+10
+'''
+output = '''
+30
+'''
+
+[[tests]]
+input = '''
+1
+5
+'''
+output = '''
+6
+'''
+
+[[tests]]
+input = '''
+5
+1
+'''
+output = '''
+invalido
+'''
+
+[[tests]]
+input = '''
+6
+6
+'''
+output = '''
+6
+'''
+
+[[tests]]
+input = '''
+10
+20
+'''
+output = '''
+90
+'''
+
+[[tests]]
+input = '''
+1
+7
+'''
+output = '''
+12
+'''
+
+[[tests]]
+input = '''
+8
+8
+'''
+output = '''
+8
+'''

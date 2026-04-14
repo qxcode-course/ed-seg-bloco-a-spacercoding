@@ -1,0 +1,14 @@
+{
+    "patches": [
+        {
+            "label": "2026-04-14_11-27-16",
+            "content": "@@ -254,24 +254,28 @@\n & i == num2 \n++ 1 \n %7Bbreak%0A     \n@@ -311,16 +311,20 @@\n == num2 \n+- 1 \n %7Bbreak%7D%0A\n",
+            "lines": "22"
+        },
+        {
+            "label": "2026-04-14_11-27-49",
+            "content": "package main\nimport \"fmt\"\nfunc main() {\n    var num1, num2 int\n\n    fmt.Scan(&num1, &num2)\n\n    fmt.Print(\"[ \")\n    for i := num1; ; {\n\n        fmt.Printf(\"%d \", i)\n        if num1 > num2 {\n\n            i--\n\n        } else {i++}\n        if num1 > num2 && i == num2 {break\n        }else if num1 < num2 && i == num2 {break}\n\n    }\n    fmt.Println(\"]\")\n}\n",
+            "lines": "22"
+        }
+    ]
+}

@@ -1,0 +1,19 @@
+{
+    "patches": [
+        {
+            "label": "2026-04-14_11-39-27",
+            "content": "@@ -180,32 +180,39 @@\n ntinue%0A        %7D\n+ else %7B\n %0A        %0A      \n@@ -196,32 +196,67 @@\n  else %7B%0A        \n+    fmt.Printf(%22%25d %22, i)%0A        %7D%0A\n %0A        if i ==\n@@ -306,46 +306,8 @@\n    %7D\n-%0A        %0A        fmt.Printf(%22%25d %22, i)\n %0A%0A  \n",
+            "lines": "25"
+        },
+        {
+            "label": "2026-04-14_11-39-54",
+            "content": "@@ -250,28 +250,25 @@\n %22ceu %22)%0A\n-    \n+%0A\n         \n continue\n@@ -259,25 +259,17 @@\n         \n-continue%0A\n+%7D\n %0A       \n@@ -269,18 +269,16 @@\n         \n-%7D%0A\n %0A       \n",
+            "lines": "25"
+        },
+        {
+            "label": "2026-04-14_11-40-05",
+            "content": "package main\nimport \"fmt\"\nfunc main() {\n    var posPedra int\n\n    fmt.Scan(&posPedra)\n\n    fmt.Print(\"[ \")\n    for i := 0; i < 11; i++ {\n\n        if i == posPedra {\n            continue\n        }\n        \n        if i == 10 {\n\n            fmt.Print(\"ceu \")\n            continue\n\n        }\n\n        fmt.Printf(\"%d \", i)\n\n    }\n    fmt.Println(\"]\")\n}\n",
+            "lines": "26"
+        }
+    ]
+}

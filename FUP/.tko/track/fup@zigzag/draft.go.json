@@ -1,0 +1,14 @@
+{
+    "patches": [
+        {
+            "label": "2026-04-14_11-45-51",
+            "content": "@@ -111,17 +111,16 @@\n cio; i %3C\n-=\n  fim; i+\n",
+            "lines": "29"
+        },
+        {
+            "label": "2026-04-14_11-46-03",
+            "content": "package main\nimport \"fmt\"\nfunc main() {\n    var inicio, fim int\n\n    fmt.Scan(&inicio, &fim)\n\n    for i := inicio; i <= fim; i++ {\n\n        if i % 15 == 0 {\n\n            fmt.Println(\"zigzag\")\n\n        } else if i % 3 == 0 {\n\n            fmt.Println(\"zig\")\n\n        } else if i % 5 == 0 {\n        \n            fmt.Println(\"zag\")\n\n        } else {\n        \n            fmt.Println(i)\n        \n        }\n\n    }\n}\n",
+            "lines": "29"
+        }
+    ]
+}

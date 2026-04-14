@@ -1,0 +1,9 @@
+{
+    "patches": [
+        {
+            "label": "2026-04-14_11-43-11",
+            "content": "package main\nimport \"fmt\"\nfunc main() {\n    var numImpar int\n\n    fmt.Scan(&numImpar)\n\n    for i := 1; i <= numImpar; i += 2 {\n\n        fmt.Println(i)\n\n    }\n\n    for i := numImpar; i >= 0; i-- {\n\n        if i % 2 == 0 {\n            fmt.Println(i)\n        }\n\n    } \n}\n",
+            "lines": "21"
+        }
+    ]
+}

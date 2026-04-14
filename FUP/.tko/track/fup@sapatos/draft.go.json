@@ -1,0 +1,9 @@
+{
+    "patches": [
+        {
+            "label": "2026-04-14_11-33-39",
+            "content": "package main\nimport \"fmt\"\nfunc main() {\n    var num1, num2, soma int\n\n    fmt.Scan(&num1, &num2)\n\n    if num1 > num2 {fmt.Println(\"invalido\")\n    } else {\n\n        for i := num1; i <= num2; i++ {\n\n            if i % 6 == 0 {soma += i}\n\n        }\n\n        fmt.Println(soma)\n\n    }\n}\n",
+            "lines": "20"
+        }
+    ]
+}

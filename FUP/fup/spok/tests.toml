@@ -1,0 +1,63 @@
+[[tests]]
+input = '''
+121
+'''
+output = '''
+1
+'''
+
+[[tests]]
+input = '''
+123
+'''
+output = '''
+0
+'''
+
+[[tests]]
+input = '''
+122
+'''
+output = '''
+0
+'''
+
+[[tests]]
+input = '''
+1
+'''
+output = '''
+1
+'''
+
+[[tests]]
+input = '''
+11
+'''
+output = '''
+1
+'''
+
+[[tests]]
+input = '''
+1235321
+'''
+output = '''
+1
+'''
+
+[[tests]]
+input = '''
+0
+'''
+output = '''
+1
+'''
+
+[[tests]]
+input = '''
+2220122
+'''
+output = '''
+0
+'''

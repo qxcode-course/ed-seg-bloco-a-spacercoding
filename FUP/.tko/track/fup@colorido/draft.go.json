@@ -1,0 +1,14 @@
+{
+    "patches": [
+        {
+            "label": "2026-04-14_11-52-12",
+            "content": "@@ -275,113 +275,8 @@\n a %7B%0A\n-            %0A            varAux := peInicial%0A            peInicial = outroPe%0A            outroPe = varAux\n %0A   \n",
+            "lines": "38"
+        },
+        {
+            "label": "2026-04-14_11-53-14",
+            "content": "package main\nimport \"fmt\"\nfunc main() {\n    var posPedra int\n    var peInicial, outroPe string\n\n    fmt.Scan(&posPedra, &peInicial)\n\n    if peInicial == \"e\" {outroPe = \"d\"\n    } else {outroPe = \"e\"}\n\n    fmt.Print(\"[ \")\n    for i := 0; i < 11; i++ {\n\n        if i == posPedra {\n            \n            varAux := peInicial\n            peInicial = outroPe\n            outroPe = varAux\n            continue\n\n        } else if i == 10 {\n\n            fmt.Print(\"ceu \")\n            continue\n\n        }\n\n        if i % 2 == 0 {\n\n            fmt.Printf(\"%d%s \", i, peInicial)\n\n        } else {\n\n            fmt.Printf(\"%d%s \", i, outroPe)\n\n        }\n\n    }\n    fmt.Println(\"]\")\n}\n",
+            "lines": "41"
+        }
+    ]
+}
