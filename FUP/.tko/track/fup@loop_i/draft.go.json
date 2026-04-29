@@ -1,9 +1,0 @@
-{
-    "patches": [
-        {
-            "label": "2026-04-14_11-17-30",
-            "content": "package main\nimport \"fmt\"\nfunc main() {\n    var num1, num2 int\n\n    fmt.Scan(&num1, &num2)\n\n    for i := num1; i < num2; i++ {\n\n        fmt.Println(i)\n\n    }\n}\n",
-            "lines": "13"
-        }
-    ]
-}

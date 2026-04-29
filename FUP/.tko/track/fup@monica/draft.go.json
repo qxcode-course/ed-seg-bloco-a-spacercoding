@@ -1,9 +1,0 @@
-{
-    "patches": [
-        {
-            "label": "2026-04-10_16-13-37",
-            "content": "package main\n\nimport \"fmt\"\n\nfunc calcFilhoMaisVelho(idadeMonica, idadeFilho1, idadeFilho2 int) int {\n    var idadeFilho3 int = idadeMonica - (idadeFilho1 + idadeFilho2)\n    \n    if idadeFilho1 > idadeFilho2 && idadeFilho1 > idadeFilho3 {return idadeFilho1\n    }else if idadeFilho2 > idadeFilho1 && idadeFilho2 > idadeFilho3 {return idadeFilho2\n    }else if idadeFilho3 > idadeFilho2 && idadeFilho3 > idadeFilho1 {return idadeFilho3}\n\n    return 0\n}\n\nfunc main() {\n    var idadeMonica, idadeFilho1, idadeFilho2 int\n\n    fmt.Scan(&idadeMonica, &idadeFilho1, &idadeFilho2)\n\n    fmt.Println(calcFilhoMaisVelho(idadeMonica, idadeFilho1, idadeFilho2))\n}\n",
-            "lines": "21"
-        }
-    ]
-}

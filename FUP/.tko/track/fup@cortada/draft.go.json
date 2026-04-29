@@ -1,9 +1,0 @@
-{
-    "patches": [
-        {
-            "label": "2026-04-10_16-03-28",
-            "content": "package main\n\nimport \"fmt\"\n\nfunc calcParteArea(inicioCorte, fimCorte int) int {\n    var areaTrapezio int = ((inicioCorte + fimCorte) / 2) * 70\n\n    if areaTrapezio > (160 * 70) / 2 {return 1\n    } else if areaTrapezio < (160 * 70) / 2 {return 2}\n\n    return 0\n}\n\nfunc main() {\n    var inicioCorte, fimCorte int\n\n    fmt.Scan(&inicioCorte, &fimCorte)\n\n    fmt.Println(calcParteArea(inicioCorte, fimCorte))\n}\n",
-            "lines": "20"
-        }
-    ]
-}

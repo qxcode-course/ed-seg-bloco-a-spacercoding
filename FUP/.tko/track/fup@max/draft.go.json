@@ -1,9 +1,0 @@
-{
-    "patches": [
-        {
-            "label": "2026-04-10_12-30-59",
-            "content": "package main\n\nimport \"fmt\"\n\nfunc qualOMaior(num1, num2 int) int {\n\n    if num1 > num2 {return num1}\n\n    return num2\n}\n\nfunc main() {\n    var num1, num2 int\n\n    fmt.Scan(&num1, &num2)\n\n    fmt.Println(qualOMaior(num1, num2))\n}\n",
-            "lines": "18"
-        }
-    ]
-}

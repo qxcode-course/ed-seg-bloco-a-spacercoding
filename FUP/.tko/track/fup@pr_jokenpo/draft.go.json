@@ -1,9 +1,0 @@
-{
-    "patches": [
-        {
-            "label": "2026-03-31_12-48-15",
-            "content": "package main\n\nimport (\n\t\"fmt\"\n    \"math/rand\"\n)\n\nfunc compararJogada(jogadaJog, jogadaPc, ptsJog, ptsPc int) {\n\n    if  jogadaJog == 1 && jogadaPc == 3 {\n        fmt.Printf(\"Voc\u00ea jogou PEDRA e o PC TESOURA.\\nVoc\u00ea ganhou!\\n\")\n        ptsJog++\n    } else if jogadaJog == 1 && jogadaPc == 2 {\n        fmt.Printf(\"Voc\u00ea jogou PEDRA e o PC PAPEL .\\nO PC ganhou!\\n\")\n        ptsPc++\n    } else if jogadaJog == 2 && jogadaPc == 1 {\n        fmt.Printf(\"Voc\u00ea jogou PAPEL e o PC PEDRA .\\nVoc\u00ea ganhou!\\n\")\n        ptsJog++\n    } else if jogadaJog == 2 && jogadaPc == 3 {\n        fmt.Printf(\"Voc\u00ea jogou PAPEL e o PC TESOURA .\\nO PC ganhou!\\n\")\n        ptsPc++\n    } else if jogadaJog == 3 && jogadaPc == 1 {\n        fmt.Printf(\"Voc\u00ea jogou TESOURA e o PC PEDRA .\\nO PC ganhou!\\n\")\n        ptsPc++\n    } else if jogadaJog == 3 && jogadaPc == 2 {\n        fmt.Printf(\"Voc\u00ea jogou TESOURA e o PC PAPEL.\\nVoc\u00ea ganhou!\\n\")\n        ptsJog++\n    } else {\n        fmt.Printf(\"Voc\u00ea jogou IGUAL ao PC  .\\nNingu\u00e9m ganhou!\\n\")\n    }\n\n}\n\nfunc main() {\n    var jogadaJog, jogadaPc, ptsJog, ptsPc, numRound int\n    ptsJog, ptsPc, numRound = 0, 0, 1\n\n    fmt.Printf(\"# JOKENP\u00d4 #\\nVoc\u00ea: %d | PC: %d\\nRound: %d/5\\n\\n1 - Pedra\\n2 - Papel\\n3 - Tesoura\\n\", ptsJog, ptsPc, numRound)\n\n    \n    for {\n    fmt.Scan(&jogadaJog)\n    jogadaPc = rand.Intn(2)\n    compararJogada(jogadaJog, jogadaPc, ptsJog, ptsPc)\n    }\n\n}\n",
-            "lines": "47"
-        }
-    ]
-}

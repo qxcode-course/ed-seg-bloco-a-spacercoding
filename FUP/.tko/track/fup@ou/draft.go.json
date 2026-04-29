@@ -1,9 +1,0 @@
-{
-    "patches": [
-        {
-            "label": "2026-04-10_12-32-42",
-            "content": "package main\n\nimport \"fmt\"\n\nfunc verificacao3Ou5(num int) string {\n\n    if num == 3 || num == 5 {return \"SIM\"}\n\n    return \"NAO\"\n}\n\nfunc main() {\n    var num int\n\n    fmt.Scan(&num)\n\n    fmt.Println(verificacao3Ou5(num))\n}\n",
-            "lines": "18"
-        }
-    ]
-}
