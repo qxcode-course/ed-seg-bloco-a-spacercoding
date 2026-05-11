@@ -23,14 +23,14 @@ sources:
   tasks: null
 expanded:
 - ed@basic
-- sandbox@sandbox
 - ed@vector
+- sandbox@sandbox
 flags:
   inbox: all
-  panel: help
+  panel: skills
   show_panel: 'true'
   task_graph_mode: time
   show_time: 'true'
 lang: go
-selected: ed@vetbuild
-selected_index: 14
+selected: ed@multiset
+selected_index: 17

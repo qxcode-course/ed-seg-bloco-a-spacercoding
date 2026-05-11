@@ -195,17 +195,43 @@ func (v *Vector) Insert(index, value int) error {
 
 		v.capacity *= 2
 		v.data = newData
-		v.data[v.size] = value
-		v.size++
 	}
 
-	for i := v.size - 1; i > index; i-- {
+	for i := v.size; i > index; i-- {
 
-		v.data[i] = v.data[i+1]
+		v.data[i] = v.data[i-1]
 
 	}
+	v.data[index] = value
+	v.size++
 
 	return nil
+}
+
+func (v *Vector) Slice(start, end int) []string {
+	if start > v.capacity {
+		start = v.capacity % start
+	}
+	if end > v.capacity {
+		end = v.capacity % end
+	}
+
+	if start < 0 {
+		start += v.size
+	}
+	if end < 0 {
+		end += v.size
+	}
+
+	slice := NewVector(end - start)
+
+	for i := start; i < end; i++ {
+
+		slice.PushBack(v.data[i])
+
+	}
+
+	return slice.Show()
 }
 
 func Join(slice []int, sep string) string {
@@ -306,10 +332,10 @@ func main() {
 			newCapacity, _ := strconv.Atoi(parts[1])
 			v.Reserve(newCapacity)
 		case "slice":
-			// start, _ := strconv.Atoi(parts[1])
-			// end, _ := strconv.Atoi(parts[2])
-			// slice := v.Slice(start, end)
-			// fmt.Println(slice)
+			start, _ := strconv.Atoi(parts[1])
+			end, _ := strconv.Atoi(parts[2])
+			slice := v.Slice(start, end)
+			fmt.Println(slice)
 		default:
 			fmt.Println("fail: comando invalido")
 		}
