@@ -15,11 +15,6 @@ type Vector struct {
 	capacity int
 }
 
-type Node[T any] struct {
-	next  *Node[T]
-	value any
-}
-
 func NewVector(capacity int) *Vector {
 	return &Vector{
 		data:     make([]int, capacity), // nunca use len(data) ou cap(data) ou qq método do go de manipulação de array
@@ -27,25 +22,20 @@ func NewVector(capacity int) *Vector {
 		capacity: capacity,
 	}
 }
+func (v *Vector) Reserve(newCapacity int) {
+	var newData []int = make([]int, newCapacity)
 
-func (v *Vector) Status() string {
-	return "size:" + strconv.Itoa(v.size) + " capacity:" + strconv.Itoa(v.capacity)
-}
+	v.capacity = newCapacity
 
-func (v *Vector) Show() []string {
-	var s = make([]string, v.size)
+	for i := range v.size {
 
-	if v.size > 0 {
-		for i := range v.size - 1 {
+		newData[i] = v.data[i]
 
-			s[i] = strconv.Itoa(v.data[i]) + ","
-
-		}
-		s[v.size-1] = strconv.Itoa(v.data[v.size-1])
 	}
-	return s
-}
 
+	v.data = newData
+
+}
 func (v *Vector) PushBack(value int) {
 	if v.size == 0 {
 		v.data[0] = value
@@ -74,29 +64,39 @@ func (v *Vector) PushBack(value int) {
 
 }
 
-func (v *Vector) Clear() {
-
-	for i := range v.size {
-
-		v.data[i] = 0
-
+func (v *Vector) PopBack() error {
+	if v.size == 0 {
+		return errors.New("vector is empty")
 	}
-	v.size = 0
 
+	v.data[v.size-1] = 0
+	v.size--
+
+	return nil
+}
+func (v *Vector) Status() string {
+	return "size:" + strconv.Itoa(v.size) + " capacity:" + strconv.Itoa(v.capacity)
+}
+func (v *Vector) Show() []string {
+	var s = make([]string, v.size)
+
+	if v.size > 0 {
+		for i := range v.size - 1 {
+
+			s[i] = strconv.Itoa(v.data[i]) + ","
+
+		}
+		s[v.size-1] = strconv.Itoa(v.data[v.size-1])
+	}
+	return s
 }
 
-func (v *Vector) Reserve(newCapacity int) {
-	var newData []int = make([]int, newCapacity)
-
-	v.capacity = newCapacity
-
-	for i := range v.size {
-
-		newData[i] = v.data[i]
-
+func (v *Vector) At(index int) (int, error) {
+	if index < 0 || index >= v.size {
+		return 0, errors.New("index out of range")
 	}
 
-	v.data = newData
+	return v.data[index], nil
 
 }
 
@@ -116,67 +116,15 @@ func (v *Vector) Set(index, value int) error {
 	return nil
 }
 
-func (v *Vector) At(index int) (int, error) {
-	if index < 0 || index >= v.size {
-		return 0, errors.New("index out of range")
-	}
-
-	return v.data[index], nil
-
-}
-
-func (v *Vector) PopBack() error {
-	if v.size == 0 {
-		return errors.New("vector is empty")
-	}
-
-	v.data[v.size-1] = 0
-	v.size--
-
-	return nil
-}
-
-func (v *Vector) IndexOf(value int) int {
+func (v *Vector) Clear() {
 
 	for i := range v.size {
 
-		if v.data[i] == value {
-			return i
-		}
+		v.data[i] = 0
 
 	}
+	v.size = 0
 
-	return -1
-}
-
-func (v *Vector) Contains(value int) bool {
-
-	for i := range v.size {
-
-		if v.data[i] == value {
-			return true
-		}
-
-	}
-
-	return false
-}
-
-func (v *Vector) Erase(index int) error {
-	if index < 0 || index >= v.size {
-		return errors.New("index out of range")
-	}
-
-	for i := index; i < v.size-1; i++ {
-
-		v.data[i] = v.data[i+1]
-
-	}
-
-	v.data[v.size-1] = 0
-	v.size--
-
-	return nil
 }
 
 func (v *Vector) Insert(index, value int) error {
@@ -206,6 +154,48 @@ func (v *Vector) Insert(index, value int) error {
 	v.size++
 
 	return nil
+}
+
+func (v *Vector) Erase(index int) error {
+	if index < 0 || index >= v.size {
+		return errors.New("index out of range")
+	}
+
+	for i := index; i < v.size-1; i++ {
+
+		v.data[i] = v.data[i+1]
+
+	}
+
+	v.data[v.size-1] = 0
+	v.size--
+
+	return nil
+}
+
+func (v *Vector) IndexOf(value int) int {
+
+	for i := range v.size {
+
+		if v.data[i] == value {
+			return i
+		}
+
+	}
+
+	return -1
+}
+func (v *Vector) Contains(value int) bool {
+
+	for i := range v.size {
+
+		if v.data[i] == value {
+			return true
+		}
+
+	}
+
+	return false
 }
 
 func (v *Vector) Slice(start, end int) []string {

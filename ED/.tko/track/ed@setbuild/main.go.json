@@ -1,0 +1,24 @@
+{
+    "patches": [
+        {
+            "label": "2026-05-11_20-26-29",
+            "content": "@@ -1388,196 +1388,8 @@\n ue%0A%7D\n-%0Afunc (v *VetOrdenado) String() string %7B%0A%09var s string = %22%5B%22%0A%0A%09for i := range v.size - 1 %7B%0A%0A%09%09s += strconv.Itoa(v.data%5Bi%5D) + %22,%22%0A%0A%09%7D%0A%09s += strconv.Itoa(v.data%5Bv.size-1%5D) + %22%5D%22%0A%0A%09return s%0A%7D\n %0A%0Afu\n@@ -1895,35 +1895,8 @@\n w%22:%0A\n-%09%09%09fmt.Println(v.String())%0A\n %09%09ca\n@@ -1906,24 +1906,27 @@\n %22erase%22:%0A%09%09%09\n+// \n value, _ := \n@@ -1952,26 +1952,8 @@\n 1%5D)%0A\n-%09%09%09v.Erase(value)%0A\n %09%09ca\n@@ -1966,24 +1966,27 @@\n ntains%22:%0A%09%09%09\n+// \n value, _ := \n@@ -2014,146 +2014,21 @@\n )%0A%09%09\n-%09if !v.Erase(value) %7B%0A%09%09%09%09fmt.Println(%22value not found%22)%0A%09%09%09%7D%0A%09%09case %22clear%22:%0A%09%09%09for i := v.size; i %3E 0; i-- %7B%0A%09%09%09%09v.Erase(v.data%5Bi%5D)%0A%09%09%09%7D\n+case %22clear%22:\n %0A%09%09d\n",
+            "lines": "157"
+        },
+        {
+            "label": "2026-05-11_20-31-51",
+            "content": "@@ -157,16 +157,17 @@\n ue int) \n+*\n VetOrden\n@@ -179,16 +179,17 @@\n %0A%09var v \n+*\n VetOrden\n",
+            "lines": "177"
+        },
+        {
+            "label": "2026-05-11_20-32-52",
+            "content": "@@ -1427,43 +1427,8 @@\n g %7B%0A\n-%09if v.size == 0 %7B%0A%09%09return %22%5B%5D%22%0A%09%7D%0A\n %09var\n",
+            "lines": "177"
+        },
+        {
+            "label": "2026-05-11_20-34-10",
+            "content": "package main\n\nimport (\n\t\"bufio\"\n\t\"fmt\"\n\t\"os\"\n\t\"strconv\"\n\t\"strings\"\n)\n\ntype VetOrdenado struct {\n\tdata           []int\n\tsize, capacity int\n}\n\nfunc NewSet(value int) VetOrdenado {\n\tvar v VetOrdenado\n\n\tv.capacity = value\n\tv.data = make([]int, v.capacity)\n\tv.size = 0\n\n\treturn v\n}\nfunc (v *VetOrdenado) reserve(value int) {\n\tvar vetAux []int = make([]int, value)\n\n\tv.capacity = value\n\tfor i := range v.size {\n\n\t\tvetAux[i] = v.data[i]\n\n\t}\n\tv.data = vetAux\n\n}\nfunc (v *VetOrdenado) binarySearch(value int) int {\n\n\tfor i := range v.size {\n\n\t\tif v.data[i] == value {\n\t\t\treturn i\n\t\t}\n\n\t}\n\n\treturn -1\n}\n\nfunc (v *VetOrdenado) Insert(value int) {\n\tif !v.Contains(value) {\n\n\t\tv.reserve(v.capacity + 1)\n\t\tv.data[v.size] = value\n\n\t}\n\n\tvar index int\n\n\tfor i := range v.size {\n\n\t\tif v.data[i] > value {\n\n\t\t\tindex = i\n\t\t\tbreak\n\n\t\t}\n\n\t}\n\n\tv.reserve(v.capacity + 1)\n\tfor i := v.size; i > index; i-- {\n\n\t\tv.data[i] = v.data[i-1]\n\n\t}\n\tv.data[index] = value\n\n}\nfunc (v *VetOrdenado) Contains(value int) bool {\n\n\tfor i := range v.size {\n\n\t\tif v.data[i] == value {\n\t\t\treturn true\n\t\t}\n\n\t}\n\n\treturn false\n}\nfunc (v *VetOrdenado) Erase(value int) bool {\n\tif !v.Contains(value) {\n\t\treturn false\n\t}\n\n\tvar index int\n\n\tfor i := range v.size {\n\n\t\tif v.data[i] > value {\n\n\t\t\tindex = i\n\t\t\tbreak\n\n\t\t}\n\n\t}\n\n\tfor i := index; i < v.size; i++ {\n\n\t\tv.data[i] = v.data[i+1]\n\n\t}\n\tv.reserve(v.capacity - 1)\n\tv.size--\n\n\treturn true\n}\nfunc (v *VetOrdenado) String() string {\n\tif v.size == 0 {\n\t\treturn \"[]\"\n\t}\n\tvar s string = \"[\"\n\n\tfor i := range v.size - 1 {\n\n\t\ts += strconv.Itoa(v.data[i]) + \",\"\n\n\t}\n\ts += strconv.Itoa(v.data[v.size-1]) + \"]\"\n\n\treturn s\n}\n\nfunc main() {\n\tvar line, cmd string\n\tscanner := bufio.NewScanner(os.Stdin)\n\n\tv := NewSet(0)\n\tfor scanner.Scan() {\n\t\tfmt.Print(\"$\")\n\t\tline = scanner.Text()\n\t\tfmt.Println(line)\n\t\tparts := strings.Fields(line)\n\t\tif len(parts) == 0 {\n\t\t\tcontinue\n\t\t}\n\t\tcmd = parts[0]\n\n\t\tswitch cmd {\n\t\tcase \"end\":\n\t\t\treturn\n\t\tcase \"init\":\n\t\t\tvalue, _ := strconv.Atoi(parts[1])\n\t\t\tv = NewSet(value)\n\t\tcase \"insert\":\n\t\t\tfor _, part := range parts[1:] {\n\t\t\t\tvalue, _ := strconv.Atoi(part)\n\t\t\t\tv.Insert(value)\n\t\t\t}\n\t\tcase \"show\":\n\t\t\tfmt.Println(v.String())\n\t\tcase \"erase\":\n\t\t\tvalue, _ := strconv.Atoi(parts[1])\n\t\t\tv.Erase(value)\n\t\tcase \"contains\":\n\t\t\tvalue, _ := strconv.Atoi(parts[1])\n\t\t\tif !v.Erase(value) {\n\t\t\t\tfmt.Println(\"value not found\")\n\t\t\t}\n\t\tcase \"clear\":\n\t\t\tfor i := v.size; i > 0; i-- {\n\t\t\t\tv.Erase(v.data[i])\n\t\t\t}\n\t\tdefault:\n\t\t\tfmt.Println(\"fail: comando invalido\")\n\t\t}\n\t}\n}\n",
+            "lines": "180"
+        }
+    ]
+}

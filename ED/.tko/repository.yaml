@@ -22,8 +22,8 @@ sources:
   quests: null
   tasks: null
 expanded:
-- ed@basic
 - ed@vector
+- ed@basic
 - sandbox@sandbox
 flags:
   inbox: all
@@ -32,5 +32,5 @@ flags:
   task_graph_mode: time
   show_time: 'true'
 lang: go
-selected: ed@multiset
-selected_index: 17
+selected: ed@setbuild
+selected_index: 15
