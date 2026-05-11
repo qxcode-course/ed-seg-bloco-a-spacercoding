@@ -22,13 +22,15 @@ sources:
   quests: null
   tasks: null
 expanded:
-- ed@backtrack
-- eval1@teste-1
+- ed@basic
+- sandbox@sandbox
+- ed@vector
 flags:
-  inbox: inbox
-  panel: skills
+  inbox: all
+  panel: help
   show_panel: 'true'
   task_graph_mode: time
   show_time: 'true'
 lang: go
-selected: eval1@casais
+selected: ed@vetbuild
+selected_index: 14
