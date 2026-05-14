@@ -48,33 +48,36 @@ func (v *VetOrdenado) binarySearch(value int) int {
 }
 
 func (v *VetOrdenado) Insert(value int) {
-	if !v.Contains(value) {
+	if v.size == v.capacity {
 
 		v.reserve(v.capacity + 1)
-		v.data[v.size] = value
 
 	}
 
 	var index int
 
-	for i := range v.size {
+	if v.size == 0 {
 
-		if v.data[i] > value {
+		v.data[0] = value
 
-			index = i
-			break
+	} else {
+
+		for i := v.size; i > 0; i-- {
+
+			if value > v.data[i] {
+				index = i
+			}
 
 		}
+		for i := v.size; i > index; i-- {
+
+			v.data[i] = v.data[i-1]
+
+		}
+		v.data[index] = value
 
 	}
-
-	v.reserve(v.capacity + 1)
-	for i := v.size; i > index; i-- {
-
-		v.data[i] = v.data[i-1]
-
-	}
-	v.data[index] = value
+	v.size++
 
 }
 func (v *VetOrdenado) Contains(value int) bool {
@@ -125,7 +128,7 @@ func (v *VetOrdenado) String() string {
 
 	for i := range v.size - 1 {
 
-		s += strconv.Itoa(v.data[i]) + ","
+		s += strconv.Itoa(v.data[i]) + ", "
 
 	}
 	s += strconv.Itoa(v.data[v.size-1]) + "]"
