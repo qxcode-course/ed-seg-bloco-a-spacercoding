@@ -25,13 +25,21 @@ func NewSet(value int) VetOrdenado {
 func (v *VetOrdenado) reserve(value int) {
 	var vetAux []int = make([]int, value)
 
-	v.capacity = value
-	for i := range v.size {
+	if value > v.capacity {
+		for i := range v.size {
 
-		vetAux[i] = v.data[i]
+			vetAux[i] = v.data[i]
 
+		}
+	} else {
+		for i := range v.size - (v.capacity - value) {
+
+			vetAux[i] = v.data[i]
+
+		}
 	}
 	v.data = vetAux
+	v.capacity = value
 
 }
 func (v *VetOrdenado) binarySearch(value int) int {
@@ -48,35 +56,38 @@ func (v *VetOrdenado) binarySearch(value int) int {
 }
 
 func (v *VetOrdenado) Insert(value int) {
+	if v.Contains(value) {return}
 	if v.size == v.capacity {
 
 		v.reserve(v.capacity + 1)
 
 	}
 
-	var index int
+	var index int = 0
 
-	if v.size == 0 {
+	if v.size != 0 {
 
-		v.data[0] = value
+		for i := range v.size{
 
-	} else {
+			if v.data[i] >= value {
 
-		for i := v.size; i > 0; i-- {
-
-			if value > v.data[i] {
 				index = i
+				break
+
 			}
+			index = v.size
 
 		}
+
 		for i := v.size; i > index; i-- {
 
 			v.data[i] = v.data[i-1]
 
 		}
-		v.data[index] = value
 
 	}
+
+	v.data[index] = value
 	v.size++
 
 }
@@ -103,14 +114,14 @@ func (v *VetOrdenado) Erase(value int) bool {
 
 		if v.data[i] > value {
 
-			index = i
+			index = i-1
 			break
 
 		}
 
 	}
 
-	for i := index; i < v.size; i++ {
+	for i := index; i < v.size-1; i++ {
 
 		v.data[i] = v.data[i+1]
 
@@ -166,12 +177,14 @@ func main() {
 			fmt.Println(v.String())
 		case "erase":
 			value, _ := strconv.Atoi(parts[1])
-			v.Erase(value)
-		case "contains":
-			value, _ := strconv.Atoi(parts[1])
 			if !v.Erase(value) {
 				fmt.Println("value not found")
+			} else {
+			v.Erase(value)
 			}
+		case "contains":
+			value, _ := strconv.Atoi(parts[1])
+			fmt.Println(v.Contains(value))
 		case "clear":
 			for i := v.size; i > 0; i-- {
 				v.Erase(v.data[i])
