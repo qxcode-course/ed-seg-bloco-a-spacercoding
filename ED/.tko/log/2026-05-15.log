@@ -101,3 +101,27 @@
 2026-05-15 16:14:56, SELF, v:1, k:ed@+analise, self:1, rate:100
 2026-05-15 16:15:28, SELF, v:1, k:ed@editorint, self:1, rate:70
 2026-05-15 16:15:44, SELF, v:1, k:eval1@baruel, self:1, rate:75
+2026-05-15 23:36:19, MOVE, v:1, k:ed@bettersearch, mode:PICK
+2026-05-15 23:36:53, MOVE, v:1, k:ed@bettersearch, mode:BACK
+2026-05-15 23:36:54, MOVE, v:1, k:ed@setbuild, mode:PICK
+2026-05-15 23:36:59, EXEC, v:1, k:ed@setbuild, mode:FULL, rate:100
+2026-05-15 23:37:02, EXEC, v:1, k:ed@setbuild, mode:FULL, rate:100
+2026-05-15 23:37:04, MOVE, v:1, k:ed@setbuild, mode:BACK
+2026-05-15 23:37:05, MOVE, v:1, k:ed@vetbuild, mode:PICK
+2026-05-15 23:37:09, EXEC, v:1, k:ed@vetbuild, mode:FULL, rate:100, size:333
+2026-05-15 23:37:12, MOVE, v:1, k:ed@vetbuild, mode:BACK
+2026-05-15 23:37:35, MOVE, v:1, k:ed@gomos, mode:PICK
+2026-05-15 23:37:36, EXEC, v:1, k:ed@gomos, mode:FULL, rate:100
+2026-05-15 23:37:39, MOVE, v:1, k:ed@gomos, mode:BACK
+2026-05-15 23:37:40, MOVE, v:1, k:ed@baruel, mode:PICK
+2026-05-15 23:37:41, EXEC, v:1, k:ed@baruel, mode:FULL, rate:100, size:93
+2026-05-15 23:37:43, MOVE, v:1, k:ed@baruel, mode:BACK
+2026-05-15 23:37:44, MOVE, v:1, k:ed@casais, mode:PICK
+2026-05-15 23:37:45, EXEC, v:1, k:ed@casais, mode:FULL, rate:100
+2026-05-15 23:37:47, MOVE, v:1, k:ed@casais, mode:BACK
+2026-05-15 23:38:09, MOVE, v:1, k:ed@bettersearch, mode:PICK
+2026-05-15 23:37:01, MOVE, v:1, k:ed@setbuild, mode:EDIT
+2026-05-15 23:37:07, MOVE, v:1, k:ed@vetbuild, mode:EDIT
+2026-05-15 23:37:36, MOVE, v:1, k:ed@gomos, mode:EDIT
+2026-05-15 23:37:41, MOVE, v:1, k:ed@baruel, mode:EDIT
+2026-05-15 23:37:45, MOVE, v:1, k:ed@casais, mode:EDIT

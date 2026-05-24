@@ -1,0 +1,324 @@
+{
+    "patches": [
+        {
+            "label": "2026-05-24_17-07-11",
+            "content": "@@ -2147,24 +2147,28 @@\n  ms.tamanho \n+- 1 \n %7B%0A%0A%09%09str += \n@@ -2211,16 +2211,55 @@\n %0A%09str +=\n+ strconv.Itoa(ms.dados%5Bms.tamanho-1%5D) +\n  %22%5D%22%0A%0A%09r\n",
+            "lines": "185"
+        },
+        {
+            "label": "2026-05-24_17-11-33",
+            "content": "@@ -2748,36 +2748,8 @@\n %0A%09%09%09\n-fmt.Println(ms.dados)%0A%09%09%09// \n fmt.\n",
+            "lines": "185"
+        },
+        {
+            "label": "2026-05-24_17-11-40",
+            "content": "@@ -1522,31 +1522,8 @@\n alor\n-%0A%09fmt.Println(ms.dados)\n %0A%0A%7D%0A\n@@ -2744,18 +2744,16 @@\n ow%22:%0A%09%09%09\n-//\n fmt.Prin\n@@ -2765,24 +2765,27 @@\n s.dados)%0A%09%09%09\n+// \n fmt.Println(\n",
+            "lines": "186"
+        },
+        {
+            "label": "2026-05-24_17-14-20",
+            "content": "@@ -1422,44 +1422,8 @@\n  %7B%0A%0A\n-%09//abrindo espa%C3%A7o para o novo valor%0A\n %09for\n@@ -1495,22 +1495,8 @@\n %0A%0A%09%7D\n-%0A%0A%09//inserindo\n %0A%09ms\n@@ -1781,25 +1781,16 @@\n  index)%0A\n-%09%09return%0A\n %09%09//do c\n",
+            "lines": "187"
+        },
+        {
+            "label": "2026-05-24_17-16-52",
+            "content": "@@ -1957,30 +1957,29 @@\n lor, i)%0A%09%09%09%09\n+b\n re\n-turn\n+ak\n %0A%09%09%09%7D else i\n@@ -2028,19 +2028,8 @@\n  i)%0A\n-%09%09%09%09return%0A\n %09%09%09%7D\n@@ -2034,16 +2034,17 @@\n %09%7D%0A%0A%09%09%7D%0A\n+%0A\n %09%7D%0A%0A%7D%0A%0Af\n",
+            "lines": "191"
+        },
+        {
+            "label": "2026-05-24_17-18-12",
+            "content": "@@ -2046,25 +2046,16 @@\n %09%7D%0A%0A%09%09%7D%0A\n-%09%09return%0A\n %09%7D%0A%0A%7D%0A%0Af\n",
+            "lines": "191"
+        },
+        {
+            "label": "2026-05-24_17-18-24",
+            "content": "@@ -2032,14 +2032,34 @@\n %0A%09%09%09\n-%7D%0A%0A%09%09%7D\n+%09return%0A%09%09%09%7D%0A%0A%09%09%7D%0A%09%09return\n %0A%09%7D%0A\n",
+            "lines": "192"
+        },
+        {
+            "label": "2026-05-24_17-20-20",
+            "content": "@@ -1860,18 +1860,16 @@\n %C3%A1rio%0A%09%7D \n-//\n else %7B%0A%0A\n@@ -1869,19 +1869,16 @@\n lse %7B%0A%0A%09\n-// \n %09for i :\n@@ -1906,19 +1906,16 @@\n i++ %7B%0A%0A%09\n-// \n %09%09if ms.\n@@ -1930,27 +1930,24 @@\n  %3E valor %7B%0A%09\n-// \n %09%09%09ms.insert\n@@ -1958,19 +1958,16 @@\n or, i)%0A%09\n-// \n %09%09%09retur\n@@ -1969,19 +1969,16 @@\n return%0A%09\n-// \n %09%09%7D else\n@@ -2002,19 +2002,16 @@\n ho-1 %7B%0A%09\n-// \n %09%09%09ms.in\n@@ -2030,27 +2030,18 @@\n i)%0A%09\n-// \n %09%09%7D%0A%0A%09\n-// \n %09%7D%0A%09\n-// \n %7D%0A%0A%7D\n",
+            "lines": "190"
+        },
+        {
+            "label": "2026-05-24_17-21-10",
+            "content": "@@ -1761,39 +1761,16 @@\n valor)%0A%0A\n-%09fmt.Println(ms.dados)%0A\n %09//se o \n",
+            "lines": "190"
+        },
+        {
+            "label": "2026-05-24_17-22-34",
+            "content": "@@ -2874,24 +2874,26 @@\n  %22show%22:%0A%09%09%09\n+//\n fmt.Println(\n@@ -2901,26 +2901,24 @@\n s.dados)%0A%09%09%09\n-//\n fmt.Println(\n",
+            "lines": "191"
+        },
+        {
+            "label": "2026-05-24_17-23-36",
+            "content": "@@ -1574,20 +1574,29 @@\n or%0A%09\n-ms.tamanho++\n+fmt.Println(ms.dados)\n %0A%0A%7D%0A\n@@ -1883,16 +1883,18 @@\n %C3%A1rio%0A%09%7D \n+//\n else %7B%0A%0A\n@@ -1894,16 +1894,19 @@\n lse %7B%0A%0A%09\n+// \n %09for i :\n@@ -1934,16 +1934,19 @@\n i++ %7B%0A%0A%09\n+// \n %09%09if ms.\n@@ -1961,24 +1961,27 @@\n  %3E valor %7B%0A%09\n+// \n %09%09%09ms.insert\n@@ -1992,16 +1992,19 @@\n or, i)%0A%09\n+// \n %09%09%09retur\n@@ -2006,16 +2006,19 @@\n return%0A%09\n+// \n %09%09%7D else\n@@ -2042,16 +2042,19 @@\n ho-1 %7B%0A%09\n+// \n %09%09%09ms.in\n@@ -2073,18 +2073,27 @@\n i)%0A%09\n+// \n %09%09%7D%0A%0A%09\n+// \n %09%7D%0A%09\n+// \n %7D%0A%0A%7D\n@@ -2260,38 +2260,37 @@\n  %22%5B%22%0A%0A%09for i := \n-0; i %3C\n+range\n  ms.tamanho; i++\n@@ -2280,29 +2280,24 @@\n e ms.tamanho\n-; i++\n  %7B%0A%0A%09%09str +=\n",
+            "lines": "191"
+        },
+        {
+            "label": "2026-05-24_17-26-12",
+            "content": "@@ -2051,30 +2051,16 @@\n %0A%0A%09%09%7D%0A%09%7D\n-%0A%09ms.tamanho++\n %0A%0A%7D%0A%0Afun\n",
+            "lines": "191"
+        },
+        {
+            "label": "2026-05-24_17-26-57",
+            "content": "@@ -2051,16 +2051,30 @@\n %0A%0A%09%09%7D%0A%09%7D\n+%0A%09ms.tamanho++\n %0A%0A%7D%0A%0Afun\n",
+            "lines": "192"
+        },
+        {
+            "label": "2026-05-24_17-27-34",
+            "content": "@@ -734,17 +734,17 @@\n  inicio \n-%3C\n+!\n = fim %7B%0A\n@@ -1752,16 +1752,39 @@\n valor)%0A%0A\n+%09fmt.Println(ms.dados)%0A\n %09//se o \n",
+            "lines": "191"
+        },
+        {
+            "label": "2026-05-24_17-29-14",
+            "content": "@@ -735,16 +735,17 @@\n inicio %3C\n+=\n  fim %7B%0A%0A\n",
+            "lines": "190"
+        },
+        {
+            "label": "2026-05-24_17-30-04",
+            "content": "@@ -723,19 +723,16 @@\n  meio.%0A%09\n-// \n for inic\n@@ -744,19 +744,16 @@\n fim %7B%0A%0A%09\n-// \n %09//condi\n@@ -768,19 +768,16 @@\n arada:%0A%09\n-// \n %09if valo\n@@ -799,19 +799,16 @@\n eio%5D %7B%0A%09\n-// \n %09%09return\n@@ -820,27 +820,21 @@\n , meio%0A%09\n-// \n %09%7D%0A%0A%09\n-// \n %09//vendo\n@@ -865,19 +865,16 @@\n curada%0A%09\n-// \n %09if valo\n@@ -895,19 +895,16 @@\n eio%5D %7B%0A%09\n-// \n %09%09inicio\n@@ -912,19 +912,16 @@\n = meio%0A%09\n-// \n %09%7D else \n@@ -923,19 +923,16 @@\n else %7B%0A%09\n-// \n %09%09fim = \n@@ -941,19 +941,13 @@\n io%0A%09\n-// \n %09%7D%0A%0A%09\n-// \n %09//n\n@@ -956,19 +956,16 @@\n o meio%0A%09\n-// \n %09meio = \n@@ -984,19 +984,16 @@\n m) / 2%0A%09\n-// \n %7D%0A%0A%09//se\n",
+            "lines": "190"
+        },
+        {
+            "label": "2026-05-24_17-31-15",
+            "content": "@@ -1083,20 +1083,18 @@\n  false, \n-meio\n+-1\n %0A%7D%0A%0Afunc\n",
+            "lines": "190"
+        },
+        {
+            "label": "2026-05-24_17-31-30",
+            "content": "@@ -723,16 +723,19 @@\n  meio.%0A%09\n+// \n for inic\n@@ -747,16 +747,19 @@\n fim %7B%0A%0A%09\n+// \n %09//condi\n@@ -774,16 +774,19 @@\n arada:%0A%09\n+// \n %09if valo\n@@ -808,16 +808,19 @@\n eio%5D %7B%0A%09\n+// \n %09%09return\n@@ -832,21 +832,27 @@\n , meio%0A%09\n+// \n %09%7D%0A%0A%09\n+// \n %09//vendo\n@@ -883,16 +883,19 @@\n curada%0A%09\n+// \n %09if valo\n@@ -916,16 +916,19 @@\n eio%5D %7B%0A%09\n+// \n %09%09inicio\n@@ -936,24 +936,27 @@\n = meio%0A%09\n+// \n %09%7D else \n if valor\n@@ -951,37 +951,14 @@\n lse \n-if valor %3C ms.dados%5Bmeio%5D \n %7B%0A%09\n+// \n %09%09fi\n@@ -967,21 +967,27 @@\n = meio%0A%09\n+// \n %09%7D%0A%0A%09\n+// \n %09//novo \n@@ -992,16 +992,19 @@\n o meio%0A%09\n+// \n %09meio = \n@@ -1023,16 +1023,19 @@\n m) / 2%0A%09\n+// \n %7D%0A%0A%09//se\n",
+            "lines": "190"
+        },
+        {
+            "label": "2026-05-24_17-32-15",
+            "content": "@@ -745,36 +745,8 @@\n im %7B\n-%0A%09%09meio = (inicio + fim) / 2\n %0A%0A%09%09\n@@ -981,16 +981,43 @@\n vo meio%0A\n+%09%09meio = (inicio + fim) / 2\n %0A%09%7D%0A%0A%09//\n",
+            "lines": "190"
+        },
+        {
+            "label": "2026-05-24_17-32-47",
+            "content": "@@ -731,18 +731,50 @@\n for \n-meio %3E 1 %7B\n+inicio %3C fim %7B%0A%09%09meio = (inicio + fim) / 2\n %0A%0A%09%09\n@@ -947,16 +947,42 @@\n %09%09%7D else\n+ if valor %3C ms.dados%5Bmeio%5D\n  %7B%0A%09%09%09fi\n@@ -1013,35 +1013,8 @@\n eio%0A\n-%09%09meio = (inicio + fim) / 2\n %0A%09%7D%0A\n",
+            "lines": "191"
+        },
+        {
+            "label": "2026-05-24_17-33-44",
+            "content": "@@ -2820,18 +2820,16 @@\n ow%22:%0A%09%09%09\n-//\n fmt.Prin\n@@ -2841,24 +2841,26 @@\n s.dados)%0A%09%09%09\n+//\n fmt.Println(\n",
+            "lines": "190"
+        },
+        {
+            "label": "2026-05-24_17-34-01",
+            "content": "@@ -734,17 +734,17 @@\n  meio %3E \n-2\n+1\n  %7B%0A%0A%09%09//\n",
+            "lines": "190"
+        },
+        {
+            "label": "2026-05-24_17-34-32",
+            "content": "@@ -731,20 +731,16 @@\n for \n-fim %3E inicio\n+meio %3E 2\n  %7B%0A%0A\n",
+            "lines": "190"
+        },
+        {
+            "label": "2026-05-24_17-35-20",
+            "content": "@@ -731,17 +731,17 @@\n for fim \n-%3C\n+%3E\n  inicio \n",
+            "lines": "190"
+        },
+        {
+            "label": "2026-05-24_17-35-29",
+            "content": "@@ -1988,16 +1988,18 @@\n .tamanho\n+-1\n  %7B%0A%09%09%09%09m\n",
+            "lines": "190"
+        },
+        {
+            "label": "2026-05-24_17-37-32",
+            "content": "@@ -1755,64 +1755,8 @@\n lor)\n-%0A%09if ms.tamanho == 0 %7B%0A%09%09ms.insert(valor, 0)%0A%09%09return%0A%09%7D\n %0A%0A%09/\n",
+            "lines": "190"
+        },
+        {
+            "label": "2026-05-24_17-38-35",
+            "content": "@@ -2859,34 +2859,8 @@\n ue)%0A\n-%09%09%09%09fmt.Println(ms.dados)%0A\n %09%09%09%7D\n",
+            "lines": "194"
+        },
+        {
+            "label": "2026-05-24_17-38-57",
+            "content": "@@ -1558,16 +1558,18 @@\n os%5Bindex\n++1\n %5D = valo\n",
+            "lines": "195"
+        },
+        {
+            "label": "2026-05-24_17-39-08",
+            "content": "@@ -2881,35 +2881,8 @@\n ados\n-, ms.tamanho, ms.capacidade\n )%0A%09%09\n",
+            "lines": "195"
+        },
+        {
+            "label": "2026-05-24_17-39-36",
+            "content": "@@ -1628,64 +1628,8 @@\n ) %7B%0A\n-%09if ms.tamanho == 0 %7B%0A%09%09ms.insert(valor, 0)%0A%09%09return%0A%09%7D%0A\n %09//c\n@@ -1749,16 +1749,72 @@\n h(valor)\n+%0A%09if ms.tamanho == 0 %7B%0A%09%09ms.insert(valor, 0)%0A%09%09return%0A%09%7D\n %0A%0A%09//se \n",
+            "lines": "195"
+        },
+        {
+            "label": "2026-05-24_17-41-26",
+            "content": "@@ -1583,13 +1583,10 @@\n anho\n- += 1\n+++\n %0A%0A%7D%0A\n",
+            "lines": "195"
+        },
+        {
+            "label": "2026-05-24_17-43-45",
+            "content": "@@ -386,17 +386,16 @@\n or int) \n-*\n multiSet\n@@ -502,33 +502,32 @@\n 0%7D%0A%0A%7D%0A%0Afunc (ms \n-*\n multiSet) Search\n@@ -1050,33 +1050,32 @@\n eio%0A%7D%0A%0Afunc (ms \n-*\n multiSet) expand\n@@ -1373,33 +1373,32 @@\n e++%0A%0A%7D%0Afunc (ms \n-*\n multiSet) insert\n@@ -1579,18 +1579,21 @@\n .tamanho\n-++\n+ += 1\n %0A%0A%7D%0Afunc\n@@ -1589,33 +1589,32 @@\n = 1%0A%0A%7D%0Afunc (ms \n-*\n multiSet) Insert\n@@ -2090,33 +2090,32 @@\n %09%7D%0A%0A%7D%0A%0Afunc (ms \n-*\n multiSet) Clear(\n@@ -2206,9 +2206,8 @@\n (ms \n-*\n mult\n",
+            "lines": "195"
+        },
+        {
+            "label": "2026-05-24_17-47-29",
+            "content": "@@ -463,9 +463,8 @@\n urn \n-&\n mult\n",
+            "lines": "195"
+        },
+        {
+            "label": "2026-05-24_17-48-01",
+            "content": "@@ -2262,31 +2262,8 @@\n %5B%22%0A%0A\n-%09if ms.tamanho != 0 %7B%0A%09\n %09for\n@@ -2285,18 +2285,16 @@\n .tamanho\n--1\n ; i++ %7B%0A\n@@ -2294,17 +2294,16 @@\n  i++ %7B%0A%0A\n-%09\n %09%09str +=\n@@ -2337,20 +2337,16 @@\n + %22, %22%0A%0A\n-%09%09%7D%0A\n %09%7D%0A%09str \n@@ -2861,16 +2861,69 @@\n (value)%0A\n+%09%09%09%09fmt.Println(ms.dados, ms.tamanho, ms.capacidade)%0A\n %09%09%09%7D%0A%09%09c\n",
+            "lines": "195"
+        },
+        {
+            "label": "2026-05-24_17-49-18",
+            "content": "@@ -2371,54 +2371,8 @@\n %09%09%7D%0A\n-%09%09str += strconv.Itoa(ms.dados%5Bms.tamanho-1%5D)%0A\n %09%7D%0A%09\n",
+            "lines": "196"
+        },
+        {
+            "label": "2026-05-24_17-50-07",
+            "content": "@@ -2053,32 +2053,8 @@\n nho \n-%7C%7C ms.dados%5Bi%5D == valor \n %7B%0A%09%09\n",
+            "lines": "197"
+        },
+        {
+            "label": "2026-05-24_17-51-46",
+            "content": "@@ -1980,32 +1980,8 @@\n i%5D %3E\n- valor %7C%7C ms.dados%5Bi%5D ==\n  val\n@@ -2049,16 +2049,40 @@\n tamanho \n+%7C%7C ms.dados%5Bi%5D == valor \n %7B%0A%09%09%09%09ms\n",
+            "lines": "197"
+        },
+        {
+            "label": "2026-05-24_17-52-03",
+            "content": "@@ -2980,24 +2980,26 @@\n  %22show%22:%0A%09%09%09\n+//\n fmt.Println(\n",
+            "lines": "197"
+        },
+        {
+            "label": "2026-05-24_17-52-17",
+            "content": "@@ -2984,18 +2984,16 @@\n ow%22:%0A%09%09%09\n-//\n fmt.Prin\n",
+            "lines": "197"
+        },
+        {
+            "label": "2026-05-24_17-52-42",
+            "content": "@@ -2072,18 +2072,16 @@\n .tamanho\n--1\n  %7B%0A%09%09%09%09m\n",
+            "lines": "197"
+        },
+        {
+            "label": "2026-05-24_17-52-51",
+            "content": "@@ -2108,35 +2108,10 @@\n %0A%09%09%09\n-%09fmt.Println(ms.dados)%0A%09%09%09\n %7D\n+%0A\n %0A%09%09%7D\n",
+            "lines": "197"
+        },
+        {
+            "label": "2026-05-24_18-15-46",
+            "content": "@@ -2101,16 +2101,42 @@\n lor, i)%0A\n+%09%09%09%09fmt.Println(ms.dados)%0A\n %09%09%09%7D%0A%09%09%7D\n",
+            "lines": "197"
+        },
+        {
+            "label": "2026-05-24_18-15-53",
+            "content": "@@ -2072,16 +2072,18 @@\n .tamanho\n+-1\n  %7B%0A%09%09%09%09m\n",
+            "lines": "196"
+        },
+        {
+            "label": "2026-05-24_18-16-06",
+            "content": "@@ -2072,18 +2072,16 @@\n .tamanho\n--1\n  %7B%0A%09%09%09%09m\n",
+            "lines": "196"
+        },
+        {
+            "label": "2026-05-24_18-16-15",
+            "content": "@@ -2073,17 +2073,17 @@\n tamanho-\n-2\n+1\n  %7B%0A%09%09%09%09m\n",
+            "lines": "196"
+        },
+        {
+            "label": "2026-05-24_18-16-21",
+            "content": "@@ -2073,17 +2073,17 @@\n tamanho-\n-1\n+2\n  %7B%0A%09%09%09%09m\n",
+            "lines": "196"
+        },
+        {
+            "label": "2026-05-24_18-16-43",
+            "content": "@@ -2081,24 +2081,8 @@\n 1 %7B%0A\n-%09%09%09%09ms.expand()%0A\n %09%09%09%09\n",
+            "lines": "196"
+        },
+        {
+            "label": "2026-05-24_18-18-04",
+            "content": "@@ -2077,16 +2077,32 @@\n nho-1 %7B%0A\n+%09%09%09%09ms.expand()%0A\n %09%09%09%09ms.i\n",
+            "lines": "197"
+        },
+        {
+            "label": "2026-05-24_18-19-25",
+            "content": "@@ -2099,18 +2099,16 @@\n valor, i\n--1\n )%0A%09%09%09%7D%0A%09\n",
+            "lines": "196"
+        },
+        {
+            "label": "2026-05-24_18-21-51",
+            "content": "@@ -2099,17 +2099,17 @@\n valor, i\n-+\n+-\n 1)%0A%09%09%09%7D%0A\n",
+            "lines": "196"
+        },
+        {
+            "label": "2026-05-24_18-21-58",
+            "content": "@@ -2099,17 +2099,17 @@\n valor, i\n--\n++\n 1)%0A%09%09%09%7D%0A\n",
+            "lines": "196"
+        },
+        {
+            "label": "2026-05-24_18-22-04",
+            "content": "@@ -2098,26 +2098,17 @@\n (valor, \n-ms.tamanho\n+i\n -1)%0A%09%09%09%7D\n",
+            "lines": "196"
+        },
+        {
+            "label": "2026-05-24_18-22-12",
+            "content": "@@ -2108,16 +2108,18 @@\n .tamanho\n+-1\n )%0A%09%09%09%7D%0A%09\n",
+            "lines": "196"
+        },
+        {
+            "label": "2026-05-24_18-22-17",
+            "content": "@@ -2094,25 +2094,34 @@\n sert(valor, \n-0\n+ms.tamanho\n )%0A%09%09%09%7D%0A%09%09%7D%0A%09\n",
+            "lines": "196"
+        },
+        {
+            "label": "2026-05-24_18-22-28",
+            "content": "@@ -2098,17 +2098,17 @@\n (valor, \n-1\n+0\n )%0A%09%09%09%7D%0A%09\n",
+            "lines": "196"
+        },
+        {
+            "label": "2026-05-24_18-22-48",
+            "content": "@@ -1745,12 +1745,10 @@\n dade\n-+1 %3E\n+ =\n = ms\n@@ -2094,25 +2094,25 @@\n sert(valor, \n-i\n+1\n )%0A%09%09%09%7D%0A%09%09%7D%0A%09\n",
+            "lines": "196"
+        },
+        {
+            "label": "2026-05-24_18-24-00",
+            "content": "@@ -1741,16 +1741,18 @@\n pacidade\n++1\n  %3E= ms.t\n@@ -1757,18 +1757,16 @@\n .tamanho\n-+1\n  %7B%0A%0A%09%09ms\n",
+            "lines": "196"
+        },
+        {
+            "label": "2026-05-24_18-24-27",
+            "content": "@@ -1742,17 +1742,17 @@\n acidade \n-%3C\n+%3E\n = ms.tam\n",
+            "lines": "196"
+        },
+        {
+            "label": "2026-05-24_18-25-27",
+            "content": "@@ -1742,17 +1742,17 @@\n acidade \n-=\n+%3C\n = ms.tam\n@@ -1751,24 +1751,26 @@\n = ms.tamanho\n++1\n  %7B%0A%0A%09%09ms.exp\n@@ -2046,16 +2046,73 @@\n %09return%0A\n+%09%09%09%7D else if i == ms.tamanho-1 %7B%0A%09%09%09%09ms.insert(valor, i)%0A\n %09%09%09%7D%0A%09%09%7D\n",
+            "lines": "196"
+        },
+        {
+            "label": "2026-05-24_18-26-30",
+            "content": "@@ -2048,100 +2048,8 @@\n urn%0A\n-%09%09%09%7D else if ms.dados%5Bms.tamanho-1%5D %3C valor %7B%0A%09%09%09%09ms.insert(valor, ms.tamanho-1)%0A%09%09%09%09return%0A\n %09%09%09%7D\n",
+            "lines": "194"
+        },
+        {
+            "label": "2026-05-24_18-27-50",
+            "content": "@@ -2031,18 +2031,16 @@\n valor, i\n--1\n )%0A%09%09%09%09re\n",
+            "lines": "197"
+        },
+        {
+            "label": "2026-05-24_18-29-14",
+            "content": "@@ -2031,16 +2031,18 @@\n valor, i\n+-1\n )%0A%09%09%09%09re\n",
+            "lines": "197"
+        },
+        {
+            "label": "2026-05-24_18-29-33",
+            "content": "@@ -625,16 +625,20 @@\n s.dados)\n+ - 1\n %0A%09meio :\n",
+            "lines": "197"
+        },
+        {
+            "label": "2026-05-24_18-34-59",
+            "content": "package main\n\nimport (\n\t\"bufio\"\n\t\"fmt\"\n\t\"os\"\n\t\"strconv\"\n\t\"strings\"\n)\n\ntype multiSet struct {\n\tdados      []int\n\tcapacidade int\n\ttamanho    int\n}\n\nfunc Join(slice []int, sep string) string {\n\tif len(slice) == 0 {\n\t\treturn \"\"\n\t}\n\tresult := fmt.Sprintf(\"%d\", slice[0])\n\tfor _, value := range slice[1:] {\n\t\tresult += sep + fmt.Sprintf(\"%d\", value)\n\t}\n\treturn result\n}\n\nfunc NewMultiSet(valor int) *multiSet {\n\n\t//novo multiSet com capacidade \"valor\" e tamanho 0\n\treturn &multiSet{make([]int, valor), valor, 0}\n\n}\n\nfunc (ms *multiSet) Search(valor int) (bool, int) {\n\t//indexes usados para a compara\u00e7\u00e3o\n\tinicio := 0\n\tfim := len(ms.dados)\n\tmeio := (inicio + fim) / 2\n\n\t//busca propriamente dita, parando quando n\u00e3o existir mais meio.\n\tfor fim < inicio {\n\n\t\t//condi\u00e7\u00e3o de parada:\n\t\tif valor == ms.dados[meio] {\n\t\t\treturn true, meio\n\t\t}\n\n\t\t//vendo qual metade vai ser procurada\n\t\tif valor > ms.dados[meio] {\n\t\t\tinicio = meio\n\t\t} else {\n\t\t\tfim = meio\n\t\t}\n\n\t\t//novo meio\n\t\tmeio = (inicio + fim) / 2\n\t}\n\n\t//se n\u00e3o encontar, quando sai do for:\n\treturn false, meio\n}\n\nfunc (ms *multiSet) expand() {\n\t//criando vetor novo e expandido\n\tvar dataAux []int = make([]int, ms.capacidade+1)\n\n\t//passando as informa\u00e7\u00f5es pra ele\n\tfor i := range ms.tamanho {\n\n\t\tdataAux[i] = ms.dados[i]\n\n\t}\n\n\t//transferindo pro multiSet\n\tms.dados = dataAux\n\n\t//aumentando a informa\u00e7\u00e3o da capacidade\n\tms.capacidade++\n\n}\nfunc (ms *multiSet) insert(valor, index int) {\n\n\t//abrindo espa\u00e7o para o novo valor\n\tfor i := ms.tamanho; i > index; i-- {\n\n\t\tms.dados[i] = ms.dados[i-1]\n\n\t}\n\n\t//inserindo\n\tms.dados[index] = valor\n\tms.tamanho++\n\n}\nfunc (ms *multiSet) Insert(valor int) {\n\tif ms.tamanho == 0 {\n\t\tms.insert(valor, 0)\n\t\treturn\n\t}\n\t//caso precise expandir a capacidade\n\tif ms.capacidade == ms.tamanho {\n\n\t\tms.expand()\n\n\t}\n\n\tachou, index := ms.Search(valor)\n\n\t//se o n\u00famero estiver presente\n\tif achou {\n\t\tms.insert(valor, index)\n\t\treturn\n\t\t//do contr\u00e1rio\n\t} else {\n\n\t\tfor i := 0; i < ms.tamanho; i++ {\n\n\t\t\tif ms.dados[i] > valor || ms.dados[i] == valor {\n\t\t\t\tms.insert(valor, i)\n\t\t\t\treturn\n\t\t\t} else if ms.dados[ms.tamanho-1] < valor {\n\t\t\t\tms.insert(valor, ms.tamanho-1)\n\t\t\t\treturn\n\t\t\t}\n\t\t}\n\t}\n\n}\n\nfunc (ms *multiSet) Clear() {\n\tvar vetVazio []int = make([]int, ms.capacidade)\n\n\tms.dados = vetVazio\n\n}\n\nfunc (ms *multiSet) String() string {\n\tvar str string = \"[\"\n\n\tif ms.tamanho != 0 {\n\t\tfor i := 0; i < ms.tamanho-1; i++ {\n\n\t\t\tstr += strconv.Itoa(ms.dados[i]) + \", \"\n\n\t\t}\n\t\tstr += strconv.Itoa(ms.dados[ms.tamanho-1])\n\t}\n\tstr += \"]\"\n\n\treturn str\n}\n\nfunc main() {\n\tvar line, cmd string\n\tscanner := bufio.NewScanner(os.Stdin)\n\tms := NewMultiSet(0)\n\n\tfor scanner.Scan() {\n\t\tfmt.Print(\"$\")\n\t\tline = scanner.Text()\n\t\targs := strings.Fields(line)\n\t\tfmt.Println(line)\n\t\tif len(args) == 0 {\n\t\t\tcontinue\n\t\t}\n\t\tcmd = args[0]\n\n\t\tswitch cmd {\n\t\tcase \"end\":\n\t\t\treturn\n\t\tcase \"init\":\n\t\t\tvalue, _ := strconv.Atoi(args[1])\n\t\t\tms = NewMultiSet(value)\n\t\tcase \"insert\":\n\t\t\tfor _, part := range args[1:] {\n\t\t\t\tvalue, _ := strconv.Atoi(part)\n\t\t\t\tms.Insert(value)\n\t\t\t}\n\t\tcase \"show\":\n\t\t\t//fmt.Println(ms.dados)\n\t\t\tfmt.Println(ms.String())\n\t\tcase \"erase\":\n\t\t\t// value, _ := strconv.Atoi(args[1])\n\t\tcase \"contains\":\n\t\t\t// value, _ := strconv.Atoi(args[1])\n\t\tcase \"count\":\n\t\t\t// value, _ := strconv.Atoi(args[1])\n\t\tcase \"unique\":\n\t\t\t// fmt.Println(ms.Unique())\n\t\tcase \"clear\":\n\t\t\tms.Clear()\n\t\tdefault:\n\t\t\tfmt.Println(\"fail: comando invalido\")\n\t\t}\n\t}\n}\n",
+            "lines": "197"
+        }
+    ]
+}

@@ -14,8 +14,15 @@ type Pair struct {
 }
 
 func occurr(vet []int) []Pair {
-	_ = vet
-	return nil
+	var lista []Pair
+
+	for i := range vet {
+
+		if 
+
+	}
+
+	return lista
 }
 
 func teams(vet []int) []Pair {
