@@ -35,12 +35,13 @@ func NewMultiSet(valor int) *multiSet {
 func (ms *multiSet) Search(valor int) (bool, int) {
 	//indexes usados para a comparação
 	inicio := 0
-	fim := len(ms.dados) - 1
+	fim := ms.tamanho-1
+	meio := (inicio+fim) /2
 
 
 	//busca propriamente dita, parando quando não existir mais meio.
-	for fim <= inicio {
-		meio := (inicio + fim) / 2
+	for fim >= inicio {
+		meio = (inicio + fim) / 2
 		//condição de parada:
 		if valor == ms.dados[meio] {
 			return true, meio
@@ -54,7 +55,7 @@ func (ms *multiSet) Search(valor int) (bool, int) {
 		}
 
 		//novo meio
-		
+			
 	}
 
 	//se não encontar, quando sai do for:
