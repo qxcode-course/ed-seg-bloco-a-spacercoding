@@ -35,9 +35,8 @@ func NewMultiSet(valor int) *multiSet {
 func (ms *multiSet) Search(valor int) (bool, int) {
 	//indexes usados para a comparação
 	inicio := 0
-	fim := ms.tamanho-1
-	meio := (inicio+fim) /2
-
+	fim := ms.tamanho - 1
+	meio := (inicio + fim) / 2
 
 	//busca propriamente dita, parando quando não existir mais meio.
 	for fim >= inicio {
@@ -49,13 +48,13 @@ func (ms *multiSet) Search(valor int) (bool, int) {
 
 		//vendo qual metade vai ser procurada
 		if valor > ms.dados[meio] {
-			inicio = meio+1
+			inicio = meio + 1
 		} else {
-			fim = meio-1
+			fim = meio - 1
 		}
 
 		//novo meio
-			
+
 	}
 
 	//se não encontar, quando sai do for:
@@ -128,15 +127,66 @@ func (ms *multiSet) Insert(valor int) {
 	}
 
 }
+
+func (ms *multiSet) erase(indice int) {
+
+	for i := indice; i < ms.tamanho-1; i++ {
+
+		ms.dados[i] = ms.dados[i+1]
+
+	}
+	ms.dados[ms.tamanho-1] = 0
+
+}
+func (ms *multiSet) Erase(indice int) {
+
+	ms.erase(indice)
+	ms.tamanho--
+
+}
+
 func (ms *multiSet) Contains(valor int) bool {
 	achou, _ := ms.Search(valor)
 
 	return achou
 }
+func (ms *multiSet) Count(valor int) int {
+
+	achou, _ := ms.Search(valor)
+	contador := 0
+
+	if achou {
+
+		for i := range ms.tamanho {
+
+			if ms.dados[i] == valor {
+				contador++
+			}
+
+		}
+
+	}
+
+	return contador
+}
+func (ms *multiSet) Unique() int {
+	var unicos int
+
+	for i := range ms.tamanho - 1 {
+
+		if ms.dados[i] != ms.dados[i+1] || i == ms.tamanho-2 {
+			unicos++
+		}
+
+	}
+
+	return unicos
+}
 func (ms *multiSet) Clear() {
 	var vetVazio []int = make([]int, ms.capacidade)
 
 	ms.dados = vetVazio
+	ms.tamanho = 0
 
 }
 
@@ -185,18 +235,23 @@ func main() {
 				ms.Insert(value)
 			}
 		case "show":
-			//fmt.Println(ms.dados)
 			fmt.Println(ms.String())
 		case "erase":
-			//value, _ := strconv.Atoi(args[1])
+			value, _ := strconv.Atoi(args[1])
+			achou, indice := ms.Search(value)
+			if achou {
+				ms.Erase(indice)
+			} else {
+				fmt.Println("value not found")
+			}
 		case "contains":
 			value, _ := strconv.Atoi(args[1])
 			fmt.Println(ms.Contains(value))
 		case "count":
-			//value, _ := strconv.Atoi(args[1])
-			//fmt.Println(ms.Contains(value))
+			value, _ := strconv.Atoi(args[1])
+			fmt.Println(ms.Count(value))
 		case "unique":
-			// fmt.Println(ms.Unique())
+			fmt.Println(ms.Unique())
 		case "clear":
 			ms.Clear()
 		default:
