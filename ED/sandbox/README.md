@@ -10,4 +10,4 @@
 - [ ] `@user_001 🛠️ 👤 type=make xp=1 tier=1 loss=part :self` [vetbuild](user_001/README.md)
 - [ ] `@user_002 🛠️ 👤 type=make xp=1 tier=1 loss=part :self` [rasunho_anna](user_002/README.md)
 
-- [ ] `@user_003 👤 xp=1                                 ` [esqueleto lista](user_003/README.md)
+- [ ] `@user_003 🛠️ 👤 type=make xp=1 tier=1 loss=part :self` [esqueleto lista](user_003/README.md)
