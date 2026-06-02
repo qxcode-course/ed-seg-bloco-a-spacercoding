@@ -18,7 +18,7 @@ func occurr(vet []int) []Pair {
 
 	for i := range vet {
 
-		if 
+		
 
 	}
 

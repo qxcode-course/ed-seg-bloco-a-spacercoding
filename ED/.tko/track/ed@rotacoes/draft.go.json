@@ -1,0 +1,29 @@
+{
+    "patches": [
+        {
+            "label": "2026-06-01_21-35-34",
+            "content": "@@ -1,694 +1,95 @@\n-package main%0A%0Aimport (%0A%09%22fmt%22%0A%09%22strconv%22%0A)%0A%0Afunc Rotacione(vet %5B%5Dint) %5B%5Dint %7B%0A    var varAux int = vet%5Blen(vet)%5D%0A    %0A    for i := len(vet); i %3E 0; i-- %7B%0A%0A        vet%5Bi%5D = vet%5Bi-1%5D%0A%0A    %7D%0A    vet%5B0%5D = varAux%0A%0A    return vet%0A%7D%0A%0Afunc VetToString(vet %5B%5Dint) string %7B%0A    var str string = %22%5B %22%0A%0A    for i := range len(vet) %7B%0A%0A        str += strconv.Itoa(vet%5Bi%5D) + %22 %22%0A%0A    %7D%0A%0A    return str + %22%5D%22%0A%7D%0A%0Afunc main() %7B%0A    var vetSize int%0A%0A    fmt.Scan(&vetSize)%0A%0A    var vetInt %5B%5Dint = make(%5B%5Dint, vetSize)%0A%0A    for i := range vetSize %7BvetInt%5Bi%5D = i%7D%0A%0A    var numRotacoes int%0A%0A    fmt.Scan(&numRotacoes)%0A%0A    for range numRotacoes %7B vetInt = Rotacione(vetInt) %7D%0A%0A    fmt.Println(VetToString(vetInt))%0A%7D\n+@@ -497,52 +497,8 @@%0A e)%250A%250A%0A-    for i := range vetSize %257BvetInt%255Bi%255D = i%257D%250A%250A%0A     \n %0A\n",
+            "lines": "4"
+        },
+        {
+            "label": "2026-06-01_21-36-03",
+            "content": "@@ -104,18 +104,16 @@\n len(vet)\n--1\n %5D%0A    %0A \n",
+            "lines": "49"
+        },
+        {
+            "label": "2026-06-01_21-36-48",
+            "content": "@@ -134,18 +134,16 @@\n len(vet)\n--1\n ; i %3E 0;\n",
+            "lines": "49"
+        },
+        {
+            "label": "2026-06-01_21-37-15",
+            "content": "@@ -542,10 +542,8 @@\n  = i\n-+1\n %7D%0A%0A \n",
+            "lines": "49"
+        },
+        {
+            "label": "2026-06-01_21-37-26",
+            "content": "package main\n\nimport (\n\t\"fmt\"\n\t\"strconv\"\n)\n\nfunc Rotacione(vet []int) []int {\n    var varAux int = vet[len(vet)-1]\n    \n    for i := len(vet)-1; i > 0; i-- {\n\n        vet[i] = vet[i-1]\n\n    }\n    vet[0] = varAux\n\n    return vet\n}\n\nfunc VetToString(vet []int) string {\n    var str string = \"[ \"\n\n    for i := range len(vet) {\n\n        str += strconv.Itoa(vet[i]) + \" \"\n\n    }\n\n    return str + \"]\"\n}\n\nfunc main() {\n    var vetSize int\n\n    fmt.Scan(&vetSize)\n\n    var vetInt []int = make([]int, vetSize)\n\n    for i := range vetSize {vetInt[i] = i+1}\n\n    var numRotacoes int\n\n    fmt.Scan(&numRotacoes)\n\n    for range numRotacoes { vetInt = Rotacione(vetInt) }\n\n    fmt.Println(VetToString(vetInt))\n}\n",
+            "lines": "49"
+        }
+    ]
+}
