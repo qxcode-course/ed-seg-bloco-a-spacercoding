@@ -2,8 +2,18 @@
     "patches": [
         {
             "label": "2026-05-31_22-07-59",
-            "content": "package main\n\nimport (\n\t\"fmt\"\n\t\"strings\"\n)\n\n// mostra a lista com o elemento sword destacado\nfunc ToStr(l *DList[int], sword *DNode[int]) string {\n\treturn \"\"\n}\n\n// move para frente na lista circular\nfunc Next(l *DList[int], it *DNode[int]) *DNode[int] {\n\treturn nil\n}\n\nfunc main() {\n\tvar qtd, chosen int\n\tfmt.Scan(&qtd, &chosen)\n\tfmt.Println(qtd, chosen)\n\tl := NewDList[int]()\n\tfor i := 1; i <= qtd; i++ {\n\t\tl.PushBack(i)\n\t}\n\tsword := l.Front()\n\tfor range chosen - 1 {\n\t\tsword = Next(l, sword)\n\t}\n\tfor range qtd - 1 {\n\t\tfmt.Println(ToStr(l, sword))\n\t\tl.Erase(Next(l, sword))\n\t\tsword = Next(l, sword)\n\t}\n\tfmt.Println(ToStr(l, sword))\n}\n",
+            "content": "@@ -28,20 +28,20 @@\n t%22%0A%09%22str\n-conv\n+ings\n %22%0A)%0A%0A// \n@@ -145,236 +145,17 @@\n  %7B%0A%09\n-var str string = %22%5B %22%0A%0A%09for i := l.Front(); i != l.End(); i = i.Next() %7B%0A%0A%09%09if i.Value == sword.Value %7B%0A%09%09%09str += strconv.Itoa(sword.Value) + %22%3E %22%0A%09%09%7D else %7B%0A%09%09%09str += strconv.Itoa(i.Value) + %22 %22%0A%09%09%7D%0A%0A%09%7D%0A%09str += %22%5D%22%0A%0A%09return str\n+return %22%22\n %0A%7D%0A%0A\n@@ -252,72 +252,18 @@\n  %7B%0A%09\n-if it.next == it.root %7B%0A%09%09return it.root.next%0A%09%7D%0A%09return it.next\n+return nil\n %0A%7D%0A%0A\n",
             "lines": "36"
+        },
+        {
+            "label": "2026-06-08_16-23-41",
+            "content": "@@ -595,16 +595,42 @@\n chosen)%0A\n+%09fmt.Println(qtd, chosen)%0A\n %09l := Ne\n",
+            "lines": "52"
+        },
+        {
+            "label": "2026-06-08_16-24-07",
+            "content": "package main\n\nimport (\n\t\"fmt\"\n\t\"strconv\"\n)\n\n// mostra a lista com o elemento sword destacado\nfunc ToStr(l *DList[int], sword *DNode[int]) string {\n\tvar str string = \"[ \"\n\n\tfor i := l.Front(); i != l.End(); i = i.Next() {\n\n\t\tif i.Value == sword.Value {\n\t\t\tstr += strconv.Itoa(sword.Value) + \"> \"\n\t\t} else {\n\t\t\tstr += strconv.Itoa(i.Value) + \" \"\n\t\t}\n\n\t}\n\tstr += \"]\"\n\n\treturn str\n}\n\n// move para frente na lista circular\nfunc Next(l *DList[int], it *DNode[int]) *DNode[int] {\n\tif it.next == it.root {\n\t\treturn it.root.next\n\t}\n\treturn it.next\n}\n\nfunc main() {\n\tvar qtd, chosen int\n\tfmt.Scan(&qtd, &chosen)\n\tl := NewDList[int]()\n\tfor i := 1; i <= qtd; i++ {\n\t\tl.PushBack(i)\n\t}\n\tsword := l.Front()\n\tfor range chosen - 1 {\n\t\tsword = Next(l, sword)\n\t}\n\tfor range qtd - 1 {\n\t\tfmt.Println(ToStr(l, sword))\n\t\tl.Erase(Next(l, sword))\n\t\tsword = Next(l, sword)\n\t}\n\tfmt.Println(ToStr(l, sword))\n}\n",
+            "lines": "51"
         }
     ]
 }

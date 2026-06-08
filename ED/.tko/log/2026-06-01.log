@@ -170,3 +170,7 @@
 2026-06-01 21:37:37, MOVE, v:1, k:ed@alternando, mode:EDIT
 2026-06-01 21:37:37, MOVE, v:1, k:ed@alternando, mode:EDIT
 2026-06-01 21:39:04, MOVE, v:1, k:ed@alternando, mode:BACK
+2026-06-01 21:39:52, MOVE, v:1, k:ed@treinando, mode:PICK
+2026-06-01 21:39:54, EXEC, v:1, k:ed@treinando, mode:FULL, rate:0
+2026-06-01 21:39:58, MOVE, v:1, k:ed@treinando, mode:BACK
+2026-06-01 21:40:12, SELF, v:1, k:ed@fractais_png, self:1, rate:100
