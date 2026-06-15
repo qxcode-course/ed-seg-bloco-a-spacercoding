@@ -33,26 +33,85 @@ func (e *Editor) KeyLeft() {
 
 func (e *Editor) KeyEnter() {
 	e.text.Insert(e.itLine.Next(), NewList[rune]()) // cria uma nova linha e insere abaixo da linha corrente
+
+	// if e.itChar != e.itLine.Value.End() && e.itChar != e.itLine.Value.Front() {
+
+	// 	e.itLine.next.Value.root.next = e.itChar.Next()
+	// 	e.itLine.next.Value.root.prev = e.itLine.Value.Back()
+	// 	e.itChar.next.root = e.itLine.next.Value.End()
+	// 	e.itChar.next.prev = e.itLine.next.Value.End()
+
+	// 	e.itLine.Value.root.prev = e.itChar
+	// 	e.itLine.Value.root.prev.next = e.itLine.Value.End()
+
+	// 	e.itLine = e.itLine.next
+	// 	e.itChar = e.itLine.Value.Front()
+	// 	return
+
+	// }
+
 	e.itLine = e.itLine.Next()        // vai pra próxima linha
 	e.itChar = e.itLine.Value.Front() // move o cursor para o início da linha
 }
 
 func (e *Editor) KeyRight() {
-	cursor.next = cursor.next.next
-	cursor.prev = cursor
-	cursor = cursor.next
+	if e.itChar != e.itLine.Value.End() { //se o cursor não está no fim da linha
+
+		e.itChar = e.itChar.Next() //move ele para a direita
+		return
+
+	}
+
+	//do contrário
+
+	if e.itLine != e.text.Back() { //se não for a última linha 
+
+		e.itLine = e.itLine.Next() //passa para a próxima
+		e.itChar = e.itLine.Value.Front() //move o cursor para o começo
+
+	}
 }
 
 func (e *Editor) KeyUp() {
+
+	if e.itLine == e.text.Front() {
+		return
+	}
+
+	e.itLine = e.itLine.Prev()
+	e.itChar = e.itLine.Value.End()
+
 }
 
 func (e *Editor) KeyDown() {
+	if e.itLine == e.text.Back() {
+		return
+	}
+
+	e.itLine = e.itLine.Next()
+	e.itChar = e.itLine.Value.End()
 }
 
 func (e *Editor) KeyBackspace() {
+	if e.itChar != e.itLine.Value.Front() {
+
+		e.itChar.prev = e.itChar.prev.prev
+		e.itChar.prev.next = e.itChar
+		return
+
+	}
+
 }
 
 func (e *Editor) KeyDelete() {
+	if e.itChar != e.itLine.Value.End() {
+
+		e.itChar.next.prev = e.itChar.prev
+		e.itChar.prev.next = e.itChar.next
+		e.itChar = e.itChar.Next()
+		return
+
+	}
 }
 
 func main() { // Texto inicial e posição do cursor
