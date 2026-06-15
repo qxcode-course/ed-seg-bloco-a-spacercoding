@@ -8,91 +8,33 @@ import (
 	"strings"
 )
 
-func auxToStrg(vet []int) string {
-	var retorno string
-
-	if len(vet) == 0 {
-		return ""
-	}
-
-	retorno += strconv.Itoa(vet[0])
-
-	vet = append(vet, vet[1:]...)
-
-	return retorno + ", " + auxToStrg(vet)
+func auxToStrg(/*vet []int*/) string {
+	return ""
 
 }
 
-func tostr(vet []int) string {
-	var retorno string = "["
-
-	retorno += auxToStrg(vet)
-
-	return retorno + "]"
+func tostr(/*vet []int*/) string {
+	return ""
 
 }
 
-func tostrrev(vet []int) string {
-	var vetAux = make([]int, 0)
-	var indexString string
+func tostrrev(/*vet []int*/) string {
 
-	if len(vet) == 0 {
-
-		return "[]"
-
-	}
-
-	if len(vet) == 1 {
-
-		indexString = "[" + strconv.Itoa(vet[0])
-		return indexString + "]"
-
-	}
-
-	vetAux = append(vetAux, vet[:len(vet)-1]...)
-	indexString = strconv.Itoa(vet[len(vet)-1])
-	tostrrev(vetAux)
-
-	return ", " + indexString
+	return ""
 }
 
 // reverse: inverte os elementos do slice
 func reverse(vet []int) {
-	if len(vet) == 0 || len(vet) == 1 {
-		return
-	}
-
-	reverse(vet)
 }
 
 // sum: soma dos elementos do slice
 func sum(vet []int) int {
-	if len(vet) == 0 {
-		return 0
-	}
-	if len(vet) == 1 {
-		return vet[0]
-	}
-
-	vet[1] += vet[0]
-	vet = append(vet, vet[1:]...)
-
-	return sum(vet)
+	return vet[0]
 }
 
 // mult: produto dos elementos do slice
 func mult(vet []int) int {
-	if len(vet) == 0 {
-		return 0
-	}
-	if len(vet) == 1 {
-		return vet[0]
-	}
-
-	vet[1] = vet[1] * vet[0]
-	vet = append(vet, vet[1:]...)
-
-	return mult(vet)
+	return vet[0]
 }
 
 // min: retorna o índice e valor do menor valor
@@ -100,24 +42,7 @@ func mult(vet []int) int {
 // var rec func(v []int) (int, int)
 // para fazer uma recursão que retorna valor e índice
 func min(vet []int) int {
-	if len(vet) == 0 {
-		return 0
-	}
-	if len(vet) == 1 {
-		return vet[0]
-	}
-
-	if vet[1] <= vet[0] {
-
-		vet = append(vet, vet[1:]...)
-
-	} else {
-
-		vet[1] = vet[0]
-
-	}
-
-	return min(vet)
+	return vet[0]
 }
 
 func main() {
@@ -142,17 +67,17 @@ func main() {
 				}
 			}
 		case "tostr":
-			fmt.Println(tostr(vet))
+//			fmt.Println(tostr(vet))
 		case "torev":
-			fmt.Println(tostrrev(vet))
+//			fmt.Println(tostrrev(vet))
 		case "reverse":
-			reverse(vet)
+//			reverse(vet)
 		case "sum":
-			fmt.Println(sum(vet))
+//			fmt.Println(sum(vet))
 		case "mult":
-			fmt.Println(mult(vet))
+//			fmt.Println(mult(vet))
 		case "min":
-			fmt.Println(min(vet))
+//			fmt.Println(min(vet))
 		default:
 			fmt.Println("fail: comando invalido")
 		}
