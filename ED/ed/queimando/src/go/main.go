@@ -2,14 +2,35 @@ package main
 
 import (
 	"bufio"
+	//"crypto/dsa"
 	"fmt"
 	"os"
 )
 
-func burnTrees(grid [][]rune, l, c int) {
-	stack := NewStack[Pos]()
-	_ , _ , _ = mat, l, c
+type Pos struct {
 
+	l, c int
+
+}
+
+func burnTrees(grid [][]rune, l, c int) {
+	
+	stack := NewStack[Pos]()
+	stack.Push(Pos{l, c})
+	
+	for !stack.IsEmpty() {
+		bPos := stack.Pop()
+		if grid[bPos.l][bPos.c] == '#' {
+			
+			grid[bPos.l][bPos.c] = 'o'
+
+			if bPos.l + 1 < len(grid) {stack.Push(Pos{bPos.l+1, bPos.c})}
+			if bPos.c + 1 < len(grid[0]) {stack.Push(Pos{bPos.l, bPos.c+1})}
+			if bPos.l - 1 >= 0 {stack.Push(Pos{bPos.l-1, bPos.c})}
+			if bPos.c - 1  >= 0 {stack.Push(Pos{bPos.l, bPos.c-1})}
+
+		}
+	}
 	// Essa função deve usar uma list como pilha
 	// e marcar as árvores na matriz como queimados
 	// Uma sugestão de como fazer isso é:
@@ -18,6 +39,7 @@ func burnTrees(grid [][]rune, l, c int) {
 	//   - retirar o elemento do topo
 	//   - se puder ser queimado, queime e adicione seus vizinhos à pilha
 
+	return
 }
 
 func main() {

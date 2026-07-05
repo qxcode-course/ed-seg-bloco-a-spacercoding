@@ -6,6 +6,19 @@ import (
 	"os"
 )
 
+func Resolver(labirinto [][]string) [][]string {
+	caminho := NewStack[string]()
+	limites := NewStack[string]()
+
+	for i := range labirinto {
+		for j := range labirinto[i] {
+			if labirinto[i][j] == "I" {caminho.Push("I")}
+		}
+	}
+
+	return labirinto
+}
+
 func main() {
 	scanner := bufio.NewScanner(os.Stdin)
 	var nLinha, nColuna int
@@ -19,8 +32,7 @@ func main() {
 		x := ""
 		x = scanner.Text()
 		labirinto[i] = append(labirinto[i], x)
-		fmt.Println(labirinto[i])
+		fmt.Println(Resolver(labirinto))
 	}
-
 
 }

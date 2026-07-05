@@ -29,5 +29,5 @@ audit:
   enabled: false
   interval_seconds: null
 lang: go
-selected: ed@vector
-selected_index: 4
+selected: ed@bufferring
+selected_index: 7

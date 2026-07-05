@@ -1,0 +1,9 @@
+{
+    "patches": [
+        {
+            "label": "2026-07-05_16-26-20",
+            "content": "package main\n\nimport (\n\t\"fmt\"\n)\n\nfunc main() {\n\n\tqT := NewQueue[rune]()\n\tqG := NewQueue[int]()\n\n\tfor i := range 8 {\n\n\t\tqT.Enqueue(rune(97 + i))\n\n\t}\n\n\tfor range 15 {\n\t\tvar x, y int\n\n\t\tfmt.Scan(&x, &y)\n\n\t\tqG.Enqueue(x)\n\t\tqG.Enqueue(y)\n\n\t}\n\n\tfmt.Println(qT, qG)\n\n}\n",
+            "lines": "30"
+        }
+    ]
+}
