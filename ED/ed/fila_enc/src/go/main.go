@@ -4,16 +4,9 @@ import (
 	"bufio"
 	"fmt"
 	"os"
+	"strconv"
 	"strings"
 )
-
-// func (q *Queue[T]) Enqueue(value T)
-// func (q *Queue[T]) Dequeue() (T, bool)
-// func (q *Queue[T]) Peek() (T, bool)
-// func (q *Queue[T]) Size() int
-// func (q *Queue[T]) IsEmpty() bool
-// func (q *Queue[T]) Clear()
-
 
 type Node[T any] struct {
 	Value T
@@ -41,6 +34,65 @@ func (q *Queue[T]) String() string {
 	return result + "]"
 }
 
+func (q *Queue[T]) Size() int { return q.size }
+func (q *Queue[T]) IsEmpty() bool {
+	if q.Size() == 0 {
+		return true
+	}
+	return false
+}
+func (q *Queue[T]) Clear() { q.tail = q.head }
+
+func (q *Queue[T]) Enqueue(value T) {
+	newNode := *&Node[T]{Value: value, next: nil}
+
+	if q.IsEmpty() {
+
+		q.head = &newNode
+		q.tail = &newNode
+		newNode.next = nil
+
+	} else if q.Size() == 1 {
+
+		q.head.next = &newNode
+		q.tail = &newNode
+
+	} else {
+
+		q.tail.next = &newNode
+		q.tail = &newNode
+
+	}
+
+	q.size++
+
+}
+func (q *Queue[T]) Dequeue() (T, bool) {
+	var value T
+	if q.IsEmpty() {return value, false}
+
+	if q.Size() == 1 {
+
+		q.head = nil
+		q.tail = nil
+
+	} else {
+
+		q.head = q.head.next
+
+	}
+	q.size--
+
+	return value, true
+}
+func (q *Queue[T]) Peek() (T, bool) {
+	var value T
+	if q.IsEmpty() {return value, false} 
+
+	return q.head.Value, true
+
+}
+
 func main() {
 	scanner := bufio.NewScanner(os.Stdin)
 	queue := NewQueue[int]()
@@ -61,22 +113,23 @@ func main() {
 		case "show":
 			fmt.Println(queue)
 		case "push":
-			// for _, arg := range args[1:] {
-			// 	value, _ := strconv.Atoi(arg)
-			// 	queue.Enqueue(value)
-			// }
+			for _, arg := range args[1:] {
+				value, _ := strconv.Atoi(arg)
+				queue.Enqueue(value)
+			}
 		case "pop":
-			// if _, ok := queue.Dequeue(); !ok {
-			// 	fmt.Println("falha: fila vazia")
-			// }
+			if _, ok := queue.Dequeue(); !ok {
+				fmt.Println("falha: fila vazia")
+			}
 		case "peek":
-			// if value, ok := queue.Peek(); ok {
-			// 	fmt.Println(value)
-			// } else {
-			// 	fmt.Println("falha: fila vazia")
-			// }
+			if value, ok := queue.Peek(); ok {
+				fmt.Println(value)
+			} else {
+				fmt.Println("falha: fila vazia")
+			}
 		default:
 			fmt.Println("Unknown command:", args[0])
 		}
+
 	}
 }

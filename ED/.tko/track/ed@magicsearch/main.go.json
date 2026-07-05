@@ -1,0 +1,214 @@
+{
+    "patches": [
+        {
+            "label": "2026-07-05_14-49-24",
+            "content": "@@ -136,40 +136,8 @@\n ue%0A%0A\n-%09if len(slice) == 0 %7Breturn 0%7D%0A%0A\n %09var\n",
+            "lines": "53"
+        },
+        {
+            "label": "2026-07-05_14-50-05",
+            "content": "@@ -251,17 +251,18 @@\n  inicio \n-%3E\n+!=\n  fim%7B%0A%09%09\n",
+            "lines": "55"
+        },
+        {
+            "label": "2026-07-05_14-50-17",
+            "content": "@@ -231,31 +231,20 @@\n %0A%09meio =\n- (inicio +\n  fim\n-)\n /2%0A%0A%09for\n",
+            "lines": "55"
+        },
+        {
+            "label": "2026-07-05_14-50-35",
+            "content": "@@ -223,16 +223,41 @@\n lice) -1\n+%0A%09meio = (inicio + fim)/2\n %0A%0A%09for i\n",
+            "lines": "55"
+        },
+        {
+            "label": "2026-07-05_14-51-37",
+            "content": "@@ -67,283 +67,8 @@\n %0A)%0A%0A\n-func searchLastOccurance(value int, slice %5B%5Dint) int %7B%0A%0A%09for i := range slice %7B%0A%0A%09%09if value %3C slice%5Bi%5D %7B%0A%0A%09%09%09return i%0A%0A%09%09%7D%0A%0A%09%7D%0A%0A%09return -1%0A%7D%0A%0Afunc allocateIn(slice %5B%5Dint, value int) int %7B%0A%0A%09for i := range slice %7B%0A%0A%09%09if value %3C slice%5Bi%5D %7B%0A%0A%09%09%09return i%0A%0A%09%09%7D%0A%0A%09%7D%0A%0A%09return -1%0A%7D%0A%0A\n func\n@@ -110,16 +110,16 @@\n ) int %7B%0A\n+\n %09_, _ = \n@@ -229,24 +229,8 @@\n -1%0A%0A\n-%09var valor int%0A%0A\n %09for\n@@ -303,77 +303,19 @@\n ue %7B\n-%0A%09%09%0A%09%09%09valor = meio%0A%09%09%09return searchLastOccurance(valor, slice)%0A%09%09%0A%09%09\n+return meio\n %7D%0A%0A%09\n@@ -415,32 +415,9 @@\n urn \n-allocateIn(slice, value)\n+0\n %0A%7D%0A%0A\n",
+            "lines": "54"
+        },
+        {
+            "label": "2026-07-05_14-56-10",
+            "content": "@@ -333,17 +333,17 @@\n return -\n-2\n+1\n %0A%7D%0A%0Afunc\n",
+            "lines": "91"
+        },
+        {
+            "label": "2026-07-05_14-56-21",
+            "content": "@@ -180,19 +180,16 @@\n return i\n- -1\n %0A%0A%09%09%7D%0A%0A%09\n",
+            "lines": "91"
+        },
+        {
+            "label": "2026-07-05_14-56-31",
+            "content": "@@ -182,17 +182,16 @@\n turn i -\n- \n 1%0A%0A%09%09%7D%0A%0A\n@@ -316,20 +316,16 @@\n return i\n- + 1\n %0A%0A%09%09%7D%0A%0A%09\n",
+            "lines": "91"
+        },
+        {
+            "label": "2026-07-05_14-56-52",
+            "content": "@@ -139,22 +139,13 @@\n nge \n-len(\n slice\n-) - 2\n  %7B%0A%0A\n@@ -159,36 +159,9 @@\n lue \n-== slice%5Bi%5D && slice%5Bi+1%5D !=\n+%3C\n  sli\n@@ -180,16 +180,20 @@\n return i\n+ - 1\n %0A%0A%09%09%7D%0A%0A%09\n",
+            "lines": "91"
+        },
+        {
+            "label": "2026-07-05_14-58-38",
+            "content": "@@ -540,16 +540,32 @@\n ce) -1%0A%0A\n+%09var valor int%0A%0A\n %09for ini\n@@ -627,24 +627,42 @@\n  == value %7B%0A\n+%09%09%0A%09%09%09valor = meio\n %0A%09%09%09return s\n@@ -683,18 +683,18 @@\n ance(val\n-ue\n+or\n , slice)\n",
+            "lines": "91"
+        },
+        {
+            "label": "2026-07-05_14-59-13",
+            "content": "@@ -552,17 +552,17 @@\n  inicio \n-%3C\n+%3E\n  fim%7B%0A%09%09\n",
+            "lines": "88"
+        },
+        {
+            "label": "2026-07-05_14-59-25",
+            "content": "@@ -341,32 +341,36 @@\n %5D %7B%0A%0A%09%09%09return i\n+ + 1\n %0A%0A%09%09%7D%0A%0A%09%7D%0A%0A%09retu\n",
+            "lines": "88"
+        },
+        {
+            "label": "2026-07-05_14-59-38",
+            "content": "@@ -128,16 +128,22 @@\n for i :=\n+ range\n  len(sli\n@@ -152,57 +152,76 @@\n ) - \n-1; i %3E 0; i-- %7B%0A%0A%09%09if slice%5Bi%5D == value %7B\n+2 %7B%0A%0A%09%09if value == slice%5Bi%5D && slice%5Bi+1%5D != slice%5Bi%5D %7B%0A%0A%09%09%09\n return i\n %7D%0A%0A%09\n@@ -216,16 +216,20 @@\n return i\n+%0A%0A%09%09\n %7D%0A%0A%09%7D%0A%0A%09\n",
+            "lines": "88"
+        },
+        {
+            "label": "2026-07-05_15-00-55",
+            "content": "@@ -148,17 +148,16 @@\n - 1; i %3E\n-=\n  0; i-- \n",
+            "lines": "84"
+        },
+        {
+            "label": "2026-07-05_15-01-15",
+            "content": "@@ -148,16 +148,17 @@\n - 1; i %3E\n+=\n  0; i-- \n",
+            "lines": "84"
+        },
+        {
+            "label": "2026-07-05_15-01-22",
+            "content": "@@ -675,24 +675,28 @@\n nicio = meio\n+ + 1\n %0A%0A%09%09%7D else %7B\n@@ -710,16 +710,20 @@\n m = meio\n+ - 1\n %0A%0A%09%09%7D%0A%0A%09\n",
+            "lines": "84"
+        },
+        {
+            "label": "2026-07-05_15-01-59",
+            "content": "@@ -683,12 +683,8 @@\n meio\n- + 1\n %0A%0A%09%09\n",
+            "lines": "84"
+        },
+        {
+            "label": "2026-07-05_15-02-26",
+            "content": "@@ -679,16 +679,20 @@\n o = meio\n+ + 1\n %0A%0A%09%09%7D el\n@@ -710,20 +710,16 @@\n m = meio\n- - 1\n %0A%0A%09%09%7D%0A%0A%09\n",
+            "lines": "84"
+        },
+        {
+            "label": "2026-07-05_15-02-40",
+            "content": "@@ -702,24 +702,28 @@\n %09%09fim = meio\n+ - 1\n %0A%0A%09%09%7D%0A%0A%09%7D%0A%0A%09\n",
+            "lines": "84"
+        },
+        {
+            "label": "2026-07-05_15-02-54",
+            "content": "@@ -683,12 +683,8 @@\n meio\n- + 1\n %0A%0A%09%09\n@@ -706,20 +706,16 @@\n m = meio\n- - 1\n %0A%0A%09%09%7D%0A%0A%09\n",
+            "lines": "84"
+        },
+        {
+            "label": "2026-07-05_15-03-08",
+            "content": "@@ -516,16 +516,20 @@\n for \n-fim != 0\n+inicio %3C fim\n %7B%0A%09%09\n",
+            "lines": "84"
+        },
+        {
+            "label": "2026-07-05_15-03-59",
+            "content": "@@ -516,21 +516,16 @@\n for \n-inicio\n+fim\n  != \n-fim\n+0\n %7B%0A%09%09\n",
+            "lines": "84"
+        },
+        {
+            "label": "2026-07-05_15-04-10",
+            "content": "@@ -519,17 +519,18 @@\n  inicio \n-%3E\n+!=\n  fim%7B%0A%09%09\n",
+            "lines": "84"
+        },
+        {
+            "label": "2026-07-05_15-04-14",
+            "content": "@@ -519,17 +519,17 @@\n  inicio \n-%3C\n+%3E\n  fim%7B%0A%09%09\n",
+            "lines": "84"
+        },
+        {
+            "label": "2026-07-05_15-04-19",
+            "content": "@@ -163,34 +163,8 @@\n  %7B%0A%0A\n-%09%09fmt.Println(%22procurar%22)%0A\n %09%09if\n@@ -313,33 +313,8 @@\n  %7B%0A%0A\n-%09%09%09fmt.Println(%22alocar%22)%0A\n %09%09%09r\n",
+            "lines": "84"
+        },
+        {
+            "label": "2026-07-05_15-07-03",
+            "content": "@@ -161,18 +161,16 @@\n -- %7B%0A%0A%09%09\n-//\n fmt.Prin\n@@ -342,10 +342,8 @@\n %0A%09%09%09\n-//\n fmt.\n@@ -553,16 +553,19 @@\n n(slice)\n+ -1\n %0A%0A%09for i\n",
+            "lines": "86"
+        },
+        {
+            "label": "2026-07-05_15-07-40",
+            "content": "@@ -161,16 +161,18 @@\n -- %7B%0A%0A%09%09\n+//\n fmt.Prin\n@@ -340,16 +340,18 @@\n %5D %7B%0A%0A%09%09%09\n+//\n fmt.Prin\n",
+            "lines": "86"
+        },
+        {
+            "label": "2026-07-05_15-07-56",
+            "content": "@@ -568,17 +568,16 @@\n inicio %3C\n-=\n  fim%7B%0A%09%09\n",
+            "lines": "86"
+        },
+        {
+            "label": "2026-07-05_15-08-18",
+            "content": "@@ -567,17 +567,17 @@\n  inicio \n-=\n+%3C\n = fim%7B%0A%09\n",
+            "lines": "86"
+        },
+        {
+            "label": "2026-07-05_15-08-24",
+            "content": "@@ -161,18 +161,16 @@\n -- %7B%0A%0A%09%09\n-//\n fmt.Prin\n@@ -342,10 +342,8 @@\n %0A%09%09%09\n-//\n fmt.\n@@ -567,17 +567,18 @@\n  inicio \n-%3C\n+==\n  fim%7B%0A%09%09\n",
+            "lines": "86"
+        },
+        {
+            "label": "2026-07-05_15-09-06",
+            "content": "@@ -750,30 +750,8 @@\n lse \n-if slice%5Bmeio%5D %3C value\n %7B%0A%0A%09\n",
+            "lines": "86"
+        },
+        {
+            "label": "2026-07-05_15-09-45",
+            "content": "@@ -557,19 +557,16 @@\n n(slice)\n- -1\n %0A%0A%09for i\n",
+            "lines": "86"
+        },
+        {
+            "label": "2026-07-05_15-10-25",
+            "content": "@@ -575,17 +575,16 @@\n inicio %3C\n-=\n  fim%7B%0A%09%09\n",
+            "lines": "86"
+        },
+        {
+            "label": "2026-07-05_15-10-46",
+            "content": "@@ -750,16 +750,38 @@\n %09%7D else \n+if slice%5Bmeio%5D %3C value\n %7B%0A%0A%09%09%09fi\n",
+            "lines": "86"
+        },
+        {
+            "label": "2026-07-05_15-11-30",
+            "content": "@@ -544,35 +544,8 @@\n = 0%0A\n-%09meio = (len(slice) -1 )/2%0A\n %09fim\n",
+            "lines": "86"
+        },
+        {
+            "label": "2026-07-05_15-11-56",
+            "content": "@@ -1206,23 +1206,16 @@\n Println(\n-slice, \n result)%0A\n",
+            "lines": "87"
+        },
+        {
+            "label": "2026-07-05_15-12-09",
+            "content": "@@ -1206,16 +1206,23 @@\n Println(\n+slice, \n result)%0A\n",
+            "lines": "87"
+        },
+        {
+            "label": "2026-07-05_15-12-27",
+            "content": "@@ -753,19 +753,22 @@\n %0A%09%09%09\n-fim\n+inicio\n  = meio \n - 1%0A\n@@ -763,17 +763,17 @@\n  = meio \n--\n++\n  1%0A%0A%09%09%7D \n@@ -779,38 +779,35 @@\n  else %7B%0A%0A%09%09%09\n-inicio\n+fim\n  = meio \n + 1%0A%09%09%7D%0A%0A%09%7D%0A\n@@ -794,20 +794,21 @@\n  = meio \n-+\n+-\n  1%0A\n+%0A\n %09%09%7D%0A%0A%09%7D%0A\n",
+            "lines": "87"
+        },
+        {
+            "label": "2026-07-05_15-13-13",
+            "content": "@@ -394,29 +394,18 @@\n %09return \n-len(slice) -1\n+-2\n %0A%7D%0A%0Afunc\n",
+            "lines": "86"
+        },
+        {
+            "label": "2026-07-05_15-13-32",
+            "content": "@@ -404,16 +404,19 @@\n n(slice)\n+ -1\n %0A%7D%0A%0Afunc\n",
+            "lines": "86"
+        },
+        {
+            "label": "2026-07-05_15-13-42",
+            "content": "@@ -148,17 +148,16 @@\n - 1; i %3E\n-=\n  0; i-- \n",
+            "lines": "86"
+        },
+        {
+            "label": "2026-07-05_15-14-01",
+            "content": "package main\n\nimport (\n\t\"bufio\"\n\t\"fmt\"\n\t\"os\"\n\t\"strconv\"\n\t\"strings\"\n)\n\nfunc searchLastOccurance(value int, slice []int) int {\n\n\tfor i := len(slice) - 1; i >= 0; i-- {\n\n\t\t//fmt.Println(\"procurar\")\n\t\tif slice[i] == value {return i}\n\n\t}\n\n\treturn -1\n}\n\nfunc allocateIn(slice []int, value int) int {\n\n\tfor i := range slice {\n\n\t\tif value < slice[i] {\n\n\t\t\t//fmt.Println(\"alocar\")\n\t\t\treturn i\n\n\t\t}\n\n\t}\n\n\treturn len(slice)\n}\n\nfunc MagicSearch(slice []int, value int) int {\n\t_, _ = slice, value\n\n\tif len(slice) == 0 {return 0}\n\n\tvar inicio, meio, fim int\n\tinicio = 0\n\tmeio = (len(slice) -1 )/2\n\tfim = len(slice) -1\n\n\tfor inicio <= fim{\n\t\tmeio = (inicio + fim) /2\n\n\t\tif slice[meio] == value {\n\n\t\t\treturn searchLastOccurance(value, slice)\n\t\t\n\t\t}\n\n\t\tif slice[meio] > value {\n\n\t\t\tfim = meio - 1\n\n\t\t} else {\n\n\t\t\tinicio = meio + 1\n\t\t}\n\n\t}\n\n\treturn allocateIn(slice, value)\n}\n\nfunc main() {\n\tscanner := bufio.NewScanner(os.Stdin)\n\tscanner.Scan()\n\tparts := strings.Fields(scanner.Text())\n\tslice := make([]int, 0, 1)\n\tfor _, elem := range parts[1 : len(parts)-1] {\n\t\tvalue, _ := strconv.Atoi(elem)\n\t\tslice = append(slice, value)\n\t}\n\n\tscanner.Scan()\n\tvalue, _ := strconv.Atoi(scanner.Text())\n\tresult := MagicSearch(slice, value)\n\tfmt.Println(result)\n}\n",
+            "lines": "86"
+        }
+    ]
+}
