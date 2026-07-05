@@ -6,18 +6,18 @@ Nesta atividade, implementamos um **buffer circular com redimensionamento autom�
 
 ```go
 class Deque {
-    data []int           // vetor que guarda os elementos
-    front int            // índice do início
-    size, capacity int   // tamanho atual e capacidade total
-    resize(newCap int)   // dobra o tamanho do caso ele chege no máximo de sua capacidade
+    //data []int           // vetor que guarda os elementos
+    //front int            // índice do início
+    //size, capacity int   // tamanho atual e capacidade total
+    //resize(newCap int)   // dobra o tamanho do vetor caso ele chege no máximo de sua capacidade
     PushBack(v int)      // insere valor no fim
-    PushFront(v int)     // insere valor no início
-    PopBack()            // remove valor do fim
-    PopFront()           // remove valor do início
-    Front() (int, error) // retorna o valor do início
-    Back() (int, error)  // retorna o valor do fim
-    Clear()              // limpa todos os elementos
-    Len() int            // retorna o número de elementos
-    String() string      // representação no formato [1, 2, 3]
+    //PushFront(v int)     // insere valor no início
+    //PopBack()            // remove valor do fim
+    //PopFront()           // remove valor do início
+    //Front() (int, error) // retorna o valor do início
+    //Back() (int, error)  // retorna o valor do fim
+    //Clear()              // limpa todos os elementos
+    //Len() int            // retorna o número de elementos
+    //String() string      // representação no formato [1, 2, 3]
 }
 ```

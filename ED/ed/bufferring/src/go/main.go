@@ -2,8 +2,10 @@ package main
 
 import (
 	"bufio"
+	"errors"
 	"fmt"
 	"os"
+	"strconv"
 	"strings"
 )
 
@@ -22,7 +24,6 @@ func (b *Deque) String() string {
 	}
 	return "[" + strings.Join(result, ", ") + "]"
 }
-
 func (b *Deque) Debug() string {
 	result := make([]string, b.capacity)
 	for i, _ := range result {
@@ -41,6 +42,92 @@ func (b *Deque) Debug() string {
 		result[index] = fmt.Sprintf("%s%d", prefix, val)
 	}
 	return strings.Join(result, " |")
+}
+
+func (b *Deque) Len() int { return b.size }
+func (b *Deque) Front() (int, error) {
+	if b.size == 0 {
+		return -1, errors.New("fail: buffer vazio")
+	}
+	return b.data[b.front], nil
+}
+func (b *Deque) Back() (int, error) {
+	if b.size == 0 {
+		return -1, errors.New("fail: buffer vazio")
+	}
+
+	return b.data[((b.front + b.size) % b.capacity) -1 ], nil
+}
+
+func (b *Deque) resize(newCap int) {
+	var newVet []int = make([]int, newCap)
+
+	for i := range b.data {
+
+		newVet[i] = b.data[(b.front + i) % b.capacity]
+
+	}
+	b.data = newVet
+
+	b.front = 0
+
+	b.capacity = newCap
+
+}
+
+func (b *Deque) PushBack(num int) {
+	if b.capacity == b.size {
+		b.resize(b.capacity * 2)
+	}
+	
+	b.data[(b.front+b.size)%b.capacity] = num
+	b.size++
+	
+}
+func (b *Deque) PushFront(num int) {
+	if b.capacity == b.size {
+		b.resize(b.capacity * 2)
+	}
+
+	if b.front == 0 {
+		b.front = b.capacity - 1
+		b.data[b.front] = num
+	} else {
+		b.front--
+		b.data[b.front] = num
+	}
+	b.size++
+
+}
+
+func (b *Deque) PopBack() error {
+	if b.size == 0 {
+		return errors.New("fail: buffer vazio")
+	}
+	b.size--
+	return nil
+}
+func (b *Deque) PopFront() error {
+	if b.size == 0 {
+		return errors.New("fail: buffer vazio")
+	}
+
+	if b.front == b.capacity-1 {
+		b.front = 0
+	} else {
+		b.front++
+	}
+	b.size--
+
+	return nil
+}
+
+func (b *Deque) Clear() {
+
+	b.data = make([]int, b.capacity)
+	b.size = 0
+	b.front = 0
+
 }
 
 func main() {
@@ -68,43 +155,44 @@ func main() {
 		case "debug":
 			fmt.Println(buf.Debug())
 		case "size":
-			// fmt.Println(buf.Len())
+			fmt.Println(buf.Len())
 		case "push_back":
-			// for _, v := range args[1:] {
-			// 	num, _ := strconv.Atoi(v)
-			// 	buf.PushBack(num)
-			// }
+			for _, v := range args[1:] {
+				num, _ := strconv.Atoi(v)
+				buf.PushBack(num)
+			}
 		case "push_front":
-			// for _, v := range args[1:] {
-			// 	num, _ := strconv.Atoi(v)
-			// 	buf.PushFront(num)
-			// }
+			for _, v := range args[1:] {
+				num, _ := strconv.Atoi(v)
+				buf.PushFront(num)
+			}
 		case "pop_back":
-			// if err := buf.PopBack(); err != nil {
-			// 	fmt.Println(err)
-			// }
+			if err := buf.PopBack(); err != nil {
+				fmt.Println(err)
+			}
 		case "pop_front":
-			// if err := buf.PopFront(); err != nil {
-			// 	fmt.Println(err)
-			// }
+			if err := buf.PopFront(); err != nil {
+				fmt.Println(err)
+			}
 		case "front":
-			// if val, err := buf.Front(); err != nil {
-			// 	fmt.Println(err)
-			// } else {
-			// 	fmt.Println(val)
-			// }
+			if val, err := buf.Front(); err != nil {
+				fmt.Println(err)
+			} else {
+				fmt.Println(val)
+			}
 		case "back":
-			// if val, err := buf.Back(); err != nil {
-			// 	fmt.Println(err)
-			// } else {
-			// 	fmt.Println(val)
-			// }
+			if val, err := buf.Back(); err != nil {
+				fmt.Println(err)
+			} else {
+				fmt.Println(val)
+			}
 		case "clear":
-			// buf.Clear()
+			buf.Clear()
 		case "end":
 			return
 		default:
 			fmt.Println("fail: comando invalido")
 		}
+		//fmt.Println(buf.data)
 	}
 }

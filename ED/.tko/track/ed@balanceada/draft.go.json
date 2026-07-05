@@ -1,0 +1,19 @@
+{
+    "patches": [
+        {
+            "label": "2026-07-04_21-52-09",
+            "content": "@@ -131,119 +131,8 @@\n ao %7B\n-%0A        if i != len(equacao) -1 && (equacao%5Bi%5D == '(' && equacao%5Bi+1%5D == '%5D') %7B%0A            continue%0A        %7D\n %0A%0A  \n",
+            "lines": "19"
+        },
+        {
+            "label": "2026-07-04_21-55-25",
+            "content": "@@ -211,103 +211,38 @@\n ') %7B\n-continue%7D%0A        if i == len(equacao) -1 && (equacao%5Bi%5D == '(' %7C%7C equacao%5Bi%5D == '%5B') %7Bcontinue\n+%0A            continue%0A        \n %7D%0A%0A \n",
+            "lines": "22"
+        },
+        {
+            "label": "2026-07-04_21-57-20",
+            "content": "package main\nimport \"fmt\"\nfunc main() {\n    var total int\n    var equacao string\n\n    fmt.Scan(&equacao)\n\n    for i := range equacao {\n        if i != len(equacao) -1 && (equacao[i] == '(' && equacao[i+1] == ']') {continue}\n        if i == len(equacao) -1 && (equacao[i] == '(' || equacao[i] == '[') {continue}\n\n        if equacao[i] == '(' {total++\n        } else if equacao[i] == ')' {total--\n        } else if equacao[i] == '[' {total += 2\n        } else {total -= 2}\n\n    }\n    if total == 0 {fmt.Println(\"balanceado\")\n    } else {fmt.Println(\"nao balanceado\")}\n}\n",
+            "lines": "21"
+        }
+    ]
+}

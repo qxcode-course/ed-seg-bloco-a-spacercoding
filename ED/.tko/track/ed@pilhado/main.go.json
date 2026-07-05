@@ -1,0 +1,109 @@
+{
+    "patches": [
+        {
+            "label": "2026-07-04_15-27-20",
+            "content": "@@ -17,18 +17,16 @@\n port (%0A%09\n-//\n %22bufio%22%0A\n@@ -37,10 +37,8 @@\n t%22%0A%09\n-//\n %22os%22\n",
+            "lines": "25"
+        },
+        {
+            "label": "2026-07-04_15-27-29",
+            "content": "@@ -176,33 +176,8 @@\n a)%0A%0A\n-%09fmt.Println(labirinto)%0A%0A\n %09for\n",
+            "lines": "25"
+        },
+        {
+            "label": "2026-07-04_15-27-56",
+            "content": "@@ -134,20 +134,19 @@\n nto %5B%5D%5B%5D\n-rune\n+int\n  = make(\n@@ -153,12 +153,11 @@\n %5B%5D%5B%5D\n-rune\n+int\n , nL\n",
+            "lines": "27"
+        },
+        {
+            "label": "2026-07-04_15-28-42",
+            "content": "@@ -280,16 +280,46 @@\n %5Bi%5D%5Bj%5D)%0A\n+%09%09%09fmt.Print(labirinto%5Bi%5D%5Bj%5D)%0A\n %09%09%7D%0A%09%7D%0A%0A\n",
+            "lines": "27"
+        },
+        {
+            "label": "2026-07-04_15-29-07",
+            "content": "@@ -200,25 +200,8 @@\n into\n-, nColuna, nLinha\n )%0A%0A%09\n",
+            "lines": "26"
+        },
+        {
+            "label": "2026-07-04_15-29-29",
+            "content": "@@ -174,16 +174,58 @@\n oluna)%0A%0A\n+%09fmt.Println(labirinto, nColuna, nLinha)%0A%0A\n %09for i :\n",
+            "lines": "26"
+        },
+        {
+            "label": "2026-07-04_15-29-44",
+            "content": "@@ -162,16 +162,25 @@\n , nLinha\n+, nColuna\n )%0A%0A%09for \n@@ -203,47 +203,8 @@\n a %7B%0A\n-%09%09labirinto%5Bi%5D = make(%5B%5Drune, nColuna)%0A\n %09%09fo\n",
+            "lines": "24"
+        },
+        {
+            "label": "2026-07-04_15-30-20",
+            "content": "@@ -289,38 +289,8 @@\n j%5D)%0A\n-%09%09%09fmt.Print(labirinto%5Bi%5D%5Bj%5D)%0A\n %09%09%7D%0A\n",
+            "lines": "25"
+        },
+        {
+            "label": "2026-07-04_15-30-38",
+            "content": "@@ -291,14 +291,8 @@\n )%0A%09%09\n-%7D%0A%09%7D%0A%0A\n %09fmt\n@@ -301,10 +301,8 @@\n rint\n-ln\n (lab\n@@ -307,13 +307,28 @@\n abirinto\n-)\n+%5Bi%5D%5Bj%5D)%0A%09%09%7D%0A%09%7D%0A%0A\n %0A%0A%7D%0A\n",
+            "lines": "26"
+        },
+        {
+            "label": "2026-07-04_15-30-57",
+            "content": "@@ -268,17 +268,16 @@\n mt.Scan(\n-&\n labirint\n",
+            "lines": "25"
+        },
+        {
+            "label": "2026-07-04_15-31-05",
+            "content": "@@ -134,22 +134,20 @@\n nto %5B%5D%5B%5D\n-string\n+rune\n  = make(\n@@ -150,22 +150,20 @@\n ake(%5B%5D%5B%5D\n-string\n+rune\n , nLinha\n@@ -218,14 +218,12 @@\n e(%5B%5D\n-string\n+rune\n , nC\n",
+            "lines": "25"
+        },
+        {
+            "label": "2026-07-04_15-32-22",
+            "content": "@@ -297,16 +297,19 @@\n %5D)%0A%09%09%7D%0A%09\n+%7D%0A%0A\n %09fmt.Pri\n@@ -326,16 +326,9 @@\n into\n-%5Bi%5D)%0A%09%7D%0A\n+)\n %0A%0A%7D%0A\n",
+            "lines": "25"
+        },
+        {
+            "label": "2026-07-04_15-32-33",
+            "content": "@@ -166,25 +166,16 @@\n , nLinha\n-, nColuna\n )%0A%0A%09for \n",
+            "lines": "25"
+        },
+        {
+            "label": "2026-07-04_15-33-01",
+            "content": "@@ -205,18 +205,16 @@\n nha %7B%0A%09%09\n-//\n labirint\n",
+            "lines": "25"
+        },
+        {
+            "label": "2026-07-04_15-33-02",
+            "content": "@@ -1,340 +1,59 @@\n-package main%0A%0Aimport (%0A%09//%22bufio%22%0A%09%22fmt%22%0A%09//%22os%22%0A)%0A%0Afunc main() %7B%0A%09var nLinha, nColuna int%0A%0A%09fmt.Scan(&nLinha, &nColuna)%0A%0A%09var labirinto %5B%5D%5B%5Dstring = make(%5B%5D%5B%5Dstring, nLinha)%0A%0A%09for i := range nLinha %7B%0A%09%09//labirinto%5Bi%5D = make(%5B%5Dstring, nColuna)%0A%09%09for j := range nColuna %7B%0A%09%09%09fmt.Scan(&labirinto%5Bi%5D%5Bj%5D)%0A%09%09%7D%0A%09%09fmt.Println(labirinto%5Bi%5D)%0A%09%7D%0A%0A%0A%7D\n+@@ -166,16 +166,25 @@%0A , nLinha%0A+, nColuna%0A )%250A%250A%2509for \n %0A\n",
+            "lines": "4"
+        },
+        {
+            "label": "2026-07-04_15-33-24",
+            "content": "@@ -196,16 +196,18 @@\n nha %7B%0A%09%09\n+//\n labirint\n",
+            "lines": "25"
+        },
+        {
+            "label": "2026-07-04_15-33-26",
+            "content": "@@ -266,53 +266,8 @@\n a %7B%0A\n-%09%09%09x := %22%22%0A%09%09%09fmt.Scan(&x)%0A%09%09%09if x != %22%5Cn%22 %7B%0A\n %09%09%09f\n@@ -296,24 +296,8 @@\n j%5D)%0A\n-%09%09%09%7D else %7Bi++%7D%0A\n %09%09%7D%0A\n",
+            "lines": "25"
+        },
+        {
+            "label": "2026-07-04_15-34-32",
+            "content": "@@ -310,16 +310,26 @@\n n%22 %7B%0A%09%09%09\n+fmt.Scan(&\n labirint\n@@ -339,12 +339,9 @@\n %5D%5Bj%5D\n- = x\n+)\n %0A%09%09%09\n",
+            "lines": "29"
+        },
+        {
+            "label": "2026-07-04_15-34-52",
+            "content": "@@ -194,16 +194,85 @@\n Linha %7B%0A\n+%09%09labirinto%5Bi%5D = make(%5B%5Dstring, nColuna)%0A%09%09for j := range nColuna %7B%0A%09\n %09%09x := %22\n@@ -273,16 +273,17 @@\n x := %22%22%0A\n+%09\n %09%09fmt.Sc\n@@ -295,46 +295,66 @@\n )%0A%09%09\n-labirinto%5Bi%5D = append(labirinto%5Bi%5D, x)\n+%09if x != %22%5Cn%22 %7B%0A%09%09%09labirinto%5Bi%5D%5Bj%5D = x%0A%09%09%09%7D else %7Bi++%7D%0A%09%09%7D\n %0A%09%09f\n",
+            "lines": "29"
+        },
+        {
+            "label": "2026-07-04_15-36-09",
+            "content": "@@ -17,16 +17,18 @@\n port (%0A%09\n+//\n %22bufio%22%0A\n@@ -35,16 +35,18 @@\n %09%22fmt%22%0A%09\n+//\n %22os%22%0A)%0A%0A\n@@ -63,47 +63,8 @@\n ) %7B%0A\n-%09scanner := bufio.NewScanner(os.Stdin)%0A\n %09var\n@@ -200,52 +200,29 @@\n %7B%0A%09%09\n-scanner.Scan()%0A%09%09x := %22%22%0A%09%09x = scanner.Text(\n+x := %22%22%0A%09%09fmt.Scan(&x\n )%0A%09%09\n",
+            "lines": "24"
+        },
+        {
+            "label": "2026-07-04_15-55-12",
+            "content": "package main\n\nimport (\n\t\"bufio\"\n\t\"fmt\"\n\t\"os\"\n)\n\nfunc main() {\n\tscanner := bufio.NewScanner(os.Stdin)\n\tvar nLinha, nColuna int\n\n\tfmt.Scan(&nLinha, &nColuna)\n\n\tvar labirinto [][]string = make([][]string, nLinha)\n\n\tfor i := range nLinha {\n\t\tscanner.Scan()\n\t\tx := \"\"\n\t\tx = scanner.Text()\n\t\tlabirinto[i] = append(labirinto[i], x)\n\t\tfmt.Println(labirinto[i])\n\t}\n\n\n}\n",
+            "lines": "26"
+        }
+    ]
+}
