@@ -4,6 +4,7 @@ import (
 	"bufio"
 	"fmt"
 	"os"
+	"strconv"
 	"strings"
 )
 
@@ -14,14 +15,34 @@ type Node struct {
 	Right *Node
 }
 
+type Root struct {
+
+	*Node
+
+}
+
 // create constrói uma árvore binária a partir de uma lista de strings.
 // Consuma os elementos da lista sempre do início.
 // Você pode obter o primeiro elemento com 'elem := (*parts)[0]'
 // Você pode fazer um "push_front" no array usando '*parts = (*parts)[1:]
 // Se o elemento for "#", significa que o nó é nulo.
 func create(parts *[]string) *Node {
-	_ = parts
-	return nil
+	if len(*parts) == 0 {return nil}
+	if (*parts)[0] == "#" {
+		*parts = (*parts)[1:]
+		return nil
+	}
+
+	newNode := &Node{}
+
+	newNode.Value, _ = strconv.Atoi((*parts)[0])
+
+	*parts = (*parts)[1:]
+
+	newNode.Left = create(parts)
+	newNode.Right = create(parts)
+
+	return newNode
 }
 
 // BShow é uma função auxiliar para imprimir a árvore binária.

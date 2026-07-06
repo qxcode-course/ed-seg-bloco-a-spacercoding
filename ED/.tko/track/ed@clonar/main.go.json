@@ -1,0 +1,144 @@
+{
+    "patches": [
+        {
+            "label": "2026-07-06_17-04-42",
+            "content": "@@ -188,20 +188,16 @@\n %7D%0A%0A%09\n-var \n newNode \n *Nod\n@@ -196,24 +196,9 @@\n ode \n-*Node%0A%0A%09newNode \n+:\n = no\n",
+            "lines": "81"
+        },
+        {
+            "label": "2026-07-06_17-06-09",
+            "content": "@@ -215,82 +215,15 @@\n Node\n-.Value\n  = node\n-.Value%0A%0A%09newNode.Left = node.Left%0A%09newNode.Right = node.Right\n %0A%0A%09C\n",
+            "lines": "83"
+        },
+        {
+            "label": "2026-07-06_17-06-51",
+            "content": "@@ -153,16 +153,46 @@\n *Node %7B%0A\n+%09if node == nil %7Breturn nil%7D%0A%0A\n %09var new\n@@ -236,31 +236,8 @@\n ue%0A%0A\n-%09if node.Left != nil %7B%0A\n %09new\n@@ -263,33 +263,12 @@\n ft%0A%09\n-Clone(node.Left)%0A%09%7D%0A%09if n\n+newN\n ode.\n@@ -277,44 +277,39 @@\n ght \n-!\n = n\n-il %7B%0A%09newNode.Right = node.Right\n+ode.Right%0A%0A%09Clone(node.Left)\n %0A%09Cl\n@@ -323,19 +323,16 @@\n e.Right)\n-%0A%09%7D\n %0A%0A%09retur\n",
+            "lines": "86"
+        },
+        {
+            "label": "2026-07-06_17-07-50",
+            "content": "@@ -177,32 +177,8 @@\n de%0A%0A\n-%09if node.Value != nil %7B%0A\n %09new\n@@ -200,19 +200,16 @@\n de.Value\n-%0A%09%7D\n %0A%0A%09if no\n",
+            "lines": "87"
+        },
+        {
+            "label": "2026-07-06_17-08-22",
+            "content": "@@ -1,165 +1,39 @@\n-package main%0A%0Aimport (%0A%09%22bufio%22%0A%09%22fmt%22%0A%09%22os%22%0A%09%22strconv%22%0A%09%22strings%22%0A)%0A%0Atype Node struct %7B%0A%09Value int%0A%09Left  *Node%0A%09Right *Node%0A%7D%0A%0Afunc Clone(node *Node) *Node %7B%0A%09\n+@@ -158,55 +158,50 @@%0A  %257B%250A%2509%0A-\n if n\n@@ -43,17 +43,19 @@\n  == nil \n-%7B\n+%257B\n return n\n@@ -56,19 +56,25 @@\n turn nil\n-%7D%0A%09\n+%257D%250A%2509\n var newN\n@@ -86,1502 +86,129 @@\n Node\n-%0A%0A%09newNode.Value = node.Value%0A%0A%09if node.Left != nil %7B%0A%09newNode.Left = node.Left%0A%09Clone(node.Left)%0A%09%7D%0A%09if node.Right != nil %7B%0A%09newNode.Right = node.Right%0A%09Clone(node.Right)%0A%09%7D%0A%0A%09return newNode%0A%7D%0A%0A// -----------------------------------------------------------------------------------%0Afunc BShow(node *Node, history string) %7B%0A%09if node != nil && (node.Left != nil %7C%7C node.Right != nil) %7B%0A%09%09BShow(node.Left, history+%22l%22)%0A%09%7D%0A%09for i := 0; i %3C len(history)-1; i++ %7B%0A%09%09if history%5Bi%5D != history%5Bi+1%5D %7B%0A%09%09%09fmt.Print(%22%E2%94%82   %22)%0A%09%09%7D else %7B%0A%09%09%09fmt.Print(%22    %22)%0A%09%09%7D%0A%09%7D%0A%09if history != %22%22 %7B%0A%09%09if history%5Blen(history)-1%5D == 'l' %7B%0A%09%09%09fmt.Print(%22%E2%95%AD%E2%94%80%E2%94%80%E2%94%80%22)%0A%09%09%7D else %7B%0A%09%09%09fmt.Print(%22%E2%95%B0%E2%94%80%E2%94%80%E2%94%80%22)%0A%09%09%7D%0A%09%7D%0A%09if node == nil %7B%0A%09%09fmt.Println(%22#%22)%0A%09%09return%0A%09%7D%0A%09fmt.Println(node.Value)%0A%09if node.Left != nil %7C%7C node.Right != nil %7B%0A%09%09BShow(node.Right, history+%22r%22)%0A%09%7D%0A%7D%0A%0Afunc create(parts *%5B%5Dstring) *Node %7B%0A%09elem := (*parts)%5B0%5D%0A%09*parts = (*parts)%5B1:%5D%0A%09if elem == %22#%22 %7B%0A%09%09return nil%0A%09%7D%0A%09value, _ := strconv.Atoi(elem)%0A%09node := &Node%7BValue: value%7D%0A%09node.Left = create(parts)%0A%09node.Right = create(parts)%0A%09return node%0A%7D%0A%0Afunc main() %7B%0A%09scanner := bufio.NewScanner(os.Stdin)%0A%09scanner.Scan()%0A%09parts := strings.Split(scanner.Text(), %22 %22)%0A%09root := create(&parts)%0A%09fmt.Println(%22original:%22)%0A%09BShow(root, %22%22) // Chama a fun%C3%A7%C3%A3o de impress%C3%A3o formatada%0A%09newRoot := Clone(root) // Clona a %C3%A1rvore%0A%09root.Value = 4         // Modifica o valor do n%C3%B3 raiz original%0A%09fmt.Println(%22clone:%22)%0A%09BShow(newRoot, %22%22) // Chama novamente para mostrar a %C3%A1rvore invertida%0A%7D\n+%250A%0A+var newNode *Node%250A%250A%2509if node.Value != nil %257B%0A %250A%2509ne%0A@@ -224,16 +224,19 @@%0A de.Value%0A+%250A%2509%257D%0A %250A%250A%2509if no\n %0A\n",
+            "lines": "9"
+        },
+        {
+            "label": "2026-07-06_17-08-53",
+            "content": "@@ -157,27 +157,8 @@\n e %7B%0A\n-%09var newNode *Node%0A\n %09if \n@@ -184,18 +184,28 @@\n  nil\n+%7D\n %0A%09\n-%7D else %7B\n+var newNode *Node\n %0A%0A%09n\n@@ -375,18 +375,16 @@\n ght)%0A%09%7D%0A\n-%09%7D\n %0A%09return\n",
+            "lines": "88"
+        },
+        {
+            "label": "2026-07-06_17-09-48",
+            "content": "@@ -153,16 +153,35 @@\n *Node %7B%0A\n+%09var newNode *Node%0A\n %09if node\n@@ -203,27 +203,46 @@\n  nil\n-%7D\n %0A%09\n-var newNode *Nod\n+%7D else %7B%0A%0A%09newNode.Value = node.Valu\n e%0A%0A%09\n@@ -255,33 +255,32 @@\n e.Left != nil %7B%0A\n-%09\n %09newNode.Left = \n@@ -289,17 +289,16 @@\n de.Left%0A\n-%09\n %09Clone(n\n@@ -334,17 +334,16 @@\n = nil %7B%0A\n-%09\n %09newNode\n@@ -362,17 +362,16 @@\n e.Right%0A\n-%09\n %09Clone(n\n@@ -388,37 +388,10 @@\n %0A%09%7D%0A\n-%0A%09newNode.Value = node.Value%0A\n+%09%7D\n %0A%09re\n",
+            "lines": "89"
+        },
+        {
+            "label": "2026-07-06_17-10-21",
+            "content": "@@ -352,18 +352,16 @@\n t)%0A%09%7D%0A%0A%09\n-//\n newNode.\n",
+            "lines": "88"
+        },
+        {
+            "label": "2026-07-06_17-10-33",
+            "content": "@@ -229,27 +229,8 @@\n l %7B%0A\n-%09%09Clone(node.Left)%0A\n %09%09ne\n@@ -252,16 +252,35 @@\n de.Left%0A\n+%09%09Clone(node.Left)%0A\n %09%7D%0A%09if n\n@@ -302,28 +302,8 @@\n l %7B%0A\n-%09%09Clone(node.Right)%0A\n %09%09ne\n@@ -327,16 +327,36 @@\n e.Right%0A\n+%09%09Clone(node.Right)%0A\n %09%7D%0A%0A%09//n\n",
+            "lines": "88"
+        },
+        {
+            "label": "2026-07-06_17-10-48",
+            "content": "@@ -320,18 +320,16 @@\n ight)%0A%09%09\n-//\n newNode.\n",
+            "lines": "88"
+        },
+        {
+            "label": "2026-07-06_17-11-02",
+            "content": "@@ -207,16 +207,175 @@\n e%0A%0A%09\n-valAux :\n+if node.Left != nil %7B%0A%09%09Clone(node.Left)%0A%09%09newNode.Left = node.Left%0A%09%7D%0A%09if node.Right != nil %7B%0A%09%09Clone(node.Right)%0A%09%09//newNode.Right = node.Right%0A%09%7D%0A%0A%09//newNode.Value \n = no\n",
+            "lines": "88"
+        },
+        {
+            "label": "2026-07-06_17-11-58",
+            "content": "@@ -227,32 +227,8 @@\n alue\n-%0A%09newNode.Value = valAux\n %0A%0A%09r\n",
+            "lines": "79"
+        },
+        {
+            "label": "2026-07-06_17-12-10",
+            "content": "@@ -203,18 +203,16 @@\n *Node%0A%0A%09\n-//\n valAux :\n@@ -225,18 +225,16 @@\n .Value%0A%09\n-//\n newNode.\n",
+            "lines": "80"
+        },
+        {
+            "label": "2026-07-06_17-12-50",
+            "content": "@@ -207,22 +207,18 @@\n e%0A%0A%09\n-newNode.Value \n+//valAux :\n = no\n@@ -227,24 +227,26 @@\n .Value%0A%09\n+//\n newNode.\n Left = n\n@@ -241,52 +241,22 @@\n ode.\n-Left = node.Left%0A%09newNode.Right = node.Right\n+Value = valAux\n %0A%0A%09r\n",
+            "lines": "80"
+        },
+        {
+            "label": "2026-07-06_17-13-55",
+            "content": "@@ -153,16 +153,45 @@\n *Node %7B%0A\n+%09if node == nil %7Breturn nil%7D%0A\n %09var new\n",
+            "lines": "81"
+        },
+        {
+            "label": "2026-07-06_17-14-56",
+            "content": "@@ -157,27 +157,109 @@\n e %7B%0A\n-%0A%09fmt.Println(node)\n+%09var newNode *Node%0A%0A%09newNode.Value = node.Value%0A%09newNode.Left = node.Left%0A%09newNode.Right = node.Right\n %0A%0A%09r\n",
+            "lines": "80"
+        },
+        {
+            "label": "2026-07-06_17-15-13",
+            "content": "@@ -179,24 +179,27 @@\n )%0A%0A%09return n\n+ewN\n ode%0A%7D%0A%0A// --\n",
+            "lines": "77"
+        },
+        {
+            "label": "2026-07-06_17-15-20",
+            "content": "@@ -156,90 +156,8 @@\n de %7B\n-%0A%09if node.Left != nil %7BClone(node.Left)%7D%0A%09if node.Right != nil %7BClone(node.Right)%7D\n %0A%0A%09f\n@@ -174,18 +174,16 @@\n (node)%0A%0A\n-%0A%0A\n %09return \n",
+            "lines": "77"
+        },
+        {
+            "label": "2026-07-06_17-16-27",
+            "content": "@@ -236,16 +236,36 @@\n ight)%7D%0A%0A\n+%09fmt.Println(node)%0A%0A\n %0A%0A%09retur\n",
+            "lines": "81"
+        },
+        {
+            "label": "2026-07-06_17-16-34",
+            "content": "@@ -240,26 +240,8 @@\n )%7D%0A%0A\n-%09var newNode *Node\n %0A%0A%09r\n@@ -251,11 +251,8 @@\n rn n\n-ewN\n ode%0A\n",
+            "lines": "79"
+        },
+        {
+            "label": "2026-07-06_17-17-05",
+            "content": "@@ -260,37 +260,8 @@\n de%0A%0A\n-%09newNode.Value = node.Value%0A%0A\n %09ret\n",
+            "lines": "79"
+        },
+        {
+            "label": "2026-07-06_17-17-29",
+            "content": "@@ -157,28 +157,8 @@\n e %7B%0A\n-%09var newNode *Node%0A%0A\n %09if \n@@ -179,23 +179,8 @@\n il %7B\n-newNode.Left = \n Clon\n@@ -236,16 +236,64 @@\n ight)%7D%0A%0A\n+%09var newNode *Node%0A%0A%09newNode.Value = node.Value%0A\n %0A%09return\n",
+            "lines": "81"
+        },
+        {
+            "label": "2026-07-06_17-19-10",
+            "content": "@@ -230,28 +230,8 @@\n eft)\n-%0A%09%7D else %7Breturn nil\n %7D%0A%09i\n",
+            "lines": "80"
+        },
+        {
+            "label": "2026-07-06_17-19-46",
+            "content": "@@ -275,24 +275,8 @@\n il %7B\n-newNode.Right = \n Clon\n@@ -288,36 +288,16 @@\n e.Right)\n-%0A%09%7D else %7Breturn nil\n %7D%0A%0A%0A%09ret\n",
+            "lines": "81"
+        },
+        {
+            "label": "2026-07-06_17-20-07",
+            "content": "@@ -158,16 +158,20 @@\n  %7B%0A%09\n+var \n newNode \n := &\n@@ -170,49 +170,13 @@\n ode \n-:= &Node%7BValue: 0, Left: nil, Right: nil%7D\n+*Node\n %0A%0A%09i\n",
+            "lines": "82"
+        },
+        {
+            "label": "2026-07-06_17-22-17",
+            "content": "@@ -261,16 +261,34 @@\n Left)%0A%09%7D\n+ else %7Breturn nil%7D\n %0A%09if nod\n@@ -339,16 +339,34 @@\n ight)%0A%09%7D\n+ else %7Breturn nil%7D\n %0A%0A%0A%09retu\n",
+            "lines": "82"
+        },
+        {
+            "label": "2026-07-06_17-22-43",
+            "content": "@@ -327,36 +327,8 @@\n %09%7D%0A%0A\n-%09newNode.Value = node.Value%0A\n %0A%09re\n",
+            "lines": "82"
+        },
+        {
+            "label": "2026-07-06_17-22-56",
+            "content": "package main\n\nimport (\n\t\"bufio\"\n\t\"fmt\"\n\t\"os\"\n\t\"strconv\"\n\t\"strings\"\n)\n\ntype Node struct {\n\tValue int\n\tLeft  *Node\n\tRight *Node\n}\n\nfunc Clone(node *Node) *Node {\n\tnewNode := &Node{Value: 0, Left: nil, Right: nil}\n\n\tif node.Left != nil {newNode.Left = Clone(node.Left)\n\t}\n\tif node.Right != nil {newNode.Right = Clone(node.Right)\n\t}\n\n\tnewNode.Value = node.Value\n\n\treturn newNode\n}\n\n// -----------------------------------------------------------------------------------\nfunc BShow(node *Node, history string) {\n\tif node != nil && (node.Left != nil || node.Right != nil) {\n\t\tBShow(node.Left, history+\"l\")\n\t}\n\tfor i := 0; i < len(history)-1; i++ {\n\t\tif history[i] != history[i+1] {\n\t\t\tfmt.Print(\"\u2502   \")\n\t\t} else {\n\t\t\tfmt.Print(\"    \")\n\t\t}\n\t}\n\tif history != \"\" {\n\t\tif history[len(history)-1] == 'l' {\n\t\t\tfmt.Print(\"\u256d\u2500\u2500\u2500\")\n\t\t} else {\n\t\t\tfmt.Print(\"\u2570\u2500\u2500\u2500\")\n\t\t}\n\t}\n\tif node == nil {\n\t\tfmt.Println(\"#\")\n\t\treturn\n\t}\n\tfmt.Println(node.Value)\n\tif node.Left != nil || node.Right != nil {\n\t\tBShow(node.Right, history+\"r\")\n\t}\n}\n\nfunc create(parts *[]string) *Node {\n\telem := (*parts)[0]\n\t*parts = (*parts)[1:]\n\tif elem == \"#\" {\n\t\treturn nil\n\t}\n\tvalue, _ := strconv.Atoi(elem)\n\tnode := &Node{Value: value}\n\tnode.Left = create(parts)\n\tnode.Right = create(parts)\n\treturn node\n}\n\nfunc main() {\n\tscanner := bufio.NewScanner(os.Stdin)\n\tscanner.Scan()\n\tparts := strings.Split(scanner.Text(), \" \")\n\troot := create(&parts)\n\tfmt.Println(\"original:\")\n\tBShow(root, \"\") // Chama a fun\u00e7\u00e3o de impress\u00e3o formatada\n\tnewRoot := Clone(root) // Clona a \u00e1rvore\n\troot.Value = 4         // Modifica o valor do n\u00f3 raiz original\n\tfmt.Println(\"clone:\")\n\tBShow(newRoot, \"\") // Chama novamente para mostrar a \u00e1rvore invertida\n}\n",
+            "lines": "83"
+        }
+    ]
+}
