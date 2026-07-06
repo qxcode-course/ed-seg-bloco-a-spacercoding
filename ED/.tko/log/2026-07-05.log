@@ -271,3 +271,93 @@
 2026-07-05 18:57:25, MOVE, v:1, k:ed@caminho, mode:EDIT
 2026-07-05 18:57:25, MOVE, v:1, k:ed@caminho, mode:EDIT
 2026-07-05 19:00:01, MOVE, v:1, k:ed@caminho, mode:BACK
+2026-07-05 20:06:06, MOVE, v:1, k:ed@chaves, mode:PICK
+2026-07-05 20:06:17, MOVE, v:1, k:ed@chaves, mode:BACK
+2026-07-05 20:06:30, MOVE, v:1, k:ed@chaves, mode:PICK
+2026-07-05 20:09:11, MOVE, v:1, k:ed@chaves, mode:EDIT
+2026-07-05 20:14:04, MOVE, v:1, k:ed@chaves, mode:EDIT
+2026-07-05 20:17:59, EXEC, v:1, k:ed@chaves, mode:FULL, rate:0, size:79
+2026-07-05 20:18:15, EXEC, v:1, k:ed@chaves, mode:FULL, rate:0, size:79
+2026-07-05 20:18:55, EXEC, v:1, k:ed@chaves, mode:FULL, rate:0, size:79
+2026-07-05 20:19:06, EXEC, v:1, k:ed@chaves, mode:FULL, rate:0, size:79
+2026-07-05 20:19:12, EXEC, v:1, k:ed@chaves, mode:FULL, rate:0, size:79
+2026-07-05 20:19:11, MOVE, v:1, k:ed@chaves, mode:EDIT
+2026-07-05 20:19:12, MOVE, v:1, k:ed@chaves, mode:EDIT
+2026-07-05 20:19:55, EXEC, v:1, k:ed@chaves, mode:FULL, rate:0, size:80
+2026-07-05 20:20:48, EXEC, v:1, k:ed@chaves, mode:FULL, rate:0, size:79
+2026-07-05 20:20:49, EXEC, v:1, k:ed@chaves, mode:FULL, rate:0, size:79
+2026-07-05 20:21:03, EXEC, v:1, k:ed@chaves, mode:FULL, size:79, fail:COMP
+2026-07-05 20:21:08, EXEC, v:1, k:ed@chaves, mode:FULL, rate:0, size:79
+2026-07-05 20:21:12, EXEC, v:1, k:ed@chaves, mode:FULL, rate:0
+2026-07-05 20:21:28, EXEC, v:1, k:ed@chaves, mode:FULL, rate:0, size:79
+2026-07-05 20:21:40, EXEC, v:1, k:ed@chaves, mode:FULL, rate:0, size:79
+2026-07-05 20:24:12, MOVE, v:1, k:ed@chaves, mode:EDIT
+2026-07-05 20:21:40, MOVE, v:1, k:ed@chaves, mode:EDIT
+2026-07-05 20:24:42, EXEC, v:1, k:ed@chaves, mode:FULL, rate:0, size:81
+2026-07-05 20:25:08, EXEC, v:1, k:ed@chaves, mode:FULL, rate:0, size:81
+2026-07-05 20:25:35, EXEC, v:1, k:ed@chaves, mode:FULL, rate:0, size:82
+2026-07-05 20:25:36, EXEC, v:1, k:ed@chaves, mode:FULL, rate:0
+2026-07-05 20:26:17, EXEC, v:1, k:ed@chaves, mode:FULL, rate:0, size:82
+2026-07-05 20:26:42, EXEC, v:1, k:ed@chaves, mode:FULL, rate:0, size:82
+2026-07-05 20:28:48, MOVE, v:1, k:ed@chaves, mode:EDIT
+2026-07-05 20:26:42, MOVE, v:1, k:ed@chaves, mode:EDIT
+2026-07-05 20:31:37, EXEC, v:1, k:ed@chaves, mode:FULL, rate:0, size:87
+2026-07-05 20:31:42, EXEC, v:1, k:ed@chaves, mode:FULL, rate:0
+2026-07-05 20:31:49, EXEC, v:1, k:ed@chaves, mode:FULL, rate:10, size:87
+2026-07-05 20:31:47, MOVE, v:1, k:ed@chaves, mode:EDIT
+2026-07-05 20:31:48, MOVE, v:1, k:ed@chaves, mode:EDIT
+2026-07-05 20:36:37, EXEC, v:1, k:ed@chaves, mode:FULL, size:89, fail:COMP
+2026-07-05 20:36:42, EXEC, v:1, k:ed@chaves, mode:FULL, fail:COMP
+2026-07-05 20:36:44, EXEC, v:1, k:ed@chaves, mode:FULL, rate:0, size:88
+2026-07-05 20:38:02, EXEC, v:1, k:ed@chaves, mode:FULL, rate:0, size:88
+2026-07-05 20:39:11, MOVE, v:1, k:ed@chaves, mode:EDIT
+2026-07-05 20:38:01, MOVE, v:1, k:ed@chaves, mode:EDIT
+2026-07-05 20:42:05, EXEC, v:1, k:ed@chaves, mode:FULL, rate:0, size:87
+2026-07-05 20:42:05, EXEC, v:1, k:ed@chaves, mode:FULL, rate:0
+2026-07-05 20:42:19, EXEC, v:1, k:ed@chaves, mode:FULL, rate:0, size:87
+2026-07-05 20:42:20, EXEC, v:1, k:ed@chaves, mode:FULL, rate:0
+2026-07-05 20:42:31, EXEC, v:1, k:ed@chaves, mode:FULL, rate:0, size:87
+2026-07-05 20:43:03, EXEC, v:1, k:ed@chaves, mode:FULL, rate:0, size:87
+2026-07-05 20:43:04, EXEC, v:1, k:ed@chaves, mode:FULL, rate:0
+2026-07-05 20:43:05, EXEC, v:1, k:ed@chaves, mode:FULL, rate:0
+2026-07-05 20:44:07, EXEC, v:1, k:ed@chaves, mode:FULL, rate:90, size:87
+2026-07-05 20:44:11, EXEC, v:1, k:ed@chaves, mode:FULL, rate:90
+2026-07-05 20:44:07, MOVE, v:1, k:ed@chaves, mode:EDIT
+2026-07-05 20:44:11, MOVE, v:1, k:ed@chaves, mode:EDIT
+2026-07-05 20:44:46, EXEC, v:1, k:ed@chaves, mode:FULL, rate:0, size:88
+2026-07-05 20:45:17, EXEC, v:1, k:ed@chaves, mode:FULL, rate:0, size:88
+2026-07-05 20:45:24, EXEC, v:1, k:ed@chaves, mode:FULL, rate:100, size:88
+2026-07-05 20:45:26, MOVE, v:1, k:ed@chaves, mode:BACK
+2026-07-05 20:45:32, SELF, v:1, k:ed@chaves, self:1, rate:100, study:40
+2026-07-05 20:46:01, SELF, v:1, k:ed@hex, self:1, rate:100
+2026-07-05 20:46:06, SELF, v:1, k:ed@hex, self:1, rate:100
+2026-07-05 20:47:24, MOVE, v:1, k:ed@subset_sum, mode:PICK
+2026-07-05 20:45:24, MOVE, v:1, k:ed@chaves, mode:EDIT
+2026-07-05 20:45:24, MOVE, v:1, k:ed@chaves, mode:EDIT
+2026-07-05 20:49:13, MOVE, v:1, k:ed@subset_sum, mode:EDIT
+2026-07-05 20:53:29, MOVE, v:1, k:ed@subset_sum, mode:EDIT
+2026-07-05 20:57:02, MOVE, v:1, k:ed@subset_sum, mode:EDIT
+2026-07-05 21:03:00, EXEC, v:1, k:ed@subset_sum, mode:FULL, rate:0, size:29
+2026-07-05 21:03:30, EXEC, v:1, k:ed@subset_sum, mode:FULL, rate:29, size:33
+2026-07-05 21:04:16, MOVE, v:1, k:ed@subset_sum, mode:EDIT
+2026-07-05 21:03:30, MOVE, v:1, k:ed@subset_sum, mode:EDIT
+2026-07-05 21:05:03, MOVE, v:1, k:ed@subset_sum, mode:BACK
+2026-07-05 21:08:34, MOVE, v:1, k:ed@pilhado, mode:PICK
+2026-07-05 21:09:09, MOVE, v:1, k:ed@pilhado, mode:EDIT
+2026-07-05 21:12:18, EXEC, v:1, k:ed@pilhado, mode:FULL, rate:0, size:80
+2026-07-05 21:13:21, MOVE, v:1, k:ed@pilhado, mode:EDIT
+2026-07-05 21:12:18, MOVE, v:1, k:ed@pilhado, mode:EDIT
+2026-07-05 21:17:48, MOVE, v:1, k:ed@pilhado, mode:EDIT
+2026-07-05 21:24:05, MOVE, v:1, k:ed@pilhado, mode:BACK
+2026-07-05 21:24:11, MOVE, v:1, k:ed@pilhado, mode:PICK
+2026-07-05 21:39:17, MOVE, v:1, k:ed@pilhado, mode:EDIT
+2026-07-05 21:42:46, MOVE, v:1, k:ed@pilhado, mode:BACK
+2026-07-05 21:45:04, MOVE, v:1, k:ed@arvore-path, mode:DOWN
+2026-07-05 21:45:07, MOVE, v:1, k:ed@arvore-path, mode:PICK
+2026-07-05 21:48:52, MOVE, v:1, k:ed@arvore-path, mode:BACK
+2026-07-05 21:45:04, MOVE, v:1, k:ed@arvore-path, mode:EDIT
+2026-07-05 21:45:04, MOVE, v:1, k:ed@arvore-path, mode:EDIT
+2026-07-05 22:21:44, MOVE, v:1, k:ed@serial, mode:DOWN
+2026-07-05 22:21:45, MOVE, v:1, k:ed@serial, mode:PICK
+2026-07-05 22:21:44, MOVE, v:1, k:ed@serial, mode:EDIT
+2026-07-05 22:21:44, MOVE, v:1, k:ed@serial, mode:EDIT

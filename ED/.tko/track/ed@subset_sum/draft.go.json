@@ -1,0 +1,14 @@
+{
+    "patches": [
+        {
+            "label": "2026-07-05_21-03-00",
+            "content": "@@ -550,19 +550,16 @@\n )%7D%0A%0A    \n-if \n verifica\n@@ -594,81 +594,7 @@\n nto)\n- %7B%0A        fmt.Println(true)%0A    %7D else %7B%0A        fmt.Println(false)%0A    %7D\n %0A%7D%0A\n",
+            "lines": "29"
+        },
+        {
+            "label": "2026-07-05_21-03-30",
+            "content": "package main\nimport \"fmt\"\n\nfunc verificarSoma(somaDesejada int, subConjunto []int) bool {\n    if len(subConjunto) == 1 {return false}\n    var aux int = subConjunto[0]\n\n    for i := 1; i < len(subConjunto); i++ {\n\n        if aux + subConjunto[i] == somaDesejada {return true\n        }\n\n    }\n    subConjunto[1] += aux\n\n    return verificarSoma(somaDesejada, subConjunto[1:])\n\n}\n\nfunc main() {\n    var nElem, somaDesejada int\n    fmt.Scan(&nElem, &somaDesejada)\n\n    subConjunto := make([]int, nElem)\n\n    for i := range nElem {fmt.Scan(subConjunto[i])}\n\n    if verificarSoma(somaDesejada, subConjunto) {\n        fmt.Println(true)\n    } else {\n        fmt.Println(false)\n    }\n}\n",
+            "lines": "33"
+        }
+    ]
+}

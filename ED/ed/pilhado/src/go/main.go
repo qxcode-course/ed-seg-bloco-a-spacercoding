@@ -6,17 +6,15 @@ import (
 	"os"
 )
 
-func Resolver(labirinto [][]string) [][]string {
-	caminho := NewStack[string]()
-	limites := NewStack[string]()
+type Pos struct {x, y int}
 
-	for i := range labirinto {
-		for j := range labirinto[i] {
-			if labirinto[i][j] == "I" {caminho.Push("I")}
-		}
-	}
+func Resolver(labirinto [][]string) {
+	caminho := NewStack[Pos]()
+	limites := NewStack[Pos]()
 
-	return labirinto
+
+	
+	
 }
 
 func main() {

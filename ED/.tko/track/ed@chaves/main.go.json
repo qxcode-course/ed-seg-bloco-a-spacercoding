@@ -2,8 +2,158 @@
     "patches": [
         {
             "label": "2026-07-05_16-26-20",
-            "content": "package main\n\nimport (\n\t\"fmt\"\n)\n\nfunc main() {\n\n\tqT := NewQueue[rune]()\n\tqG := NewQueue[int]()\n\n\tfor i := range 8 {\n\n\t\tqT.Enqueue(rune(97 + i))\n\n\t}\n\n\tfor range 15 {\n\t\tvar x, y int\n\n\t\tfmt.Scan(&x, &y)\n\n\t\tqG.Enqueue(x)\n\t\tqG.Enqueue(y)\n\n\t}\n\n\tfmt.Println(qT, qG)\n\n}\n",
+            "content": "@@ -42,21 +42,18 @@\n n() %7B%0A%0A%09\n-times\n+qT\n  := NewQ\n@@ -64,16 +64,39 @@\n %5Brune%5D()\n+%0A%09qG := NewQueue%5Bint%5D()\n %0A%0A%09for i\n@@ -112,21 +112,18 @@\n  8 %7B%0A%0A%09%09\n-times\n+qT\n .Enqueue\n@@ -151,24 +151,16 @@\n for \n-!times.IsEmpty()\n+range 15\n  %7B%0A%09\n@@ -176,23 +176,8 @@\n  int\n-%0A%09%09var aux rune\n %0A%0A%09%09\n@@ -200,72 +200,10 @@\n %0A%0A%09%09\n-if x %3E y %7B%0A%0A%09%09%09aux = times.Dequeue()%0A%09%09%09times.Dequeue()%0A%09%09%09times\n+qG\n .Enq\n@@ -211,55 +211,32 @@\n eue(\n-au\n x)%0A\n-%0A\n %09%09\n-%7D else %7B%0A%0A%09%09%09times.De\n+qG.En\n queue(\n+y\n )%0A%0A\n-%09\n %09%7D%0A%0A\n-%09%7D%0A%0A\n %09fmt\n@@ -248,23 +248,14 @@\n tln(\n-times.Dequeue()\n+qT, qG\n )%0A%0A%7D\n",
             "lines": "30"
+        },
+        {
+            "label": "2026-07-05_20-17-59",
+            "content": "@@ -339,15 +339,8 @@\n tln(\n-string(\n time\n@@ -351,13 +351,12 @@\n queue())\n-)\n %0A%0A%7D%0A\n",
+            "lines": "39"
+        },
+        {
+            "label": "2026-07-05_20-18-15",
+            "content": "@@ -339,26 +339,30 @@\n tln(\n-times.items.Front(\n+string(times.Dequeue()\n ))%0A%0A\n",
+            "lines": "39"
+        },
+        {
+            "label": "2026-07-05_20-18-55",
+            "content": "@@ -351,12 +351,13 @@\n ems.\n-Back\n+Front\n ())%0A\n",
+            "lines": "39"
+        },
+        {
+            "label": "2026-07-05_20-19-06",
+            "content": "@@ -346,13 +346,20 @@\n es.items\n+.Back()\n )%0A%0A%7D%0A\n",
+            "lines": "39"
+        },
+        {
+            "label": "2026-07-05_20-19-12",
+            "content": "@@ -320,29 +320,8 @@\n %0A%09%09%7D\n-%0A%09%09fmt.Println(times)\n %0A%0A%09%7D\n",
+            "lines": "39"
+        },
+        {
+            "label": "2026-07-05_20-19-55",
+            "content": "@@ -134,29 +134,24 @@\n for \n+!\n times.\n-items.Len() %3E 1\n+IsEmpty()\n  %7B%0A%09\n@@ -316,16 +316,37 @@\n e()%0A%0A%09%09%7D\n+%0A%09%09fmt.Println(times)\n %0A%0A%09%7D%0A%0A%09f\n",
+            "lines": "40"
+        },
+        {
+            "label": "2026-07-05_20-20-48",
+            "content": "@@ -345,13 +345,19 @@\n ln(times\n+.items\n )%0A%0A%7D%0A\n",
+            "lines": "39"
+        },
+        {
+            "label": "2026-07-05_20-20-49",
+            "content": "@@ -344,20 +344,14 @@\n tln(\n-rune(\n times)\n-)\n %0A%0A%7D%0A\n",
+            "lines": "39"
+        },
+        {
+            "label": "2026-07-05_20-21-03",
+            "content": "@@ -350,24 +350,14 @@\n ne(times\n-.Dequeue()\n ))%0A%0A%7D%0A\n",
+            "lines": "39"
+        },
+        {
+            "label": "2026-07-05_20-21-08",
+            "content": "@@ -344,14 +344,12 @@\n tln(\n-string\n+rune\n (tim\n",
+            "lines": "39"
+        },
+        {
+            "label": "2026-07-05_20-21-27",
+            "content": "@@ -115,9 +115,9 @@\n une(\n-6\n+9\n 7 + \n",
+            "lines": "39"
+        },
+        {
+            "label": "2026-07-05_20-21-40",
+            "content": "@@ -71,40 +71,8 @@\n e%5D()\n-%0A%09ganhadores := NewQueue%5Brune%5D()\n %0A%0A%09f\n@@ -134,24 +134,29 @@\n for \n-!\n times.\n-IsEmpty()\n+items.Len() %3E 1\n  %7B%0A%09\n@@ -168,16 +168,31 @@\n x, y int\n+%0A%09%09var aux rune\n %0A%0A%09%09fmt.\n@@ -222,35 +222,22 @@\n y %7B%0A%0A%09%09%09\n-ganhadores.Enqueue(\n+aux = \n times.De\n@@ -247,22 +247,8 @@\n ue()\n-)%0A%0A%09%09%7D else %7B%0A\n %0A%09%09%09\n@@ -270,102 +270,63 @@\n %0A%09%09%09\n-ganhadores.Enqueue(\n times.\n-De\n+En\n queue(\n-)\n+aux\n )%0A%0A%09%09%7D\n+ else %7B\n %0A%0A\n+%09\n %09%09times\n- = ganhadores%0A%09%09ganhadores = NewQueue%5Brune%5D()\n+.Dequeue()%0A%0A%09%09%7D\n %0A%0A%09%7D\n",
+            "lines": "39"
+        },
+        {
+            "label": "2026-07-05_20-24-42",
+            "content": "@@ -166,29 +166,24 @@\n for \n+!\n times.\n-items.Len() %3E 1\n+IsEmpty()\n  %7B%0A%09\n",
+            "lines": "41"
+        },
+        {
+            "label": "2026-07-05_20-25-08",
+            "content": "@@ -274,35 +274,16 @@\n queue())\n-%0A%09%09%09times.Dequeue()\n %0A%0A%09%09%7D el\n",
+            "lines": "41"
+        },
+        {
+            "label": "2026-07-05_20-25-35",
+            "content": "@@ -162,24 +162,19 @@\n %7D%0A%0A%09for \n-ganhador\n+tim\n es.items\n@@ -184,10 +184,9 @@\n n() \n-==\n+%3E\n  1 %7B\n",
+            "lines": "42"
+        },
+        {
+            "label": "2026-07-05_20-26-17",
+            "content": "@@ -162,19 +162,24 @@\n %7D%0A%0A%09for \n-tim\n+ganhador\n es.items\n",
+            "lines": "42"
+        },
+        {
+            "label": "2026-07-05_20-26-42",
+            "content": "@@ -162,16 +162,39 @@\n %7D%0A%0A%09for \n+times.items.Len() == 1 \n %7B%0A%09%09var \n@@ -376,40 +376,8 @@\n %09%7D%0A%0A\n-%09%09if times.items.Len() == 0 %7B%0A%0A%09\n %09%09ti\n@@ -393,17 +393,16 @@\n hadores%0A\n-%09\n %09%09ganhad\n@@ -430,80 +430,8 @@\n ()%0A%0A\n-%09%09%7D%0A%09%09if times.items.Len() == 0 && ganhadores.items.Len() == 1 %7Bbreak%7D%0A%0A\n %09%7D%0A%0A\n@@ -450,24 +450,19 @@\n (string(\n-ganhador\n+tim\n es.Deque\n",
+            "lines": "42"
+        },
+        {
+            "label": "2026-07-05_20-31-37",
+            "content": "@@ -381,136 +381,136 @@\n = 0 \n-&& ganhadores.items.Len() == 1 %7Bbreak%7D%0A%09%09if times.items.Len() == 0 %7B%0A%0A%09%09%09times = ganhadores%0A%09%09%09ganhadores = NewQueue%5Brune%5D()%0A%0A%09%09\n+%7B%0A%0A%09%09%09times = ganhadores%0A%09%09%09ganhadores = NewQueue%5Brune%5D()%0A%0A%09%09%7D%0A%09%09if times.items.Len() == 0 && ganhadores.items.Len() == 1 %7Bbreak\n %7D%0A%0A%09\n",
+            "lines": "47"
+        },
+        {
+            "label": "2026-07-05_20-31-48",
+            "content": "@@ -27,19 +27,8 @@\n mt%22%0A\n-%09%22strconv%22%0A\n )%0A%0Af\n@@ -353,59 +353,8 @@\n %09%7D%0A%0A\n-%09%09fmt.Println(times.String(), ganhadores.String())%0A\n %09%09if\n",
+            "lines": "47"
+        },
+        {
+            "label": "2026-07-05_20-36-37",
+            "content": "@@ -23,16 +23,27 @@\n %0A%09%22fmt%22%0A\n+%09%22strconv%22%0A\n )%0A%0Afunc \n",
+            "lines": "49"
+        },
+        {
+            "label": "2026-07-05_20-36-44",
+            "content": "@@ -506,22 +506,16 @@\n %09%09%09times\n-.items\n  = ganha\n@@ -519,22 +519,16 @@\n nhadores\n-.items\n %0A%09%09%09ganh\n",
+            "lines": "48"
+        },
+        {
+            "label": "2026-07-05_20-38-01",
+            "content": "@@ -121,10 +121,9 @@\n nge \n-16\n+8\n  %7B%0A%0A\n@@ -349,16 +349,67 @@\n )%0A%0A%09%09%7D%0A%0A\n+%09%09fmt.Println(times.String(), ganhadores.String())%0A\n %09%09if tim\n",
+            "lines": "48"
+        },
+        {
+            "label": "2026-07-05_20-42-04",
+            "content": "@@ -569,12 +569,8 @@\n ue()\n- + 2\n ))%0A%0A\n",
+            "lines": "47"
+        },
+        {
+            "label": "2026-07-05_20-42-19",
+            "content": "@@ -565,14 +565,18 @@\n equeue()\n+ + 2\n ))%0A%0A%7D%0A\n",
+            "lines": "47"
+        },
+        {
+            "label": "2026-07-05_20-42-31",
+            "content": "@@ -122,9 +122,9 @@\n ge 1\n-5\n+6\n  %7B%0A%0A\n",
+            "lines": "47"
+        },
+        {
+            "label": "2026-07-05_20-43-03",
+            "content": "@@ -145,17 +145,17 @@\n e(rune(6\n-5\n+7\n  + i))%0A%0A\n",
+            "lines": "47"
+        },
+        {
+            "label": "2026-07-05_20-44-07",
+            "content": "@@ -354,59 +354,8 @@\n %09%7D%0A%0A\n-%09%09fmt.Println(times.String(), ganhadores.String())%0A\n %09%09if\n",
+            "lines": "47"
+        },
+        {
+            "label": "2026-07-05_20-44-46",
+            "content": "@@ -118,17 +118,17 @@\n  range 1\n-6\n+5\n  %7B%0A%0A%09%09ti\n",
+            "lines": "48"
+        },
+        {
+            "label": "2026-07-05_20-45-17",
+            "content": "@@ -356,10 +356,8 @@\n %0A%0A%09%09\n-//\n fmt.\n",
+            "lines": "48"
+        },
+        {
+            "label": "2026-07-05_20-45-24",
+            "content": "package main\n\nimport (\n\t\"fmt\"\n)\n\nfunc main() {\n\n\ttimes := NewQueue[rune]()\n\tganhadores := NewQueue[rune]()\n\n\tfor i := range 16 {\n\n\t\ttimes.Enqueue(rune(65 + i))\n\n\t}\n\n\tfor {\n\t\tvar x, y int\n\n\t\tfmt.Scan(&x, &y)\n\n\t\tif x > y {\n\n\t\t\tganhadores.Enqueue(times.Dequeue())\n\t\t\ttimes.Dequeue()\n\n\t\t} else {\n\n\t\t\ttimes.Dequeue()\n\t\t\tganhadores.Enqueue(times.Dequeue())\n\n\t\t}\n\n\t\t//fmt.Println(times.String(), ganhadores.String())\n\t\tif times.items.Len() == 0 && ganhadores.items.Len() == 1 {break}\n\t\tif times.items.Len() == 0 {\n\n\t\t\ttimes.items = ganhadores.items\n\t\t\tganhadores = NewQueue[rune]()\n\n\t\t}\n\n\t}\n\n\tfmt.Println(string(ganhadores.Dequeue()))\n\n}\n",
+            "lines": "48"
         }
     ]
 }

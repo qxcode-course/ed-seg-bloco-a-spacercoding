@@ -102,8 +102,13 @@
         },
         {
             "label": "2026-07-04_15-55-12",
-            "content": "package main\n\nimport (\n\t\"bufio\"\n\t\"fmt\"\n\t\"os\"\n)\n\nfunc main() {\n\tscanner := bufio.NewScanner(os.Stdin)\n\tvar nLinha, nColuna int\n\n\tfmt.Scan(&nLinha, &nColuna)\n\n\tvar labirinto [][]string = make([][]string, nLinha)\n\n\tfor i := range nLinha {\n\t\tscanner.Scan()\n\t\tx := \"\"\n\t\tx = scanner.Text()\n\t\tlabirinto[i] = append(labirinto[i], x)\n\t\tfmt.Println(labirinto[i])\n\t}\n\n\n}\n",
+            "content": "@@ -45,388 +45,8 @@\n %0A)%0A%0A\n-type Pos struct %7Bx, y int%7D%0A%0Afunc Resolver(labirinto %5B%5D%5B%5Dstring) %5B%5D%5B%5Dstring %7B%0A%09caminho := NewStack%5BPos%5D()%0A%09limites := NewStack%5BPos%5D()%0A%0A%09for i := range labirinto %7B%0A%09%09for j := range labirinto%5Bi%5D %7B%0A%09%09%09if labirinto%5Bi%5D%5Bj%5D == %22I%22 %7C%7C labirinto%5Bi%5D%5Bj%5D == %22 %22%7B%0A%09%09%09%09caminho.Push(Pos%7Bi, j%7D)%0A%09%09%09%09labirinto%5Bi%5D%5Bj%5D = %22.%22%0A%09%09%09%7D else %7B%0A%0A%09%09%09%09limites.Push(Pos%7Bi, j%7D)%0A%0A%09%09%09%7D%0A%09%09%7D%0A%09%7D%0A%0A%09return labirinto%0A%7D%0A%0A\n func\n@@ -336,17 +336,8 @@\n tln(\n-Resolver(\n labi\n@@ -345,13 +345,16 @@\n into\n-)\n+%5Bi%5D\n )%0A%09%7D%0A%0A\n+%0A\n %7D%0A\n",
             "lines": "26"
+        },
+        {
+            "label": "2026-07-05_21-12-18",
+            "content": "package main\n\nimport (\n\t\"bufio\"\n\t\"fmt\"\n\t\"os\"\n)\n\ntype Pos struct {x, y int}\n\nfunc Resolver(labirinto [][]string) [][]string {\n\tcaminho := NewStack[Pos]()\n\tlimites := NewStack[Pos]()\n\n\tfor i := range labirinto {\n\t\tfor j := range labirinto[i] {\n\t\t\tif labirinto[i][j] == \"I\" || labirinto[i][j] == \" \"{\n\t\t\t\tcaminho.Push(Pos{i, j})\n\t\t\t\tlabirinto[i][j] = \".\"\n\t\t\t} else {\n\n\t\t\t\tlimites.Push(Pos{i, j})\n\n\t\t\t}\n\t\t}\n\t}\n\n\treturn labirinto\n}\n\nfunc main() {\n\tscanner := bufio.NewScanner(os.Stdin)\n\tvar nLinha, nColuna int\n\n\tfmt.Scan(&nLinha, &nColuna)\n\n\tvar labirinto [][]string = make([][]string, nLinha)\n\n\tfor i := range nLinha {\n\t\tscanner.Scan()\n\t\tx := \"\"\n\t\tx = scanner.Text()\n\t\tlabirinto[i] = append(labirinto[i], x)\n\t\tfmt.Println(Resolver(labirinto))\n\t}\n\n}\n",
+            "lines": "47"
         }
     ]
 }
