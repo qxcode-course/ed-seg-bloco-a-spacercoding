@@ -20,29 +20,39 @@ type Node struct {
 // Returns the node with the value or nil if not found
 func find(node *Node, value int) *Node {
 	if node == nil {return nil}
+	var searched *Node
 
-	
 
-	return node
+	if node.Value == value {searched = node
+	} else {
+
+		if node.Left != nil {searched = find(node.Left, value)}
+		if node.Right != nil && searched == nil {searched = find(node.Right, value)}
+
+	}
+
+	return searched
 }
 
 // node is the node we want to find the height of
 // the height of a node is the number of edges on the longest path from the node to a leaf
 func getHeight(node *Node) int {
-	if node == nil {return 0}
+	if node == nil {
+		return 0
+	}
 
-	heigh := 0
+	heigh := 1
 
 	if getHeight(node.Left) > getHeight(node.Right) {
 
 		if node.Left != nil {
-		heigh = 1 + getHeight(node.Left)
+			heigh = 1 + getHeight(node.Left)
 		}
 
 	} else {
 
 		if node.Right != nil {
-		heigh = 1 + getHeight(node.Right)
+			heigh = 1 + getHeight(node.Right)
 		}
 
 	}
@@ -54,10 +64,22 @@ func getHeight(node *Node) int {
 // level is the current level in the tree (1 for root)
 // value is the value we are looking for
 func calcNodeDepth(node *Node, level int, value int) int {
+	if node == nil {return 0}
+
+	levelR := 1
+	levelL := 1
+
+	if node.Value == value {return level
+	}else if node.Value != value {
+
+		if node.Left != nil {levelL = calcNodeDepth(node.Left, level+1, value )}
+		if node.Right != nil {levelR = calcNodeDepth(node.Right, level+1, value )}
+		if levelL < levelR {level = levelR
+		} else {level = levelL}
+
+	}
 	
-
-
-	return 0
+	return level
 }
 
 // --------------------------------------------------------------------

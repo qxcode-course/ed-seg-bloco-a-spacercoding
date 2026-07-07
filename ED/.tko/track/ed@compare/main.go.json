@@ -1,0 +1,94 @@
+{
+    "patches": [
+        {
+            "label": "2026-07-06_21-54-59",
+            "content": "@@ -364,60 +364,8 @@\n %09%7D%0A%0A\n-%09compare(a.Left, b.Left)%0A%09compare(a.Right, b.Right)%0A\n %09ret\n",
+            "lines": "95"
+        },
+        {
+            "label": "2026-07-06_21-55-30",
+            "content": "@@ -158,43 +158,8 @@\n t %7B%0A\n-%09resultadoR := 0%0A%09resultadoL := 0%0A%0A\n %09if \n@@ -290,21 +290,83 @@\n %7D%0A%0A%09\n-resultadoL = \n+if a.Value %3E b.Value %7Breturn -1%0A%09%7Delse if a.Value %3C b.Value %7Breturn 1%0A%09%7D%0A%0A%09\n comp\n@@ -390,21 +390,8 @@\n t)%0A%09\n-resultadoR = \n comp\n@@ -416,72 +416,8 @@\n ht)%0A\n-%0A%09if resultadoL != resultadoR %7Breturn resultadoL - resultadoR%7D%0A%0A\n %09ret\n",
+            "lines": "97"
+        },
+        {
+            "label": "2026-07-06_22-01-56",
+            "content": "@@ -169,17 +169,16 @@\n adoR := \n-1\n 0%0A%09resul\n@@ -186,17 +186,16 @@\n adoL := \n-1\n 0%0A%0A%09if a\n@@ -421,59 +421,39 @@\n  != \n-10 %7Breturn resultadoL%7D%0A%09if resultadoR != 10 %7Breturn\n+resultadoR %7Breturn resultadoL -\n  res\n",
+            "lines": "99"
+        },
+        {
+            "label": "2026-07-06_22-03-33",
+            "content": "@@ -169,16 +169,17 @@\n adoR := \n+1\n 0%0A%09resul\n@@ -187,16 +187,17 @@\n adoL := \n+1\n 0%0A%0A%09if a\n@@ -322,18 +322,16 @@\n  0%0A%0A%09%7D%0A%0A\n-%0A%0A\n %09resulta\n",
+            "lines": "100"
+        },
+        {
+            "label": "2026-07-06_22-04-31",
+            "content": "@@ -406,25 +406,99 @@\n )%0A%0A%09\n-return resultadoL\n+if resultadoL != 10 %7Breturn resultadoL%7D%0A%09if resultadoR != 10 %7Breturn resultadoR%7D%0A%0A%09return 0\n %0A%7D%0A%0A\n",
+            "lines": "102"
+        },
+        {
+            "label": "2026-07-06_22-05-24",
+            "content": "@@ -154,16 +154,33 @@\n ) int %7B%0A\n+%09resultadoR := 0%0A\n %09resulta\n@@ -359,16 +359,56 @@\n  b.Left)\n+%0A%09resultadoR = compare(a.Right, b.Right)\n %0A%0A%09retur\n",
+            "lines": "99"
+        },
+        {
+            "label": "2026-07-06_22-05-38",
+            "content": "@@ -164,16 +164,17 @@\n esultado\n+L\n  := 0%0A%0A%09\n@@ -315,16 +315,17 @@\n esultado\n+L\n  = compa\n@@ -361,16 +361,17 @@\n esultado\n+L\n %0A%7D%0A%0A// -\n",
+            "lines": "97"
+        },
+        {
+            "label": "2026-07-06_22-06-03",
+            "content": "@@ -168,17 +168,16 @@\n tado := \n-1\n 0%0A%0A%09if a\n@@ -346,69 +346,8 @@\n t)%0A%0A\n-%09if resultado == 10 %7Bresultado = compare(a.Right, b.Right)%7D%0A%0A\n %09ret\n",
+            "lines": "97"
+        },
+        {
+            "label": "2026-07-06_22-06-44",
+            "content": "@@ -296,17 +296,16 @@\n %09return \n-1\n 0%0A%0A%09%7D%0A%0A%0A\n",
+            "lines": "99"
+        },
+        {
+            "label": "2026-07-06_22-07-03",
+            "content": "@@ -308,88 +308,8 @@\n %09%7D%0A%0A\n-%09if a.Value %3E b.Value %7Breturn 1%0A%09%7Delse if a.Value %3C b.Value %7Breturn -1%0A%09%7D else %7B\n %0A%0A%09r\n@@ -343,16 +343,17 @@\n b.Left)%0A\n+%0A\n %09if resu\n@@ -403,19 +403,16 @@\n .Right)%7D\n-%0A%09%7D\n %0A%0A%09retur\n",
+            "lines": "99"
+        },
+        {
+            "label": "2026-07-06_22-08-46",
+            "content": "@@ -296,16 +296,17 @@\n %09return \n+1\n 0%0A%0A%09%7D%0A%0A%09\n",
+            "lines": "101"
+        },
+        {
+            "label": "2026-07-06_22-09-09",
+            "content": "@@ -168,16 +168,17 @@\n tado := \n+1\n 0%0A%0A%09if a\n",
+            "lines": "101"
+        },
+        {
+            "label": "2026-07-06_22-09-18",
+            "content": "@@ -168,17 +168,16 @@\n tado := \n-1\n 0%0A%0A%09if a\n",
+            "lines": "101"
+        },
+        {
+            "label": "2026-07-06_22-09-27",
+            "content": "@@ -296,17 +296,16 @@\n %09return \n-1\n 0%0A%0A%09%7D%0A%0A%09\n",
+            "lines": "101"
+        },
+        {
+            "label": "2026-07-06_22-09-51",
+            "content": "@@ -495,17 +495,25 @@\n %09return \n-0\n+resultado\n %0A%7D%0A%0A// -\n",
+            "lines": "101"
+        },
+        {
+            "label": "2026-07-06_22-10-02",
+            "content": "@@ -495,25 +495,17 @@\n %09return \n-resultado\n+0\n %0A%7D%0A%0A// -\n",
+            "lines": "101"
+        },
+        {
+            "label": "2026-07-06_22-10-06",
+            "content": "@@ -489,39 +489,8 @@\n %7D%0A%09%7D\n-%0A%09if resultado == 10 %7Breturn 0%7D\n %0A%0A%09r\n",
+            "lines": "101"
+        },
+        {
+            "label": "2026-07-06_22-10-19",
+            "content": "package main\n\nimport (\n\t\"bufio\"\n\t\"fmt\"\n\t\"os\"\n\n\t\"strconv\"\n\t\"strings\"\n)\n\ntype Node struct {\n\tValue int\n\tLeft  *Node\n\tRight *Node\n}\n\nfunc compare(a, b *Node) int {\n\tresultado := 10\n\n\tif a == nil && b != nil {return -1\n\t} else if a != nil && b == nil {\n\t\treturn 1\n\t}else if a == nil && b == nil {\n\n\t\treturn 10\n\n\t}\n\n\tif a.Value > b.Value {return 1\n\t}else if a.Value < b.Value {return -1\n\t} else {\n\n\tresultado = compare(a.Left, b.Left)\n\tif resultado == 10 {resultado = compare(a.Right, b.Right)}\n\t}\n\tif resultado == 10 {return 0}\n\n\treturn resultado\n}\n\n// ----------------------------------------------------------------------\nfunc BShow(node *Node, history string) {\n\tif node != nil && (node.Left != nil || node.Right != nil) {\n\t\tBShow(node.Left, history+\"l\")\n\t}\n\tfor i := 0; i < len(history)-1; i++ {\n\t\tif history[i] != history[i+1] {\n\t\t\tfmt.Print(\"\u2502   \")\n\t\t} else {\n\t\t\tfmt.Print(\"    \")\n\t\t}\n\t}\n\tif history != \"\" {\n\t\tif history[len(history)-1] == 'l' {\n\t\t\tfmt.Print(\"\u256d\u2500\u2500\u2500\")\n\t\t} else {\n\t\t\tfmt.Print(\"\u2570\u2500\u2500\u2500\")\n\t\t}\n\t}\n\tif node == nil {\n\t\tfmt.Println(\"#\")\n\t\treturn\n\t}\n\tfmt.Println(node.Value)\n\tif node.Left != nil || node.Right != nil {\n\t\tBShow(node.Right, history+\"r\")\n\t}\n}\n\nfunc create(parts *[]string) *Node {\n\telem := (*parts)[0]\n\t*parts = (*parts)[1:]\n\tif elem == \"#\" {\n\t\treturn nil\n\t}\n\tvalue, _ := strconv.Atoi(elem)\n\tnode := &Node{Value: value}\n\tnode.Left = create(parts)\n\tnode.Right = create(parts)\n\treturn node\n}\n\nfunc main() {\n\tscanner := bufio.NewScanner(os.Stdin)\n\tscanner.Scan()\n\tparts := strings.Split(scanner.Text(), \" \")\n\ta := create(&parts)\n\tBShow(a, \"\")\n\tscanner.Scan()\n\tparts = strings.Split(scanner.Text(), \" \")\n\tb := create(&parts)\n\tBShow(b, \"\")\n\tresult := compare(a, b)\n\tif result == 0 {\n\t\tfmt.Println(\"iguais\")\n\t} else if result < 0 {\n\t\tfmt.Println(\"menor\")\n\t} else {\n\t\tfmt.Println(\"maior\")\n\t}\n}\n",
+            "lines": "102"
+        }
+    ]
+}

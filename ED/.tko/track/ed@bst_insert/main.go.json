@@ -1,0 +1,74 @@
+{
+    "patches": [
+        {
+            "label": "2026-07-06_22-41-16",
+            "content": "@@ -399,23 +399,19 @@\n %09return \n-crrNode\n+nil\n %0A%7D%0A%0A// -\n",
+            "lines": "79"
+        },
+        {
+            "label": "2026-07-06_22-42-18",
+            "content": "@@ -164,16 +164,20 @@\n  %7B%0A%09\n+var \n crrNode \n := &\n@@ -176,18 +176,41 @@\n ode \n-:= &Node%7B%7D\n+*Node%0A%0A%09crrNode.Value = values%5B0%5D\n %0A%0A%09f\n",
+            "lines": "79"
+        },
+        {
+            "label": "2026-07-06_22-42-38",
+            "content": "@@ -185,74 +185,152 @@\n %7D%0A%0A%09\n-crrNode.Value = values%5B0%5D%0A%0A%09if values%5B0%5D %3C values%5B1%5D\n+for i := 0; values%5Bi%5D != crrNode.Value; i++ %7B%0A%09%09if values%5Bi%5D %3E crrNode.Value %7B%0A%0A%09%09%09crrNode.Left = BstInsert(values%5Bi:%5D)%0A%0A%09%09%7D else\n  %7B%0A%0A%09%09\n+%09\n crrNode.\n Left\n@@ -317,35 +317,36 @@\n e %7B%0A%0A%09%09%09crrNode.\n-Lef\n+Righ\n t = BstInsert(va\n@@ -354,14 +354,18 @@\n ues%5B\n-1\n+i\n :%5D)%0A%0A\n+%09%09%7D%0A\n %09%7D%0A%0A\n",
+            "lines": "77"
+        },
+        {
+            "label": "2026-07-06_22-44-39",
+            "content": "@@ -210,46 +210,8 @@\n s%5B0%5D\n-%0A%09if len(values) == 1 %7Breturn crrNode%7D\n %0A%0A%09i\n",
+            "lines": "73"
+        },
+        {
+            "label": "2026-07-06_22-45-13",
+            "content": "@@ -285,17 +285,20 @@\n crrNode.\n-R\n+Left\n  = BstIn\n",
+            "lines": "74"
+        },
+        {
+            "label": "2026-07-06_22-45-37",
+            "content": "@@ -286,20 +286,16 @@\n rrNode.R\n-ight\n  = BstIn\n",
+            "lines": "74"
+        },
+        {
+            "label": "2026-07-06_22-45-38",
+            "content": "@@ -324,81 +324,8 @@\n %09%7D%0A%0A\n-%09if values%5B0%5D %3E values%5B1%5D %7B%0A%0A%09%09crrNode.Left = BstInsert(values%5B1:%5D)%0A%0A%09%7D%0A%0A\n %09ret\n",
+            "lines": "74"
+        },
+        {
+            "label": "2026-07-06_22-46-16",
+            "content": "@@ -318,21 +318,19 @@\n 1:%5D)%0A%0A%09%7D\n-else \n+%0A%0A%09\n if value\n@@ -393,33 +393,8 @@\n %5D)%0A%0A\n-%09%7D else %7B%0A%0A%09%09return nil%0A%0A\n %09%7D%0A%0A\n",
+            "lines": "80"
+        },
+        {
+            "label": "2026-07-06_22-46-40",
+            "content": "@@ -211,32 +211,58 @@\n %5B0%5D%0A\n-%0A\n %09if \n+len(\n values\n-%5B0%5D %3C\n+) == 1 %7Breturn crrNode%7D%0A%0A%09if\n  values%5B\n 1%5D &\n@@ -257,38 +257,30 @@\n  values%5B\n-1%5D && len(values) != 1\n+0%5D %3C values%5B1%5D\n  %7B%0A%0A%09%09cr\n@@ -310,36 +310,37 @@\n (values%5B1:%5D)%0A%0A%09%7D\n-%0A%09%0A%09\n+else \n if values%5B0%5D %3E v\n@@ -348,35 +348,16 @@\n lues%5B1%5D \n-&& len(values) != 1\n %7B%0A%0A%09%09crr\n@@ -397,57 +397,14 @@\n %0A%0A%09%7D\n-%0A%09%0A%09if values%5B0%5D == values%5B1%5D && len(values) != 1\n+ else \n %7B%0A%0A%09\n",
+            "lines": "82"
+        },
+        {
+            "label": "2026-07-06_22-48-02",
+            "content": "@@ -211,36 +211,16 @@\n %5B0%5D%0A%0A%09if\n- len(values) != 1 &&\n  values%5B\n@@ -238,105 +238,27 @@\n %5B1%5D \n-%7B%0A%0A%09%09crrNode.Right = nil%0A%09%09values = values%5B1:%5D%0A%0A%09%7D%0A%0A%09if len(values) != 1 && values%5B0%5D %3C values%5B1%5D\n+&& len(values) != 1\n  %7B%0A%0A\n@@ -293,34 +293,45 @@\n values%5B1:%5D)%0A\n-%09%09\n+%0A%09%7D%0A%09%0A%09if \n values\n- =\n+%5B0%5D %3E\n  values%5B1:%5D%0A\n@@ -331,20 +331,12 @@\n es%5B1\n-:%5D%0A%0A%09%7D%0A%09%0A%09if\n+%5D &&\n  len\n@@ -352,34 +352,8 @@\n != 1\n- && values%5B0%5D %3C values%5B1%5D \n %7B%0A%0A%09\n@@ -390,25 +390,37 @@\n es%5B1:%5D)%0A\n-%09%09\n+%0A%09%7D%0A%09%0A%09if \n values\n- \n+%5B0%5D =\n = values\n@@ -425,16 +425,48 @@\n es%5B1\n-:%5D%0A%0A%09%7D\n+%5D && len(values) != 1%7B%0A%0A%09%09return nil%0A\n %0A%09\n+%7D\n %0A%0A%09r\n",
+            "lines": "85"
+        },
+        {
+            "label": "2026-07-06_22-49-54",
+            "content": "@@ -42,18 +42,8 @@\n os%22%0A\n-%09%22slices%22%0A\n %09%22st\n@@ -211,98 +211,130 @@\n %5B0%5D%0A\n-%09values = values%5B1:%5D%0A%09if len(values) == 0 %7Breturn crrNode%7D%0A%0A%09for i := range values %7B%0A%0A%09%09if\n+%0A%09if len(values) != 1 && values%5B0%5D %3C values%5B1%5D %7B%0A%0A%09%09crrNode.Right = nil%0A%09%09values = values%5B1:%5D%0A%0A%09%7D%0A%0A%09if len(values) != 1 &&\n  val\n@@ -344,18 +344,17 @@\n %5B0%5D \n-==\n+%3C\n  values%5B\n i%5D %7B\n@@ -353,164 +353,197 @@\n ues%5B\n-i%5D %7Bslices.Delete(values, i, i)%7D\n+1%5D %7B%0A%0A%09%09crrNode.Right = BstInsert(values%5B1:%5D)%0A%09%09values = values%5B1:%5D\n %0A%0A%09%7D%0A\n+%09\n %0A%09if \n-crrNode.Value %3E values%5B0%5D %7B%0A%0A%09%09crrNode.Left = BstInsert(values)%0A%0A%09%7Delse %7B%0A%0A%09%09crrNode.Right = BstInsert(\n+len(values) != 1 && values%5B0%5D %3C values%5B1%5D %7B%0A%0A%09%09crrNode.Left = BstInsert(values%5B1:%5D)%0A%09%09values = \n values\n-)\n+%5B1:%5D\n %0A%0A%09%7D\n+%0A%09\n %0A%0A%09r\n",
+            "lines": "89"
+        },
+        {
+            "label": "2026-07-06_22-54-54",
+            "content": "@@ -308,29 +308,25 @@\n %7B%0A%0A%09%09if \n-crrNode.Value\n+values%5B0%5D\n  == valu\n",
+            "lines": "86"
+        },
+        {
+            "label": "2026-07-06_22-55-08",
+            "content": "@@ -336,25 +336,16 @@\n ues%5Bi%5D %7B\n-values = \n slices.D\n",
+            "lines": "86"
+        },
+        {
+            "label": "2026-07-06_22-55-28",
+            "content": "package main\n\nimport (\n\t\"bufio\"\n\t\"fmt\"\n\t\"os\"\n\t\"slices\"\n\t\"strconv\"\n\t\"strings\"\n)\n\ntype Node struct {\n\tValue int\n\tLeft  *Node\n\tRight *Node\n}\n\nfunc BstInsert(values []int) *Node {\n\tcrrNode := &Node{}\n\n\tcrrNode.Value = values[0]\n\tvalues = values[1:]\n\tif len(values) == 0 {return crrNode}\n\n\tfor i := range values {\n\n\t\tif crrNode.Value == values[i] {values = slices.Delete(values, i, i)}\n\n\t}\n\n\tif crrNode.Value > values[0] {\n\n\t\tcrrNode.Left = BstInsert(values)\n\n\t}else {\n\n\t\tcrrNode.Right = BstInsert(values)\n\n\t}\n\n\treturn crrNode\n}\n\n// -----------------------------------------------------------------------------------\nfunc BShow(node *Node, history string) {\n\tif node != nil && (node.Left != nil || node.Right != nil) {\n\t\tBShow(node.Left, history+\"l\")\n\t}\n\tfor i := 0; i < len(history)-1; i++ {\n\t\tif history[i] != history[i+1] {\n\t\t\tfmt.Print(\"\u2502   \")\n\t\t} else {\n\t\t\tfmt.Print(\"    \")\n\t\t}\n\t}\n\tif history != \"\" {\n\t\tif history[len(history)-1] == 'l' {\n\t\t\tfmt.Print(\"\u256d\u2500\u2500\u2500\")\n\t\t} else {\n\t\t\tfmt.Print(\"\u2570\u2500\u2500\u2500\")\n\t\t}\n\t}\n\tif node == nil {\n\t\tfmt.Println(\"#\")\n\t\treturn\n\t}\n\tfmt.Println(node.Value)\n\tif node.Left != nil || node.Right != nil {\n\t\tBShow(node.Right, history+\"r\")\n\t}\n}\n\nfunc main() {\n\tscanner := bufio.NewScanner(os.Stdin)\n\tscanner.Scan()\n\tparts := strings.Split(scanner.Text(), \" \")\n\tvalues := make([]int, 0, len(parts))\n\tfor _, elem := range parts {\n\t\tv, err := strconv.Atoi(elem)\n\t\tif err == nil {\n\t\t\tvalues = append(values, v)\n\t\t}\n\t}\n\troot := BstInsert(values)\n\tBShow(root, \"\") // Chama a fun\u00e7\u00e3o de impress\u00e3o formatada\n}\n",
+            "lines": "86"
+        }
+    ]
+}

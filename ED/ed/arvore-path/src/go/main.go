@@ -19,10 +19,22 @@ type Node struct {
 // você pode fazer recursivo ou interativo
 // também pode criar funções auxiliares se achar necessário
 func findPath(node *Node, value int) string {
-	// TODO
-	// ACT
-	// _, _ = node, value
-	// return ""
+	if node == nil {return "!"}
+	if node.Value == value {return "x"}
+
+	if findPath(node.Left, value) != "!" {
+
+		return "l" + findPath(node.Left, value)
+
+	}
+
+	if findPath(node.Right, value) != "!" {
+
+		return "r" + findPath(node.Right, value)
+
+	}
+
+	return "!"
 }
 
 // ----------------------------------------------------------------------------------

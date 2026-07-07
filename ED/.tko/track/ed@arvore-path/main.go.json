@@ -1,0 +1,24 @@
+{
+    "patches": [
+        {
+            "label": "2026-07-06_22-27-57",
+            "content": "@@ -526,17 +526,17 @@\n return %22\n-r\n+l\n %22 + find\n",
+            "lines": "92"
+        },
+        {
+            "label": "2026-07-06_22-29-51",
+            "content": "@@ -573,17 +573,16 @@\n return %22\n-!\n %22%0A%7D%0A%0A// \n",
+            "lines": "92"
+        },
+        {
+            "label": "2026-07-06_22-30-26",
+            "content": "@@ -347,17 +347,16 @@\n return %22\n-!\n %22%7D%0A%09if n\n@@ -415,33 +415,32 @@\n eft, value) != %22\n-!\n %22 %7B%0A%0A%09%09return %22l\n@@ -511,17 +511,16 @@\n ue) != %22\n-!\n %22 %7B%0A%0A%09%09r\n",
+            "lines": "92"
+        },
+        {
+            "label": "2026-07-06_22-31-23",
+            "content": "package main\n\nimport (\n\t\"bufio\"\n\t\"fmt\"\n\t\"os\"\n\n\t\"strconv\"\n\t\"strings\"\n)\n\ntype Node struct {\n\tValue int\n\tLeft  *Node\n\tRight *Node\n}\n\n// retorne o caminho at\u00e9 o n\u00f3 ou ! se n\u00e3o existir\n// voc\u00ea pode fazer recursivo ou interativo\n// tamb\u00e9m pode criar fun\u00e7\u00f5es auxiliares se achar necess\u00e1rio\nfunc findPath(node *Node, value int) string {\n\tif node == nil {return \"!\"}\n\tif node.Value == value {return \"x\"}\n\n\tif findPath(node.Left, value) != \"!\" {\n\n\t\treturn \"l\" + findPath(node.Left, value)\n\n\t}\n\n\tif findPath(node.Right, value) != \"!\" {\n\n\t\treturn \"r\" + findPath(node.Right, value)\n\n\t}\n\n\treturn \"!\"\n}\n\n// ----------------------------------------------------------------------------------\nfunc BShow(node *Node, heranca string) {\n\tif node != nil && (node.Left != nil || node.Right != nil) {\n\t\tBShow(node.Left, heranca+\"l\")\n\t}\n\tfor i := 0; i < len(heranca)-1; i++ {\n\t\tif heranca[i] != heranca[i+1] {\n\t\t\tfmt.Print(\"\u2502   \")\n\t\t} else {\n\t\t\tfmt.Print(\"    \")\n\t\t}\n\t}\n\tif heranca != \"\" {\n\t\tif heranca[len(heranca)-1] == 'l' {\n\t\t\tfmt.Print(\"\u256d\u2500\u2500\u2500\")\n\t\t} else {\n\t\t\tfmt.Print(\"\u2570\u2500\u2500\u2500\")\n\t\t}\n\t}\n\tif node == nil {\n\t\tfmt.Println(\"#\")\n\t\treturn\n\t}\n\tfmt.Println(node.Value)\n\tif node.Left != nil || node.Right != nil {\n\t\tBShow(node.Right, heranca+\"r\")\n\t}\n}\n\nfunc create(parts *[]string) *Node {\n\telem := (*parts)[0]\n\t*parts = (*parts)[1:]\n\tif elem == \"#\" {\n\t\treturn nil\n\t}\n\tvalue, _ := strconv.Atoi(elem)\n\tnode := &Node{Value: value}\n\tnode.Left = create(parts)\n\tnode.Right = create(parts)\n\treturn node\n}\n\nfunc main() {\n\tscanner := bufio.NewScanner(os.Stdin)\n\tscanner.Scan()\n\tparts := strings.Split(scanner.Text(), \" \")\n\tscanner.Scan()\n\tvalue, _ := strconv.Atoi(scanner.Text())\n\troot := create(&parts)\n\tfmt.Println(\"Arvore:\")\n\tBShow(root, \"\") // Chama a fun\u00e7\u00e3o de impress\u00e3o formatada\n\tfmt.Println(\"Caminho:\", findPath(root, value))\n}\n",
+            "lines": "92"
+        }
+    ]
+}
