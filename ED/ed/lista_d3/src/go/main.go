@@ -85,7 +85,7 @@ func equals(l1, l2 *LList) bool {
 func reverse(l *LList) {
 	if l.size == 0 {return}
 	var cont int
-	var auxNode *Node
+	//var auxNode *Node
 
 	for ; cont < l.size / 2; cont++ {
 
@@ -93,6 +93,14 @@ func reverse(l *LList) {
 
 	}
 
+}
+
+func merge(l1, l2 *LList) *LList {
+	var merged *LList
+
+
+
+	return merged
 }
 
 func str2list(serial string) *LList {
@@ -158,9 +166,9 @@ func main() {
 			}
 			fmt.Println(lla.list2str())
 		case "reverse":
-			lla := str2list(args[1])
-			reverse(lla)
-			fmt.Println(lla.list2str())
+			// lla := str2list(args[1])
+			// reverse(lla)
+			// fmt.Println(lla.list2str())
 		case "merge":
 			// lla := str2list(args[1])
 			// llb := str2list(args[2])

@@ -107,8 +107,93 @@
         },
         {
             "label": "2026-07-05_21-12-18",
-            "content": "package main\n\nimport (\n\t\"bufio\"\n\t\"fmt\"\n\t\"os\"\n)\n\ntype Pos struct {x, y int}\n\nfunc Resolver(labirinto [][]string) [][]string {\n\tcaminho := NewStack[Pos]()\n\tlimites := NewStack[Pos]()\n\n\tfor i := range labirinto {\n\t\tfor j := range labirinto[i] {\n\t\t\tif labirinto[i][j] == \"I\" || labirinto[i][j] == \" \"{\n\t\t\t\tcaminho.Push(Pos{i, j})\n\t\t\t\tlabirinto[i][j] = \".\"\n\t\t\t} else {\n\n\t\t\t\tlimites.Push(Pos{i, j})\n\n\t\t\t}\n\t\t}\n\t}\n\n\treturn labirinto\n}\n\nfunc main() {\n\tscanner := bufio.NewScanner(os.Stdin)\n\tvar nLinha, nColuna int\n\n\tfmt.Scan(&nLinha, &nColuna)\n\n\tvar labirinto [][]string = make([][]string, nLinha)\n\n\tfor i := range nLinha {\n\t\tscanner.Scan()\n\t\tx := \"\"\n\t\tx = scanner.Text()\n\t\tlabirinto[i] = append(labirinto[i], x)\n\t\tfmt.Println(Resolver(labirinto))\n\t}\n\n}\n",
+            "content": "@@ -62,12 +62,12 @@\n ct %7B\n-l, c\n+x, y\n  int\n@@ -78,696 +78,144 @@\n unc \n-getNeig(p Pos) %5B%5DPos %7B%0A%09return %5B%5DPos%7B%7Bp.l, p.c - 1%7D, %7Bp.l - 1, p.c%7D, %7Bp.l, p.c + 1%7D, %7Bp.l + 1, p.c%7D%7D%0A%7D%0A%0Afunc inside(grid %5B%5D%5B%5Drune, p Pos) bool %7B%0A%09return !(p.l %3C 0 %7C%7C p.l %3E= len(grid) %7C%7C p.c %3C 0 %7C%7C p.c %3E= len(grid%5B0%5D))%0A%7D%0A%0Afunc match(grid %5B%5D%5B%5Drune, p Pos, value rune) bool %7B%0A%09return inside(grid, p) && grid%5Bp.l%5D%5Bp.c%5D == value%0A%7D%0A%0Afunc Resolver(labirinto %5B%5D%5B%5Dstring, inicio Pos, caminho, limites Stack%5BPos%5D) %7B%0A%09varAux := getNeig(inicio)%0A%0A%09if labirinto%5Binicio.l%5D%5Binicio.c%5D == %22.%22 %7Breturn%7D%0A%09if labirinto%5Binicio.l%5D%5Binicio.c%5D == %22#%22 %7Blimites.Push(inicio)%7D%0A%0A%09caminho.Push(inicio)%0A%0A%09if labirinto%5Binicio.l%5D%5Binicio.c%5D == %22F%22 %7B%0A%0A%09%09labirinto%5Bcaminho.Top().l%5D%5Bcaminho.Top().c%5D = %22.%22%0A%09%09return%0A%0A%09%7D%0A%0A\n+Resolver(labirinto %5B%5D%5B%5Dstring) %5B%5D%5B%5Dstring %7B%0A%09caminho := NewStack%5BPos%5D()%0A%09limites := NewStack%5BPos%5D()%0A%0A%09for i := range labirinto %7B%0A%09\n %09for \n-i\n+j\n  := \n@@ -224,18 +224,24 @@\n nge \n-varAux %7B%0A%0A\n+labirinto%5Bi%5D %7B%0A%09\n %09%09if\n@@ -255,124 +255,46 @@\n nto%5B\n-varAux%5Bi%5D.l%5D%5BvarAux%5Bi%5D.c\n+i%5D%5Bj\n %5D == %22\n-#%22 %7B%0A%09%09%09limites.Push(varAux%5Bi%5D)%0A%09%09%7D else if labirinto%5BvarAux%5Bi%5D.l%5D%5BvarAux%5Bi%5D.c\n+I%22 %7C%7C labirinto%5Bi%5D%5Bj\n %5D == %22 %22\n  %7B%0A%09\n@@ -289,19 +289,19 @@\n %5D == %22 %22\n- \n %7B%0A\n+%09\n %09%09%09camin\n@@ -312,19 +312,20 @@\n ush(\n-varAux%5Bi%5D\n+Pos%7Bi, j%7D\n )%0A\n+%09\n %09%09%09l\n@@ -337,32 +337,12 @@\n nto%5B\n-varAux%5Bi%5D.l%5D%5BvarAux%5Bi%5D.c\n+i%5D%5Bj\n %5D = \n@@ -351,16 +351,17 @@\n %22%0A%09%09\n+%09\n %7D else %7B\n Reso\n@@ -360,136 +360,86 @@\n se %7B\n-Resolver(labirinto, varAux%5Bi%5D, caminho, limites)%7D%0A%0A%09%7D%0A%0A%7D%0A%0Afunc main() %7B%0A%09caminho := NewStack%5BPos%5D()%0A%09limites := NewStack%5BPos%5D()%0A\n+%0A%0A%09%09%09%09limites.Push(Pos%7Bi, j%7D)%0A%0A%09%09%09%7D%0A%09%09%7D%0A%09%7D%0A%0A%09return labirinto%0A%7D%0A%0Afunc main() %7B\n %0A%09sc\n@@ -588,25 +588,8 @@\n a)%0A%0A\n-%09var inicio Pos%0A%0A\n %09for\n@@ -704,143 +704,43 @@\n )%0A%09%09\n-if x == %22I%22 %7Binicio.l = i; inicio.c = len(labirinto%5Bi%5D)-1%7D%0A%09%7D%0A%0A%09Resolver(labirinto, inicio, *caminho, *limites)%0A%0A%09fmt.Println(labirinto)\n+fmt.Println(Resolver(labirinto))%0A%09%7D%0A\n %0A%7D%0A\n",
             "lines": "47"
+        },
+        {
+            "label": "2026-07-07_20-15-07",
+            "content": "@@ -195,30 +195,28 @@\n de(grid %5B%5D%5B%5D\n-string\n+rune\n , p Pos) boo\n@@ -315,22 +315,20 @@\n rid %5B%5D%5B%5D\n-string\n+rune\n , p Pos,\n@@ -334,22 +334,20 @@\n , value \n-string\n+rune\n ) bool %7B\n@@ -484,48 +484,8 @@\n ) %7B%0A\n-%09if !inside(labirinto, inicio) %7Breturn%7D%0A\n %09var\n",
+            "lines": "75"
+        },
+        {
+            "label": "2026-07-07_20-16-02",
+            "content": "@@ -60,18 +60,18 @@\n ruct\n-%7B\n  \n+%7B\n l, c int\n  %7D%0A%0A\n@@ -66,17 +66,16 @@\n l, c int\n- \n %7D%0A%0Afunc \n@@ -518,27 +518,22 @@\n nicio) %7B\n-%0A%09%09\n return\n-%0A%09\n %7D%0A%09varAu\n@@ -556,155 +556,8 @@\n cio)\n-%0A%09if !inside(labirinto, varAux%5B0%5D) %7C%7C !inside(labirinto, varAux%5B0%5D) %7C%7C !inside(labirinto, varAux%5B0%5D) %7C%7C !inside(labirinto, varAux%5B0%5D) %7B%0A%09%09return%0A%09%7D\n %0A%0A%09i\n@@ -600,19 +600,14 @@\n .%22 %7B\n-%0A%09%09\n return\n-%0A%09\n %7D%0A%09i\n@@ -646,19 +646,16 @@\n == %22#%22 %7B\n-%0A%09%09\n limites.\n@@ -666,18 +666,16 @@\n (inicio)\n-%0A%09\n %7D%0A%0A%09cami\n@@ -1044,20 +1044,16 @@\n %7D else %7B\n-%0A%09%09%09\n Resolver\n@@ -1092,19 +1092,16 @@\n limites)\n-%0A%09%09\n %7D%0A%0A%09%7D%0A%0A%7D\n@@ -1468,20 +1468,16 @@\n == %22I%22 %7B\n-%0A%09%09%09\n inicio.l\n@@ -1480,20 +1480,18 @@\n io.l = i\n-%0A%09%09%09\n+; \n inicio.c\n@@ -1514,15 +1514,10 @@\n %5Bi%5D)\n- - 1%0A%09%09\n+-1\n %7D%0A%09%7D\n",
+            "lines": "76"
+        },
+        {
+            "label": "2026-07-07_20-18-12",
+            "content": "@@ -1753,37 +1753,8 @@\n s)%0A%0A\n-%09for i := range labirinto %7B%0A%09\n %09fmt\n@@ -1775,14 +1775,8 @@\n into\n-%5Bi%5D)%0A%09%7D\n+)\n %0A%7D%0A\n",
+            "lines": "90"
+        },
+        {
+            "label": "2026-07-07_20-18-39",
+            "content": "@@ -552,32 +552,178 @@\n etNeig(inicio)%0A%09\n+if !inside(labirinto, varAux%5B0%5D) %7C%7C !inside(labirinto, varAux%5B0%5D) %7C%7C !inside(labirinto, varAux%5B0%5D) %7C%7C !inside(labirinto, varAux%5B0%5D) %7B%0A%09%09return%0A%09%7D%0A\n %0A%09if labirinto%5Bi\n@@ -831,18 +831,17 @@\n cio)%0A%09%7D%0A\n-%09\n %0A\n+\n %09caminho\n@@ -854,18 +854,17 @@\n inicio)%0A\n-%09\n %0A\n+\n %09if labi\n@@ -898,19 +898,17 @@\n = %22F%22 %7B%0A\n-%09%09\n %0A\n+\n %09%09labiri\n@@ -964,157 +964,8 @@\n urn%0A\n-%09%09%0A%09%7D%0A%09if !inside(labirinto, varAux%5B0%5D) %7C%7C !inside(labirinto, varAux%5B0%5D) %7C%7C !inside(labirinto, varAux%5B0%5D) %7C%7C !inside(labirinto, varAux%5B0%5D) %7B%0A%09%09return\n %0A%09%7D%0A\n",
+            "lines": "92"
+        },
+        {
+            "label": "2026-07-07_20-19-09",
+            "content": "@@ -491,45 +491,8 @@\n ) %7B%0A\n-%09if inicio == limites.Top() %7Breturn%7D%0A\n %09if \n",
+            "lines": "92"
+        },
+        {
+            "label": "2026-07-07_20-21-56",
+            "content": "@@ -477,9 +477,8 @@\n tes \n-*\n Stac\n@@ -1772,16 +1772,17 @@\n inicio, \n+*\n caminho,\n@@ -1774,32 +1774,33 @@\n icio, *caminho, \n+*\n limites)%0A%0A%09for i\n",
+            "lines": "93"
+        },
+        {
+            "label": "2026-07-07_20-23-09",
+            "content": "@@ -448,19 +448,14 @@\n ng, \n-pAtual, fim\n+inicio\n  Pos\n@@ -490,63 +490,125 @@\n s%5D) \n-bool %7B%0A%09if !match(labirinto, pAtual, %22 %22) %7B\n+%7B%0A%09if inicio == limites.Top() %7Breturn%7D%0A%09if !inside(labirinto, inicio) %7B%0A%09%09return%0A%09%7D%0A%09varAux := getNeig(inicio)\n %0A%09\n+%0A\n %09if \n-match(\n labi\n@@ -616,24 +616,95 @@\n into\n-, pAtual,\n+%5Binicio.l%5D%5Binicio.c%5D == %22.%22 %7B%0A%09%09return%0A%09%7D%0A%09if labirinto%5Binicio.l%5D%5Binicio.c%5D ==\n  %22#%22\n-)\n  %7B\n+%0A%09%09\n limi\n@@ -716,148 +716,609 @@\n ush(\n-pAtual)%7D%0A%09%09return false%0A%09%7D%0A%0A%09caminho.Push(pAtual)%0A%09if pAtual == fim %7B%0A%09%09labirinto%5BpAtual.l%5D%5BpAtual.c%5D = %22.%22%09%0A%09%09return true%0A%09%7D%0A%0A%09return false\n+inicio)%0A%09%7D%0A%09%0A%09caminho.Push(inicio)%0A%09%0A%09if labirinto%5Binicio.l%5D%5Binicio.c%5D == %22F%22 %7B%0A%09%09%0A%09%09labirinto%5Bcaminho.Top().l%5D%5Bcaminho.Top().c%5D = %22.%22%0A%09%09return%0A%09%09%0A%09%7D%0A%09if !inside(labirinto, varAux%5B0%5D) %7C%7C !inside(labirinto, varAux%5B0%5D) %7C%7C !inside(labirinto, varAux%5B0%5D) %7C%7C !inside(labirinto, varAux%5B0%5D) %7B%0A%09%09return%0A%09%7D%0A%0A%09for i := range varAux %7B%0A%0A%09%09if labirinto%5BvarAux%5Bi%5D.l%5D%5BvarAux%5Bi%5D.c%5D == %22#%22 %7B%0A%09%09%09limites.Push(varAux%5Bi%5D)%0A%09%09%7D else if labirinto%5BvarAux%5Bi%5D.l%5D%5BvarAux%5Bi%5D.c%5D == %22 %22 %7B%0A%09%09%09caminho.Push(varAux%5Bi%5D)%0A%09%09%09labirinto%5BvarAux%5Bi%5D.l%5D%5BvarAux%5Bi%5D.c%5D = %22.%22%0A%09%09%7D else %7B%0A%09%09%09Resolver(labirinto, varAux%5Bi%5D, caminho, limites)%0A%09%09%7D%0A%0A%09%7D%0A\n %0A%7D%0A%0A\n@@ -1548,21 +1548,16 @@\n r inicio\n-, fim\n  Pos%0A%0A%09f\n@@ -1744,63 +1744,8 @@\n %09%09%7D%0A\n-%09%09if x == %22F%22 %7Bfim.l = i; fim.c = len(labirinto%5Bi%5D)-1%7D%0A\n %09%7D%0A%0A\n@@ -1776,13 +1776,8 @@\n cio,\n- fim,\n  cam\n",
+            "lines": "93"
+        },
+        {
+            "label": "2026-07-07_20-40-36",
+            "content": "@@ -634,17 +634,16 @@\n pAtual)%0A\n-%0A\n %09if pAtu\n@@ -715,261 +715,8 @@\n %09%7D%0A%0A\n-%09varAux := getNeig(pAtual)%0A%0A%09%09Resolver(labirinto, varAux%5B0%5D, fim, caminho, limites)%0A%09%09Resolver(labirinto, varAux%5B1%5D, fim, caminho, limites)%0A%09%09Resolver(labirinto, varAux%5B2%5D, fim, caminho, limites)%0A%09%09Resolver(labirinto, varAux%5B3%5D, fim, caminho, limites)%0A%0A\n %09ret\n",
+            "lines": "68"
+        },
+        {
+            "label": "2026-07-07_20-54-12",
+            "content": "@@ -657,36 +657,52 @@\n fim %7B%0A%09%09\n-caminho.Push(pAtual)\n+labirinto%5BpAtual.l%5D%5BpAtual.c%5D = %22.%22%09\n %0A%09%09retur\n@@ -969,104 +969,16 @@\n s)%0A%0A\n-%0A%09for pos := caminho.Pop(); !caminho.IsEmpty(); %7B%0A%0A%09%09labirinto%5Bpos.l%5D%5Bpos.c%5D = %22.%22%0A%0A%09%7D%0A%0A\n %09return \n true\n@@ -973,19 +973,20 @@\n %09return \n-tru\n+fals\n e%0A%7D%0A%0Afun\n",
+            "lines": "76"
+        },
+        {
+            "label": "2026-07-07_21-21-48",
+            "content": "@@ -635,16 +635,77 @@\n Atual)%0A%0A\n+%09if pAtual == fim %7B%0A%09%09caminho.Push(pAtual)%0A%09%09return true%0A%09%7D%0A%0A\n %09varAux \n",
+            "lines": "83"
+        },
+        {
+            "label": "2026-07-07_21-22-34",
+            "content": "@@ -888,16 +888,104 @@\n mites)%0A%0A\n+%0A%09for pos := caminho.Pop(); !caminho.IsEmpty(); %7B%0A%0A%09%09labirinto%5Bpos.l%5D%5Bpos.c%5D = %22.%22%0A%0A%09%7D%0A%0A\n %09return \n@@ -1536,95 +1536,8 @@\n s)%0A%0A\n-%09for pos := caminho.Pop(); !caminho.IsEmpty(); %7B%0A%0A%09%09labirinto%5Bpos.l%5D%5Bpos.c%5D = %22.%22%0A%0A%09%7D%0A%0A\n %09for\n",
+            "lines": "78"
+        },
+        {
+            "label": "2026-07-07_21-23-42",
+            "content": "@@ -1448,36 +1448,8 @@\n s)%0A%0A\n-%09fmt.Println(caminho.data)%0A%0A\n %09for\n",
+            "lines": "77"
+        },
+        {
+            "label": "2026-07-07_21-24-26",
+            "content": "@@ -491,26 +491,20 @@\n k%5BPos%5D) \n-%5B%5D%5B%5Dstring\n+bool\n  %7B%0A%09if !\n@@ -606,11 +606,13 @@\n urn \n-nil\n+false\n %0A%09%7D%0A\n@@ -893,112 +893,19 @@\n )%0A%0A%09\n-%09for pos := caminho.Pop(); !caminho.IsEmpty(); %7B%0A%0A%09%09labirinto%5Bpos.l%5D%5Bpos.c%5D = %22.%22%0A%0A%09%7D%0A%0A%09return labirinto\n+return true\n %0A%7D%0A%0A\n@@ -1396,20 +1396,8 @@\n %7D%0A%0A%09\n-labirinto = \n Reso\n@@ -1444,16 +1444,131 @@\n mites)%0A%0A\n+%09fmt.Println(caminho.data)%0A%0A%09for pos := caminho.Pop(); !caminho.IsEmpty(); %7B%0A%0A%09%09labirinto%5Bpos.l%5D%5Bpos.c%5D = %22.%22%0A%0A%09%7D%0A%0A\n %09for i :\n",
+            "lines": "79"
+        },
+        {
+            "label": "2026-07-07_21-26-59",
+            "content": "@@ -577,20 +577,16 @@\n , %22#%22) %7B\n-%0A%09%09%09\n limites.\n@@ -597,19 +597,16 @@\n (pAtual)\n-%0A%09%09\n %7D%0A%09%09retu\n@@ -671,44 +671,8 @@\n l)%0A%0A\n-%09if !inside(labirinto, varAux%5B0%5D) %7B%0A\n %09%09Re\n@@ -727,47 +727,8 @@\n es)%0A\n-%09%7D%0A%09if !inside(labirinto, varAux%5B0%5D) %7B%0A\n %09%09Re\n@@ -783,47 +783,8 @@\n es)%0A\n-%09%7D%0A%09if !inside(labirinto, varAux%5B0%5D) %7B%0A\n %09%09Re\n@@ -839,47 +839,8 @@\n es)%0A\n-%09%7D%0A%09if !inside(labirinto, varAux%5B0%5D) %7B%0A\n %09%09Re\n@@ -891,19 +891,18 @@\n imites)%0A\n-%09%7D\n %0A\n+%09\n %09for pos\n@@ -1444,20 +1444,16 @@\n == %22F%22 %7B\n-%0A%09%09%09\n fim.l = \n@@ -1453,20 +1453,18 @@\n im.l = i\n-%0A%09%09%09\n+; \n fim.c = \n@@ -1480,23 +1480,18 @@\n into%5Bi%5D)\n- - 1%0A%09%09\n+-1\n %7D%0A%09%7D%0A%0A%09l\n",
+            "lines": "77"
+        },
+        {
+            "label": "2026-07-07_21-28-22",
+            "content": "@@ -503,16 +503,134 @@\n string %7B\n+%0A%09if !match(labirinto, pAtual, %22 %22) %7B%0A%09%09if match(labirinto, pAtual, %22#%22) %7B%0A%09%09%09limites.Push(pAtual)%0A%09%09%7D%0A%09%09return nil%0A%09%7D\n %0A%0A%09camin\n",
+            "lines": "89"
+        },
+        {
+            "label": "2026-07-07_21-29-15",
+            "content": "@@ -60,20 +60,18 @@\n ruct\n+%7B\n  \n-%7B%0A%09\n l, c int\n %0A%7D%0A%0A\n@@ -66,17 +66,17 @@\n l, c int\n-%0A\n+ \n %7D%0A%0Afunc \n@@ -196,28 +196,30 @@\n de(grid %5B%5D%5B%5D\n-rune\n+string\n , p Pos) boo\n@@ -318,20 +318,22 @@\n rid %5B%5D%5B%5D\n-rune\n+string\n , p Pos,\n@@ -339,20 +339,22 @@\n , value \n-rune\n+string\n ) bool %7B\n@@ -417,58 +417,122 @@\n unc \n-search(grid %5B%5D%5B%5Drune, startPos, endPos \n+Resolver(labirinto %5B%5D%5B%5Dstring, pAtual, fim Pos, caminho, limites *Stack%5B\n Pos\n+%5D\n ) \n-bool %7B\n+%5B%5D%5B%5Dstring %7B%0A%0A%09caminho.Push(pAtual)%0A\n %0A%09va\n@@ -547,24 +547,22 @@\n getNeig(\n-startPos\n+pAtual\n )%0A%0A%09if !\n@@ -560,36 +560,41 @@\n l)%0A%0A%09if !inside(\n-grid\n+labirinto\n , varAux%5B0%5D) %7C%7C \n@@ -594,79 +594,90 @@\n 0%5D) \n-%7C%7C !inside(grid, varAux%5B1%5D) %7C%7C !inside(grid, varAux%5B2%5D) %7C%7C !inside(grid\n+%7B%0A%09%09Resolver(labirinto, varAux%5B0%5D, fim, caminho, limites)%0A%09%7D%0A%09if !inside(labirinto\n , va\n@@ -685,293 +685,129 @@\n Aux%5B\n-3%5D) %7C%7C grid%5BstartPos.l%5D%5BstartPos.c%5D == '#' %7Breturn false%7D%0A%0A%09if grid%5BstartPos.l%5D%5BstartPos.c%5D == '.' %7C%7C  grid%5BstartPos.l%5D%5BstartPos.c%5D == '#' %7Breturn false%7D%0A%0A%09grid%5BstartPos.l%5D%5BstartPos.c%5D = '.'%0A%0A%09if startPos == endPos %7Breturn true%7D%0A%0A%09temp := search(grid, varAux%5B0%5D, endPos) %7C%7C search(grid\n+0%5D) %7B%0A%09%09Resolver(labirinto, varAux%5B1%5D, fim, caminho, limites)%0A%09%7D%0A%09if !inside(labirinto, varAux%5B0%5D) %7B%0A%09%09Resolver(labirinto\n , va\n@@ -815,152 +815,211 @@\n Aux%5B\n-1%5D, endPos) %7C%7C search(grid, varAux%5B2%5D, endPos) %7C%7C search(grid, varAux%5B3%5D, endPos)%0A%09if temp %7B%0A%09%09return true%0A%09%7D%0A %0A%09grid%5BstartPos.l%5D%5BstartP\n+2%5D, fim, caminho, limites)%0A%09%7D%0A%09if !inside(labirinto, varAux%5B0%5D) %7B%0A%09%09Resolver(labirinto, varAux%5B3%5D, fim, caminho, limites)%0A%09%7D%0A%09for pos := caminho.Pop(); !caminho.IsEmpty(); %7B%0A%0A%09%09labirinto%5Bpos.l%5D%5Bp\n os.c%5D = \n ' '%09\n@@ -1018,12 +1018,15 @@\n %5D = \n-' '%09\n+%22.%22%0A%0A%09%7D\n %0A%0A%09r\n@@ -1035,13 +1035,17 @@\n urn \n-false\n+labirinto\n %0A%7D%0A%0A\n@@ -1063,168 +1063,233 @@\n  %7B%0A%09\n-s\n ca\n-nner := bufio.NewScanner(os.Stdin)%0A%09scanner.Scan()%0A%09nl_nc := scanner.Text()%0A%09var nl, nc\n+minho := NewStack%5BPos%5D()%0A%09limites := NewStack%5BPos%5D()%0A%0A%09scanner := bufio.NewScanner(os.Stdin)%0A%09var nLinha, nColuna\n  int%0A\n+%0A\n %09fmt.S\n-s\n can\n-f(nl_nc, %22%25d %25d%22, &nl, &nc)%0A%09grid := make(%5B%5D%5B%5Drune, nl)\n+(&nLinha, &nColuna)%0A%0A%09var labirinto %5B%5D%5B%5Dstring = make(%5B%5D%5B%5Dstring, nLinha)%0A%0A%09var inicio, fim Pos\n %0A%0A%09f\n@@ -1299,25 +1299,29 @@\n i := range n\n-l\n+Linha\n  %7B%0A%09%09scanner\n@@ -1334,25 +1334,22 @@\n )%0A%09%09\n-grid%5Bi%5D = %5B%5Drune(\n+x := %22%22%0A%09%09x = \n scan\n@@ -1362,272 +1362,253 @@\n xt()\n-)\n %0A%09\n-%7D%0A%0A%09var startPos, endPos Pos%0A%09for l := range nl %7B%0A%09%09for c := range nc %7B%0A%09%09%09if grid%5Bl%5D%5Bc%5D == 'I' %7B%0A%09%09%09%09grid%5Bl%5D%5Bc%5D = ' '%0A%09%09%09%09startPos = Pos%7Bl, c%7D\n+%09labirinto%5Bi%5D = append(labirinto%5Bi%5D, x)%0A%09%09if x == %22I%22 %7B%0A%09%09%09inicio.l = i%0A%09%09%09inicio.c = len(labirinto%5Bi%5D) - 1\n %0A%09%09\n-%09\n %7D%0A\n-%09\n %09%09if \n-grid%5Bl%5D%5Bc%5D\n+x\n  == \n-'F'\n+%22F%22\n  %7B%0A%09%09%09\n-%09grid%5Bl%5D%5Bc%5D = ' '%0A%09%09%09%09endPos = Pos%7Bl, c%7D%0A%09%09%09%7D%0A%09%09%7D%0A%09%7D%0A%0A%09search(grid, startPos, endPo\n+fim.l = i%0A%09%09%09fim.c = len(labirinto%5Bi%5D) - 1%0A%09%09%7D%0A%09%7D%0A%0A%09labirinto = Resolver(labirinto, inicio, fim, caminho, limite\n s)%0A%0A\n@@ -1616,15 +1616,9 @@\n for \n-_, line\n+i\n  := \n@@ -1623,20 +1623,25 @@\n = range \n-grid\n+labirinto\n  %7B%0A%09%09fmt\n@@ -1653,20 +1653,20 @@\n tln(\n-string(line)\n+labirinto%5Bi%5D\n )%0A%09%7D\n",
+            "lines": "83"
+        },
+        {
+            "label": "2026-07-07_21-34-19",
+            "content": "package main\n\nimport (\n\t\"bufio\"\n\t\"fmt\"\n\t\"os\"\n)\n\ntype Pos struct {\n\tl, c int\n}\n\nfunc getNeig(p Pos) []Pos {\n\treturn []Pos{{p.l, p.c - 1}, {p.l - 1, p.c}, {p.l, p.c + 1}, {p.l + 1, p.c}}\n}\n\nfunc inside(grid [][]rune, p Pos) bool {\n\treturn !(p.l < 0 || p.l >= len(grid) || p.c < 0 || p.c >= len(grid[0]))\n}\n\nfunc match(grid [][]rune, p Pos, value rune) bool {\n\treturn inside(grid, p) && grid[p.l][p.c] == value\n}\n\nfunc search(grid [][]rune, startPos, endPos Pos) bool {\n\tvarAux := getNeig(startPos)\n\n\tif !inside(grid, varAux[0]) || !inside(grid, varAux[1]) || !inside(grid, varAux[2]) || !inside(grid, varAux[3]) || grid[startPos.l][startPos.c] == '#' {return false}\n\n\tif grid[startPos.l][startPos.c] == '.' ||  grid[startPos.l][startPos.c] == '#' {return false}\n\n\tgrid[startPos.l][startPos.c] = '.'\n\n\tif startPos == endPos {return true}\n\n\ttemp := search(grid, varAux[0], endPos) || search(grid, varAux[1], endPos) || search(grid, varAux[2], endPos) || search(grid, varAux[3], endPos)\n\tif temp {\n\t\treturn true\n\t}\n \n\tgrid[startPos.l][startPos.c] = ' '\t\n\n\treturn false\n}\n\nfunc main() {\n\tscanner := bufio.NewScanner(os.Stdin)\n\tscanner.Scan()\n\tnl_nc := scanner.Text()\n\tvar nl, nc int\n\tfmt.Sscanf(nl_nc, \"%d %d\", &nl, &nc)\n\tgrid := make([][]rune, nl)\n\n\tfor i := range nl {\n\t\tscanner.Scan()\n\t\tgrid[i] = []rune(scanner.Text())\n\t}\n\n\tvar startPos, endPos Pos\n\tfor l := range nl {\n\t\tfor c := range nc {\n\t\t\tif grid[l][c] == 'I' {\n\t\t\t\tgrid[l][c] = ' '\n\t\t\t\tstartPos = Pos{l, c}\n\t\t\t}\n\t\t\tif grid[l][c] == 'F' {\n\t\t\t\tgrid[l][c] = ' '\n\t\t\t\tendPos = Pos{l, c}\n\t\t\t}\n\t\t}\n\t}\n\n\tsearch(grid, startPos, endPos)\n\n\tfor _, line := range grid {\n\t\tfmt.Println(string(line))\n\t}\n}\n",
+            "lines": "78"
         }
     ]
 }

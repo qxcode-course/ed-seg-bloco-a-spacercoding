@@ -6,31 +6,73 @@ import (
 	"os"
 )
 
-type Pos struct {x, y int}
+type Pos struct {
+	l, c int
+}
 
-func Resolver(labirinto [][]string) {
-	caminho := NewStack[Pos]()
-	limites := NewStack[Pos]()
+func getNeig(p Pos) []Pos {
+	return []Pos{{p.l, p.c - 1}, {p.l - 1, p.c}, {p.l, p.c + 1}, {p.l + 1, p.c}}
+}
 
+func inside(grid [][]rune, p Pos) bool {
+	return !(p.l < 0 || p.l >= len(grid) || p.c < 0 || p.c >= len(grid[0]))
+}
 
-	
-	
+func match(grid [][]rune, p Pos, value rune) bool {
+	return inside(grid, p) && grid[p.l][p.c] == value
+}
+
+func search(grid [][]rune, startPos, endPos Pos) bool {
+	varAux := getNeig(startPos)
+
+	if !inside(grid, varAux[0]) || !inside(grid, varAux[1]) || !inside(grid, varAux[2]) || !inside(grid, varAux[3]) || grid[startPos.l][startPos.c] == '#' {return false}
+
+	if grid[startPos.l][startPos.c] == '.' ||  grid[startPos.l][startPos.c] == '#' {return false}
+
+	grid[startPos.l][startPos.c] = '.'
+
+	if startPos == endPos {return true}
+
+	temp := search(grid, varAux[0], endPos) || search(grid, varAux[1], endPos) || search(grid, varAux[2], endPos) || search(grid, varAux[3], endPos)
+	if temp {
+		return true
+	}
+ 
+	grid[startPos.l][startPos.c] = ' '	
+
+	return false
 }
 
 func main() {
 	scanner := bufio.NewScanner(os.Stdin)
-	var nLinha, nColuna int
+	scanner.Scan()
+	nl_nc := scanner.Text()
+	var nl, nc int
+	fmt.Sscanf(nl_nc, "%d %d", &nl, &nc)
+	grid := make([][]rune, nl)
 
-	fmt.Scan(&nLinha, &nColuna)
-
-	var labirinto [][]string = make([][]string, nLinha)
-
-	for i := range nLinha {
+	for i := range nl {
 		scanner.Scan()
-		x := ""
-		x = scanner.Text()
-		labirinto[i] = append(labirinto[i], x)
-		fmt.Println(Resolver(labirinto))
+		grid[i] = []rune(scanner.Text())
 	}
 
+	var startPos, endPos Pos
+	for l := range nl {
+		for c := range nc {
+			if grid[l][c] == 'I' {
+				grid[l][c] = ' '
+				startPos = Pos{l, c}
+			}
+			if grid[l][c] == 'F' {
+				grid[l][c] = ' '
+				endPos = Pos{l, c}
+			}
+		}
+	}
+
+	search(grid, startPos, endPos)
+
+	for _, line := range grid {
+		fmt.Println(string(line))
+	}
 }

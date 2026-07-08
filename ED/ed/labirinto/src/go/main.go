@@ -26,7 +26,7 @@ func match(grid [][]rune, p Pos, value rune) bool {
 func search(grid [][]rune, startPos, endPos Pos) bool {
 	varAux := getNeig(startPos)
 
-	if !inside(grid, varAux[0]) || !inside(grid, varAux[1]) || !inside(grid, varAux[2]) || !inside(grid, varAux[3]) {return false}
+	if !inside(grid, varAux[0]) || !inside(grid, varAux[1]) || !inside(grid, varAux[2]) || !inside(grid, varAux[3] ) {return false}
 
 	if grid[startPos.l][startPos.c] == '.' || grid[startPos.l][startPos.c] == '#' {return false}
 

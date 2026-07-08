@@ -1,0 +1,9 @@
+{
+    "patches": [
+        {
+            "label": "2026-07-07_22-10-30",
+            "content": "package main\nimport \"fmt\"\nfunc main() {\n    var sequencia string\n    fmt.Scan(&sequencia)\n\n    var somaDesejada int\n    fmt.Scan(&somaDesejada)\n\n    fmt.Println(sequencia, somaDesejada)\n}\n",
+            "lines": "11"
+        }
+    ]
+}

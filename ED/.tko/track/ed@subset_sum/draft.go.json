@@ -7,7 +7,22 @@
         },
         {
             "label": "2026-07-05_21-03-30",
-            "content": "package main\nimport \"fmt\"\n\nfunc verificarSoma(somaDesejada int, subConjunto []int) bool {\n    if len(subConjunto) == 1 {return false}\n    var aux int = subConjunto[0]\n\n    for i := 1; i < len(subConjunto); i++ {\n\n        if aux + subConjunto[i] == somaDesejada {return true\n        }\n\n    }\n    subConjunto[1] += aux\n\n    return verificarSoma(somaDesejada, subConjunto[1:])\n\n}\n\nfunc main() {\n    var nElem, somaDesejada int\n    fmt.Scan(&nElem, &somaDesejada)\n\n    subConjunto := make([]int, nElem)\n\n    for i := range nElem {fmt.Scan(subConjunto[i])}\n\n    if verificarSoma(somaDesejada, subConjunto) {\n        fmt.Println(true)\n    } else {\n        fmt.Println(false)\n    }\n}\n",
+            "content": "@@ -91,53 +91,141 @@\n     \n-somaAtual := subConjunto%5B0%5D%0A%0A    if somaAtual\n+if len(subConjunto) == 1 %7Breturn false%7D%0A    var aux int = subConjunto%5B0%5D%0A%0A    for i := 1; i %3C len(subConjunto); i++ %7B%0A%0A        if aux\n  + s\n@@ -235,17 +235,17 @@\n onjunto%5B\n-1\n+i\n %5D == som\n@@ -275,19 +275,59 @@\n     \n+   \n-%7D\n+ %7D%0A\n %0A    \n+%7D\n %0A    \n+subConjunto%5B1%5D += aux%0A%0A    return \n veri\n@@ -352,20 +352,8 @@\n jada\n- - somaAtual\n , su\n@@ -372,25 +372,8 @@\n %5D)%0A%0A\n-    return false%0A\n %7D%0A%0Af\n",
+            "lines": "33"
+        },
+        {
+            "label": "2026-07-07_17-13-59",
+            "content": "@@ -1,652 +1,143 @@\n-package main%0Aimport %22fmt%22%0A%0Afunc verificarSoma(somaDesejada int, subConjunto %5B%5Dint) bool %7B%0A    if len(subConjunto) == 1 && subConjunto%5B0%5D != somaDesejada %7Breturn false%7D%0A    somaAtual := subConjunto%5B0%5D%0A%0A    if somaAtual + subConjunto%5B1%5D == somaDesejada %7Breturn true%0A    %7D%0A%0A    verificarSoma(somaDesejada - somaAtual, subConjunto%5B1:%5D)%0A%0A    return false%0A%7D%0A%0Afunc main() %7B%0A    var nElem, somaDesejada int%0A    fmt.Scan(&nElem, &somaDesejada)%0A%0A    subConjunto := make(%5B%5Dint, nElem)%0A%0A    for i := range nElem %7Bfmt.Scan(subConjunto%5Bi%5D)%7D%0A%0A    if verificarSoma(somaDesejada, subConjunto) %7B%0A        fmt.Println(true)%0A    %7D else %7B%0A        fmt.Println(false)%0A    %7D%0A%7D\n+@@ -87,52 +87,8 @@%0A l %257B%250A%0A-    if len(subConjunto) == 0 %257Breturn false%257D%250A%0A     %0A@@ -185,16 +185,20 @@%0A e%250A    %257D%250A%0A+    %0A %250A    ver\n %0A\n",
+            "lines": "8"
+        },
+        {
+            "label": "2026-07-07_17-14-59",
+            "content": "@@ -261,121 +261,8 @@\n rue%0A\n-    %7D else if somaAtual + subConjunto%5B1%5D %3E somaDesejada %7B%0A%0A        verificarSoma(somaDesejada, subConjunto%5B1:%5D)%0A%0A\n     \n",
+            "lines": "29"
+        },
+        {
+            "label": "2026-07-07_17-16-50",
+            "content": "package main\nimport \"fmt\"\n\nfunc verificarSoma(somaDesejada int, subConjunto []int) bool {\n    if len(subConjunto) == 1 && subConjunto[0] != somaDesejada {return false}\n    somaAtual := subConjunto[0]\n\n    if somaAtual + subConjunto[1] == somaDesejada {return true\n    } else if somaAtual + subConjunto[1] > somaDesejada {\n\n        verificarSoma(somaDesejada, subConjunto[1:])\n\n    }\n\n    verificarSoma(somaDesejada - somaAtual, subConjunto[1:])\n\n    return false\n}\n\nfunc main() {\n    var nElem, somaDesejada int\n    fmt.Scan(&nElem, &somaDesejada)\n\n    subConjunto := make([]int, nElem)\n\n    for i := range nElem {fmt.Scan(subConjunto[i])}\n\n    if verificarSoma(somaDesejada, subConjunto) {\n        fmt.Println(true)\n    } else {\n        fmt.Println(false)\n    }\n}\n",
             "lines": "33"
         }
     ]

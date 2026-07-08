@@ -506,3 +506,10 @@
 2026-07-06 22:55:29, EXEC, v:1, k:ed@bst_insert, mode:FULL, rate:16
 2026-07-06 22:55:30, EXEC, v:1, k:ed@bst_insert, mode:FULL, rate:16
 2026-07-06 22:57:21, MOVE, v:1, k:ed@bst_insert, mode:BACK
+2026-07-06 22:58:24, MOVE, v:1, k:ed@ilhas, mode:PICK
+2026-07-06 23:15:24, MOVE, v:1, k:ed@caminho, mode:PICK
+2026-07-06 23:15:28, MOVE, v:1, k:ed@caminho, mode:BACK
+2026-07-06 23:15:30, MOVE, v:1, k:ed@rotten, mode:DOWN
+2026-07-06 23:15:30, MOVE, v:1, k:ed@rotten, mode:PICK
+2026-07-06 23:15:33, EXEC, v:1, k:ed@rotten, mode:FULL, rate:0, size:5
+2026-07-06 23:16:40, MOVE, v:1, k:ed@rotten, mode:BACK

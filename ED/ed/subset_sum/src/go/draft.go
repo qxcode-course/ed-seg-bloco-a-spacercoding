@@ -2,20 +2,19 @@ package main
 import "fmt"
 
 func verificarSoma(somaDesejada int, subConjunto []int) bool {
-    if len(subConjunto) == 1 {return false}
-    var aux int = subConjunto[0]
+    if len(subConjunto) == 1 && subConjunto[0] != somaDesejada {return false}
+    somaAtual := subConjunto[0]
 
-    for i := 1; i < len(subConjunto); i++ {
+    if somaAtual + subConjunto[1] == somaDesejada {return true
+    } else if somaAtual + subConjunto[1] > somaDesejada {
 
-        if aux + subConjunto[i] == somaDesejada {return true
-        }
-
-        
+        verificarSoma(somaDesejada, subConjunto[1:])
 
     }
 
-    return verificarSoma(somaDesejada, subConjunto[1:])
+    verificarSoma(somaDesejada - somaAtual, subConjunto[1:])
 
+    return false
 }
 
 func main() {
